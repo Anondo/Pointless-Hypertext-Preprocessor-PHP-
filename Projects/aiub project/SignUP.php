@@ -7,23 +7,23 @@
 	<h1 align="center">PageLabel</h1>
 	<h3>Create an Account</h3>
 <?php session_start(); ?>
- <form action = "signup_validate.php" method = "POST">
+ <form action = "signup_validate.php" method = "POST" enctype="multipart/form-data">
   <table>
     <tr> <!--First Name Row-->
-    	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..." value = "<?php if($_SESSION)echo $_SESSION["signup_data"]["fname"];?>" required/> </td>
+    	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..." value = "<?php if($_SESSION)echo $_SESSION["signup_data"]["fname"];?>" /> </td>
     </tr>
 
     <tr> <!--Last Name Row-->
-        <td>Last Name</td> <td>:</td> <td> <input type="text" name="lname" placeholder="Last Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["lname"];?>" required/> </td>
+        <td>Last Name</td> <td>:</td> <td> <input type="text" name="lname" placeholder="Last Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["lname"];?>" /> </td>
     </tr>
 
     <tr> <!--Age Row-->
-        <td>Age </td> <td>:</td> <td> <input type="number" name="age" placeholder="Age..." value = "<?php if($_SESSION)echo (int)$_SESSION["signup_data"]["age"];?>" required/> </td>
+        <td>Age </td> <td>:</td> <td> <input type="number" name="age" placeholder="Age..." value = "<?php if($_SESSION)echo (int)$_SESSION["signup_data"]["age"];?>" /> </td>
     </tr>
 
     <tr> <!--Birthdate Row-->
 
-        <td>Birthdate </td> <td>:</td> <td>Day<select name="day" required>
+        <td>Birthdate </td> <td>:</td> <td>Day<select name="day" >
                                      <option value="1">1 </option>
                                      <option value="2">2 </option>
                                      <option value="3">3 </option>
@@ -78,29 +78,27 @@
         	                    Year
         	   	               	   <select name="year">
         	   	               	   	  <?php
-
 									  for($i = 1990; $i <= (int)date("Y"); $i++)
-									  	echo "<option value = $i>$i</option>";
-
+									  	echo "<option value = '$i'>$i</option>";
 									   ?>
         	   	               	   </select>
         	   	               </td>
     </tr>
 
     <tr> <!--User Name Row-->
-    	<td>User Name </td> <td>:</td> <td> <input type="text" name="uname" placeholder="User Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["uname"];?>" required/> </td>
+    	<td>User Name </td> <td>:</td> <td> <input type="text" name="uname" placeholder="User Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["uname"];?>" /> </td>
     </tr>
 
     <tr> <!--Email Row-->
-    	<td>Your Email Address</td> <td>:</td> <td> <input type="email" name="email" placeholder="xyz@dmail.com..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["email"];?>" required/> </td>
+    	<td>Your Email Address</td> <td>:</td> <td> <input type="text" name="email" placeholder="xyz@dmail.com..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["email"];?>" /> </td>
     </tr>
 
     <tr> <!--Password Row-->
-    	<td>Password </td> <td>:</td> <td> <input type="Password" name="pass" placeholder="password" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["pass"];?>" required/> </td>
+    	<td>Password </td> <td>:</td> <td> <input type="Password" name="pass" placeholder="password" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["pass"];?>" /> </td>
     </tr>
 
     <tr> <!--Confirm Password Row-->
-        <td>Confirm Password </td> <td>:</td> <td> <input type="Password" name="cpass" placeholder = "RE-type password" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["cpass"];?>" required/> </td>
+        <td>Confirm Password </td> <td>:</td> <td> <input type="Password" name="cpass" placeholder = "RE-type password" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["cpass"];?>" /> </td>
     </tr>
 
     <tr> <!--Gender Row-->
@@ -114,8 +112,10 @@
     	                 </td>
     </tr>
 
-    <tr> <!--Checkbox Row-->
-    	<td> <input type="checkbox" name="chbox" required/> <b><strong>I accept the term's and condition's...</strong></b></td>
+    <tr>
+    	<td>Choose Your Profile Picture</td>
+		<td>:</td>
+		<td><input type = "file" name = "propic" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["propic"];?>" /></td>
     </tr>
 
     <tr> <!--Submit button Row-->

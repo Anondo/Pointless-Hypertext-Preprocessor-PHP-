@@ -7,7 +7,7 @@ $message = "";
 
 session_start();
 
-if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["age"]) && isset($_POST["uname"]) && isset($_POST["email"]) && isset($_POST["pass"]) && isset($_POST["cpass"]) && isset($_POST["gender"]))
+if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["age"]) && isset($_POST["uname"]) && isset($_POST["email"]) && isset($_POST["pass"]) && isset($_POST["cpass"]))
 {
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
@@ -17,10 +17,24 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["age"]) && i
     $pass = $_POST["pass"];
     $cpass = $_POST["cpass"];
     $gender = $_POST["gender"];
+    $imgname = "";
+    $directory = "uploads/";
+    $bdate = "{$_POST['day']}/{$_POST['month']}/{$_POST['year']}";
+    if($_FILES)
+    {
+        $img = $_FILES["propic"];
+        $imgname = $img["name"];
+        $img_tmp = $img["tmp_name"];
+        move_uploaded_file($img_tmp , $directory.$imgname);
+    }
     $_SESSION["signup_data"] = $_POST;
-    if(passwordValidate($pass , $cpass) && usernameValidate($uname) && ageValidate($age))
+    if(emptyFieldValidate() && passwordValidate($pass , $cpass)  && ageValidate($age) && emailValidate($email) && usernameValidate($uname) && pictureValidate($imgname))
     {
         echo "<h>You Have Succesfully Signed UP!!!</h>";
+        if(strlen($imgname) > 0)
+            registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname);
+        else
+            registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender);
         session_destroy();
     }
     else
@@ -29,6 +43,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["age"]) && i
     }
 
 }
+
 
 
 function passwordValidate($p , $cp)
@@ -70,7 +85,7 @@ function passwordValidate($p , $cp)
     }
     else
     {
-        $message = "Atleast (% , _ , ! , $ , @ , #) one of these characters must be present in the password!";
+        $message = "Atleast (% , _ , ! , $ , @ , #) one of these characters and a numeric character must be present in the password!";
         return false;
     }
 
@@ -93,12 +108,78 @@ function usernameValidate($un)
 function ageValidate($a)
 {
     global $message;
-    if($a <= 0)
+    if(is_numeric($a))
+    {
+        if($a <= 0)
+        {
+            $message = "You age says that you dont exist";
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    else
     {
         $message = "You age says that you dont exist";
         return false;
     }
+}
+function emailValidate($e)
+{
+    global $message;
+    if(!(strpos($e , "@")) ||(substr_count($e , "@") != 1) || (strpos($e , "@") == 0 && strpos($e , "@") != strlen($e-1)))
+    {
+        $message = "Invalid Email Pattern!";
+        return false;
+    }
+    elseif(substr_count(substr($e , strpos($e , "@")+1) , ".") != 1 || strrpos($e , ".") == 1)
+    {
+        $message = "Invalid Email Pattern!";
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+function emptyFieldValidate()
+{
+    global $message;
+    if(!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["age"]) && !empty($_POST["uname"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["cpass"]))
+    {
+        return true;
+    }
+    else
+    {
+        $message = "None of the fields can be empty!";
+        return false;
+    }
+}
+function pictureValidate($pic)
+{
+    if(strlen($pic) == 0)
+        return true;
+    $picNameArray = explode("." , $pic);
+    $extensions = array("non zero index" , "png" , "jpg" , "jpeg");
+    if(array_search($picNameArray[1] , $extensions))
+    {
+        return true;
+    }
+    else
+    {
+        $message = "Picture Format Not Recognized";
+        return false;
+    }
 
+}
+function registerUser($fname , $lname , $age ,$bdate, $uname , $email , $password , $gender , $imgpath = false)
+{
+    global $database;
+    $query = "insert into users(fname , lname , age , bdate , username , email , password , pro_pic , gender)
+    values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password' , '$imgpath' , '$gender')";
+    $database->executeDMLQuery($query);
 }
 
 
