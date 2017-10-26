@@ -66,6 +66,7 @@ class Models{
             }
             else
             {
+                echo $this->conn->error;
                 $this->closeConnection();
                 $this->errorMessage();
             }
