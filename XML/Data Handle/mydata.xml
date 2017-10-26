@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user category="general">
+        <username>test user</username>
+        <password>testpass</password>
+    </user>
+<user><username>new user</username><password>1234</password></user></users>

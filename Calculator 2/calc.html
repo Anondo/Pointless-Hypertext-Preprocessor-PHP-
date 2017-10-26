@@ -1,0 +1,45 @@
+
+<html>
+
+
+<head>
+    <title>Calcualtor 2</title>
+</head>
+
+<body>
+    <form action = "calc.php" method = "POST">
+        <table>
+            <tr>
+                <td><label for = "arg1">Argument 1</label></td>
+                <td>:</td>
+                <td><input type = "number" step = "0.01" name = "arg1" /></td>
+            </tr>
+            <tr>
+                <td><label for = "operator">Operator:</label></td>
+                <td>:</td>
+                <td>
+                    <select name = "operator">
+                        <option value = "add">+</option>
+                        <option value = "sub">-</option>
+                        <option value = "mul">*</option>
+                        <option value = "div">/</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for  = "arg2">Argument 2</label></td>
+                <td>:</td>
+                <td><input type = "number" step = "0.01" name  = "arg2" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type = "submit" value = "Calc" />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+
+
+</html>
