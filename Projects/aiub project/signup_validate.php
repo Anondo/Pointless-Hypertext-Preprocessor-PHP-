@@ -7,20 +7,20 @@ $message = "";
 
 session_start();
 
-if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["age"]) && isset($_POST["uname"]) && isset($_POST["email"]) && isset($_POST["pass"]) && isset($_POST["cpass"]))
+if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) && isset($_POST["email"]) && isset($_POST["pass"]) && isset($_POST["cpass"]))
 {
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
-    $age = $_POST["age"];
     $uname = $_POST["uname"];
     $email = $_POST["email"];
     $pass = $_POST["pass"];
     $cpass = $_POST["cpass"];
     $gender = $_POST["gender"];
-    $imgname = "";
+    $imgname = NULL;
     $directory = "uploads/";
+    $age = (int)date("Y") - $_POST["year"];
     $bdate = "{$_POST['day']}/{$_POST['month']}/{$_POST['year']}";
-    if($_FILES)
+    if(isset($_FILES["pro_pic"]))
     {
         $img = $_FILES["propic"];
         $imgname = $img["name"];
@@ -28,13 +28,10 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["age"]) && i
         move_uploaded_file($img_tmp , $directory.$imgname);
     }
     $_SESSION["signup_data"] = $_POST;
-    if(emptyFieldValidate() && passwordValidate($pass , $cpass)  && ageValidate($age) && emailValidate($email) && usernameValidate($uname) && pictureValidate($imgname))
+    if(emptyFieldValidate() && passwordValidate($pass , $cpass)  && emailValidate($email) && usernameValidate($uname) && pictureValidate($imgname))
     {
         echo "<h>You Have Succesfully Signed UP!!!</h>";
-        if(strlen($imgname) > 0)
-            registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname);
-        else
-            registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender);
+        registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname , $imgname);
         session_destroy();
     }
     else
@@ -105,27 +102,7 @@ function usernameValidate($un)
         return false;
     }
 }
-function ageValidate($a)
-{
-    global $message;
-    if(is_numeric($a))
-    {
-        if($a <= 0)
-        {
-            $message = "You age says that you dont exist";
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-    else
-    {
-        $message = "You age says that you dont exist";
-        return false;
-    }
-}
+
 function emailValidate($e)
 {
     global $message;
@@ -147,7 +124,7 @@ function emailValidate($e)
 function emptyFieldValidate()
 {
     global $message;
-    if(!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["age"]) && !empty($_POST["uname"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["cpass"]))
+    if(!empty($_POST["fname"]) && !empty($_POST["lname"])  && !empty($_POST["uname"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["cpass"]))
     {
         return true;
     }
@@ -174,11 +151,21 @@ function pictureValidate($pic)
     }
 
 }
-function registerUser($fname , $lname , $age ,$bdate, $uname , $email , $password , $gender , $imgpath = false)
+function registerUser($fname , $lname , $age ,$bdate, $uname , $email , $password , $gender , $imgpath , $imgname = NULL)
 {
     global $database;
-    $query = "insert into users(fname , lname , age , bdate , username , email , password , pro_pic , gender)
-    values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password' , '$imgpath' , '$gender')";
+    if(isset($imgname))
+    {
+        $query = "insert into users(fname , lname , age , bdate , username , email , password , pro_pic , gender)
+        values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password' , '$imgpath' , '$gender')";
+    }
+
+    else
+    {
+        $query = "insert into users(fname , lname , age , bdate , username , email , password , gender)
+        values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password', '$gender')";
+    }
+
     $database->executeDMLQuery($query);
 }
 
