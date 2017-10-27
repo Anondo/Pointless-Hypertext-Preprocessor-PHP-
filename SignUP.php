@@ -17,10 +17,6 @@
         <td>Last Name</td> <td>:</td> <td> <input type="text" name="lname" placeholder="Last Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["lname"];?>" /> </td>
     </tr>
 
-    <tr> <!--Age Row-->
-        <td>Age </td> <td>:</td> <td> <input type="number" name="age" placeholder="Age..." value = "<?php if($_SESSION)echo (int)$_SESSION["signup_data"]["age"];?>" /> </td>
-    </tr>
-
     <tr> <!--Birthdate Row-->
 
         <td>Birthdate </td> <td>:</td> <td>Day<select name="day" >
@@ -79,7 +75,7 @@
         	   	               	   <select name="year">
         	   	               	   	  <?php
 									  for($i = 1990; $i <= (int)date("Y"); $i++)
-									  	echo "<option value = '$i'>$i</option>";
+									  	echo "<option value = $i>$i</option>";
 									   ?>
         	   	               	   </select>
         	   	               </td>

@@ -3,15 +3,10 @@
 require("Models.php");
 
 $something = new Models();
-$res = $something->executeQuery("select * from emp ;");
-if(!$res)
+$res = $something->executeQuery("select pro_pic from users;");
+while($row = $res->fetch_assoc())
 {
-    echo "fuck";
-}
-else
-while($rows = $res->fetch_assoc())
-{
-    echo $rows["ename"];
+    echo '<img src="data:image/png;base64,'.base64_encode( $row['pro_pic'] ).'"/>';
 }
 
  ?>
