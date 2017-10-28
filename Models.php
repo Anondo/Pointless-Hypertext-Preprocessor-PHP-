@@ -39,7 +39,7 @@ class Models{
         {
             if($this->result = $this->conn->query($query))
             {
-                if($r = $this->result->fetch_assoc())
+                if($this->result->num_rows > 0)
                 {
                     $this->closeConnection();
                     return $this->result;
