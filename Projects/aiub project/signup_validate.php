@@ -30,8 +30,8 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
     $_SESSION["signup_data"] = $_POST;
     if(emptyFieldValidate() && passwordValidate($pass , $cpass)  && emailValidate($email) && usernameValidate($uname) && pictureValidate($imgname))
     {
-        echo "<h>You Have Succesfully Signed UP!!!</h>";
         registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname , $imgname);
+        echo "<h>You Have Succesfully Signed UP!!!</h>";
         session_destroy();
     }
     else
@@ -166,7 +166,9 @@ function registerUser($fname , $lname , $age ,$bdate, $uname , $email , $passwor
         values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password', '$gender')";
     }
 
-    $database->executeDMLQuery($query);
+    $success = $database->executeDMLQuery($query);
+    if(!$success)
+        die();
 }
 
 

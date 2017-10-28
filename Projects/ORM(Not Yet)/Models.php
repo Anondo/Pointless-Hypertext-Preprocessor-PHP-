@@ -31,7 +31,7 @@ class Models{
     }
     function errorMessage()
     {
-        echo "<h>Could Not Establish Connection With The Database</h>";
+        die("<h>Could Not Establish Connection With The Database</h>");
     }
     function executeQuery($query)
     {
