@@ -1,6 +1,23 @@
 <html>
 <head>
-    <title>Lorem ipsum</title>
+    <title>
+        <?php
+            require("Models.php");
+            $db = new Models();
+            if(isset($_GET["blog_id"]))
+            {
+                $id = $_GET["blog_id"];
+                $result = $db->executeQuery("select title from blogs where blog_id = $id");
+                $result = $result->fetch_assoc();
+                echo $result["title"];
+            }
+            else
+            {
+                echo "Blog";
+            }
+
+         ?>
+    </title>
 </head>
 
 
@@ -11,8 +28,6 @@
             if(isset($_GET["blog_id"]))
             {
                 $id = $_GET["blog_id"];
-                require("Models.php");
-                $db = new Models();
                 $result = $db->executeQuery("select * from blogs where blog_id = $id");
                 $blog = $result->fetch_assoc();
                 $blogger = "Anonymous";
