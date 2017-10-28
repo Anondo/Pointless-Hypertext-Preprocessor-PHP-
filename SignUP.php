@@ -74,7 +74,7 @@
         	                    Year
         	   	               	   <select name="year">
         	   	               	   	  <?php
-									  for($i = 1990; $i <= (int)date("Y"); $i++)
+									  for($i = 1900; $i <= (int)date("Y"); $i++)
 									  	echo "<option value = $i>$i</option>";
 									   ?>
         	   	               	   </select>

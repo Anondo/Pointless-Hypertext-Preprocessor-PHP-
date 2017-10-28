@@ -19,7 +19,7 @@ class Models{
         $this->conn = new mysqli($this->server , $this->user , $this->pass , $this->db);
         if($this->conn->connect_error)
         {
-            $this->errorMessage();
+            $this->errorMessage($this->conn->connect_error);
             return false;
         }
         else
@@ -29,29 +29,37 @@ class Models{
     {
         $this->conn->close();
     }
-    function errorMessage()
+    function errorMessage($message = "Could Not Establish Connection With The Database")
     {
-        echo "<h5>Could Not Establish Connection With The Database</h5>";
+        //echo "<h5>$message</h5>";
     }
     function executeQuery($query)
     {
         if($this->openConnection())
         {
-            $this->result = $this->conn->query($query);
-            if($r = $this->result->fetch_assoc())
+            if($this->result = $this->conn->query($query))
             {
-                $this->closeConnection();
-                return $this->result;
+                if($r = $this->result->fetch_assoc())
+                {
+                    $this->closeConnection();
+                    return $this->result;
+                }
+                else
+                {
+                    $this->closeConnection();
+                    return false;
+                }
             }
             else
             {
-                $this->closeConnection();
+                $this->errorMessage($this->conn->error);
                 return false;
             }
+
         }
         else
         {
-            $this->errorMessage();
+            $this->errorMessage($this->conn->error);
             return false;
         }
 
@@ -63,18 +71,20 @@ class Models{
             if($this->conn->query($query))
             {
                 $this->closeConnection();
+                return true;
             }
             else
             {
-                echo $this->conn->error;
                 $this->closeConnection();
-                $this->errorMessage();
+                $this->errorMessage($this->conn->error);
+                return false;
             }
 
         }
         else
         {
-            $this->errorMessage();
+            $this->errorMessage($this->conn->error);
+            return false;
         }
     }
 
