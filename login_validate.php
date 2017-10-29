@@ -19,6 +19,7 @@ if(isset($_POST["username_email"]) && isset($_POST["password"]))
         $_SESSION["logged_in"] = true;
         $row = $result->fetch_assoc();
         $_SESSION["username"] = $row['username'];
+        $_SESSION["user_id"] = $row["user_id"];
         header("Location: index.php");
     }
     else
