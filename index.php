@@ -8,12 +8,12 @@
     <?php
 
     session_start();
-    $logged = false;
-    $username = NULL;
+    /*logged in user check */
+    $logged = false; //initially not logged in
     if(isset($_SESSION["logged_in"]))
     {
         $logged = $_SESSION["logged_in"];
-        $username = $_SESSION["username"];
+        $username = $_SESSION["username"]; //getting the username just to greet
     }
     if($logged)
     {
@@ -25,7 +25,6 @@
         echo "<h1>Hello World</h1>";
         echo "<p><a href = 'login.php'>Login</a></p>";
     }
-    //session_destroy();
     ?>
 
 
@@ -34,18 +33,18 @@
 
             require("Models.php");
             $database = new Models();
-            if($result = $database->executeQuery("select * from blogs;"))
+            if($result = $database->executeQuery("select * from blogs;")) //if there are blogs
             {
                 while($row = $result->fetch_assoc())
                 {
-                    $blogger = "Anonymous";
+                    $blogger = "Anonymous"; //blogger name initially anonymous for protection
                     $body = $row["body"];
-                    if(strlen($body) > 50)
+                    if(strlen($body) > 50) //not showing the entire content in the index page
                     {
                         $body = substr($body , 0 , 51);
                         $body = $body."..........";
                     }
-                    if(!$row["name_hidden"])
+                    if(!$row["name_hidden"]) //if the user wants to share his/her name
                     {
                         $blogger_id = $row["blogger_id"];
                         $idresult = $database->executeQuery("select username from users where user_id in (select blogger_id from blogs where blogger_id = $blogger_id);");
@@ -75,7 +74,7 @@
                     echo "</tr>";
                     echo "<tr>";
                     echo "<td>";
-                    echo "<h5>{$row['attachment']}</h5>";
+                    echo "<h5>{$row['attachment']}</h5>"; //need to fix this, should provide a way to display any kind of attachment
                     echo "<hr />";
                     echo "</td>";
                     echo "</tr>";

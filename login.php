@@ -2,10 +2,10 @@
 <?php
 
 session_start();
-if(isset($_SESSION["logged_in"]))
+if(isset($_SESSION["logged_in"])) //if the user is already logged in
 {
 	if($_SESSION["logged_in"])
-		header("Location: index.php");
+		header("Location: index.php"); //redirect to the home page
 }
  ?>
 <html>
