@@ -11,7 +11,9 @@ if(isset($_POST["username_email"]) && isset($_POST["password"]))
     if(isUserValid($username_or_email , $password , "username"))
     {
         $_SESSION["logged_in"] = true;
+        $row = $result->fetch_assoc();
         $_SESSION["username"] = $username_or_email;
+        $_SESSION["user_id"] = $row["user_id"];
         header("Location: index.php");
     }
     elseif(isUserValid($username_or_email , $password , "email"))
