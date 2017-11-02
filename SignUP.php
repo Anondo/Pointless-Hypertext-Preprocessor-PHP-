@@ -10,7 +10,7 @@
  <form action = "signup_validate.php" method = "POST" enctype="multipart/form-data">
   <table>
     <tr> <!--First Name Row-->
-    	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..." value = "<?php if($_SESSION)echo $_SESSION["signup_data"]["fname"];?>" /> </td>
+    	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..." value = "<?php if($_SESSION)echo $_SESSION["signup_data"]["fname"];?>" /> </td><!--Checking for returned values -->
     </tr>
 
     <tr> <!--Last Name Row-->

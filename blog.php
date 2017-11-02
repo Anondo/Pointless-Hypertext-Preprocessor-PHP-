@@ -4,12 +4,13 @@
         <?php
             session_start();
             $logged = false;
-            if(isset($_SESSION["logged_in"]))
+            if(isset($_SESSION["logged_in"])) //this is checked for the user to comment
             {
                 $logged = $_SESSION["logged_in"];
                 $userId = $_SESSION["user_id"];
                 $currentUsername = $_SESSION["username"];
             }
+            /*The following lines determine the title bar which should be the title of the blog */
             require("Models.php");
             $db = new Models();
             if(isset($_GET["blog_id"]))
@@ -38,8 +39,8 @@
                 $id = $_GET["blog_id"];
                 $result = $db->executeQuery("select * from blogs where blog_id = $id");
                 $blog = $result->fetch_assoc();
-                $blogger = "Anonymous";
-                if(!$blog["name_hidden"])
+                $blogger = "Anonymous"; //the blogger name is initially anonymous for safety
+                if(!$blog["name_hidden"]) //if the user chooses to show his/her name
                 {
                     $blogger_id = $blog["blogger_id"];
                     $idresult = $db->executeQuery("select username from users where user_id in (select blogger_id from blogs where blogger_id = $blogger_id);");
@@ -63,7 +64,7 @@
                 echo "</tr>";
                 echo "<tr>";
                 echo "<td>";
-                echo $blog["attachment"];
+                echo $blog["attachment"]; //need to fix this
                 echo "</td>";
                 echo "</tr>";
                 echo "<tr>";
@@ -92,7 +93,7 @@
                         echo "</tr>";
                     }
                 }
-                if($logged)
+                if($logged) //the privilage for the user to comment on the post if logged in
                 {
                     echo "<tr>";
                     echo "<td>";

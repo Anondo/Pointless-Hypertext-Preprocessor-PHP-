@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+session_start(); //session used to share logged in flag and user info between different pages
 require("Models.php");
 $db = new Models();
 $result = NULL;
