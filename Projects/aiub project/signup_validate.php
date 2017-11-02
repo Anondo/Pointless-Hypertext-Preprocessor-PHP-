@@ -27,12 +27,12 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
         $img_tmp = $img["tmp_name"];
         move_uploaded_file($img_tmp , $directory.$imgname);
     }
-    $_SESSION["signup_data"] = $_POST;
+    $_SESSION["signup_data"] = $_POST; //assigning the user inputs to a session
     if(emptyFieldValidate() && passwordValidate($pass , $cpass)  && emailValidate($email) && usernameValidate($uname) && pictureValidate($imgname))
     {
         registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname , $imgname);
         echo "<h>You Have Succesfully Signed UP!!!</h>";
-        session_destroy();
+        session_destroy(); //there is no need for the session if signed up perfectly
     }
     else
     {
@@ -46,7 +46,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
 function passwordValidate($p , $cp)
 {
     global $message;
-    if(strlen($p) < 8)
+    if(strlen($p) < 8) //password length cannot be less than 8
     {
         $message = "Password length must of at least more than 8 characters!";
         return false;
@@ -60,7 +60,7 @@ function passwordValidate($p , $cp)
     $hasDigit = false;
     $sp_chars = array("%" , "_" , "!" , "$" , "@" , "#");
     $digits = array("0" , "1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9");
-    foreach($sp_chars as $v)
+    foreach($sp_chars as $v) //at least one of the special characters from the $sp_chars array must be present
     {
         if(strpos($p , $v))
         {
@@ -68,7 +68,7 @@ function passwordValidate($p , $cp)
             break;
         }
     }
-    foreach($digits as $v)
+    foreach($digits as $v) //there must be at least one digit
     {
         if(strpos($p , $v))
         {
@@ -87,7 +87,7 @@ function passwordValidate($p , $cp)
     }
 
 }
-function usernameValidate($un)
+function usernameValidate($un) //checking for existing username
 {
     global $database;
     global $message;
@@ -103,7 +103,7 @@ function usernameValidate($un)
     }
 }
 
-function emailValidate($e)
+function emailValidate($e) //checking for correct email pattern
 {
     global $message;
     if(!(strpos($e , "@")) ||(substr_count($e , "@") != 1) || (strpos($e , "@") == 0 && strpos($e , "@") != strlen($e-1)))
@@ -121,7 +121,7 @@ function emailValidate($e)
         return true;
     }
 }
-function emptyFieldValidate()
+function emptyFieldValidate() //there can be no empty fields
 {
     global $message;
     if(!empty($_POST["fname"]) && !empty($_POST["lname"])  && !empty($_POST["uname"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["cpass"]))
@@ -134,7 +134,7 @@ function emptyFieldValidate()
         return false;
     }
 }
-function pictureValidate($pic)
+function pictureValidate($pic) //the picture must be of valid extension
 {
     if(strlen($pic) == 0)
         return true;
@@ -154,13 +154,13 @@ function pictureValidate($pic)
 function registerUser($fname , $lname , $age ,$bdate, $uname , $email , $password , $gender , $imgpath , $imgname = NULL)
 {
     global $database;
-    if(isset($imgname))
+    if(isset($imgname)) //inserting user in the database with profile picture
     {
         $query = "insert into users(fname , lname , age , bdate , username , email , password , pro_pic , gender)
         values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password' , '$imgpath' , '$gender')";
     }
 
-    else
+    else //without profile picture
     {
         $query = "insert into users(fname , lname , age , bdate , username , email , password , gender)
         values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password', '$gender')";
