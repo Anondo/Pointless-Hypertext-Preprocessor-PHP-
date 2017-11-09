@@ -1,6 +1,7 @@
 <html>
 <head>
 	<title>SignUP Page</title>
+	<script src = "js/signup_validate.js"></script>
 </head>
 
 <body>
@@ -82,7 +83,7 @@
     </tr>
 
     <tr> <!--User Name Row-->
-    	<td>User Name </td> <td>:</td> <td> <input type="text" name="uname" placeholder="User Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["uname"];?>" /> </td>
+    	<td>User Name </td> <td>:</td> <td> <input type="text" name="uname" placeholder="User Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["uname"];?>"/> </td>
     </tr>
 
     <tr> <!--Email Row-->
