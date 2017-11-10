@@ -3,7 +3,6 @@
 require("Models.php");
 
 $database = new Models();
-$message = "";
 
 session_start();
 
@@ -24,7 +23,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
     {
         $img = $_FILES["propic"];
         $imgname = $img["name"];
-        //echo $imgname."<br />";
+        echo $imgname == ""."<br />";
         $img_tmp = $img["tmp_name"];
         move_uploaded_file($img_tmp , $directory.$imgname);
     }
@@ -37,10 +36,10 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
 }
 
 
-function registerUser($fname , $lname , $age ,$bdate, $uname , $email , $password , $gender , $imgpath , $imgname = NULL)
+function registerUser($fname , $lname , $age ,$bdate, $uname , $email , $password , $gender , $imgpath , $imgname = "")
 {
     global $database;
-    if(isset($imgname)) //inserting user in the database with profile picture
+    if($imgname != "") //inserting user in the database with profile picture
     {
         $query = "insert into users(fname , lname , age , bdate , username , email , password , pro_pic , gender)
         values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password' , '$imgpath' , '$gender')";

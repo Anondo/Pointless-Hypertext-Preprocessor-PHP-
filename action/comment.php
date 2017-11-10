@@ -12,7 +12,7 @@ if(!empty($_POST['commentBody']))
     $ok = $db->executeDMLQuery("insert into comments(blog_id , user_id , body , datetime) values($blog_id , $user_id , '$body' , '$datetime')");
     if($ok)
     {
-        header("Location: http://localhost/Projects/aiub project/blog.php/?blog_id=$blog_id");
+        header("Location: http://localhost/Projects/aiub project/action/blog.php/?blog_id=$blog_id");
     }
     else
     {
