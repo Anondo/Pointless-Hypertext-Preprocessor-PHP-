@@ -15,7 +15,7 @@ if(isset($_POST["username_email"]) && isset($_POST["password"]))
         /* username and user_id is taken as well for ease of use in other pages */
         $_SESSION["username"] = $username_or_email;
         $_SESSION["user_id"] = $row["user_id"];
-        header("Location: index.php");
+        header("Location: http://localhost/Projects/aiub%20project/index.php");
     }
     elseif(isUserValid($username_or_email , $password , "email"))
     {
@@ -23,7 +23,7 @@ if(isset($_POST["username_email"]) && isset($_POST["password"]))
         $row = $result->fetch_assoc();
         $_SESSION["username"] = $row['username'];
         $_SESSION["user_id"] = $row["user_id"];
-        header("Location: index.php");
+        header("Location: http://localhost/Projects/aiub%20project/index.php");
     }
     else
     {
