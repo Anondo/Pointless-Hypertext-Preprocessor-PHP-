@@ -2,20 +2,20 @@
 <head>
 	<title>SignUP Page</title>
 	<script src = "js/signup_validate.js"></script>
+	<script src = "js/year_adder_signup.js"></script>
 </head>
 
-<body>
+<body onload = "addYears()">
 	<h1 align="center">PageLabel</h1>
 	<h3>Create an Account</h3>
-<?php session_start(); ?>
- <form action = "signup_validate.php" method = "POST" enctype="multipart/form-data">
+ <form name = "signupForm" action = "register_user.php" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
   <table>
     <tr> <!--First Name Row-->
-    	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..." value = "<?php if($_SESSION)echo $_SESSION["signup_data"]["fname"];?>" /> </td><!--Checking for returned values -->
+    	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..."  /> </td><!--Checking for returned values -->
     </tr>
 
     <tr> <!--Last Name Row-->
-        <td>Last Name</td> <td>:</td> <td> <input type="text" name="lname" placeholder="Last Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["lname"];?>" /> </td>
+        <td>Last Name</td> <td>:</td> <td> <input type="text" name="lname" placeholder="Last Name..." /> </td>
     </tr>
 
     <tr> <!--Birthdate Row-->
@@ -74,28 +74,25 @@
 
         	                    Year
         	   	               	   <select name="year">
-        	   	               	   	  <?php
-									  for($i = 1900; $i <= (int)date("Y"); $i++)
-									  	echo "<option value = $i>$i</option>";
-									   ?>
+
         	   	               	   </select>
         	   	               </td>
     </tr>
 
     <tr> <!--User Name Row-->
-    	<td>User Name </td> <td>:</td> <td> <input type="text" name="uname" placeholder="User Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["uname"];?>"/> </td>
+    	<td>User Name </td> <td>:</td> <td> <input type="text" name="uname" placeholder="User Name..." onkeyup="usernameValidate(this.value)" /> </td>
     </tr>
 
     <tr> <!--Email Row-->
-    	<td>Your Email Address</td> <td>:</td> <td> <input type="text" name="email" placeholder="xyz@dmail.com..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["email"];?>" /> </td>
+    	<td>Your Email Address</td> <td>:</td> <td> <input type="text" name="email" placeholder="xyz@dmail.com..."  /> </td>
     </tr>
 
     <tr> <!--Password Row-->
-    	<td>Password </td> <td>:</td> <td> <input type="Password" name="pass" placeholder="password" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["pass"];?>" /> </td>
+    	<td>Password </td> <td>:</td> <td> <input type="Password" name="pass" placeholder="password" /> </td>
     </tr>
 
     <tr> <!--Confirm Password Row-->
-        <td>Confirm Password </td> <td>:</td> <td> <input type="Password" name="cpass" placeholder = "RE-type password" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["cpass"];?>" /> </td>
+        <td>Confirm Password </td> <td>:</td> <td> <input type="Password" name="cpass" placeholder = "RE-type password"  /> </td>
     </tr>
 
     <tr> <!--Gender Row-->
@@ -112,7 +109,7 @@
     <tr>
     	<td>Choose Your Profile Picture</td>
 		<td>:</td>
-		<td><input type = "file" name = "propic" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["propic"];?>" /></td>
+		<td><input type = "file" name = "propic" /></td>
     </tr>
 
     <tr> <!--Submit button Row-->
@@ -121,9 +118,7 @@
 
   </table>
  </form>
- <?php
-	session_destroy();
- ?>
+
 </body>
 
 </html>
