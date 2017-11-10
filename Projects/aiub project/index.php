@@ -6,16 +6,14 @@
 
 <body>
     <?php
+
     session_start();
     /*logged in user check */
     $logged = false; //initially not logged in
     if(isset($_SESSION["logged_in"]))
     {
-        if($_SESSION["logged_in"])
-        {
-            $logged = $_SESSION["logged_in"];
-            $username = $_SESSION["username"]; //getting the username just to greet
-        }
+        $logged = $_SESSION["logged_in"];
+        $username = $_SESSION["username"]; //getting the username just to greet
     }
     if($logged)
     {
