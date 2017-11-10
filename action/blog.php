@@ -88,7 +88,10 @@
                         $username = $username["username"];
                         echo "<tr>";
                         echo "<td>";
-                        echo "$username:  {$row['body']}---{$row["datetime"]}<hr />";
+                        if($logged)
+                            echo "$username:  {$row['body']}---{$row["datetime"]}".checkRemovable($row['comment_id'] , $id , $userId)."<hr />";
+                        else
+                            echo "$username:  {$row['body']}---{$row["datetime"]}<hr />";
                         echo "</td>";
                         echo "</tr>";
                     }
@@ -102,7 +105,7 @@
                     echo "</tr>";
                     echo "<tr>";
                     echo "<td>";
-                    echo "<form action = 'http://localhost/Projects/aiub project/comment.php/?blog_id=$id&user_id=$userId' method = 'POST'>
+                    echo "<form action = 'http://localhost/Projects/aiub project/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST'>
                         $currentUsername:<textarea name = 'commentBody' placeholder = 'Comment Here'></textarea>
                         <input type = 'submit' name = 'commentSubmit' value = 'comment'/>
                     </form>";
@@ -119,8 +122,28 @@
          ?>
     </table>
 </body>
-
-
-
-
 </html>
+<?php
+
+function checkRemovable($cmntid , $blogid , $uid)
+{
+    global $db;
+    $result = $db->executeQuery("select user_id from comments where comment_id = $cmntid");
+    $result = $result->fetch_assoc();
+    $currentUserId = $result['user_id'];
+    $result = $db->executeQuery("select blogger_id from blogs where blog_id = $blogid");
+    $result = $result->fetch_assoc();
+    $bloggerId = $result['blogger_id'];
+    if($uid == $currentUserId || $uid == $bloggerId)
+    {
+        $form = "<form action = 'http://localhost/Projects/aiub project/action/comment_delete.php/?comment_id=$cmntid&blog_id=$blogid' method = 'POST' style = 'float:right;'>
+                <input type = 'submit' value = 'X' />
+        </form>";
+        return $form;
+    }
+    return "";
+}
+
+
+
+ ?>
