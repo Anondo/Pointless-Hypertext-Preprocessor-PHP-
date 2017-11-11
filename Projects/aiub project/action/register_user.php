@@ -16,7 +16,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
     $cpass = $_POST["cpass"];
     $gender = $_POST["gender"];
     $imgname = NULL;
-    $directory = "uploads/";
+    $directory = "../uploads/";
     $age = (int)date("Y") - $_POST["year"];
     $bdate = "{$_POST['day']}/{$_POST['month']}/{$_POST['year']}";
     if(isset($_FILES["propic"]))
