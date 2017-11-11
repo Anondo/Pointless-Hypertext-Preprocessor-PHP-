@@ -66,7 +66,7 @@
                 echo "</tr>";
                 echo "<tr>";
                 echo "<td>";
-                echo $blog["attachment"]; //need to fix this
+                //echo $blog["attachment"]; //need to fix this
                 echo "</td>";
                 echo "</tr>";
                 echo "<tr>";
