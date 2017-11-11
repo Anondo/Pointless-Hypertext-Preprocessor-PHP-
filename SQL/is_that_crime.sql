@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2017 at 07:45 PM
+-- Generation Time: Nov 11, 2017 at 09:14 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -77,7 +77,9 @@ CREATE TABLE `comments` (
 
 INSERT INTO `comments` (`comment_id`, `blog_id`, `user_id`, `body`, `datetime`) VALUES
 (4, 1, 10, 'Seriously Dude???!!', '02/11/2017 12:21:17am'),
-(5, 1, 10, 'This is a shit post!!', '02/11/2017 12:21:32am');
+(5, 1, 10, 'This is a shit post!!', '02/11/2017 12:21:32am'),
+(9, 1, 12, 'Fuck You!!', '11/11/2017 03:29:10am'),
+(13, 1, 10, 'You Too!!', '11/11/2017 05:32:51pm');
 
 -- --------------------------------------------------------
 
@@ -189,7 +191,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `location`
 --
