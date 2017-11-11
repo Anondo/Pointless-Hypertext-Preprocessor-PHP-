@@ -74,7 +74,6 @@
                     echo "</tr>";
                     echo "<tr>";
                     echo "<td>";
-                    echo "<h5>{$row['attachment']}</h5>"; //need to fix this, should provide a way to display any kind of attachment
                     echo "<hr />";
                     echo "</td>";
                     echo "</tr>";

@@ -1,6 +1,7 @@
 <html>
 <head>
     <script src = "http://localhost/Projects/aiub%20project/js/remove_comment.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://localhost/Projects/aiub%20project/css/blog_style.css">
     <title>
         <?php
             session_start();
@@ -90,9 +91,9 @@
                         echo "<tr id = {$row['comment_id']}>";
                         echo "<td>";
                         if($logged)
-                            echo "$username:  {$row['body']}---{$row["datetime"]}".checkRemovable($row['comment_id'] , $id , $userId)."<hr />";
+                            echo "$username:  {$row['body']}----------------------{$row["datetime"]}".checkRemovable($row['comment_id'] , $id , $userId)."<hr />";
                         else
-                            echo "$username:  {$row['body']}---{$row["datetime"]}<hr />";
+                            echo "$username:  {$row['body']}----------------------{$row["datetime"]}<hr />";
                         echo "</td>";
                         echo "</tr>";
                     }
@@ -107,7 +108,7 @@
                     echo "<tr>";
                     echo "<td>";
                     echo "<form action = 'http://localhost/Projects/aiub project/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST'>
-                        $currentUsername:<textarea name = 'commentBody' placeholder = 'Comment Here'></textarea>
+                        $currentUsername:<textarea rows = '7' cols = '165' name = 'commentBody' placeholder = 'Comment Here' style='resize:none;'></textarea>
                         <input type = 'submit' name = 'commentSubmit' value = 'comment'/>
                     </form>";
                     echo "</td>";
