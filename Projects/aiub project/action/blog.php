@@ -1,5 +1,6 @@
 <html>
 <head>
+    <script src = "http://localhost/Projects/aiub%20project/js/remove_comment.js"></script>
     <title>
         <?php
             session_start();
@@ -86,7 +87,7 @@
                         $username = $db->executeQuery("select username from users where user_id = {$row['user_id']}");
                         $username = $username->fetch_assoc();
                         $username = $username["username"];
-                        echo "<tr>";
+                        echo "<tr id = {$row['comment_id']}>";
                         echo "<td>";
                         if($logged)
                             echo "$username:  {$row['body']}---{$row["datetime"]}".checkRemovable($row['comment_id'] , $id , $userId)."<hr />";
@@ -136,10 +137,8 @@ function checkRemovable($cmntid , $blogid , $uid)
     $bloggerId = $result['blogger_id'];
     if($uid == $currentUserId || $uid == $bloggerId)
     {
-        $form = "<form action = 'http://localhost/Projects/aiub project/action/comment_delete.php/?comment_id=$cmntid&blog_id=$blogid' method = 'POST' style = 'float:right;'>
-                <input type = 'submit' value = 'X' />
-        </form>";
-        return $form;
+        $html = "<button onclick = 'rmvComment($cmntid)'>X</button>";
+        return $html;
     }
     return "";
 }
