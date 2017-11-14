@@ -75,7 +75,6 @@
 
         	                    Year
         	   	               	   <select name="year">
-									   	<?php echo "<option value = 1000>1000</option>"; ?>
         	   	               	   </select>
         	   	               </td>
     </tr>
