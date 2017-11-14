@@ -33,6 +33,7 @@
 
 
 <body>
+    <noscript><h4 style = "color:red;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
     <table>
         <?php
 
