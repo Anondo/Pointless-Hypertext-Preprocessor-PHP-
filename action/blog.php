@@ -4,14 +4,12 @@
     <link rel="stylesheet" type="text/css" href="http://localhost/Projects/aiub%20project/css/blog_style.css">
     <title>
         <?php
-            session_start();
-            $logged = false;
-            if(isset($_SESSION["logged_in"])) //this is checked for the user to comment
-            {
-                $logged = $_SESSION["logged_in"];
-                $userId = $_SESSION["user_id"];
-                $currentUsername = $_SESSION["username"];
-            }
+
+            require("login_controller.php");
+            $login = new Login();
+            $logged = $login->isLogged();
+            $userId = $login->getUserid();
+            $currentUsername = $login->getUsername();
             /*The following lines determine the title bar which should be the title of the blog */
             require("Models.php");
             $db = new Models();

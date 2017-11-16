@@ -7,17 +7,11 @@
 <body>
     <?php
 
-    session_start();
-    /*logged in user check */
-    $logged = false; //initially not logged in
-    if(isset($_SESSION["logged_in"]))
+    require("action/login_controller.php");
+    $login = new Login();
+    if($login->isLogged())
     {
-        $logged = $_SESSION["logged_in"];
-        $username = $_SESSION["username"]; //getting the username just to greet
-    }
-    if($logged)
-    {
-        echo "<h1>Welcome $username</h1>";
+        echo "<h1>Welcome ". $login->getUsername(). "</h1>";
         echo "<p><a href = 'action/logout.php'>Logout</a></p>";
     }
     else

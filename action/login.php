@@ -16,6 +16,15 @@ if(isset($_SESSION["logged_in"])) //if the user is already logged in
 <body>
 
 <div>
+	<?php
+
+	if(isset($_GET["logreq"]))
+	{
+		if($_GET["logreq"])
+			echo "<h3 style = 'color:red;'>You Need To Login First</h3>";
+	}
+
+	 ?>
 	<form  action="login_validate.php" method="POST" >
 		<table>
 			<tr><td><input type="text" id = "username_email" name="username_email" placeholder="username or email id" ></td></tr>
