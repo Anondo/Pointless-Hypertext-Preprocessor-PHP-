@@ -31,6 +31,14 @@ class Login{
     {
         return $this->userid;
     }
+    function log_in($username , $userid , $location = "#")
+    {
+        $_SESSION["logged_in"] = true; //creating a bool type session variable which should indicate whether user logged in or not
+        /*username and user_id is taken as well for ease of use in other pages*/
+        $_SESSION["username"] = $username;
+        $_SESSION["user_id"] = $userid;
+        header("Location: $location");
+    }
 
 
 }
