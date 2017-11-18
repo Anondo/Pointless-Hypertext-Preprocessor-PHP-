@@ -5,13 +5,13 @@
     <title>
         <?php
 
-            require("login_controller.php");
+            require("Controllers/login_controller.php");
             $login = new Login();
             $logged = $login->isLogged();
             $userId = $login->getUserid();
             $currentUsername = $login->getUsername();
             /*The following lines determine the title bar which should be the title of the blog */
-            require("Models.php");
+            require_once("Models/Models.php");
             $db = new Models();
             if(isset($_GET["blog_id"]))
             {

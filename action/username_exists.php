@@ -1,6 +1,6 @@
 <?php
 
-require("Models.php");
+require("Models/Models.php");
 $database = new Models();
 $message = "";
 $un = $_GET["username"];

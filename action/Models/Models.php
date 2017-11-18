@@ -5,8 +5,8 @@ class Models{
     public $user;
     public $pass;
     public $db;
-    private $conn;
-    private $result;
+    protected $conn;
+    protected $result;
     function Models($server = "localhost:3306" , $user = "root" , $pass ="" , $db = "is_that_crime")
     {
         $this->server = $server;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 
-require("login_controller.php");
+require("E:\PHP\Projects\aiub project\action\Controllers\login_controller.php");
 $login = new Login();
 if($login->isLogged()) //if user already logged in
 		$login->redirect("http://localhost/Projects/aiub%20project/index.php"); //redirect to the home page
@@ -10,7 +10,7 @@ if($login->isLogged()) //if user already logged in
 <html>
 <head>
 	<title>Log in </title>
-	<link rel="stylesheet" type="text/css" href="../css/login_style.css">
+	<link rel="stylesheet" type="text/css" href="../../css/login_style.css">
 </head>
 <body>
 
