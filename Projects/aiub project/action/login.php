@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <?php
 
-session_start();
-if(isset($_SESSION["logged_in"])) //if the user is already logged in
-{
-	if($_SESSION["logged_in"])
-		header("Location: http://localhost/Projects/aiub%20project/index.php"); //redirect to the home page
-}
+require("login_controller.php");
+$login = new Login();
+if($login->isLogged()) //if user already logged in
+		$login->redirect("http://localhost/Projects/aiub%20project/index.php"); //redirect to the home page
+
  ?>
 <html>
 <head>

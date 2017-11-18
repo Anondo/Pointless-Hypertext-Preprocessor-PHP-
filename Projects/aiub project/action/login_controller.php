@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 class Login{
     private $logged = false;
     private $redirect_address = "";
@@ -8,6 +7,7 @@ class Login{
     private $userid = 0;
     function Login()
     {
+        session_start();
         if(isset($_SESSION['logged_in']))
         {
         	$this->logged = $_SESSION["logged_in"];
