@@ -48,7 +48,7 @@
 
                     echo "<tr>";
                     echo "<td>";
-                    echo "<h5>"."<a href = 'action/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></h5>";
+                    echo "<h5>"."<a href = 'action/views/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></h5>";
                     echo "</td>";
                     echo "</tr>";
                     echo "<tr>";

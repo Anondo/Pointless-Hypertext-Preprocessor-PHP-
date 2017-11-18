@@ -119,6 +119,17 @@ class UserModel extends Models{
             return false;
         }
     }
+    function getUsernameById($id)
+    {
+        $result = $this->executeQuery("select username from users where user_id = $id");
+        if($result)
+        {
+            $result = $result->fetch_assoc();
+            return $result;
+        }
+        else
+            return false;
+    }
 
 }
 
