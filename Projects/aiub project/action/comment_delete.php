@@ -1,6 +1,6 @@
 <?php
 
-require("Models.php");
+require("Models/Models.php");
 $db = new Models();
 if(isset($_GET["comment_id"]) /*&& isset($_GET["blog_id"])*/)
 {

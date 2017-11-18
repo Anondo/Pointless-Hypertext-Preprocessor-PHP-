@@ -7,7 +7,7 @@
 <body>
     <?php
 
-    require("action/login_controller.php");
+    require("action/Controllers/login_controller.php");
     $login = new Login();
     if($login->isLogged())
     {
@@ -17,7 +17,7 @@
     else
     {
         echo "<h1>Hello World</h1>";
-        echo "<p><a href = 'action/login.php'>Login</a></p>";
+        echo "<p><a href = 'action/Views/login.php'>Login</a></p>";
     }
     ?>
 
@@ -25,7 +25,7 @@
     <table>
         <?php
 
-            require("action/Models.php");
+            require_once("action/Models/Models.php");
             $database = new Models();
             if($result = $database->executeQuery("select * from blogs;")) //if there are blogs
             {

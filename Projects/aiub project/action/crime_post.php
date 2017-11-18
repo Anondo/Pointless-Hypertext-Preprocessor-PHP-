@@ -2,7 +2,7 @@
 <?php
 
 
-require("login_controller.php");
+require("Controllers/login_controller.php");
 $login = new Login();
 if($login->isLogged())
 {
@@ -10,7 +10,7 @@ if($login->isLogged())
 }
 else
 {
-	$login->redirect("login.php?logreq=1");
+	$login->redirect("Views/login.php?logreq=1");
 }
 
 

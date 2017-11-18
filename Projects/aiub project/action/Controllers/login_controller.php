@@ -1,18 +1,20 @@
 <?php
 
+require("E:\PHP\Projects\aiub project\action\Models\UserModel.php");
 class Login{
     private $logged = false;
     private $redirect_address = "";
-    private $username = "";
-    private $userid = 0;
+    private $user = NULL;
+    private $queryResult = NULL;
     function Login()
     {
         session_start();
+        $this->user = new UserModel();
         if(isset($_SESSION['logged_in']))
         {
         	$this->logged = $_SESSION["logged_in"];
-        	$this->username = $_SESSION["username"];
-            $this->userid = $_SESSION["user_id"];
+            $this->user->setUsername($_SESSION["username"]);
+            $this->user->setUserId($_SESSION["user_id"]);
         }
     }
     function isLogged()
@@ -25,11 +27,11 @@ class Login{
     }
     function getUsername()
     {
-        return $this->username;
+        return $this->user->getUsername();
     }
     function getUserid()
     {
-        return $this->userid;
+        return $this->user->getUserId();
     }
     function log_in($username , $userid , $location = "#")
     {
@@ -38,6 +40,22 @@ class Login{
         $_SESSION["username"] = $username;
         $_SESSION["user_id"] = $userid;
         header("Location: $location");
+    }
+    function isUserValid($uname_or_email , $pass , $key) //key determines whether the user provided email or username while logging in(both can be used to log in)
+    {
+        $this->queryResult = $this->user->validUser($uname_or_email , $pass , $key);
+        if($this->queryResult)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    function getQueryResult()
+    {
+        return $this->queryResult;
     }
 
 

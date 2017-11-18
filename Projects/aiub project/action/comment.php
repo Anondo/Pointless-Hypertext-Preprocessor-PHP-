@@ -1,6 +1,6 @@
 <?php
 
-require("Models.php");
+require_once("Models/Models.php");
 if(!empty($_POST['commentBody']))
 {
     $db = new Models();
