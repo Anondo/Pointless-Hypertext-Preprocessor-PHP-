@@ -1,6 +1,7 @@
 <?php
 
-require_once("Models/Models.php");
+require_once("E:\PHP\Projects\aiub project\action\Controllers\CommentController.php");
+$comment = new CommentController();
 if(!empty($_POST['commentBody']))
 {
     $db = new Models();
@@ -9,7 +10,7 @@ if(!empty($_POST['commentBody']))
     date_default_timezone_set("Asia/Dhaka");
     $datetime = date("d/m/Y h:i:sa");
     $body = $_POST["commentBody"];
-    $ok = $db->executeDMLQuery("insert into comments(blog_id , user_id , body , datetime) values($blog_id , $user_id , '$body' , '$datetime')");
+    $ok = $comment->putComment($blog_id , $user_id , $body , $datetime);
     if($ok)
     {
         header("Location: http://localhost/Projects/aiub project/action/blog.php/?blog_id=$blog_id");

@@ -5,13 +5,17 @@
     <title>
         <?php
 
-            require("Controllers/login_controller.php");
+            require("E:\PHP\Projects\aiub project\action\Controllers\login_controller.php");
+            require("E:\PHP\Projects\aiub project\action\Controllers\UserController.php");
+            require("E:\PHP\Projects\aiub project\action\Controllers\CommentController.php");
             $login = new Login();
+            $user = new UserController();
+            $comment = new CommentController();
             $logged = $login->isLogged();
             $userId = $login->getUserid();
             $currentUsername = $login->getUsername();
             /*The following lines determine the title bar which should be the title of the blog */
-            require_once("Models/Models.php");
+            require_once("E:\PHP\Projects\aiub project\action\Models\Models.php");
             $db = new Models();
             if(isset($_GET["blog_id"]))
             {
@@ -78,14 +82,13 @@
                 echo "<h2>Comments</h2>";
                 echo "</td>";
                 echo "</tr>";
-                $commentResult = $db->executeQuery("select * from comments where blog_id = $id");
+                $commentResult = $comment->getCommentByBlog($id);
                 if($commentResult)
                 {
 
                     while($row = $commentResult->fetch_assoc())
                     {
-                        $username = $db->executeQuery("select username from users where user_id = {$row['user_id']}");
-                        $username = $username->fetch_assoc();
+                        $username = $user->getUsername($row['user_id']);
                         $username = $username["username"];
                         echo "<tr id = {$row['comment_id']}>";
                         echo "<td>";
@@ -129,8 +132,8 @@
 function checkRemovable($cmntid , $blogid , $uid)
 {
     global $db;
-    $result = $db->executeQuery("select user_id from comments where comment_id = $cmntid");
-    $result = $result->fetch_assoc();
+    global $comment;
+    $result = $comment->getUserIdByComment($cmntid);
     $currentUserId = $result['user_id'];
     $result = $db->executeQuery("select blogger_id from blogs where blog_id = $blogid");
     $result = $result->fetch_assoc();
