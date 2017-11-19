@@ -1,6 +1,6 @@
 <?php
 
-require("E:\PHP\Projects\aiub project\action\Controllers\CommentController.php");
+require("E:\PHP\Projects\aiub project\Controllers\CommentController.php");
 $comment = new CommentController();
 if(isset($_GET["comment_id"]) /*&& isset($_GET["blog_id"])*/)
 {

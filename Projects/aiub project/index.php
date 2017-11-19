@@ -7,17 +7,17 @@
 <body>
     <?php
 
-    require("action/Controllers/login_controller.php");
+    require("Controllers/login_controller.php");
     $login = new Login();
     if($login->isLogged())
     {
         echo "<h1>Welcome ". $login->getUsername(). "</h1>";
-        echo "<p><a href = 'action/logout.php'>Logout</a></p>";
+        echo "<p><a href = 'Views/action/logout.php'>Logout</a></p>";
     }
     else
     {
         echo "<h1>Hello World</h1>";
-        echo "<p><a href = 'action/Views/login.php'>Login</a></p>";
+        echo "<p><a href = 'Views/login.php'>Login</a></p>";
     }
     ?>
 
@@ -25,7 +25,7 @@
     <table>
         <?php
 
-            require_once("action/Models/Models.php");
+            require_once("Models/Models.php");
             $database = new Models();
             if($result = $database->executeQuery("select * from blogs;")) //if there are blogs
             {
@@ -48,7 +48,7 @@
 
                     echo "<tr>";
                     echo "<td>";
-                    echo "<h5>"."<a href = 'action/views/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></h5>";
+                    echo "<h5>"."<a href = 'Views/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></h5>";
                     echo "</td>";
                     echo "</tr>";
                     echo "<tr>";
