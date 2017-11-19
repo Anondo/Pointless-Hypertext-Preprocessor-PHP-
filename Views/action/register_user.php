@@ -52,7 +52,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
         }
         else
         {
-            echo "<h><a href = http://localhost/Projects/aiub%20project/Views/signup.php>$message</a></h>";
+            echo "<h><a href = http://localhost/Projects/aiub%20project/Views/signup.php>".$message.$signup->getErrorMessage()."</a></h>";
         }
 
     }
