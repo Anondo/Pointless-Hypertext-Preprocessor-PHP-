@@ -1,6 +1,6 @@
 <?php
 
-require_once("E:\PHP\Projects\aiub project\action\Controllers\CommentController.php");
+require_once("E:\PHP\Projects\aiub project\Controllers\CommentController.php");
 $comment = new CommentController();
 if(!empty($_POST['commentBody']))
 {
@@ -13,7 +13,7 @@ if(!empty($_POST['commentBody']))
     $ok = $comment->putComment($blog_id , $user_id , $body , $datetime);
     if($ok)
     {
-        header("Location: http://localhost/Projects/aiub project/action/blog.php/?blog_id=$blog_id");
+        header("Location: http://localhost/Projects/aiub project/Views/blog.php/?blog_id=$blog_id");
     }
     else
     {

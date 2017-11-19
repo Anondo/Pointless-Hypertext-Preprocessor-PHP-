@@ -130,6 +130,27 @@ class UserModel extends Models{
         else
             return false;
     }
+    function getUserByName($name)
+    {
+        $result = $this->executeQuery("select * from users where username = '$name'");
+        if($result)
+        {
+            return $result;
+        }
+        else
+            return false;
+    }
+    function putUser($fname , $lname , $age ,$bdate, $uname , $email , $password , $gender , $imgpath , $imgname = "" , $pro_pic)
+    {
+        $done = NULL;
+        if($pro_pic)
+            $done = $this->executeDMLQuery("insert into users(fname , lname , age , bdate , username , email , password , pro_pic , gender)
+            values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password' , '$imgpath' , '$gender')");
+        else
+            $done = $this->executeDMLQuery( "insert into users(fname , lname , age , bdate , username , email , password , gender)
+            values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password', '$gender')");
+        return $done;
+    }
 
 }
 

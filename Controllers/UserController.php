@@ -1,6 +1,6 @@
 <?php
 
-require_once("E:\PHP\Projects\aiub project\action\Models\UserModel.php");
+require_once("E:\PHP\Projects\aiub project\Models\UserModel.php");
 class UserController{
     private $user = NULL;
     function UserController()

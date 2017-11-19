@@ -9,7 +9,7 @@
 	<noscript><h4 style = "color:red;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
 	<h3>Create an Account</h3>
 <?php session_start();?>
- <form name = "signupForm" action = "http://localhost/Projects/aiub%20project/action/register_user.php/?js_enabled=false" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
+ <form name = "signupForm" action = "http://localhost/Projects/aiub%20project/Views/action/register_user.php/?js_enabled=false" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
   <table>
     <tr> <!--First Name Row-->
     	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..." value = "<?php if($_SESSION)echo $_SESSION["signup_data"]["fname"];?>" /> </td><!--Checking for returned values -->

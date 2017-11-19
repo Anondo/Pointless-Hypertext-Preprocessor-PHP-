@@ -11,8 +11,8 @@ while($row = $res->fetch_assoc())
 //date_default_timezone_set("Asia/Dhaka");
 //echo date("d/m/Y h:i:sa");
 
-
-if($_GET["enable"] == "true")
+$var = $_GET["a"];
+if(!empty($var))
     echo "Hello World";
 else
     echo "Bye Bye World";

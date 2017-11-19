@@ -5,9 +5,9 @@
     <title>
         <?php
 
-            require("E:\PHP\Projects\aiub project\action\Controllers\login_controller.php");
-            require("E:\PHP\Projects\aiub project\action\Controllers\UserController.php");
-            require("E:\PHP\Projects\aiub project\action\Controllers\CommentController.php");
+            require("E:\PHP\Projects\aiub project\Controllers\login_controller.php");
+            require("E:\PHP\Projects\aiub project\Controllers\UserController.php");
+            require("E:\PHP\Projects\aiub project\Controllers\CommentController.php");
             $login = new Login();
             $user = new UserController();
             $comment = new CommentController();
@@ -15,7 +15,7 @@
             $userId = $login->getUserid();
             $currentUsername = $login->getUsername();
             /*The following lines determine the title bar which should be the title of the blog */
-            require_once("E:\PHP\Projects\aiub project\action\Models\Models.php");
+            require_once("E:\PHP\Projects\aiub project\Models\Models.php");
             $db = new Models();
             if(isset($_GET["blog_id"]))
             {
@@ -109,7 +109,7 @@
                     echo "</tr>";
                     echo "<tr>";
                     echo "<td>";
-                    echo "<form action = 'http://localhost/Projects/aiub project/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST'>
+                    echo "<form action = 'http://localhost/Projects/aiub project/Views/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST'>
                         $currentUsername:<textarea rows = '7' cols = '165' name = 'commentBody' placeholder = 'Comment Here' style='resize:none;'></textarea>
                         <input type = 'submit' name = 'commentSubmit' value = 'comment'/>
                     </form>";
