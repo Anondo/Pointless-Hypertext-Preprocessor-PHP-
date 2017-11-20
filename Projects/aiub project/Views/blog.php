@@ -15,14 +15,12 @@
             $userId = $login->getUserid();
             $currentUsername = $login->getUsername();
             /*The following lines determine the title bar which should be the title of the blog */
-            require_once("E:\PHP\Projects\aiub project\Models\Models.php");
-            $db = new Models();
+            require_once("E:\PHP\Projects\aiub project\Controllers\BlogController.php");
+            $blogControl = new BlogController();
             if(isset($_GET["blog_id"]))
             {
                 $id = $_GET["blog_id"];
-                $result = $db->executeQuery("select title from blogs where blog_id = $id");
-                $result = $result->fetch_assoc();
-                echo $result["title"];
+                echo $blogControl->getBlogTitle($id);
             }
             else
             {
@@ -42,15 +40,12 @@
             if(isset($_GET["blog_id"]))
             {
                 $id = $_GET["blog_id"];
-                $result = $db->executeQuery("select * from blogs where blog_id = $id");
-                $blog = $result->fetch_assoc();
+                $blog = $blogControl->getBlog($id);
                 $blogger = "Anonymous"; //the blogger name is initially anonymous for safety
                 if(!$blog["name_hidden"]) //if the user chooses to show his/her name
                 {
                     $blogger_id = $blog["blogger_id"];
-                    $idresult = $db->executeQuery("select username from users where user_id in (select blogger_id from blogs where blogger_id = $blogger_id);");
-                    $blogger_name_row = $idresult->fetch_assoc();
-                    $blogger = $blogger_name_row["username"];
+                    $blogger = $blogControl->bloggerName($blogger_id);
                 }
                 echo "<tr>";
                 echo "<td>";
@@ -131,13 +126,11 @@
 
 function checkRemovable($cmntid , $blogid , $uid)
 {
-    global $db;
+    global $blogControl;
     global $comment;
     $result = $comment->getUserIdByComment($cmntid);
     $currentUserId = $result['user_id'];
-    $result = $db->executeQuery("select blogger_id from blogs where blog_id = $blogid");
-    $result = $result->fetch_assoc();
-    $bloggerId = $result['blogger_id'];
+    $bloggerId = $blogControl->getBloggerId($blogid);
     if($uid == $currentUserId || $uid == $bloggerId)
     {
         $html = "<button onclick = 'rmvComment($cmntid)'>X</button>";
