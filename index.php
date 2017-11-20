@@ -25,9 +25,9 @@
     <table>
         <?php
 
-            require_once("Models/Models.php");
-            $database = new Models();
-            if($result = $database->executeQuery("select * from blogs;")) //if there are blogs
+            require_once("Controllers/BlogController.php");
+            $blog = new BlogController();
+            if($result = $blog->getAllBlogs()) //if there are blogs
             {
                 while($row = $result->fetch_assoc())
                 {
@@ -41,9 +41,7 @@
                     if(!$row["name_hidden"]) //if the user wants to share his/her name
                     {
                         $blogger_id = $row["blogger_id"];
-                        $idresult = $database->executeQuery("select username from users where user_id in (select blogger_id from blogs where blogger_id = $blogger_id);");
-                        $blogger_name_row = $idresult->fetch_assoc();
-                        $blogger = $blogger_name_row["username"];
+                        $blogger = $blog->bloggerName($blogger_id);
                     }
 
                     echo "<tr>";
