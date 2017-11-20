@@ -1,8 +1,7 @@
 <html>
 <head>
 	<title>SignUP Page</title>
-	<script src = "../js/signup_validate.js"></script>
-	<script src = "../js/year_adder_signup.js"></script>
+	<script src = "../js/signup_handler.js"></script>
 </head>
 
 <body onload = "addYears()">

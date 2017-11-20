@@ -1,6 +1,6 @@
 <html>
 <head>
-    <script src = "http://localhost/Projects/aiub%20project/js/remove_comment.js"></script>
+    <script src = "http://localhost/Projects/aiub%20project/js/comment_handler.js"></script>
     <link rel="stylesheet" type="text/css" href="http://localhost/Projects/aiub%20project/css/blog_style.css">
     <title>
         <?php
@@ -104,8 +104,8 @@
                     echo "</tr>";
                     echo "<tr>";
                     echo "<td>";
-                    echo "<form action = 'http://localhost/Projects/aiub project/Views/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST'>
-                        $currentUsername:<textarea rows = '7' cols = '165' name = 'commentBody' placeholder = 'Comment Here' style='resize:none;'></textarea>
+                    echo "<form action = 'http://localhost/Projects/aiub project/Views/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST' onsubmit = 'return isCommentEmpty()'>
+                        $currentUsername:<textarea id = 'commentBox' rows = '7' cols = '165' name = 'commentBody' placeholder = 'Comment Here' style='resize:none;'></textarea>
                         <input type = 'submit' name = 'commentSubmit' value = 'comment'/>
                     </form>";
                     echo "</td>";
