@@ -10,6 +10,7 @@ if($login->isLogged()) //if user already logged in
 <html>
 <head>
 	<title>Log in </title>
+	<script src = "http://localhost/Projects/aiub%20project/js/login_handler.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/login_style.css">
 </head>
 <body>
@@ -24,7 +25,7 @@ if($login->isLogged()) //if user already logged in
 	}
 
 	 ?>
-	<form  action="action/login_validate.php" method="POST" >
+	<form  action="action/login_validate.php" method="POST" onsubmit = "return isAnyFieldEmpty()">
 		<table>
 			<tr><td><input type="text" id = "username_email" name="username_email" placeholder="username or email id" ></td></tr>
 			<tr><td><input type="Password" id = "password" name="password" placeholder = "password"></td></tr>

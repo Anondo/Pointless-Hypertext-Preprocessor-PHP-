@@ -21,3 +21,13 @@ function rmvComment(id)
     }
 
 }
+function isCommentEmpty()
+{
+    var elem = document.getElementById('commentBox');
+    if(elem.value == "")
+    {
+        alert("Write Something!!");
+        return false;
+    }
+    return true;
+}
