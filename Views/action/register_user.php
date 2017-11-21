@@ -31,7 +31,6 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
     {
         $img = $_FILES["propic"];
         $imgname = $img["name"];
-        echo $imgname == ""."<br />";
         $img_tmp = $img["tmp_name"];
         move_uploaded_file($img_tmp , $directory.$imgname);
     }

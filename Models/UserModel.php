@@ -1,6 +1,6 @@
 <?php
 
-require('Models.php');
+require_once('Models.php');
 class UserModel extends Models{
     private $username = "";
     private $userid = 0;
@@ -18,10 +18,10 @@ class UserModel extends Models{
         $this->username = $username;
         $this->userid = $userid;
         $this->fname = $fname;
-        $this->$lname = $lname;
-        $this->$age = $age;
-        $this->$bdate = $bdate;
-        $this->$email = $email;
+        $this->lname = $lname;
+        $this->age = $age;
+        $this->bdate = $bdate;
+        $this->email = $email;
         $this->password = $password;
         $this->pro_pic = $pro_pic;
         $this->gender = $gender;

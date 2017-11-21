@@ -31,7 +31,7 @@ class Models{
     }
     function errorMessage($message = "Could Not Establish Connection With The Database")
     {
-        //echo "<h5>$message</h5>";
+        die($message);
     }
     function executeQuery($query)
     {
@@ -75,6 +75,7 @@ class Models{
             }
             else
             {
+                echo $this->conn->error;
                 $this->closeConnection();
                 $this->errorMessage($this->conn->error);
                 return false;
