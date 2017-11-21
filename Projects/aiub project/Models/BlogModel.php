@@ -62,6 +62,17 @@ class BlogModel extends Models{
         else
             return false;
     }
+    function putBlog($title , $body , $datetime , $attachment , $user_id , $name_hidden , $location , $category , $noattch)
+    {
+        if($noattch)
+            $query = "insert into blogs(title , body , datetime ,  blogger_id , name_hidden , location , category)
+            values('$title' , '$body' , '$datetime' , $user_id , $name_hidden , '$location' , '$category');";
+        else
+            $query = "insert into blogs(title , body , datetime , attachment , blogger_id , name_hidden , location , category)
+            values('$title' , '$body' , '$datetime' , '$attachment' , $user_id , $name_hidden , '$location' , '$category');";
+        $success = $this->executeDMLQuery($query);
+         return $success;
+    }
 }
 
 
