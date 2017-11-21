@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 11, 2017 at 09:14 PM
+-- Generation Time: Nov 21, 2017 at 08:55 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -21,17 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `is_that_crime`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admins`
---
-
-CREATE TABLE `admins` (
-  `user_id` int(11) DEFAULT NULL,
-  `username` varchar(120) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE DATABASE IF NOT EXISTS `is_that_crime` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `is_that_crime`;
 
 -- --------------------------------------------------------
 
@@ -79,7 +70,7 @@ INSERT INTO `comments` (`comment_id`, `blog_id`, `user_id`, `body`, `datetime`) 
 (4, 1, 10, 'Seriously Dude???!!', '02/11/2017 12:21:17am'),
 (5, 1, 10, 'This is a shit post!!', '02/11/2017 12:21:32am'),
 (9, 1, 12, 'Fuck You!!', '11/11/2017 03:29:10am'),
-(13, 1, 10, 'You Too!!', '11/11/2017 05:32:51pm');
+(14, 1, 10, 'You too!!', '17/11/2017 12:32:49am');
 
 -- --------------------------------------------------------
 
@@ -121,27 +112,41 @@ CREATE TABLE `users` (
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
   `pro_pic` blob,
-  `gender` varchar(20) DEFAULT NULL
+  `gender` varchar(20) DEFAULT NULL,
+  `role` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `fname`, `lname`, `age`, `bdate`, `username`, `email`, `password`, `pro_pic`, `gender`) VALUES
-(10, 'Mr', 'tasty', 27, '1/jan/199', 'thetaste', 'tasty@yummy.com', 'abcd%1abcd', NULL, 'male'),
-(12, 'New', 'User', 117, '1/jan/190', 'newbie', 'new@user.com', 'abcd%1abcd', NULL, 'male');
+INSERT INTO `users` (`user_id`, `fname`, `lname`, `age`, `bdate`, `username`, `email`, `password`, `pro_pic`, `gender`, `role`) VALUES
+(10, 'Mr', 'tasty', 27, '1/jan/199', 'thetaste', 'tasty@yummy.com', 'abcd%1abcd', NULL, 'male', 2),
+(12, 'New', 'User', 117, '1/jan/190', 'newbie', 'new@user.com', 'abcd%1abcd', NULL, 'male', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_role`
+--
+
+CREATE TABLE `user_role` (
+  `role_id` int(11) NOT NULL,
+  `role_name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_role`
+--
+
+INSERT INTO `user_role` (`role_id`, `role_name`) VALUES
+(1, 'Admin'),
+(2, 'General'),
+(3, 'Criminal');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD UNIQUE KEY `username` (`username`),
-  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `blogs`
@@ -176,7 +181,14 @@ ALTER TABLE `location`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `user_role_fk` (`role`);
+
+--
+-- Indexes for table `user_role`
+--
+ALTER TABLE `user_role`
+  ADD PRIMARY KEY (`role_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -191,7 +203,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `location`
 --
@@ -201,16 +213,15 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `user_role`
+--
+ALTER TABLE `user_role`
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `admins`
---
-ALTER TABLE `admins`
-  ADD CONSTRAINT `admins_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `blogs`
@@ -231,6 +242,12 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `crime_time`
   ADD CONSTRAINT `crime_time_ibfk_1` FOREIGN KEY (`loc_id`) REFERENCES `location` (`loc_id`);
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `user_role_fk` FOREIGN KEY (`role`) REFERENCES `user_role` (`role_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
