@@ -144,11 +144,11 @@ class UserModel extends Models{
     {
         $done = NULL;
         if($pro_pic)
-            $done = $this->executeDMLQuery("insert into users(fname , lname , age , bdate , username , email , password , pro_pic , gender)
-            values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password' , '$imgpath' , '$gender')");
+            $done = $this->executeDMLQuery("insert into users(fname , lname , age , bdate , username , email , password , pro_pic , gender , role)
+            values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password' , '$imgpath' , '$gender' , 2)");
         else
-            $done = $this->executeDMLQuery( "insert into users(fname , lname , age , bdate , username , email , password , gender)
-            values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password', '$gender')");
+            $done = $this->executeDMLQuery( "insert into users(fname , lname , age , bdate , username , email , password , gender , role)
+            values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password', '$gender' , 2)");
         return $done;
     }
 
