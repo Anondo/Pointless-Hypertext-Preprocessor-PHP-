@@ -38,7 +38,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
     if($jsEnabled == "true")
     {
         $signup->registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname , $imgname);
-        echo "<h>You Have Succesfully Signed UP!!!</h>";
+        echo "<h><a href = 'http://localhost/Projects/aiub project/index.php'>You Have Succesfully Signed UP!!!</a></h>";
         session_destroy(); //there is no need for the session if signed up perfectly
     }
     else
@@ -46,7 +46,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
         if(emptyFieldValidate() && $signup->passwordValidate($pass , $cpass)  && $signup->emailValidate($email) && $signup->usernameValidate($uname) && $signup->pictureValidate($imgname))
         {
             $signup->registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname , $imgname);
-            echo "<h>You Have Succesfully Signed UP!!!</h>";
+            echo "<h><a href = 'http://localhost/Projects/aiub project/index.php'>You Have Succesfully Signed UP!!!</a></h>";
             session_destroy(); //there is no need for the session if signed up perfectly
         }
         else

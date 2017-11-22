@@ -47,7 +47,7 @@
 		</td>
 	</tr>
     <tr><td colspan="3"><b> Description : </b></td></tr>
-	<tr><td colspan="3"><textarea name="body" cols = "120" rows="6" placeholder=" write here ...." required></textarea></td></tr>
+	<tr><td colspan="3"><textarea name="body" cols = "120" rows="6" placeholder=" write here ...."></textarea></td></tr>
 	<tr>
 		 <td><button > post</button></td>
 		<td><input type="checkbox" name="hideme" value = "hide me"> <strong>hide me </strong></td>

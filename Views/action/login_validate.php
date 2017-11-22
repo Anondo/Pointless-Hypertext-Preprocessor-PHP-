@@ -14,7 +14,7 @@ if(isset($_POST["username_email"]) && isset($_POST["password"]))
     }
     else
     {
-        echo "<h1>Invalid User</h1>";
+        echo "<h1><a href = 'http://localhost/Projects/aiub%20project/Views/login.php'>Invalid User</a></h1>";
     }
 }
 
