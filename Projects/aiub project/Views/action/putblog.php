@@ -30,9 +30,9 @@ if(!empty($_POST["title"]) && !empty($_POST["location"]) && !empty($_POST["categ
     }
     $success = $blog->insertBlog($title , $body , $datetime , $attachment , $login->getUserid() , $name_hidden , $location , $category , $noattch);
     if($success)
-        echo "Yeaay";
+         header("Location: http://localhost/Projects/aiub project/index.php");
     else
-        echo "Nooooo";
+        echo "<a href = 'http://localhost/Projects/aiub project/Views/crime_post.php'>Something Went Wrong</a>";
 
 }
 
