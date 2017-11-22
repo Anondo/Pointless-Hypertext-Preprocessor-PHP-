@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<?php
 
-require("E:\PHP\Projects\aiub project\Controllers\login_controller.php");
-$login = new Login();
-if($login->isLogged())
-{
-	echo "<h1>Welcome ".$login->getUsername(). " , share your post!</h1>";
-}
-else
-{
-	$login->redirect("login.php?logreq=1");
-}
-
-
-?>
 <html>
 <head>
 	<title>Post</title>
 </head>
-
 <body >
+	<p><a href = 'action/logout.php'>Logout</a></p>
+    <p><a href = 'http://localhost/Projects/aiub project/index.php'>Home</a></p>
+	<?php
+
+	require("E:\PHP\Projects\aiub project\Controllers\login_controller.php");
+	$login = new Login();
+	if($login->isLogged())
+	{
+		echo "<h1>Welcome ".$login->getUsername(). " , share your post!</h1>";
+	}
+	else
+	{
+		$login->redirect("login.php?logreq=1");
+	}
+
+
+	?>
 <form method = "POST" action = "action/putblog.php" enctype="multipart/form-data">
 <div>
 	<table>
