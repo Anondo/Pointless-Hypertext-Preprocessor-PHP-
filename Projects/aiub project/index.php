@@ -19,6 +19,8 @@
         echo "<h1>Hello World</h1>";
         echo "<p><a href = 'Views/login.php'>Login</a></p>";
     }
+    echo "<p><a href = 'Views/signup.php'>Signup</a></p>";
+    echo "<p><a href = 'Views/crime_post.php'>Post Crime</a></p>";
     ?>
 
 

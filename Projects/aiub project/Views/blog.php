@@ -34,6 +34,9 @@
 
 <body>
     <noscript><h4 style = "color:red;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
+    <p><a href = 'http://localhost/Projects/aiub project/Views/signup.php'>Signup</a></p>
+    <p><a href = 'http://localhost/Projects/aiub project/Views/crime_post.php'>Post Crime</a></p>
+    <p><a href = 'http://localhost/Projects/aiub project/index.php'>Home</a></p>
     <table>
         <?php
 

@@ -14,6 +14,9 @@ if($login->isLogged()) //if user already logged in
 	<link rel="stylesheet" type="text/css" href="../css/login_style.css">
 </head>
 <body>
+	<p><a href = 'http://localhost/Projects/aiub project/Views/signup.php'>Signup</a></p>
+    <p><a href = 'http://localhost/Projects/aiub project/Views/crime_post.php'>Post Crime</a></p>
+    <p><a href = 'http://localhost/Projects/aiub project/index.php'>Home</a></p>
 
 <div>
 	<?php
