@@ -8,7 +8,7 @@ $blog = new BlogController();
 if(!empty($_POST["title"]) && !empty($_POST["location"]) && !empty($_POST["category"]) && !empty($_POST["body"]))
 {
     $title = $_POST["title"];
-    $location = $_POST["location"];
+    $location = $_POST["location"]." ".$_POST["secloc"];
     $category = $_POST["category"];
     $body = $_POST["body"];
     $name_hidden = 0;
@@ -34,6 +34,10 @@ if(!empty($_POST["title"]) && !empty($_POST["location"]) && !empty($_POST["categ
     else
         echo "<a href = 'http://localhost/Projects/aiub project/Views/crime_post.php'>Something Went Wrong</a>";
 
+}
+else
+{
+    echo "<a href = 'http://localhost/Projects/aiub project/Views/crime_post.php'>Title & Description required</a>";
 }
 
 
