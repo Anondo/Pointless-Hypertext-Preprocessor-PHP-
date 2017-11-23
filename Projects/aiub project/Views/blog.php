@@ -67,6 +67,16 @@
                 echo "</tr>";
                 echo "<tr>";
                 echo "<td>";
+                echo "Location: ".$blog["location"];
+                echo "</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>";
+                echo "Category: ".$blog["category"];
+                echo "</td>";
+                echo "</tr>";
+                echo "<tr>";
+                echo "<td>";
                 //echo $blog["attachment"]; //need to fix this
                 echo "</td>";
                 echo "</tr>";

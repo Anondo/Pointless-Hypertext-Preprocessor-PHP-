@@ -4,6 +4,7 @@
 <head>
 	<title>Post</title>
 	<script src = "http://localhost/Projects/aiub project/js/blog_handler.js"></script>
+	<script src = "http://localhost/Projects/aiub project/js/location_handler.js"></script>
 </head>
 <body >
 	<p><a href = 'action/logout.php'>Logout</a></p>
@@ -11,6 +12,8 @@
 	<?php
 
 	require("E:\PHP\Projects\aiub project\Controllers\login_controller.php");
+	require("E:\PHP\Projects\aiub project\Controllers\LocationController.php");
+	$location = new LocationController();
 	$login = new Login();
 	if($login->isLogged())
 	{
@@ -23,7 +26,7 @@
 
 
 	?>
-<form name = "blog_form" method = "POST" action = "action/putblog.php" enctype="multipart/form-data" onsubmit="return nothing_wrong()">
+<form name = "blog_form" method = "POST" action = "action/putblog.php" enctype="multipart/form-data" onsubmit="return updateCrimeOnLocation(blog_form.location.value)">
 <div>
 	<table>
 	<tr><td colspan="3"><input type="text" name="title" placeholder="Title"></td></tr>
@@ -31,11 +34,12 @@
 		<td>
 			Place:
 			<select name ="location">
-				<option value = "Shymoli"> Shymoli </option>
-				<option value = "Mirpur"> Mirpur </option>
-				<option value = "Banani"> Banani</option>
-				<option value = "Motijheel"> Motijheel </option>
-				<option value = "other"> Other </option>
+				<?php
+					foreach($location->getLocations() as $loc)
+					{
+						echo "<option value = $loc>$loc</option>";
+					}
+				 ?>
 			</select>
 		</td>
 		<td>Details(location):<input type = "text" name = "secloc" /></td>
@@ -53,7 +57,7 @@
     <tr><td colspan="3"><b> Description : </b></td></tr>
 	<tr><td colspan="3"><textarea name="body" cols = "120" rows="6" placeholder=" write here ...."></textarea></td></tr>
 	<tr>
-		 <td><button > post</button></td>
+		 <td><button onclick="return nothing_wrong()"> post</button></td>
 		<td><input type="checkbox" name="hideme" value = "hide me"> <strong>hide me </strong></td>
 		<td><input type = "file" name = "attchmnt" /></td>
     </tr>

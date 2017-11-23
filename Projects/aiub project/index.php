@@ -63,6 +63,16 @@
                     echo "</tr>";
                     echo "<tr>";
                     echo "<td>";
+                    echo "Location: ".$row["location"];
+                    echo "</td>";
+                    echo "</tr>";
+                    echo "<tr>";
+                    echo "<td>";
+                    echo "Category: ".$row["category"];
+                    echo "</td>";
+                    echo "</tr>";
+                    echo "<tr>";
+                    echo "<td>";
                     echo "<h5>By- $blogger</h5>";
                     echo "</td>";
                     echo "</tr>";
