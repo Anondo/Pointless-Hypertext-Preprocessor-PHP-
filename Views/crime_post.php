@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>Post</title>
+	<script src = "http://localhost/Projects/aiub project/js/blog_handler.js"></script>
 </head>
 <body >
 	<p><a href = 'action/logout.php'>Logout</a></p>
@@ -22,12 +23,13 @@
 
 
 	?>
-<form method = "POST" action = "action/putblog.php" enctype="multipart/form-data">
+<form name = "blog_form" method = "POST" action = "action/putblog.php" enctype="multipart/form-data" onsubmit="return nothing_wrong()">
 <div>
 	<table>
 	<tr><td colspan="3"><input type="text" name="title" placeholder="Title"></td></tr>
 	<tr>
 		<td>
+			Place:
 			<select name ="location">
 				<option value = "Shymoli"> Shymoli </option>
 				<option value = "Mirpur"> Mirpur </option>
@@ -36,7 +38,9 @@
 				<option value = "other"> Other </option>
 			</select>
 		</td>
+		<td>Details(location):<input type = "text" name = "secloc" /></td>
 		<td>
+			Category:
 			<select name ="category">
 				<option value = "robbery"> Robbery </option>
 				<option value = "murder"> Murder </option>
