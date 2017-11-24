@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 21, 2017 at 08:55 PM
+-- Generation Time: Nov 24, 2017 at 09:51 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -30,6 +30,7 @@ USE `is_that_crime`;
 -- Table structure for table `blogs`
 --
 
+DROP TABLE IF EXISTS `blogs`;
 CREATE TABLE `blogs` (
   `blog_id` int(11) NOT NULL,
   `title` varchar(100) DEFAULT NULL,
@@ -38,15 +39,19 @@ CREATE TABLE `blogs` (
   `attachment` longblob,
   `blogger_id` int(11) DEFAULT NULL,
   `name_hidden` tinyint(1) DEFAULT NULL,
-  `loc_id` int(11) DEFAULT NULL
+  `location` text,
+  `category` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `blogs`
 --
 
-INSERT INTO `blogs` (`blog_id`, `title`, `body`, `datetime`, `attachment`, `blogger_id`, `name_hidden`, `loc_id`) VALUES
-(1, 'First Blog', 'This is my first blog!!aksghdhagsdasgdsagdjgasjdgsajgdjasgdjdsaljdkdhskadhaskhdkashdkashdashdkashdkjashdkashdkashdkjashdkjshadkjsahdkashdkhaskdhksahdkashdsadasdsadsadasdasdsadsadsadasdsadasdasdsadsadsa', '29/10/17 6:41pm', NULL, 12, 0, NULL);
+INSERT INTO `blogs` (`blog_id`, `title`, `body`, `datetime`, `attachment`, `blogger_id`, `name_hidden`, `location`, `category`) VALUES
+(1, 'First Blog', 'This is my first blog!!aksghdhagsdasgdsagdjgasjdgsajgdjasgdjdsaljdkdhskadhaskhdkashdkashdashdkashdkjashdkashdkashdkjashdkjshadkjsahdkashdkhaskdhksahdkashdsadasdsadsadasdasdsadsadsadasdsadasdasdsadsadsa', '29/10/17 6:41pm', NULL, 12, 0, NULL, NULL),
+(9, 'testing blog', 'This is a test blog..hurrrrrrraaaaaaaaaaaaaaaaaaaaaaaaaaaayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy.....', '22/11/2017 04:44:34am', NULL, 10, 0, 'Shymoli', 'robbery'),
+(10, 'testing blog 2', 'this is a testing blog number 2...i am gonna try to be Anonymous here.', '22/11/2017 04:45:50am', NULL, 10, 1, 'Shymoli', 'robbery'),
+(23, 'Final Test??', 'I was robbed!!! Not really just had to make this real. This is just for testing purpose', '24/11/2017 04:48:57am', NULL, 10, 0, 'Mirpur Mirpur-10 , cirle', 'robbery');
 
 -- --------------------------------------------------------
 
@@ -54,6 +59,7 @@ INSERT INTO `blogs` (`blog_id`, `title`, `body`, `datetime`, `attachment`, `blog
 -- Table structure for table `comments`
 --
 
+DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `comment_id` int(11) NOT NULL,
   `blog_id` int(11) DEFAULT NULL,
@@ -75,26 +81,26 @@ INSERT INTO `comments` (`comment_id`, `blog_id`, `user_id`, `body`, `datetime`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `crime_time`
---
-
-CREATE TABLE `crime_time` (
-  `loc_id` int(11) DEFAULT NULL,
-  `datetime` varchar(70) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `location`
 --
 
+DROP TABLE IF EXISTS `location`;
 CREATE TABLE `location` (
   `loc_id` int(11) NOT NULL,
-  `primary_loc` varchar(180) DEFAULT NULL,
-  `secondary_loc` varchar(220) DEFAULT NULL,
-  `crime_count` int(11) DEFAULT NULL
+  `loc_name` varchar(50) DEFAULT NULL,
+  `crimes` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `location`
+--
+
+INSERT INTO `location` (`loc_id`, `loc_name`, `crimes`) VALUES
+(1, 'Shyamoli', 0),
+(2, 'Mirpur', 2),
+(3, 'Banani', 0),
+(4, 'Motijheel', 1),
+(5, 'Other', 0);
 
 -- --------------------------------------------------------
 
@@ -102,6 +108,7 @@ CREATE TABLE `location` (
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `fname` varchar(80) DEFAULT NULL,
@@ -130,6 +137,7 @@ INSERT INTO `users` (`user_id`, `fname`, `lname`, `age`, `bdate`, `username`, `e
 -- Table structure for table `user_role`
 --
 
+DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
   `role_id` int(11) NOT NULL,
   `role_name` varchar(50) DEFAULT NULL
@@ -153,8 +161,7 @@ INSERT INTO `user_role` (`role_id`, `role_name`) VALUES
 --
 ALTER TABLE `blogs`
   ADD PRIMARY KEY (`blog_id`),
-  ADD KEY `blogger_id` (`blogger_id`),
-  ADD KEY `fk_loc_id` (`loc_id`);
+  ADD KEY `blogger_id` (`blogger_id`);
 
 --
 -- Indexes for table `comments`
@@ -163,12 +170,6 @@ ALTER TABLE `comments`
   ADD PRIMARY KEY (`comment_id`),
   ADD KEY `blog_id` (`blog_id`),
   ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `crime_time`
---
-ALTER TABLE `crime_time`
-  ADD KEY `loc_id` (`loc_id`);
 
 --
 -- Indexes for table `location`
@@ -198,7 +199,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -208,12 +209,12 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
-  MODIFY `loc_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `loc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `user_role`
 --
@@ -227,8 +228,7 @@ ALTER TABLE `user_role`
 -- Constraints for table `blogs`
 --
 ALTER TABLE `blogs`
-  ADD CONSTRAINT `blogs_ibfk_1` FOREIGN KEY (`blogger_id`) REFERENCES `users` (`user_id`),
-  ADD CONSTRAINT `fk_loc_id` FOREIGN KEY (`loc_id`) REFERENCES `location` (`loc_id`);
+  ADD CONSTRAINT `blogs_ibfk_1` FOREIGN KEY (`blogger_id`) REFERENCES `users` (`user_id`);
 
 --
 -- Constraints for table `comments`
@@ -236,12 +236,6 @@ ALTER TABLE `blogs`
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`blog_id`),
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-
---
--- Constraints for table `crime_time`
---
-ALTER TABLE `crime_time`
-  ADD CONSTRAINT `crime_time_ibfk_1` FOREIGN KEY (`loc_id`) REFERENCES `location` (`loc_id`);
 
 --
 -- Constraints for table `users`
