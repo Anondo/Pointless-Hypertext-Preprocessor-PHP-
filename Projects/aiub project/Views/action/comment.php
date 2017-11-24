@@ -1,6 +1,6 @@
 <?php
 
-require_once("E:\PHP\Projects\aiub project\Controllers\CommentController.php");
+require_once(get_include_path()."\Projects\aiub project\Controllers\CommentController.php");
 $comment = new CommentController();
 if(!empty($_POST['commentBody']))
 {

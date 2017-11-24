@@ -11,11 +11,6 @@ while($row = $res->fetch_assoc())
 //date_default_timezone_set("Asia/Dhaka");
 //echo date("d/m/Y h:i:sa");
 
-$var = $_GET["a"];
-if(!empty($var))
-    echo "Hello World";
-else
-    echo "Bye Bye World";
-
+echo get_include_path();
 
  ?>

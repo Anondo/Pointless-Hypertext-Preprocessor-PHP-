@@ -1,7 +1,7 @@
 <?php
 
 
-require("E:\PHP\Projects\aiub project\Controllers\SignupController.php");
+require(get_include_path()."\Projects\aiub project\Controllers\SignupController.php");
 $signup = new SignupController();
 $message = "";
 if(isset($_GET['js_enabled']))

@@ -11,8 +11,8 @@
     <p><a href = 'http://localhost/Projects/aiub project/index.php'>Home</a></p>
 	<?php
 
-	require("E:\PHP\Projects\aiub project\Controllers\login_controller.php");
-	require("E:\PHP\Projects\aiub project\Controllers\LocationController.php");
+	require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
+	require(get_include_path()."\Projects\aiub project\Controllers\LocationController.php");
 	$location = new LocationController();
 	$login = new Login();
 	if($login->isLogged())

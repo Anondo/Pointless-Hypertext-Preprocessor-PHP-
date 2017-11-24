@@ -5,9 +5,9 @@
     <title>
         <?php
 
-            require("E:\PHP\Projects\aiub project\Controllers\login_controller.php");
-            require("E:\PHP\Projects\aiub project\Controllers\UserController.php");
-            require("E:\PHP\Projects\aiub project\Controllers\CommentController.php");
+            require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
+            require(get_include_path()."\Projects\aiub project\Controllers\UserController.php");
+            require(get_include_path()."\Projects\aiub project\Controllers\CommentController.php");
             $login = new Login();
             $user = new UserController();
             $comment = new CommentController();
@@ -15,7 +15,7 @@
             $userId = $login->getUserid();
             $currentUsername = $login->getUsername();
             /*The following lines determine the title bar which should be the title of the blog */
-            require_once("E:\PHP\Projects\aiub project\Controllers\BlogController.php");
+            require_once(get_include_path()."\Projects\aiub project\Controllers\BlogController.php");
             $blogControl = new BlogController();
             if(isset($_GET["blog_id"]))
             {

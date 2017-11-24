@@ -1,7 +1,7 @@
 <?php
 
 
-require("E:\PHP\Projects\aiub project\Controllers\login_controller.php");
+require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
 $login = new Login();;
 if(isset($_POST["username_email"]) && isset($_POST["password"]))
 {

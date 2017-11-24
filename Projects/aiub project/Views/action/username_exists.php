@@ -1,6 +1,6 @@
 <?php
 
-require("E:\PHP\Projects\aiub project\Controllers\SignupController.php");
+require(get_include_path()."\Projects\aiub project\Controllers\SignupController.php");
 $signup = new SignupController();
 $un = $_GET["username"];
 
