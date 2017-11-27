@@ -10,7 +10,7 @@ function validate()
     var propic = form['propic'].value;
     if(emptyFieldValidate(first_name , last_name , username , email , password , conPassword) && usernameValidate(username) && emailValidate(email) && passwordValidate(password , conPassword) && pictureValidate(propic))
     {
-        form.action = "http://localhost/Projects/aiub%20project/Views/action/register_user.php/?js_enabled=" + true;
+        //form.action = "http://localhost/Projects/aiub%20project/Views/action/register_user.php/?js_enabled="+true;
         return true;
     }
     return false;

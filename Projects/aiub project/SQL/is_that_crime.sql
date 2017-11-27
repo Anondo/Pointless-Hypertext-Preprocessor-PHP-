@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2017 at 09:51 PM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- Generation Time: Nov 27, 2017 at 05:48 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -40,18 +38,19 @@ CREATE TABLE `blogs` (
   `blogger_id` int(11) DEFAULT NULL,
   `name_hidden` tinyint(1) DEFAULT NULL,
   `location` text,
-  `category` varchar(50) DEFAULT NULL
+  `category` varchar(50) DEFAULT NULL,
+  `del` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `blogs`
 --
 
-INSERT INTO `blogs` (`blog_id`, `title`, `body`, `datetime`, `attachment`, `blogger_id`, `name_hidden`, `location`, `category`) VALUES
-(1, 'First Blog', 'This is my first blog!!aksghdhagsdasgdsagdjgasjdgsajgdjasgdjdsaljdkdhskadhaskhdkashdkashdashdkashdkjashdkashdkashdkjashdkjshadkjsahdkashdkhaskdhksahdkashdsadasdsadsadasdasdsadsadsadasdsadasdasdsadsadsa', '29/10/17 6:41pm', NULL, 12, 0, NULL, NULL),
-(9, 'testing blog', 'This is a test blog..hurrrrrrraaaaaaaaaaaaaaaaaaaaaaaaaaaayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy.....', '22/11/2017 04:44:34am', NULL, 10, 0, 'Shymoli', 'robbery'),
-(10, 'testing blog 2', 'this is a testing blog number 2...i am gonna try to be Anonymous here.', '22/11/2017 04:45:50am', NULL, 10, 1, 'Shymoli', 'robbery'),
-(23, 'Final Test??', 'I was robbed!!! Not really just had to make this real. This is just for testing purpose', '24/11/2017 04:48:57am', NULL, 10, 0, 'Mirpur Mirpur-10 , cirle', 'robbery');
+INSERT INTO `blogs` (`blog_id`, `title`, `body`, `datetime`, `attachment`, `blogger_id`, `name_hidden`, `location`, `category`, `del`) VALUES
+(1, 'First Blog', 'This is my first blog!!aksghdhagsdasgdsagdjgasjdgsajgdjasgdjdsaljdkdhskadhaskhdkashdkashdashdkashdkjashdkashdkashdkjashdkjshadkjsahdkashdkhaskdhksahdkashdsadasdsadsadasdasdsadsadsadasdsadasdasdsadsadsa', '29/10/17 6:41pm', NULL, 12, 0, NULL, NULL, 0),
+(9, 'testing blog', 'This is a test blog..hurrrrrrraaaaaaaaaaaaaaaaaaaaaaaaaaaayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy.....', '22/11/2017 04:44:34am', NULL, 10, 0, 'Shymoli', 'robbery', 0),
+(10, 'testing blog 2', 'this is a testing blog number 2...i am gonna try to be Anonymous here.', '22/11/2017 04:45:50am', NULL, 10, 1, 'Shymoli', 'robbery', 0),
+(23, 'Final Test??', 'I was robbed!!! Not really just had to make this real. This is just for testing purpose', '24/11/2017 04:48:57am', NULL, 10, 0, 'Mirpur Mirpur-10 , cirle', 'robbery', 0);
 
 -- --------------------------------------------------------
 
@@ -65,18 +64,19 @@ CREATE TABLE `comments` (
   `blog_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
   `body` text,
-  `datetime` varchar(70) DEFAULT NULL
+  `datetime` varchar(70) DEFAULT NULL,
+  `del` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `comments`
 --
 
-INSERT INTO `comments` (`comment_id`, `blog_id`, `user_id`, `body`, `datetime`) VALUES
-(4, 1, 10, 'Seriously Dude???!!', '02/11/2017 12:21:17am'),
-(5, 1, 10, 'This is a shit post!!', '02/11/2017 12:21:32am'),
-(9, 1, 12, 'Fuck You!!', '11/11/2017 03:29:10am'),
-(14, 1, 10, 'You too!!', '17/11/2017 12:32:49am');
+INSERT INTO `comments` (`comment_id`, `blog_id`, `user_id`, `body`, `datetime`, `del`) VALUES
+(4, 1, 10, 'Seriously Dude???!!', '02/11/2017 12:21:17am', 0),
+(5, 1, 10, 'This is a shit post!!', '02/11/2017 12:21:32am', 0),
+(9, 1, 12, 'Fuck You!!', '11/11/2017 03:29:10am', 0),
+(14, 1, 10, 'You too!!', '17/11/2017 12:32:49am', 0);
 
 -- --------------------------------------------------------
 
@@ -120,16 +120,17 @@ CREATE TABLE `users` (
   `password` varchar(100) DEFAULT NULL,
   `pro_pic` blob,
   `gender` varchar(20) DEFAULT NULL,
-  `role` int(11) DEFAULT NULL
+  `role` int(11) DEFAULT NULL,
+  `del` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `fname`, `lname`, `age`, `bdate`, `username`, `email`, `password`, `pro_pic`, `gender`, `role`) VALUES
-(10, 'Mr', 'tasty', 27, '1/jan/199', 'thetaste', 'tasty@yummy.com', 'abcd%1abcd', NULL, 'male', 2),
-(12, 'New', 'User', 117, '1/jan/190', 'newbie', 'new@user.com', 'abcd%1abcd', NULL, 'male', 2);
+INSERT INTO `users` (`user_id`, `fname`, `lname`, `age`, `bdate`, `username`, `email`, `password`, `pro_pic`, `gender`, `role`, `del`) VALUES
+(10, 'Mr', 'tasty', 27, '1/jan/199', 'thetaste', 'tasty@yummy.com', 'abcd%1abcd', NULL, 'male', 2, 0),
+(12, 'New', 'User', 117, '1/jan/190', 'newbie', 'new@user.com', 'abcd%1abcd', NULL, 'male', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -204,7 +205,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `location`
 --
@@ -242,7 +243,6 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `user_role_fk` FOREIGN KEY (`role`) REFERENCES `user_role` (`role_id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

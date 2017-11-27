@@ -8,7 +8,7 @@ class BlogModel extends Models{
     }
     function allBlogs()
     {
-        $result = $this->executeQuery("select * from blogs;");
+        $result = $this->executeQuery("select * from blogs where del = false;");
         if($result->num_rows > 0)
             return $result;
         else

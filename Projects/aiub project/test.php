@@ -11,6 +11,15 @@ while($row = $res->fetch_assoc())
 //date_default_timezone_set("Asia/Dhaka");
 //echo date("d/m/Y h:i:sa");
 
-echo get_include_path();
+//echo get_include_path();
+$str = NULL;
+if($str)
+{
+    echo $str;
+}
+else
+{
+    echo "nope";
+}
 
  ?>

@@ -119,8 +119,8 @@
                     echo "<td>";
                     echo "<form action = 'http://localhost/Projects/aiub project/Views/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST' onsubmit = 'return isCommentEmpty()'>
                         $currentUsername:<textarea id = 'commentBox' rows = '7' cols = '165' name = 'commentBody' placeholder = 'Comment Here' style='resize:none;'></textarea>
-                        <input type = 'submit' name = 'commentSubmit' value = 'comment'/>
-                    </form>";
+                        	<input type = 'submit' name = 'commentSubmit' value = 'comment'/>
+                    	 </form>";
                     echo "</td>";
                     echo "</tr>";
                 }

@@ -4,12 +4,12 @@
 require(get_include_path()."\Projects\aiub project\Controllers\SignupController.php");
 $signup = new SignupController();
 $message = "";
-if(isset($_GET['js_enabled']))
+/*if(isset($_GET['js_enabled']))
 {
     $jsEnabled = $_GET["js_enabled"];
 }
 else
-    $jsEnabled = false;
+    $jsEnabled = false;*/
 
 
 session_start();
@@ -35,14 +35,14 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
         move_uploaded_file($img_tmp , $directory.$imgname);
     }
     $_SESSION["signup_data"] = $_POST; //assigning the user inputs to a session
-    if($jsEnabled == "true")
+    /*if($jsEnabled == "true")
     {
         $signup->registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname , $imgname);
         echo "<h><a href = 'http://localhost/Projects/aiub project/index.php'>You Have Succesfully Signed UP!!!</a></h>";
         session_destroy(); //there is no need for the session if signed up perfectly
     }
     else
-    {
+    {*/
         if(emptyFieldValidate() && $signup->passwordValidate($pass , $cpass)  && $signup->emailValidate($email) && $signup->usernameValidate($uname) && $signup->pictureValidate($imgname))
         {
             $signup->registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname , $imgname);
@@ -54,7 +54,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
             echo "<h><a href = http://localhost/Projects/aiub%20project/Views/signup.php>".$message.$signup->getErrorMessage()."</a></h>";
         }
 
-    }
+    //}
 
 
 }

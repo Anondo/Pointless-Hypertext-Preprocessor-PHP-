@@ -58,7 +58,7 @@ class CommentModel extends Models{
      }
      function getCommentsByBlog($id)
      {
-        $result = $this->executeQuery("select * from comments where blog_id = $id");
+        $result = $this->executeQuery("select * from comments where blog_id = $id and del = false");
         if($result)
         {
             return $result;
@@ -79,7 +79,7 @@ class CommentModel extends Models{
      }
      function removeComment($id)
      {
-         $ok = $this->executeDMLQuery("delete from comments where comment_id = $id");
+         $ok = $this->executeDMLQuery("Update comments set del = true where comment_id = $id");
          return $ok;
      }
      function insertComment($blog_id , $user_id , $body , $datetime)

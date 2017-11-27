@@ -2,10 +2,10 @@
 
 require(get_include_path()."\Projects\aiub project\Models\UserModel.php");
 class Login{
-    private $logged = false;
-    private $redirect_address = "";
-    private $user = NULL;
-    private $queryResult = NULL;
+    protected $logged = false;
+    protected $redirect_address = "";
+    protected $user = NULL;
+    protected $queryResult = NULL;
     function Login()
     {
         session_start();
