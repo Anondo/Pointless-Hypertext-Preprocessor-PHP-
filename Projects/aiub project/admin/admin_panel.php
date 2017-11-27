@@ -1,6 +1,6 @@
 <?php
-	
-	require(get_include_path()."Projects\aiub project\Controllers\AdminController.php");
+
+	require(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
     $admin_login = new AdminController();
     if($admin_login->isLogged())
     {
@@ -10,7 +10,7 @@
     else
     {
         echo "<h1>Hello World</h1>";
-        echo "<p><a href = 'admin_login.php'>Login</a></p>";
+        echo "<p><a href = 'login.php'>Login</a></p>";
     }
 
 ?>

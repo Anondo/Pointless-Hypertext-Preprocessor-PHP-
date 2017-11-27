@@ -9,16 +9,16 @@
    		if($admincontrol->checkAdmin($unameOremail , $pass  , "username") || $admincontrol->checkAdmin($unameOremail , $pass , "email"))
    		{
    			$row = $admincontrol->getQueryResult();
-        $admincontrol->log_in($row["username"] , $row["user_id"] , " http://localhost/Projects/aiub%20project/Views/admin/admin_panel.php");
+        $admincontrol->log_in($row["username"] , $row["user_id"] , " http://localhost/Projects/aiub%20project/admin/admin_panel.php");
    		}
    		else
       {
-        echo "<h1><a href = 'http://localhost/Projects/aiub%20project/Views/admin/admin_login.php'>Invalid Admin</a></h1>";
+        echo "<h1><a href = 'http://localhost/Projects/aiub%20project/admin/ogin.php'>Invalid Admin</a></h1>";
       }
    }
    else
-      echo "<h1><a href = 'http://localhost/Projects/aiub%20project/Views/admin/admin_login.php'>Write Something</a></h1>";
-      
-   
+      echo "<h1><a href = 'http://localhost/Projects/aiub%20projectadmin/login.php'>Write Something</a></h1>";
+
+
 
 ?>
