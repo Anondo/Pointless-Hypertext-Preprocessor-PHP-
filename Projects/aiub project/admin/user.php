@@ -19,7 +19,6 @@
     $users = $admincontrol->getAllUsers();
     echo "<table border = '2'>";
     echo "<tr>
-            <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Age</th>
@@ -35,7 +34,6 @@
 	while($user = $users->fetch_assoc())
 	{
         echo "<tr>
-                <td>{$user['user_id']}</td>
                 <td>{$user['fname']}</td>
                 <td>{$user['lname']}</td>
                 <td>{$user['age']}</td>
@@ -46,7 +44,7 @@
                 <td>{$user['pro_pic']} Picture</td>
                 <td>{$user['gender']}</td>
                 <td>{$user['role']}</td>
-                <td><a href = '#'><button>EDIT</button></a></td>
+                <td><a href = '{$user['user_id']}'><button>EDIT</button></a></td>
              </tr>";
 
 	}

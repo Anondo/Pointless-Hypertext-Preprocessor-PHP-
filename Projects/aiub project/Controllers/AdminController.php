@@ -25,6 +25,13 @@ class AdminController extends Login{
 	{
 		return $this->user->getAllUsers();
 	}
+	function isLogged()
+	{
+		if($_SESSION["role"] == 1 && $this->logged)
+			return true;
+		else
+			return false;
+	}
 }
 
 

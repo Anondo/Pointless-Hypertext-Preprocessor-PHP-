@@ -10,7 +10,7 @@ if(isset($_POST["username_email"]) && isset($_POST["password"]))
     if($login->isUserValid($username_or_email , $password , "username") ||$login->isUserValid($username_or_email , $password , "email"))
     {
         $row = $login->getQueryResult();
-        $login->log_in($row["username"] , $row["user_id"] , " http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub%20project/index.php");
+        $login->log_in($row["username"] , $row["user_id"] , " http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub%20project/index.php" , $row["role"]);
     }
     else
     {
