@@ -6,6 +6,7 @@ class Login{
     protected $redirect_address = "";
     protected $user = NULL;
     protected $queryResult = NULL;
+    protected $role = 0;
     function Login()
     {
         session_start();
@@ -13,6 +14,7 @@ class Login{
         if(isset($_SESSION['logged_in']))
         {
         	$this->logged = $_SESSION["logged_in"];
+            $this->role = $_SESSION["role"];
             $this->user->setUsername($_SESSION["username"]);
             $this->user->setUserId($_SESSION["user_id"]);
         }

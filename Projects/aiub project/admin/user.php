@@ -44,7 +44,7 @@
                 <td>{$user['pro_pic']} Picture</td>
                 <td>{$user['gender']}</td>
                 <td>{$user['role']}</td>
-                <td><a href = '{$user['user_id']}'><button>EDIT</button></a></td>
+                <td><a href = 'user_edit.php?user_id={$user['user_id']}'><button>EDIT</button></a></td>
              </tr>";
 
 	}

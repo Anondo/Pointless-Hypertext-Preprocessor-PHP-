@@ -27,7 +27,7 @@ class AdminController extends Login{
 	}
 	function isLogged()
 	{
-		if($_SESSION["role"] == 1 && $this->logged)
+		if($this->role == 1 && $this->logged)
 			return true;
 		else
 			return false;
