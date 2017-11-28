@@ -1,7 +1,7 @@
 <html>
 <head>
-    <script src = "http://localhost/Projects/aiub%20project/js/comment_handler.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://localhost/Projects/aiub%20project/css/blog_style.css">
+    <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/comment_handler.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/blog_style.css">
     <title>
         <?php
 
@@ -34,9 +34,9 @@
 
 <body>
     <noscript><h4 style = "color:red;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
-    <p><a href = 'http://localhost/Projects/aiub project/Views/signup.php'>Signup</a></p>
-    <p><a href = 'http://localhost/Projects/aiub project/Views/crime_post.php'>Post Crime</a></p>
-    <p><a href = 'http://localhost/Projects/aiub project/index.php'>Home</a></p>
+    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/signup.php'>Signup</a></p>
+    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a></p>
+    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></p>
     <table>
         <?php
 
@@ -117,7 +117,7 @@
                     echo "</tr>";
                     echo "<tr>";
                     echo "<td>";
-                    echo "<form action = 'http://localhost/Projects/aiub project/Views/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST' onsubmit = 'return isCommentEmpty()'>
+                    echo "<form action = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST' onsubmit = 'return isCommentEmpty()'>
                         $currentUsername:<textarea id = 'commentBox' rows = '7' cols = '165' name = 'commentBody' placeholder = 'Comment Here' style='resize:none;'></textarea>
                         	<input type = 'submit' name = 'commentSubmit' value = 'comment'/>
                     	 </form>";

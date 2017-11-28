@@ -151,6 +151,15 @@ class UserModel extends Models{
             values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password', '$gender' , 2)");
         return $done;
     }
+	
+	function getAllUsers()
+	{
+		$result = $this->executeQuery("select * from users");
+        if($result->num_rows > 0)
+			return $result;
+		else
+			return false;
+	}
 
 }
 

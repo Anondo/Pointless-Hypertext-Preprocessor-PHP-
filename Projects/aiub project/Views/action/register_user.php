@@ -46,12 +46,12 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
         if(emptyFieldValidate() && $signup->passwordValidate($pass , $cpass)  && $signup->emailValidate($email) && $signup->usernameValidate($uname) && $signup->pictureValidate($imgname))
         {
             $signup->registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname , $imgname);
-            echo "<h><a href = 'http://localhost/Projects/aiub project/index.php'>You Have Succesfully Signed UP!!!</a></h>";
+            echo "<h><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>You Have Succesfully Signed UP!!!</a></h>";
             session_destroy(); //there is no need for the session if signed up perfectly
         }
         else
         {
-            echo "<h><a href = http://localhost/Projects/aiub%20project/Views/signup.php>".$message.$signup->getErrorMessage()."</a></h>";
+            echo "<h><a href = http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub%20project/Views/signup.php>".$message.$signup->getErrorMessage()."</a></h>";
         }
 
     //}

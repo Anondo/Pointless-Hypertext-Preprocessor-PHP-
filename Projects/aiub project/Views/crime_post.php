@@ -3,12 +3,12 @@
 <html>
 <head>
 	<title>Post</title>
-	<script src = "http://localhost/Projects/aiub project/js/blog_handler.js"></script>
-	<script src = "http://localhost/Projects/aiub project/js/location_handler.js"></script>
+	<script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/js/blog_handler.js"></script>
+	<script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/js/location_handler.js"></script>
 </head>
 <body >
 	<p><a href = 'action/logout.php'>Logout</a></p>
-    <p><a href = 'http://localhost/Projects/aiub project/index.php'>Home</a></p>
+    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></p>
 	<?php
 
 	require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");

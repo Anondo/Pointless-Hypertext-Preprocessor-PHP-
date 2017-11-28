@@ -16,7 +16,7 @@ function rmvComment(id)
                     alert(ok);
             }
         }
-        ajax.open("GET" , "http://localhost/Projects/aiub project/Views/action/comment_delete.php/?comment_id="+id , false);
+        ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub project/Views/action/comment_delete.php/?comment_id="+id , false);
         ajax.send();
     }
 

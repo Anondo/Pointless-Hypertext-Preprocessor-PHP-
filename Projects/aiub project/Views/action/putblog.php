@@ -30,14 +30,14 @@ if(!empty($_POST["title"]) && !empty($_POST["location"]) && !empty($_POST["categ
     }
     $success = $blog->insertBlog($title , $body , $datetime , $attachment , $login->getUserid() , $name_hidden , $location , $category , $noattch);
     if($success)
-         header("Location: http://localhost/Projects/aiub project/index.php");
+         header("Location: http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php");
     else
-        echo "<a href = 'http://localhost/Projects/aiub project/Views/crime_post.php'>Something Went Wrong</a>";
+        echo "<a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/crime_post.php'>Something Went Wrong</a>";
 
 }
 else
 {
-    echo "<a href = 'http://localhost/Projects/aiub project/Views/crime_post.php'>Title & Description required</a>";
+    echo "<a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/crime_post.php'>Title & Description required</a>";
 }
 
 

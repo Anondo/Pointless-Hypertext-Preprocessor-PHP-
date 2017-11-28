@@ -13,7 +13,7 @@ if(!empty($_POST['commentBody']))
     $ok = $comment->putComment($blog_id , $user_id , $body , $datetime);
     if($ok)
     {
-        header("Location: http://localhost/Projects/aiub project/Views/blog.php/?blog_id=$blog_id");
+        header("Location: http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/blog.php/?blog_id=$blog_id");
     }
     else
     {

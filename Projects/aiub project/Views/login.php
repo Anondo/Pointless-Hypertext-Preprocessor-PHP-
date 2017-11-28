@@ -4,19 +4,19 @@
 require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
 $login = new Login();
 if($login->isLogged()) //if user already logged in
-		$login->redirect("http://localhost/Projects/aiub%20project/index.php"); //redirect to the home page
+		$login->redirect("http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub%20project/index.php"); //redirect to the home page
 
  ?>
 <html>
 <head>
 	<title>Log in </title>
-	<script src = "http://localhost/Projects/aiub%20project/js/login_handler.js"></script>
+	<script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/login_handler.js"></script>
 	<link rel="stylesheet" type="text/css" href="../css/login_style.css">
 </head>
 <body>
-	<p><a href = 'http://localhost/Projects/aiub project/Views/signup.php'>Signup</a></p>
-    <p><a href = 'http://localhost/Projects/aiub project/Views/crime_post.php'>Post Crime</a></p>
-    <p><a href = 'http://localhost/Projects/aiub project/index.php'>Home</a></p>
+	<p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/signup.php'>Signup</a></p>
+    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a></p>
+    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></p>
 
 <div>
 	<?php
@@ -33,7 +33,7 @@ if($login->isLogged()) //if user already logged in
 			<tr><td><input type="text" id = "username_email" name="username_email" placeholder="username or email id" ></td></tr>
 			<tr><td><input type="Password" id = "password" name="password" placeholder = "password"></td></tr>
 			<tr><td align = "center"><input type="submit" id = "button" name="login" value = "login"></td></tr>
-			<tr><td align = "center"><a href="http://localhost/Projects/aiub%20project/Views/signup.php" target="">Don't have an account yet?</a></td></tr>
+			<tr><td align = "center"><a href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/Views/signup.php" target="">Don't have an account yet?</a></td></tr>
 		</table>
 	</form>
 </div>

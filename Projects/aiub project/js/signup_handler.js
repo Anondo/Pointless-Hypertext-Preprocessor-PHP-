@@ -112,7 +112,7 @@ function usernameValidate(uname)
             }
         }
     };
-    ajax.open("GET" , "http://localhost/Projects/aiub%20project/Views/action/username_exists.php?username="+uname , false);
+    ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub%20project/Views/action/username_exists.php?username="+uname , false);
     ajax.send();
     return exists;
 }

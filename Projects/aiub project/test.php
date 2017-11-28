@@ -12,14 +12,6 @@ while($row = $res->fetch_assoc())
 //echo date("d/m/Y h:i:sa");
 
 //echo get_include_path();
-$str = NULL;
-if($str)
-{
-    echo $str;
-}
-else
-{
-    echo "nope";
-}
+echo $_SERVER["SERVER_PORT"];
 
  ?>

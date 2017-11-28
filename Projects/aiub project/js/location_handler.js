@@ -13,7 +13,7 @@ function updateCrimeOnLocation(location)
             }
         }
     }
-    ajax.open("GET" , "http://localhost/Projects/aiub project/Views/action/update_crime_on_location.php?loc_name="+location, false);
+    ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub project/Views/action/update_crime_on_location.php?loc_name="+location, false);
     ajax.send();
     return flag;
 }
