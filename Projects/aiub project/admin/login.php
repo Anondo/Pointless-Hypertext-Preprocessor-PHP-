@@ -3,7 +3,7 @@
 require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
 $admin_login = new AdminController();
 if($admin_login->isLogged()) //if user already logged in
-		$admin_login->redirect("http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub%20projectadmin/admin_panel.php"); //redirect to the home page
+		$admin_login->redirect("http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub%20projectadmin/index.php"); //redirect to the home page
 
  ?>
 <html>
@@ -12,6 +12,14 @@ if($admin_login->isLogged()) //if user already logged in
 	<script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/js/login_handler.js"></script>
 </head>
 <body>
+	<?php
+	if(isset($_GET["logreq"]))
+	{
+		if($_GET["logreq"] == 1)
+			echo "<p style='color:red;'>You Need To Log in First</p>";
+		unset($_GET["logreq"]);
+	}
+	 ?>
 
 	<form action = "admin_login_validate.php" method = "POST" onsubmit="return isAnyFieldEmpty()">
 		<table>

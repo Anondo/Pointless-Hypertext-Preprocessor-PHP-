@@ -1,23 +1,58 @@
 <html>
 
-<head>  <title>User Information</title></head>
+<head>
+    <title>User Information</title>
+    <?php
+    require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
+    require_once(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
+    $admincontrol = new AdminController();
+    if(!$admincontrol->isLogged())
+    {
+        header("Location: login.php?logreq=1");
+    }
+
+    ?>
+</head>
 
 <body>
    <?php
-    
-	require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
-    $admincontrol = new AdminController();
     $users = $admincontrol->getAllUsers();
-    echo "<ul>";
-	
+    echo "<table border = '2'>";
+    echo "<tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Birthdate</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Profile Picture</th>
+            <th>Gender</th>
+            <th>Role</th>
+            <th>Operation</th>
+         </tr>";
 	while($user = $users->fetch_assoc())
 	{
-		echo "<li>{$user["user_id"]}-{$user["username"]}-{$user["email"]}-{$user["password"]}</li>";
-		
+        echo "<tr>
+                <td>{$user['user_id']}</td>
+                <td>{$user['fname']}</td>
+                <td>{$user['lname']}</td>
+                <td>{$user['age']}</td>
+                <td>{$user['bdate']}</td>
+                <td>{$user['username']}</td>
+                <td>{$user['email']}</td>
+                <td>{$user['password']}</td>
+                <td>{$user['pro_pic']} Picture</td>
+                <td>{$user['gender']}</td>
+                <td>{$user['role']}</td>
+                <td><a href = '#'><button>EDIT</button></a></td>
+             </tr>";
+
 	}
-	echo "</ul>";
-   
-   
+	echo "</table>";
+
+
    ?>
 </body>
 

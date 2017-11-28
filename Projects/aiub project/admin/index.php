@@ -19,9 +19,8 @@
 		}
 
      ?>
-	 
-	 <a href = " " > Manage Blogs.. </a> <br/>
-	 <a href = " " > Manage Users.. </a>
+
+	 <a href = "" > Manage Blogs.. </a> <br/>
+	 <a href = "user.php" > Manage Users.. </a>
 	</body>
 </html>
-
