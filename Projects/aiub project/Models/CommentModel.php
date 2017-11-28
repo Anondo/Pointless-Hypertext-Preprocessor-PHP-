@@ -68,7 +68,7 @@ class CommentModel extends Models{
      }
      function getUserIdByComment($id)
      {
-         $result = $this->executeQuery("select user_id from comments where comment_id = $id");
+         $result = $this->executeQuery("select user_id from comments where comment_id = $id and del = false");
          if($result)
          {
              $result = $result->fetch_assoc();

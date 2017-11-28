@@ -29,7 +29,7 @@ class BlogModel extends Models{
     }
     function getBlogTitle($id)
     {
-        $title = $this->executeQuery("select title from blogs where blog_id = $id;");
+        $title = $this->executeQuery("select title from blogs where blog_id = $id and del = false;");
         if($title->num_rows > 0)
         {
             $title = $title->fetch_assoc();
@@ -41,7 +41,7 @@ class BlogModel extends Models{
     }
     function getBlog($id)
     {
-        $blog = $this->executeQuery("select * from blogs where blog_id = $id");
+        $blog = $this->executeQuery("select * from blogs where blog_id = $id and del = false");
         if($blog->num_rows > 0)
         {
             $blog = $blog->fetch_assoc();
@@ -52,7 +52,7 @@ class BlogModel extends Models{
     }
     function getId($id)
     {
-        $bid = $this->executeQuery("select blogger_id from blogs where blog_id = $id");
+        $bid = $this->executeQuery("select blogger_id from blogs where blog_id = $id and del = false");
         if($bid->num_rows > 0)
         {
             $bid = $bid->fetch_assoc();

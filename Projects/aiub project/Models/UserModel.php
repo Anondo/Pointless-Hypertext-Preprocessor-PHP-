@@ -108,7 +108,7 @@ class UserModel extends Models{
     }
     function validUser($uname_or_email , $pass , $key)
     {
-        $result = $this->executeQuery("select * from users where $key = '$uname_or_email' and password = '$pass'");
+        $result = $this->executeQuery("select * from users where $key = '$uname_or_email' and password = '$pass' and del = false");
         if($result)
         {
             $result = $result->fetch_assoc();
@@ -121,7 +121,7 @@ class UserModel extends Models{
     }
     function getUsernameById($id)
     {
-        $result = $this->executeQuery("select username from users where user_id = $id");
+        $result = $this->executeQuery("select username from users where user_id = $id and del = false");
         if($result)
         {
             $result = $result->fetch_assoc();
@@ -132,7 +132,7 @@ class UserModel extends Models{
     }
     function getUserByName($name)
     {
-        $result = $this->executeQuery("select * from users where username = '$name'");
+        $result = $this->executeQuery("select * from users where username = '$name' and del = false");
         if($result)
         {
             return $result;
@@ -151,10 +151,10 @@ class UserModel extends Models{
             values('$fname' , '$lname' , $age , '$bdate' , '$uname' , '$email' , '$password', '$gender' , 2)");
         return $done;
     }
-	
+
 	function getAllUsers()
 	{
-		$result = $this->executeQuery("select * from users");
+		$result = $this->executeQuery("select * from users where del = false");
         if($result->num_rows > 0)
 			return $result;
 		else
