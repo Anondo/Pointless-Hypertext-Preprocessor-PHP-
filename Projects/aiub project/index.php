@@ -1,30 +1,41 @@
 <html>
 <head>
     <title>Is That Crime!</title>
+    <link rel="stylesheet" type="text/css" href="css/index_style.css">
 </head>
 
 
 <body>
+
+    <!--============================
+            Navigation Bar
+        ============================ -->
     <?php
 
     require("Controllers/login_controller.php");
     $login = new Login();
+    echo "<ul>";
     if($login->isLogged())
     {
-        echo "<h1>Welcome ". $login->getUsername(). "</h1>";
-        echo "<p><a href = 'Views/action/logout.php'>Logout</a></p>";
+        echo "<li><b class = \"navigation\">Welcome ". $login->getUsername(). "</b></li>";
+        echo "<li class = \"right-li\"><a href = 'Views/action/logout.php'>Logout</a></li>";
+        
     }
     else
     {
-        echo "<h1>Hello World</h1>";
-        echo "<p><a href = 'Views/login.php'>Login</a></p>";
+        echo "<li><b class = \"navigationb\">Hello World</b></li>";
+        echo "<li class = \"right-li\"><a href = 'Views/login.php'>Login</a></li>";
     }
-    echo "<p><a href = 'Views/signup.php'>Signup</a></p>";
-    echo "<p><a href = 'Views/crime_post.php'>Post Crime</a></p>";
+    echo "<li class = \"right-li\"><a href = 'Views/signup.php'>Signup</a></li>";
+    echo "<li class = \"right-li\"><a href = 'Views/crime_post.php'>Post Crime</a></li>";
+    echo "<li class = \"right-li\"><a href = '#'>Home</a></li>";
+    echo "</ul>";
     ?>
+<!--================================
+            BLOGs 
+====================================-->
 
-
-    <table>
+<div id = "all_blogs">
         <?php
 
             require_once("Controllers/BlogController.php");
@@ -33,6 +44,7 @@
             {
                 while($row = $result->fetch_assoc())
                 {
+                   
                     $blogger = "Anonymous"; //blogger name initially anonymous for protection
                     $body = $row["body"];
                     if(strlen($body) > 50) //not showing the entire content in the index page
@@ -45,62 +57,25 @@
                         $blogger_id = $row["blogger_id"];
                         $blogger = $blog->bloggerName($blogger_id);
                     }
-
-                    echo "<tr>";
-                    echo "<td>";
-                    echo "<h5>"."<a href = 'Views/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></h5>";
-                    echo "</td>";
-                    echo "</tr>";
-                    echo "<tr>";
-                    echo "<td>";
-                    echo "<h5>{$row['datetime']}</h5>";
-                    echo "</td>";
-                    echo "</tr>";
-                    echo "<tr>";
-                    echo "<td>";
-                    echo "<h5>$body</h5>";
-                    echo "</td>";
-                    echo "</tr>";
-                    echo "<tr>";
-                    echo "<td>";
-                    echo "Location: ".$row["location"];
-                    echo "</td>";
-                    echo "</tr>";
-                    echo "<tr>";
-                    echo "<td>";
-                    echo "Category: ".$row["category"];
-                    echo "</td>";
-                    echo "</tr>";
-                    echo "<tr>";
-                    echo "<td>";
-                    echo "<h5>By- $blogger</h5>";
-                    echo "</td>";
-                    echo "</tr>";
-                    echo "<tr>";
-                    echo "<td>";
-                    echo "<hr />";
-                    echo "</td>";
-                    echo "</tr>";
+                    echo "<div id =\"single_blog\">";
+                    echo "<div id =\"single_blog_content\">";
+                    echo "<h5>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></h5>";
+                    echo "<p class = \"datetime\">{$row['datetime']}</p>";
+                    echo "<p class = \"body\">$body</p><br>";
+                    echo "<p class=\"bold-blog-content\">Location - ".$row["location"]. "</p>";
+                    echo "<p class=\"bold-blog-content\">Category - ".$row["category"]. "</p>";
+                    echo "<p class=\"bold-blog-content\">By - $blogger</p>";
+                    echo "<hr/>";
+                    echo "</div>";
+                    echo "</div>";
                 }
-
+               
             }
             else
             {
                 echo "<h1>No Crime Blogs To See</h1>";
             }
-
-
-         ?>
-    </table>
-
-
-
-
-
-
-
-
+            ?>
+    </div>
 </body>
-
-
 </html>

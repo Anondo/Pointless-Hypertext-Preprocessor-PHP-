@@ -51,17 +51,17 @@ input:hover{
 	color: #ffffe6;
 }
 
-a:link , a:visited{
+#signup_link:link , #signup_link:visited{
 	text-decoration: none;
 	color:#7575a3;
 
 }
-a:hover{
+#signup_link:hover{
 	text-decoration: underline;
 	color:green;
 
 }
-a:actve{
+#signup_link:actve{
 	text-decoration: underline;
 	color:yellow;
 

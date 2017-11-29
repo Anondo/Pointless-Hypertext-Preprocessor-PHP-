@@ -11,13 +11,17 @@ if($login->isLogged()) //if user already logged in
 <head>
 	<title>Log in </title>
 	<script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/login_handler.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/index_style.css">
 	<link rel="stylesheet" type="text/css" href="../css/login_style.css">
+	
 </head>
 <body>
-	<p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/signup.php'>Signup</a></p>
-    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a></p>
-    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></p>
-
+	<ul>
+		<li><b class = "navigationb">Hello World</b></li>
+	    <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/signup.php'>Signup</a></li>
+    	<li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a></li>
+    	<li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></li>
+    </ul>
 <div>
 	<?php
 
@@ -33,7 +37,7 @@ if($login->isLogged()) //if user already logged in
 			<tr><td><input type="text" id = "username_email" name="username_email" placeholder="username or email id" ></td></tr>
 			<tr><td><input type="Password" id = "password" name="password" placeholder = "password"></td></tr>
 			<tr><td align = "center"><input type="submit" id = "button" name="login" value = "login"></td></tr>
-			<tr><td align = "center"><a href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/Views/signup.php" target="">Don't have an account yet?</a></td></tr>
+			<tr><td align = "center"><a id = "signup_link" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/Views/signup.php" target="">Don't have an account yet?</a></td></tr>
 		</table>
 	</form>
 </div>
