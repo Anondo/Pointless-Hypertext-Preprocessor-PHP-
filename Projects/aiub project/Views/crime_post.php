@@ -57,9 +57,11 @@
     <tr><td colspan="3"><b> Description : </b></td></tr>
 	<tr><td colspan="3"><textarea name="body" cols = "120" rows="6" placeholder=" write here ...."></textarea></td></tr>
 	<tr>
-		 <td><button onclick="return nothing_wrong()"> post</button></td>
+		<td><button onclick="return nothing_wrong()"> post</button></td>
 		<td><input type="checkbox" name="hideme" value = "hide me"> <strong>hide me </strong></td>
 		<td><input type = "file" name = "attchmnt" /></td>
+		<tr><td align = "center" colspan = "3" rowspan = "3"><br/><span id= "blogDetails_error" style = "color:red; font-size:30px"> </span></td></tr>
+
     </tr>
 </table>
 </form>

@@ -123,6 +123,7 @@
                     	 </form>";
                     echo "</td>";
                     echo "</tr>";
+                    echo '<tr><td align = "right"><span id = "comment_error" style = "color:red;font-size:30px"></span></td></tr>';
                 }
 
             }

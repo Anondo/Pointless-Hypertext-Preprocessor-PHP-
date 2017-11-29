@@ -23,10 +23,12 @@ function rmvComment(id)
 }
 function isCommentEmpty()
 {
+    var error = document.getElementById("comment_error");
     var elem = document.getElementById('commentBox');
     if(elem.value == "")
     {
-        alert("Write Something!!");
+        //alert("Write Something!!");
+        error.innerHTML = "Write Something!!";
         return false;
     }
     return true;
