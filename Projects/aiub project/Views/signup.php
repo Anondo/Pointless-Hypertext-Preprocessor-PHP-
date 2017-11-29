@@ -13,11 +13,11 @@
  <form name = "signupForm" action = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/Views/action/register_user.php/?js_enabled=false" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
   <table>
     <tr> <!--First Name Row-->
-    	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..." value = "<?php if($_SESSION)echo $_SESSION["signup_data"]["fname"];?>" /> </td><!--Checking for returned values -->
+    	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..." value = "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["fname"];?>" /> </td><!--Checking for returned values -->
     </tr>
 
     <tr> <!--Last Name Row-->
-        <td>Last Name</td> <td>:</td> <td> <input type="text" name="lname" placeholder="Last Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["lname"];?>" /> </td>
+        <td>Last Name</td> <td>:</td> <td> <input type="text" name="lname" placeholder="Last Name..." value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["lname"];?>" /> </td>
     </tr>
 
     <tr> <!--Birthdate Row-->
@@ -81,19 +81,19 @@
     </tr>
 
     <tr> <!--User Name Row-->
-    	<td>User Name </td> <td>:</td> <td> <input type="text" name="uname" placeholder="User Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["uname"];?>" onkeyup="usernameValidate(this.value)"/><span id="username_error" style="color:red;"></span></td>
+    	<td>User Name </td> <td>:</td> <td> <input type="text" name="uname" placeholder="User Name..." value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["uname"];?>" onkeyup="usernameValidate(this.value)"/><span id="username_error" style="color:red;"></span></td>
 	</tr>
 
     <tr> <!--Email Row-->
-    	<td>Your Email Address</td> <td>:</td> <td> <input type="text" name="email" placeholder="xyz@dmail.com..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["email"];?>" onkeyup="emailValidate(this.value)" /><span id="email_error" style="color:red;"></span> </td>
+    	<td>Your Email Address</td> <td>:</td> <td> <input type="text" name="email" placeholder="xyz@dmail.com..." value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["email"];?>" onkeyup="emailValidate(this.value)" /><span id="email_error" style="color:red;"></span> </td>
     </tr>
 
     <tr> <!--Password Row-->
-    	<td>Password </td> <td>:</td> <td> <input type="Password" name="pass" placeholder="password" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["pass"];?>" onkeyup="passwordValidate(this.value , signupForm.cpass.value)"/><span id="password_error" style="color:red;"></span></td>
+    	<td>Password </td> <td>:</td> <td> <input type="Password" name="pass" placeholder="password" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["pass"];?>" onkeyup="passwordValidate(this.value , signupForm.cpass.value)"/><span id="password_error" style="color:red;"></span></td>
     </tr>
 
     <tr> <!--Confirm Password Row-->
-        <td>Confirm Password </td> <td>:</td> <td> <input type="Password" name="cpass" placeholder = "RE-type password" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["cpass"];?>"onkeyup="passwordValidate(signupForm.pass.value , this.value)" /></td>
+        <td>Confirm Password </td> <td>:</td> <td> <input type="Password" name="cpass" placeholder = "RE-type password" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["cpass"];?>"onkeyup="passwordValidate(signupForm.pass.value , this.value)" /></td>
     </tr>
 
     <tr> <!--Gender Row-->
@@ -110,7 +110,7 @@
     <tr>
     	<td>Choose Your Profile Picture</td>
 		<td>:</td>
-		<td><input type = "file" name = "propic" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["propic"];?>" /></td>
+		<td><input type = "file" name = "propic" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["propic"];?>" /></td>
     </tr>
 
     <tr> <!--Submit button Row-->
@@ -120,7 +120,8 @@
   </table>
  </form>
  <?php
-	session_destroy();
+ 	if(isset($_SESSION["signup_data"]))
+		session_unset("signup_data");
  ?>
 </body>
 
