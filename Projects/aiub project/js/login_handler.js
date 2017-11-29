@@ -9,5 +9,6 @@ function isAnyFieldEmpty()
         error.innerHTML = "None of the fields can be empty!";
         return false;
     }
+    error.innerHTML = "";
     return true;
 }

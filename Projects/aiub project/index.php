@@ -19,7 +19,7 @@
     {
         echo "<li><b class = \"navigation\">Welcome ". $login->getUsername(). "</b></li>";
         echo "<li class = \"right-li\"><a href = 'Views/action/logout.php'>Logout</a></li>";
-        
+
     }
     else
     {
@@ -28,11 +28,11 @@
     }
     echo "<li class = \"right-li\"><a href = 'Views/signup.php'>Signup</a></li>";
     echo "<li class = \"right-li\"><a href = 'Views/crime_post.php'>Post Crime</a></li>";
-    echo "<li class = \"right-li\"><a href = '#'>Home</a></li>";
+    echo "<li class = \"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>Home</a></li>";
     echo "</ul>";
     ?>
 <!--================================
-            BLOGs 
+            BLOGs
 ====================================-->
 
 <div id = "all_blogs">
@@ -44,7 +44,7 @@
             {
                 while($row = $result->fetch_assoc())
                 {
-                   
+
                     $blogger = "Anonymous"; //blogger name initially anonymous for protection
                     $body = $row["body"];
                     if(strlen($body) > 50) //not showing the entire content in the index page
@@ -69,7 +69,7 @@
                     echo "</div>";
                     echo "</div>";
                 }
-               
+
             }
             else
             {

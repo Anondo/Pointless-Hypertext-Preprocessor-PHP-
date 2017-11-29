@@ -29,7 +29,7 @@
 <form name = "blog_form" method = "POST" action = "action/putblog.php" enctype="multipart/form-data" onsubmit="return updateCrimeOnLocation(blog_form.location.value)">
 <div>
 	<table>
-	<tr><td colspan="3"><input type="text" name="title" placeholder="Title"></td></tr>
+	<tr><td colspan="3"><input type="text" name="title" placeholder="Title" onkeyup="nothing_wrong()"></td></tr>
 	<tr>
 		<td>
 			Place:
@@ -55,7 +55,7 @@
 		</td>
 	</tr>
     <tr><td colspan="3"><b> Description : </b></td></tr>
-	<tr><td colspan="3"><textarea name="body" cols = "120" rows="6" placeholder=" write here ...."></textarea></td></tr>
+	<tr><td colspan="3"><textarea name="body" cols = "120" rows="6" placeholder=" write here ...." onkeyup="nothing_wrong()"></textarea></td></tr>
 	<tr>
 		<td><button onclick="return nothing_wrong()"> post</button></td>
 		<td><input type="checkbox" name="hideme" value = "hide me"> <strong>hide me </strong></td>

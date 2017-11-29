@@ -31,5 +31,6 @@ function isCommentEmpty()
         error.innerHTML = "Write Something!!";
         return false;
     }
+    error.innerHTML = "";
     return true;
 }

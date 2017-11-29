@@ -5,9 +5,10 @@ function nothing_wrong()
     if(form["body"].value == "" || form["title"].value == "")
     {
         //alert("Title & Body required");
-        
+
         error.innerHTML = "Title & Body required";
          return false;
     }
+    error.innerHTML = "";
     return true;
 }
