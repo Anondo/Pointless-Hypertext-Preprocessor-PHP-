@@ -32,6 +32,11 @@ class AdminController extends Login{
 		else
 			return false;
 	}
+	function getRoleName($role)
+	{
+		return $this->user->getRoleName($role);
+	}
+
 }
 
 

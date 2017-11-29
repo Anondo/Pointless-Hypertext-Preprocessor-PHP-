@@ -2,6 +2,7 @@
 
 <head>
     <title>User Information</title>
+    <script src = "http://localhost:<?php echo $_SERVER['SERVER_PORT']; ?>/Projects/aiub project/js/user_handler.js"></script>
     <?php
     require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
     require_once(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
@@ -33,7 +34,7 @@
          </tr>";
 	while($user = $users->fetch_assoc())
 	{
-        echo "<tr>
+        echo "<tr id='{$user['user_id']}'>
                 <td>{$user['fname']}</td>
                 <td>{$user['lname']}</td>
                 <td>{$user['age']}</td>
@@ -43,8 +44,8 @@
                 <td>{$user['password']}</td>
                 <td>{$user['pro_pic']} Picture</td>
                 <td>{$user['gender']}</td>
-                <td>{$user['role']}</td>
-                <td><a href = 'user_edit.php?user_id={$user['user_id']}'><button>EDIT</button></a></td>
+                <td>{$admincontrol->getRoleName($user['role'])}</td>
+                <td><a href = 'user_edit.php?user_id={$user['user_id']}'><button>EDIT</button></a><button onclick='rmvUser({$user['user_id']})'>DELETE</button></td>
              </tr>";
 
 	}

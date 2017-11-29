@@ -160,6 +160,38 @@ class UserModel extends Models{
 		else
 			return false;
 	}
+    function getUser($id)
+    {
+        $result = $this->executeQuery("select * from users where user_id = $id and del = false");
+        if($result->num_rows > 0)
+        {
+            $result = $result->fetch_assoc();
+            return $result;
+        }
+        return false;
+    }
+    function getRoleName($role)
+    {
+        $role_name = $this->executeQuery("select role_name from user_role where role_id = $role");
+        $role_name = $role_name->fetch_assoc();
+        $role_name = $role_name["role_name"];
+        return $role_name;
+    }
+    function updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role)
+    {
+        $age = date("Y") - $year;
+        $success = $this->executeDMLQuery("update users set
+        fname = '$fname', lname = '$lname' , age = $age , bdate='$day/$month/$year' , username = '$uname' ,
+        email = '$email' , password = '$pass' , gender = '$gender' , role = $role
+        where user_id = $id");
+        return $success;
+
+    }
+    function deleteUser($id)
+    {
+        $flag = $this->executeDMLQuery("update users set del = true where user_id = $id");
+        return $flag;
+    }
 
 }
 

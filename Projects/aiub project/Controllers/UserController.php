@@ -11,6 +11,22 @@ class UserController{
     {
         return $this->user->getUsernameById($id);
     }
+    function getUser($id)
+    {
+        return $this->user->getUser($id);
+    }
+    function getRoleName($role)
+	{
+		return $this->user->getRoleName($role);
+	}
+    function updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role)
+    {
+        return $this->user->updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role);
+    }
+    function deleteUser($id)
+    {
+        return $this->user->deleteUser($id);
+    }
 }
 
 
