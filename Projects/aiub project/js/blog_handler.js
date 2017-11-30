@@ -12,3 +12,11 @@ function nothing_wrong()
     error.innerHTML = "";
     return true;
 }
+function blogDeletePrompt()
+{
+    var sure = confirm("Are You Sure You Want To Remove This Blog?");
+    if(sure)
+        return true;
+    else
+        return false;
+}

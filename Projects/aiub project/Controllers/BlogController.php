@@ -31,6 +31,10 @@ class BlogController{
     {
         return $this->blog->putBlog($title , $body , $datetime , $attachment , $user_id , $name_hidden , $location , $category , $noattch);
     }
+    function removeBlog($id)
+    {
+        return $this->blog->removeBlog($id);
+    }
 }
 
 

@@ -1,6 +1,7 @@
 <html>
 <head>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/comment_handler.js"></script>
+    <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/blog_handler.js"></script>
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/index_style.css">
     <title>
         <?php
@@ -63,7 +64,7 @@
                     $blogger = $blogControl->bloggerName($blogger_id);
                 }
                 echo "<div id=\"blog-container-contents\">";
-                echo "<p class ='blog_title'>".$blog["title"]."</p>";
+                echo "<p class ='blog_title'>".$blog["title"]."</p>".checkRemovalbeBlog($blog["blog_id"] , $userId);
                 echo "<p class = \"datetime\">".$blog["datetime"]."</p>";
                 echo "<p class = \"body\">".$blog["body"]."</p>";
                 echo "<p class =\"bold-blog-content\">Location: ".$blog["location"]."</p>";
@@ -84,7 +85,7 @@
                         echo "<div class=\"comments\" id = {$row['comment_id']}>";
 
                         if($logged)
-                            echo "<p><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}</p>".checkRemovable($row['comment_id'] , $id , $userId);
+                            echo "<p><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}</p>".checkRemovableComment($row['comment_id'] , $id , $userId);
                         else
                             echo "<p><b>$username :</b>  {$row['body']}</p><p>{$row["datetime"]}</p>";
                         echo "</div>";
@@ -116,7 +117,7 @@
 </html>
 <?php
 
-function checkRemovable($cmntid , $blogid , $uid)
+function checkRemovableComment($cmntid , $blogid , $uid)
 {
     global $blogControl;
     global $comment;
@@ -126,6 +127,17 @@ function checkRemovable($cmntid , $blogid , $uid)
     if($uid == $currentUserId || $uid == $bloggerId)
     {
         $html = "<button onclick = 'rmvComment($cmntid)'>X</button>";
+        return $html;
+    }
+    return "";
+}
+function checkRemovalbeBlog($blogid , $userid)
+{
+    global $blogControl;
+    $bloggerid = $blogControl->getBloggerId($blogid);
+    if($userid == $bloggerid)
+    {
+        $html = "<form method='POST' action='http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Views/action/blog_delete.php?blog_id=$blogid' onsubmit='return blogDeletePrompt()'><button>X</button></form>";
         return $html;
     }
     return "";

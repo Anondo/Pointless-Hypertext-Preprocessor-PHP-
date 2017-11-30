@@ -73,6 +73,11 @@ class BlogModel extends Models{
         $success = $this->executeDMLQuery($query);
          return $success;
     }
+    function removeBlog($id)
+    {
+        $ok = $this->executeDMLQuery("update blogs set del = true where blog_id = $id");
+        return $ok;
+    }
 }
 
 
