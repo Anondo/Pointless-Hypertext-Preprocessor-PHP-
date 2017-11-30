@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>Post</title>
-	<link rel="stylesheet" type="text/css" href="../css/index_style.css">
+	<!---<link rel="stylesheet" type="text/css" href="../css/index_style.css">--->
 	<script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/js/blog_handler.js"></script>
 	<script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/js/location_handler.js"></script>
 </head>
@@ -29,11 +29,11 @@
     		<li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></li>
     	</ul>
     </navigation>
-	
+
 <form name = "blog_form" method = "POST" action = "action/putblog.php" enctype="multipart/form-data" onsubmit="return updateCrimeOnLocation(blog_form.location.value)">
 <div>
 	<table>
-	<tr><td colspan="3"><input type="text" name="title" placeholder="Title"></td></tr>
+	<tr><td colspan="3"><input type="text" name="title" placeholder="Title" onkeyup="nothing_wrong()"></td></tr>
 	<tr>
 		<td>
 			Place:
@@ -59,12 +59,13 @@
 		</td>
 	</tr>
     <tr><td colspan="3"><b> Description : </b></td></tr>
-	<tr><td colspan="3"><textarea name="body" cols = "120" rows="6" placeholder=" write here ...."></textarea></td></tr>
+	<tr><td colspan="3"><textarea name="body" cols = "120" rows="6" placeholder=" write here ...." onkeyup="nothing_wrong()"></textarea></td></tr>
 	<tr>
 		 <td><button onclick="return nothing_wrong()"> post</button></td>
 		<td><input type="checkbox" name="hideme" value = "hide me"> <strong>hide me </strong></td>
 		<td><input type = "file" name = "attchmnt" /></td>
     </tr>
+	<tr><td><span id = "blogDetails_error" style="color:red;"></span></td></tr>
 </table>
 </form>
 </div>

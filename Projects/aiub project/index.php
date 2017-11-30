@@ -29,17 +29,17 @@
             }
                 echo "<li class = \"right-li\"><a href = 'Views/signup.php'>Signup</a></li>";
                 echo "<li class = \"right-li\"><a href = 'Views/crime_post.php'>Post Crime</a></li>";
-                echo "<li class = \"right-li\"><a href = '#'>Home</a></li>";
+                echo " <li class = \"right-li\"><a href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/index.php'>Home</a></li>";
             ?>
         </ul>
     </navigation>
 <!--================================
-            BLOGs 
+            BLOGs
 ====================================-->
 
 <article>
      <div id = "all_blogs">
-        
+
             <?php
 
                 require_once("Controllers/BlogController.php");
@@ -48,7 +48,7 @@
                 {
                     while($row = $result->fetch_assoc())
                     {
-                   
+
                         $blogger = "Anonymous"; //blogger name initially anonymous for protection
                         $body = $row["body"];
                         if(strlen($body) > 50) //not showing the entire content in the index page
@@ -85,7 +85,7 @@
             ?>
         </div>
 </article>
-   
+
 </div>
 </body>
 </html>
