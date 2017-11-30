@@ -1,13 +1,12 @@
 body{
 	margin:0;
-	padding:0;
 }
 ul{
 	list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: black;
     position: fixed;
     width:100%; 
 }
@@ -40,7 +39,7 @@ li.right-li a:hover {
 
 }
 #single_blog{
-    background-color: gray;
+    background-color: lightgrey;
     max-width:40%;
     height:auto;
     float:left;
@@ -51,11 +50,24 @@ li.right-li a:hover {
 
 }
 #all_blogs{
+
     background-color:;
-    width:60%;
+    width:80%;
     height:auto;
-    padding: 10px;
+    padding:5px;
+    display:table;
     clear:left;
+}
+article{
+    padding-top:50px;
+}
+
+#searchbox{
+    background-color: pink;
+    max-width:30%;
+    height:auto;
+    top:20px;
+
 }
 
 hr { border: solid black; border-width: 2px 0 0;clear: both; margin-top:30px; width: 200px; }
@@ -84,3 +96,101 @@ hr { border: solid black; border-width: 2px 0 0;clear: both; margin-top:30px; wi
     color:black;
     line-height: 0.9;
 }
+
+/*==========================
+    for sign up page
+===========================*/
+#signup-title{
+    font-weight: bold;
+    font-size:28px;
+    font-family: ;
+    text-align:center;
+}
+#signup-form{
+    max-width:55%;
+    height:auto;
+    background-color: lightgrey ;
+    border:3px solid grey;
+    padding: 20px 40px;
+    margin: 0 auto;
+}
+.input{
+    width: 100%;
+    height: 50px;
+    background-color:lightgrey ;
+    color: black;
+    border-color: transparent;
+    border-style: none;
+    border-bottom: 2px solid darkgrey;
+    padding: 12px 10px;
+    margin-bottom:20px;
+    font-size: 16px;
+}
+label{
+    line-height:;
+    font-size: 18px;
+    font-family: '';
+    font-weight:bold ;
+    color: black;
+    border:2px solid transparent;
+}
+
+select{
+    width: 25%;
+    height: 40px;
+    background-color:lightgrey ;
+    color: black;
+    border: 2px solid darkgrey;
+    padding: 6px 4px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+#day{
+    width:10%;
+}
+
+#signup-button{
+    width: 25%;
+    height: auto;
+    border:none;
+    border-radius: 5px;
+    padding: 8px 20px;
+    background-color:black;
+    color: white;
+    text-align: center;
+    font-family: "";
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top:20px;
+}
+#signup-button:hover{
+    background-color: white;
+    color: black;
+}
+
+#imginput{
+    width:0;
+    padding: 100px 0 0 0;
+    height: 0px;
+    display: inline-block;
+    overflow: hidden;
+    
+}
+/*==========  End   =========*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
