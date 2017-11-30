@@ -8,8 +8,8 @@
 <body onload = "addYears()">
 <div>
     <navigation>
-        <ul>  
-            <li><b class = "navigationb">Hello World</b></li>  
+        <ul>
+            <li><b class = "navigationb">Hello World</b></li>
         	<li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a></li>
              <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></li>
 	    </ul>
@@ -21,19 +21,19 @@
         <?php session_start();?>
     <div id = "signup-form">
         <form name = "signupForm" action = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/Views/action/register_user.php/?js_enabled=false" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
-            
+
             <!--First Name Row-->
             <label>First Name</label>
-            <br><input type="text" class="input" name="fname" placeholder="First Name..." value = "<?php if($_SESSION)echo $_SESSION["signup_data"]["fname"];?>" /> <!--Checking for returned values -->
-        
+            <br><input type="text" class="input" name="fname" placeholder="First Name..." value = "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["fname"];?>" /> <!--Checking for returned values -->
+
 
             <!--Last Name Row-->
             <br><label>Last Name </label>
-            <br><input type="text" class="input" name="lname" placeholder="Last Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["lname"];?>" /> 
+            <br><input type="text" class="input" name="lname" placeholder="Last Name..." value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["lname"];?>" />
 
             <!--Birthdate Row-->
             <br><label>Birthdate </label>
-            <br>Day 
+            <br>Day
                 <select id = "day" name="day" >
                             <option value="1">1 </option>
                             <option value="2">2 </option>
@@ -67,7 +67,7 @@
                             <option value="30">30 </option>
                             <option value="31">31 </option>
                         </select>
-                                Month  
+                                Month
                                    <select name="month">
                                       <option value="jan">January</option>
                                       <option value="feb">February</option>
@@ -82,25 +82,25 @@
                                       <option value="nov">November</option>
                                       <option value="dec">December</option>
                                    </select>
-                                Year  
+                                Year
                                    <select name="year">
                                    </select>
 
         <!--User Name Row-->
         <br><label>User Name</label>
-        <br><input type="text" class="input" name="uname" placeholder="User Name..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["uname"];?>" onkeyup="usernameValidate(this.value)"/><span id="username_error" style="color:red;"></span>
+        <br><input type="text" class="input" name="uname" placeholder="User Name..." value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["uname"];?>" onkeyup="usernameValidate(this.value)"/><span id="username_error" style="color:red;"></span>
 
         <!--Email Row-->
         <br><label>Your Email Address</label>
-        <br><input  type="text" class="input" name="email" placeholder="xyz@dmail.com..." value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["email"];?>" onkeyup="emailValidate(this.value)" /><span id="email_error" style="color:red;"></span>
+        <br><input  type="text" class="input" name="email" placeholder="xyz@dmail.com..." value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["email"];?>" onkeyup="emailValidate(this.value)" /><span id="email_error" style="color:red;"></span>
 
         <!--Password Row-->
         <br><label>Password</label>
-        <br><input type="Password" class="input" name="pass" placeholder="password" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["pass"];?>" onkeyup="passwordValidate(this.value , signupForm.cpass.value)"/><span id="password_error" style="color:red;font-size:14px;font-weight:italic;"></span>
+        <br><input type="Password" class="input" name="pass" placeholder="password" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["pass"];?>" onkeyup="passwordValidate(this.value , signupForm.cpass.value)"/><span id="password_error" style="color:red;font-size:14px;font-weight:italic;"></span>
 
         <!--Confirm Password Row-->
-        <br><label>Confirm Password</label> 
-        <br><input type="Password" class="input" name="cpass" placeholder = "RE-type password" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["cpass"];?>"onkeyup="passwordValidate(signupForm.pass.value , this.value)" />
+        <br><label>Confirm Password</label>
+        <br><input type="Password" class="input" name="cpass" placeholder = "RE-type password" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["cpass"];?>"onkeyup="passwordValidate(signupForm.pass.value , this.value)" />
 
         <!--Gender Row-->
         <br><label >I am </label>
@@ -113,14 +113,15 @@
         <br><label for = "imginput">
                  <img src="../img/image_logo.jpg" height="30" width="35"/> Choose Your Profile Picture
             </label>
-            <input type = "file" id ="imginput" name = "propic" value =  "<?php if($_SESSION)echo $_SESSION["signup_data"]["propic"];?>" />
+            <input type = "file" id ="imginput" name = "propic" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["propic"];?>" />
 
     <!--Submit button Row-->
     <br><input type="submit" id="signup-button" name="submit" value="Sign UP">
  </form>
 </div>
  <?php
-    session_destroy();
+ 	if(isset($_SESSION["signup_data"]))
+		session_unset("signup_data");
  ?>
 </article>
 </div>
