@@ -1,0 +1,5 @@
+css : 
+	1) texts without space go out of the tiles 
+	2) radio button would be better than select tag for gender choosing.
+	3) when an user is logged in / logged out , sign up button shows in navigationbar ..
+	as a result there shows some garbage value for a logged in person in the sign up form 
