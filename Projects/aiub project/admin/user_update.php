@@ -20,10 +20,10 @@ if(!empty($_POST["fname"]) || !empty($_POST["lname"]) || !empty($_POST["day"]) |
     if($ok)
         header("Location: http://localhost:".$_SERVER["SERVER_PORT"]."/Projects/aiub project/admin/user.php");
     else
-        echo "<a href='http://localhost:".$_SERVER["SERVER_PORT"]."/Projects/aiub project/admin/user_edit?user_id=$id.php'>Something Went Wrong</a>";
+        echo "<a href='http://localhost:".$_SERVER["SERVER_PORT"]."/Projects/aiub project/admin/user_edit.php?user_id=$id'>Something Went Wrong</a>";
 }
 else
-    echo "<a href='http://localhost:".$_SERVER["SERVER_PORT"]."/Projects/aiub project/admin/user_edit?user_id=$id.php'>None of the fields can be empty</a>";
+    echo "<a href='http://localhost:".$_SERVER["SERVER_PORT"]."/Projects/aiub project/admin/user_edit.php?user_id=$id'>None of the fields can be empty</a>";
 
 
 

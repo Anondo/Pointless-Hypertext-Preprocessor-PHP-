@@ -1,7 +1,7 @@
 <html>
 <head>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/comment_handler.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/blog_style.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/index_style.css">
     <title>
         <?php
 
@@ -33,12 +33,19 @@
 
 
 <body>
+<div>
+    <navigation>
+        <ul>
+            <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/signup.php'>Signup</a></li>
+            <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a></li>
+            <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></li>
+        </ul>
+    </navigation> 
     <noscript><h4 style = "color:red;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
-    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/signup.php'>Signup</a></p>
-    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a></p>
-    <p><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></p>
-    <table>
-        <?php
+
+    <article>
+         <div id = "blog-container">
+            <?php
 
             if(isset($_GET["blog_id"]))
             {
@@ -50,46 +57,17 @@
                     $blogger_id = $blog["blogger_id"];
                     $blogger = $blogControl->bloggerName($blogger_id);
                 }
-                echo "<tr>";
-                echo "<td>";
-                echo $blog["title"];
-                echo "</td>";
-                echo "</tr>";
-                echo "<tr>";
-                echo "<td>";
-                echo $blog["datetime"];
-                echo "</td>";
-                echo "</tr>";
-                echo "<tr>";
-                echo "<td>";
-                echo $blog["body"];
-                echo "</td>";
-                echo "</tr>";
-                echo "<tr>";
-                echo "<td>";
-                echo "Location: ".$blog["location"];
-                echo "</td>";
-                echo "</tr>";
-                echo "<tr>";
-                echo "<td>";
-                echo "Category: ".$blog["category"];
-                echo "</td>";
-                echo "</tr>";
-                echo "<tr>";
-                echo "<td>";
+                echo "<div id=\"blog-container-contents\">";
+                echo "<p class ='blog_title'>".$blog["title"]."</p>";
+                echo "<p class = \"datetime\">".$blog["datetime"]."</p>";
+                echo "<p class = \"body\">".$blog["body"]."</p>";
+                echo "<p class =\"bold-blog-content\">Location: ".$blog["location"]."</p>";
+                echo "<p class =\"bold-blog-content\">Category: ".$blog["category"]."</p>";
                 //echo $blog["attachment"]; //need to fix this
-                echo "</td>";
-                echo "</tr>";
-                echo "<tr>";
-                echo "<td>";
-                echo "By-----".$blogger;
-                echo "</td>";
-                echo "</tr>";
-                echo "<tr>";
-                echo "<td>";
-                echo "<h2>Comments</h2>";
-                echo "</td>";
-                echo "</tr>";
+                echo "<p class =\"bold-blog-content\">By-----".$blogger."</p>";
+                echo "</div>";
+                echo "<hr>";
+                echo "<p id = \"comment-title\">Comments</p>";
                 $commentResult = $comment->getCommentByBlog($id);
                 if($commentResult)
                 {
@@ -98,34 +76,26 @@
                     {
                         $username = $user->getUsername($row['user_id']);
                         $username = $username["username"];
-                        echo "<tr id = {$row['comment_id']}>";
-                        echo "<td>";
+                        echo "<div class=\"comments\" id = {$row['comment_id']}>";
+                        
                         if($logged)
-                            echo "$username:  {$row['body']}----------------------{$row["datetime"]}".checkRemovable($row['comment_id'] , $id , $userId)."<hr />";
+                            echo "<p><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}</p>".checkRemovable($row['comment_id'] , $id , $userId);
                         else
-                            echo "$username:  {$row['body']}----------------------{$row["datetime"]}<hr />";
-                        echo "</td>";
-                        echo "</tr>";
+                            echo "<p><b>$username :</b>  {$row['body']}</p><p>{$row["datetime"]}</p>";
+                        echo "</div>";
                     }
                 }
                 if($logged) //the privilage for the user to comment on the post if logged in
                 {
-                    echo "<tr>";
-                    echo "<td>";
-                    echo "<hr />";
-                    echo "</td>";
-                    echo "</tr>";
-                    echo "<tr>";
-                    echo "<td>";
+                    echo "<hr>";
+                    echo "<div id =\"div-commentBox\">";
                     echo "<form action = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST' onsubmit = 'return isCommentEmpty()'>
-                        $currentUsername:<textarea id = 'commentBox' rows = '7' cols = '165' name = 'commentBody' placeholder = 'Comment Here' style='resize:none;' onkeyup = 'isCommentEmpty()'></textarea>
-                        	<input type = 'submit' name = 'commentSubmit' value = 'comment'/>
-                    	 </form>";
-                    echo "</td>";
-                    echo "</tr>";
-                    echo '<tr><td align = "right"><span id = "comment_error" style = "color:red;font-size:30px"></span></td></tr>';
+                         <label>$currentUsername: </label>
+                         <textarea id = 'commentBox' rows = '7' cols = '165' name = 'commentBody' placeholder = 'Comment Here' style='resize:none;' onkeyup = 'isCommentEmpty()'></textarea>
+                          <br><input type = 'submit' id = 'comment-button' name = 'commentSubmit' value = 'comment'/>
+                         <span id = \"comment_error\" style = \"color:red;font-size:16px\"></span></form>";
+                    echo "</div>";
                 }
-
             }
             else
             {
@@ -133,7 +103,10 @@
             }
 
          ?>
-    </table>
+     </div>
+    </article> 
+       
+</div>
 </body>
 </html>
 <?php

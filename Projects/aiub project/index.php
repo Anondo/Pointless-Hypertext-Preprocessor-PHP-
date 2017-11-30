@@ -84,6 +84,11 @@
                 }
             ?>
         </div>
+
+        <div id = "right-content">
+            <input type="text" name="serach" id = "searchbox" placeholder="search">
+            <input type="text" name="searchby" id = "searchby" placeholder="by">
+        </div>
 </article>
 
 </div>
