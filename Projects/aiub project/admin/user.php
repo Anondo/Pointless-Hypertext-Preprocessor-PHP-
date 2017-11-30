@@ -5,7 +5,6 @@
     <script src = "http://localhost:<?php echo $_SERVER['SERVER_PORT']; ?>/Projects/aiub project/js/user_handler.js"></script>
     <?php
     require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
-    require_once(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
     $admincontrol = new AdminController();
     if(!$admincontrol->isLogged())
     {

@@ -8,7 +8,7 @@ ul{
     overflow: hidden;
     background-color: black;
     position: fixed;
-    width:100%; 
+    width:100%;
 }
 li{
      float: left;
@@ -82,7 +82,7 @@ article{
     margin-left: 10px;
     top:20px;
     float:left;
-    cursor: text; 
+    cursor: text;
 
 }
 #searchbox{
@@ -206,7 +206,7 @@ select{
     height: 0px;
     display: inline-block;
     overflow: hidden;
-    
+
 }
 /*==========  End   =========*/
 /*=============================
@@ -228,7 +228,7 @@ BLOG POST & COMMENT
     height:auto;
     border:2px solid transparent;
     padding-left: 10px;
-    padding-right: 10px;     
+    padding-right: 10px;
 }
 
 .comments{
@@ -270,7 +270,7 @@ BLOG POST & COMMENT
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
-    margin-top:5px; 
+    margin-top:5px;
 }
 #comment-button:hover{
     background-color: white;
