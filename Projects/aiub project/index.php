@@ -27,6 +27,9 @@
                 echo "<li><b class = \"navigationb\">Hello World</b></li>";
                 echo "<li class = \"right-li\"><a href = 'Views/login.php'>Login</a></li>";
             }
+            if($login->isLogged())
+                echo "<li class = \"right-li\"><a href = 'Views/user_info.php'>Profile</a></li>";
+            else
                 echo "<li class = \"right-li\"><a href = 'Views/signup.php'>Signup</a></li>";
                 echo "<li class = \"right-li\"><a href = 'Views/crime_post.php'>Post Crime</a></li>";
                 echo " <li class = \"right-li\"><a href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/index.php'>Home</a></li>";

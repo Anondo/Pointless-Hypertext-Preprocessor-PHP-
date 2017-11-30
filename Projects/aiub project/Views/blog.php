@@ -36,11 +36,16 @@
 <div>
     <navigation>
         <ul>
-            <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/signup.php'>Signup</a></li>
+            <?php
+            if($logged)
+                echo "<li class = 'right-li'><a href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/Views/user_info.php'>Profile</a></li>";
+            else
+                echo "<li class = 'right-li'><a href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/Views/signup.php'>Signup</a></li>";
+            ?>
             <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a></li>
             <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></li>
         </ul>
-    </navigation> 
+    </navigation>
     <noscript><h4 style = "color:red;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
 
     <article>
@@ -77,7 +82,7 @@
                         $username = $user->getUsername($row['user_id']);
                         $username = $username["username"];
                         echo "<div class=\"comments\" id = {$row['comment_id']}>";
-                        
+
                         if($logged)
                             echo "<p><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}</p>".checkRemovable($row['comment_id'] , $id , $userId);
                         else
@@ -104,8 +109,8 @@
 
          ?>
      </div>
-    </article> 
-       
+    </article>
+
 </div>
 </body>
 </html>
