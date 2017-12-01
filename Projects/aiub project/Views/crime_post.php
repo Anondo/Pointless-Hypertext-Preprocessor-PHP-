@@ -31,28 +31,32 @@
     </navigation>
 
     <article>
-    	<div>
+    	<div id = "post-container-box">
     	<form name = "blog_form" method = "POST" action = "action/putblog.php" enctype="multipart/form-data" onsubmit="return updateCrimeOnLocation(blog_form.location.value)">
 
-				<input type="text" name="title" placeholder="Title" onkeyup="nothing_wrong()">
-			<div>
-				<label>Place:</label><br>
-				<select name ="location">
-					<?php
+			<div id="div-title-post">
+				<input type="text" id ="title-post" name="title" placeholder="Title" onkeyup="nothing_wrong()">
+			</div>
+
+			<div id = "mini-div">
+					<div id = "mini-div-box-1">
+						<label>Place:</label><br>
+						<select id="select-location" name ="location">
+						<?php
 						foreach($location->getLocations() as $loc)
 						{
 							echo "<option value = $loc>$loc</option>";
 						}
-				 	?>
-				</select>
-			</div>
-			<div>
+				 		?>
+						</select>
+					</div>
+			<div id = "mini-div-box-2">
 				<label>Details(location):</label><br>
-				<input type = "text" name = "secloc" />
+				<input id="select-location" type = "text" name = "secloc" />
 			</div>
-			<div>
+			<div id = "mini-div-box-3">
 				<label>Category:</label><br>
-				<select name ="category">
+				<select id="select-category" name ="category">
 					<option value = "robbery"> Robbery </option>
 					<option value = "murder"> Murder </option>
 					<option value = "rape"> Rape </option>
@@ -60,19 +64,22 @@
 					<option value = "other"> Other </option>
 				</select>
 			</div>
-			
-   			<label><b> Description : </b></label>
-			<textarea name="body" cols = "120" rows="6" placeholder=" write here ...." onkeyup="nothing_wrong()"></textarea>
-			
-		 	<br><button onclick="return nothing_wrong()"> post</button>
-			<input type="checkbox" name="hideme" value = "hide me"> <strong>hide me </strong>
-			<input type = "file" name = "attchmnt" />
+			</div>
+			<div id="div-description-body">
+   				<label><b> Description : </b></label><br>
+				<textarea id="description-body" name="body" cols = "120" rows="6" placeholder=" write here ...." onkeyup="nothing_wrong()"></textarea>
+			</div>
+
+			<div id="div-button-etc">
+		 		<br><button id="post-button" onclick="return nothing_wrong()"> post</button>
+				<input type="checkbox" name="hideme" value = "hide me"> <strong>hide me </strong>
+				<input type = "file" name = "attchmnt" />
+			</div>
     
 			<span id = "blogDetails_error" style="color:red;"></span>
-			</table>
 		</form>
 	</div>
-    </article>
+</article>
 </div>
 </body>
 </html>

@@ -90,7 +90,13 @@
 
         <div id = "right-content">
             <input type="text" name="serach" id = "searchbox" placeholder="search">
-            <input type="text" name="searchby" id = "searchby" placeholder="by">
+            <select name="by" id = "searchby">
+                    <option value = "by"> By </option>
+                    <option value = "category"> Category </option>
+                    <option value = "location"> Location </option>
+                    <option value = "user"> User </option>
+                    <option value = "title"> title </option>
+            </select>
         </div>
 </article>
 
