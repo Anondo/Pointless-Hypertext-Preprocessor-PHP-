@@ -24,10 +24,16 @@ $role = $user["role"];
 <html>
 <head>
     <title><?php echo $username ?> Information</title>
+    <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/user_info.css"/>
 </head>
 <body>
     <form action="action/user_update.php?user_id=<?php echo $userid ?>&role=<?php echo $role ?>" method="POST">
         <table>
+            <tr>
+                <td>Current Profile Picture</td>
+                <td>:</td>
+                <td><img id="pro_pic" src="<?php echo $pro_pic ?>"/></td>
+            </tr>
             <tr>
             	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..." value="<?php echo $fname;?>"/> </td>
             </tr>
@@ -105,6 +111,11 @@ $role = $user["role"];
             		               	</select>
 
             	                 </td>
+            </tr>
+            <tr>
+                <td>Change Your Profile Picture</td>
+                <td>:</td>
+                <td><input type="file" name="pro_pic"/></td>
             </tr>
 
             <tr>

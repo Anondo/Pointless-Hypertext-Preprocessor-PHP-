@@ -45,13 +45,21 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
     {*/
         if(emptyFieldValidate() && $signup->passwordValidate($pass , $cpass)  && $signup->emailValidate($email) && $signup->usernameValidate($uname) && $signup->pictureValidate($imgname))
         {
-            $signup->registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $directory.$imgname , $imgname);
+            mkdir($directory.$uname);
+            mkdir($directory.$uname."/"."Profile Picture");
+            $finaleImageLocation = $directory.$uname."/"."Profile Picture/";
+            $urlImage = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Uploads/$uname/Profile Picture/$imgname";
+            $signup->registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $urlImage , $imgname);
             echo "<h><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>You Have Succesfully Signed UP!!!</a></h>";
             session_destroy(); //there is no need for the session if signed up perfectly
+            copy($directory.$imgname , $finaleImageLocation.$imgname);
+            unlink($directory.$imgname);
         }
         else
         {
             echo "<h><a href = http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub%20project/Views/signup.php>".$message.$signup->getErrorMessage()."</a></h>";
+            if (file_exists($directory.$imgname))
+                unlink($directory.$imgname);
         }
 
     //}

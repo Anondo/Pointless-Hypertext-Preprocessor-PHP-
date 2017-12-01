@@ -31,6 +31,10 @@ li.right-li a:hover {
     color: white;
     font-size:30px;
 }
+#pro_pic{
+    width: 5%;
+    height: 5%;
+}
 #single_blog_content{
     border-color: transparent;
     border-style: solid;
@@ -372,7 +376,7 @@ BLOG POST & COMMENT
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
-    margin-top:5px; 
+    margin-top:5px;
 }
 #post-button:hover{
     background-color: white;
@@ -396,4 +400,3 @@ BLOG POST & COMMENT
     float:left;
     clear:both;
 }
-
