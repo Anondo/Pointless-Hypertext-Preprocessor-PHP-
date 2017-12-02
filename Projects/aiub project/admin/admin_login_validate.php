@@ -9,7 +9,7 @@
    		if($admincontrol->checkAdmin($unameOremail , $pass  , "username") || $admincontrol->checkAdmin($unameOremail , $pass , "email"))
    		{
    			$row = $admincontrol->getQueryResult();
-        $admincontrol->log_in($row["username"] , $row["user_id"] , " http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub%20project/admin/index.php" , $row["role"]);
+        $admincontrol->log_in($row["username"] , $row["user_id"] , " http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub%20project/admin/index.php" , $row["role"],$row["pro_pic"]);
    		}
    		else
       	{

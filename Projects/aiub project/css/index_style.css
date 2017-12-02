@@ -1,6 +1,10 @@
 body{
     margin:0;
 }
+#pro_pic{
+    width: 8%;
+    height: 8%;
+}
 
 #single_blog_content{
     border-color: transparent;

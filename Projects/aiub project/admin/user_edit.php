@@ -27,10 +27,16 @@ $roles = $rolecontrol->getAllRoles();
 <head>
     <title><?php echo $username ?> Information</title>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/admin_user_handler.js"></script>
+    <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/admin_user_edit.css"/>
 </head>
 <body>
-    <form name = "signupForm" action="user_update.php?user_id=<?php echo $userid ?>" method="POST" onsubmit = "return validate()">
+    <form name = "signupForm" action="user_update.php?user_id=<?php echo $userid ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
         <table>
+            <tr>
+                <td>Change Your Profile Picture</td>
+                <td>:</td>
+                <td><img id = "pro_pic" src='<?php echo $pro_pic ?>'/></td>
+            </tr>
             <tr>
             	<td>First Name</td> <td>:</td> <td> <input type="text" name="fname" placeholder="First Name..." value="<?php echo $fname;?>"/> </td>
             </tr>
@@ -68,7 +74,7 @@ $roles = $rolecontrol->getAllRoles();
                                                         echo "<option value = $k>$v</option>";
                                                 }
                                                 ?>
-                	   	                   	
+
                 	   	                   </select>
 
 
@@ -124,6 +130,12 @@ $roles = $rolecontrol->getAllRoles();
             		               	</select>
 
             	                 </td>
+            </tr>
+
+            <tr>
+                <td>Change Profile Picture</td>
+                <td>:</td>
+                <td><input type="file" name="pro_pic"/></td>
             </tr>
 
 

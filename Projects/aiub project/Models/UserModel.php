@@ -177,12 +177,12 @@ class UserModel extends Models{
         $role_name = $role_name["role_name"];
         return $role_name;
     }
-    function updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role)
+    function updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role , $pro_pic)
     {
         $age = date("Y") - $year;
         $success = $this->executeDMLQuery("update users set
         fname = '$fname', lname = '$lname' , age = $age , bdate='$day/$month/$year' , username = '$uname' ,
-        email = '$email' , password = '$pass' , gender = '$gender' , role = $role
+        email = '$email' , password = '$pass' , pro_pic = '$pro_pic' ,  gender = '$gender' , role = $role
         where user_id = $id");
         return $success;
 

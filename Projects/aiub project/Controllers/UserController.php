@@ -19,9 +19,9 @@ class UserController{
 	{
 		return $this->user->getRoleName($role);
 	}
-    function updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role)
+    function updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role , $pro_pic)
     {
-        return $this->user->updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role);
+        return $this->user->updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role ,$pro_pic);
     }
     function deleteUser($id)
     {
