@@ -34,6 +34,10 @@ $name_hidden = $blog["name_hidden"];
 
           ?>
      </title>
+
+     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/index_style.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/blog_style.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/comment_style.css">
  </head>
 
 
@@ -55,7 +59,7 @@ $name_hidden = $blog["name_hidden"];
                      $blogger = $blogcontrol->bloggerName($blogger_id);
                  }
                  echo "<div id=\"blog-container-contents\">";
-                 echo "<p class ='blog_title'>".$title."</p>"."<form method='POST' action='http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/admin/blog_delete.php?blog_id=$blogid' onsubmit='return blogDeletePrompt()'><button>X</button></form>";
+                 echo "<p class ='blog_title'>".$title."</p>"."<form method='POST' action='http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/admin/blog_delete.php?blog_id=$blogid' onsubmit='return blogDeletePrompt()'><button id='delete-button'>X</button></form>";
                  echo "<p class = \"datetime\">".$datetime."</p>";
                  echo "<p class = \"body\">".$body."</p>";
                  echo "<p class =\"bold-blog-content\">Location: ".$location."</p>";
@@ -76,7 +80,7 @@ $name_hidden = $blog["name_hidden"];
                          echo "<div class=\"comments\" id = {$row['comment_id']}>";
 
                          if($logged)
-                             echo "<p><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}</p><button onclick = 'rmvComment({$row['comment_id']})'>X</button>";
+                             echo "<p><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}</p><button id='delete-button' onclick = 'rmvComment({$row['comment_id']})'>X</button>";
                          else
                              echo "<p><b>$username :</b>  {$row['body']}</p><p>{$row["datetime"]}</p>";
                          echo "</div>";

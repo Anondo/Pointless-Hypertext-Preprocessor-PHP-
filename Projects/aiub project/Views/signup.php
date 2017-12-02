@@ -3,6 +3,8 @@
 	<title>SignUP Page</title>
 	<script src = "../js/signup_handler.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/index_style.css">
+    <link rel="stylesheet" type="text/css" href="../css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="../css/signup_style.css">
 </head>
 
 <body onload = "addYears()">

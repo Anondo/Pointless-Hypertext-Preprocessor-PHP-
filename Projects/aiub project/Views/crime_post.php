@@ -4,10 +4,13 @@
 <head>
 	<title>Post</title>
 	<link rel="stylesheet" type="text/css" href="../css/index_style.css">
+	<link rel="stylesheet" type="text/css" href="../css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="../css/postcrime_style.css">
+
 	<script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/js/blog_handler.js"></script>
 	<script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/js/location_handler.js"></script>
 </head>
-<body >
+<body>
 <div>
 	<navigation>
 		<ul>

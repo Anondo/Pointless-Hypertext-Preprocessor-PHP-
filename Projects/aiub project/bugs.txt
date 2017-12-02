@@ -1,5 +1,11 @@
 css : 
 	1) texts without space go out of the tiles 
 	2) radio button would be better than select tag for gender choosing.
-	3) when logged in , signup link shouldn't be there on the navigation bar
-	4) password feild in signup ,messed while copy-paste into confirm-password 
+	
+	5) need login/logout in single-blog page
+	6) need profile link in post-crime page
+	7) an error occured in profile 
+		Notice: A session had already been started - ignoring session_start() in F:\WebDev\PHP\Projects\aiub project\Controllers\login_controller.php on line 12
+	8) uploaded picture cant be seen in profile page.
+	9) in admin panel javascript prevent me to submit while i do not modify the username.
+	  

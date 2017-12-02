@@ -1,0 +1,30 @@
+/*=============================
+BLOG 
+=============================*/
+#blog-container{
+    max-width:60%;
+    height:auto;
+    background-color: darkslategray;
+    color:black;
+    border:3px solid grey;
+    padding: 5px 20px 10px 20px;
+    margin: 0;
+    text-align: justify;
+}
+
+#blog-container-content{
+    max-width:100%;
+    height:auto;
+    border:2px solid transparent;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#delete-button{
+    background-color: red;
+    border:2px solid white;
+    color: white;
+    font-weight: bold;
+    width:4%;
+    height:4%;
+}

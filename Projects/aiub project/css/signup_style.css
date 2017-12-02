@@ -1,12 +1,16 @@
-#pro_pic{
-    width: 40%;
-    height: 40%;
+/*==========================
+    for sign up page
+===========================*/
+#signup-title{
+    font-weight: bold;
+    font-size:28px;
+    font-family: ;
+    text-align:center;
 }
-
-#profile_Form{
-	max-width:55%;
+#signup-form{
+    max-width:55%;
     height:auto;
-    background-color: darkslategrey ;
+    background-color: lightgrey ;
     border:3px solid grey;
     padding: 20px 40px;
     margin: 0 auto;
@@ -46,6 +50,26 @@ select{
     width:10%;
 }
 
+#signup-button{
+    width: 25%;
+    height: auto;
+    border:none;
+    border-radius: 5px;
+    padding: 8px 20px;
+    background-color:black;
+    color: white;
+    text-align: center;
+    font-family: "";
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top:20px;
+}
+#signup-button:hover{
+    background-color: white;
+    color: black;
+}
+
 #imginput{
     width:0;
     padding: 100px 0 0 0;
@@ -54,6 +78,4 @@ select{
     overflow: hidden;
 
 }
-article{
-    padding-top:50px;
-}
+/*==========  End   =========*/

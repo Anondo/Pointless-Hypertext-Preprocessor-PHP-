@@ -1,26 +1,38 @@
 <html>
-	<head>
-		<title>Admin Panel</title>
-	</head>
-	<body>
-	<?php
+<head>
+	<title>Admin Panel</title>
+	<link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/navigation.css">
+</head>
+<body>
+	
+		<ul>
+			<?php
 
-		require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
-		$admin_login = new AdminController();
-		if($admin_login->isLogged())
-		{
-			echo "<h1>Welcome ". $admin_login->getUsername(). "</h1>";
-			echo "<p><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/action/logout.php'>Logout</a></p>";
-		}
-			else
-		{
-			echo "<h1>Hello World</h1>";
-			echo "<p><a href = 'login.php'>Login</a></p>";
-		}
+				require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
+				$admin_login = new AdminController();
+				if($admin_login->isLogged())
+				{
+					echo "<li><b class = \"navigationb\">Welcome ". $admin_login->getUsername(). "</b></li>";
+					echo "<li class=\"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/action/logout.php'>Logout</a></li>";
+				}
+				else
+				{
+					echo "<li><b class = \"navigationb\">Hello World</b></li>";
+					echo "<li class=\"right-li\"><a href = 'login.php'>Login</a></li>";
+				}
+     	    ?>
+     		<li class="dropdown right-li">
+     			<a href="#" class="dropbtn">Manage</a>
+     			<div class="dropdown-content">
+	 	            <a href = "blog.php" > Manage Blogs </a>
+	 				<a href = "user.php" > Manage Users </a>
+  				</div>	
+	 		</li>
+	 	</ul>
 
-     ?>
+	 	<h2>Welcome to Admin Panel.</h2>
 
-	 <a href = "blog.php" > Manage Blogs.. </a> <br/>
-	 <a href = "user.php" > Manage Users.. </a>
-	</body>
+
+
+</body>
 </html>

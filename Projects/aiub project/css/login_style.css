@@ -17,19 +17,19 @@ table{
 
 input{
 	width: 400px;
-	height: 30px;
+	height: auto;
 	background-color:#a3a3c2 ;
 	color: #ffffe6;
 	border-color: transparent;
 	border-style: none;
-	border-left: 8px solid #7575a3;
+	border-left: 4px solid #7575a3;
 	padding: 10px;
 	font-size: 16px;
 }
 
 input:hover{
 	background-color: #b3b3cc;
-	border-left: 8px solid #7575a3;
+	border-left: 4px solid #7575a3;
 }
 
 #button{
