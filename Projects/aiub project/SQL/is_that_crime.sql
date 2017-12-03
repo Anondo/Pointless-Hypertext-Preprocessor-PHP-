@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2017 at 11:19 AM
+-- Generation Time: Dec 03, 2017 at 09:00 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -136,8 +136,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `fname`, `lname`, `age`, `bdate`, `username`, `email`, `password`, `pro_pic`, `gender`, `role`, `del`) VALUES
-(10, 'Mr', 'tasty', 27, '7/feb/1990', 'thetaste', 'tasty@yummy.com', 'abcd%1abcd', 'http://localhost:80/Projects/aiub project/Uploads/thetaste/Profile Picture/DM.png', 'male', 1, 0),
-(12, 'New', 'User', 82, '5/apr/1935', 'newbie', 'new@user.com', 'abcd%1abcd', NULL, 'male', 2, 0);
+(10, 'Mr', 'tasty', 27, '7/feb/1990', 'thetaste', 'tasty@yummy.com', 'abcd%1abcd', NULL, 'male', 1, 0),
+(12, 'New', 'User', 82, '5/apr/1935', 'newbie', 'new@user.com', 'abcd%1abcd', NULL, 'male', 2, 0),
+(15, 'test', 'user', 16, '14/nov/2001', 'testuser', 'aanondos@yahoo.com', 'abcd%1abcd', 'http://localhost:80/Projects/aiub project/uploads/testuser/Profile Picture/17951783_10154314153067461_8889903535218467357_n.png', 'male', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -222,7 +223,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `user_role`
 --

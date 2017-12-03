@@ -22,6 +22,7 @@ for($i = 3; $i<sizeof($str);$i++)
 $path = join("/" , $path);
 echo $path;
 unlink($_SERVER['DOCUMENT_ROOT']."/".$path);*/
-echo 0/0;
+chmod("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/baal" , 0777);
+rmdir("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/baal");
 
  ?>

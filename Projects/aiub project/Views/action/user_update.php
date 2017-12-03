@@ -17,25 +17,23 @@ if(!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["day"]) &
     $email = $_POST["email"];
     $pass = $_POST["pass"];
     $gender = $_POST["gender"];
-    if(isset($_FILES["pro_pic"]))
+    $previous_uname = $usercontrol->getUsername($id)["username"];
+    $prevImageName = explode("/" , $pro_pic);
+    $prevImageName = $prevImageName[sizeof($prevImageName)-1];
+    if(!empty($_FILES["pro_pic"]["name"]))
     {
-        $str = $pro_pic;
-        $str = explode("/" , $str);
-        $path = [];
-        for($i = 3; $i<sizeof($str)-1;$i++)
-        {
-            $path[] = $str[$i];
-        }
-        $path = join("/" , $path);
+
+        unlink("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$previous_uname/Profile Picture/$prevImageName");
         $img = $_FILES["pro_pic"];
         $imgname = $img["name"];
         $img_tmp = $img["tmp_name"];
-        $pro_pic = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/uploads/$uname/Profile Picture/$imgname";
-        move_uploaded_file($img_tmp , $_SERVER['DOCUMENT_ROOT']."/".$path."/$imgname");
+        $prevImageName = $imgname;
+        move_uploaded_file($img_tmp , "{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$previous_uname/Profile Picture/$imgname");
     }
+    $pro_pic = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/uploads/$uname/Profile Picture/$prevImageName";
     $_SESSION["username"] = $uname;
     $_SESSION["pro_pic"] = $pro_pic;
-    $previous_uname = $usercontrol->getUsername($id)["username"];
+    chmod("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$previous_uname" , 0777);
     rename("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$previous_uname" , "{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$uname");
     $ok = $usercontrol->updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role , $pro_pic);
     if($ok)
