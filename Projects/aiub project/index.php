@@ -20,7 +20,7 @@
             $login = new Login();
             if($login->isLogged())
             {
-                echo "<li><b class = \"navigationb\">Welcome ". $login->getUsername(). "</b></li><img id='pro_pic' src='{$_SESSION['pro_pic']}'/>";
+                echo "<li><img id='pro_pic' src='{$_SESSION['pro_pic']}'/><b class = \"navigationb\">Welcome ". $login->getUsername(). "</b></li>";
                 echo "<li class = \"right-li\"><a href = 'Views/action/logout.php'>Logout</a></li>";
             }
             else

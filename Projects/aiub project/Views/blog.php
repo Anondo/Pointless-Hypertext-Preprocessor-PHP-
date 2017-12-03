@@ -129,7 +129,7 @@ function checkRemovableComment($cmntid , $blogid , $uid)
     $bloggerId = $blogControl->getBloggerId($blogid);
     if($uid == $currentUserId || $uid == $bloggerId)
     {
-        $html = "<button onclick = 'rmvComment($cmntid)'>X</button>";
+        $html = "<button id='delete-button' onclick = 'rmvComment($cmntid)'>X</button>";
         return $html;
     }
     return "";
@@ -140,7 +140,7 @@ function checkRemovalbeBlog($blogid , $userid)
     $bloggerid = $blogControl->getBloggerId($blogid);
     if($userid == $bloggerid)
     {
-        $html = "<form method='POST' action='http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Views/action/blog_delete.php?blog_id=$blogid' onsubmit='return blogDeletePrompt()'><button>X</button></form>";
+        $html = "<form method='POST' action='http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Views/action/blog_delete.php?blog_id=$blogid' onsubmit='return blogDeletePrompt()'><button id='delete-button'>X</button></form>";
         return $html;
     }
     return "";

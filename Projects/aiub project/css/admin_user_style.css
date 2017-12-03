@@ -1,0 +1,85 @@
+table{
+ width: 100%;
+ border-collapse: collapse;
+}
+tr:nth-child(odd){
+	background-color:#ffe6cc;
+}
+tr:nth-child(even){
+	background-color: #ffd9b3;
+}
+
+tr:hover {
+	background-color:#ffbf80 ;
+}
+body{
+	margin:0px;
+	padding: 0px;
+}
+th{
+	width:20%;
+	border:2px 1px 0px 1px;
+	border-color:#ff9933;
+	border-style:solid;
+	background-color: black; 
+	padding:10px;
+	color:#ff9933; 
+	text-align: center;
+}
+td{
+
+	width:20%;
+	border:2px solid white;
+	padding:8px 4px 8px 4px;
+	text-align:left;
+	text-transform: capitalize;
+}
+#td-pictures{
+	text-transform: none;
+}
+ #td-password{
+	text-transform: none;
+} 
+ #td-email{
+	text-transform: none;
+} 
+
+#td-username{
+	text-transform: none;
+}
+#operation{
+	text-align: center;
+	padding:2px;
+}
+#edit-button{
+	width:100%;
+	height:100%;
+	padding:5px;
+	background-color: black;
+	border:2px solid #ff9933;
+	border-radius: 5px;
+	color:#ff9933;
+	font-weight: bold;
+}
+#edit-button:hover{
+	background-color: black;
+	color:#ff9933;
+	border-color:#130606;
+
+}
+#delete-button{
+	width:100%;
+	height:100%;
+	padding:5px;
+	background-color:#ff0000;
+	border:2px solid #ffe6e6;
+	border-radius: 5px;
+	color:#ffe6e6;
+	font-weight: bold;
+}
+#delete-button:hover{
+	background-color: #ff0000;
+	color:;
+	border-color:#ff3333;
+
+}

@@ -1,5 +1,6 @@
 body{
-    margin:0;
+    margin:0px;
+    padding: 0px;
 }
 #pro_pic{
     width: 8%;
@@ -13,30 +14,39 @@ body{
     margin: 10px;
 }
 #single_blog{
-    background-color: lightgrey;
+    background-color: #33cccc;
     max-width:40%;
     height:auto;
     float:left;
-    margin: 0px 30px 20px 0px;
+    margin: 0px 0px 10px 10px;
     padding:5px;
-    border:3px solid black;
-    border-radius: 10px;
+    border:3px solid #00b3b3;
+    border-radius: 5px;
     text-align:justify;
+    
+
+}
+#single_blog:hover{
+    background-color: #99e6e6;
+    max-width:45%;
+    clear:none;
+
+    height: auto;
 
 }
 #all_blogs{
 
-    background-color:;
+    background-color:rgba(0, 0, 0, 0.7);
     width:70%;
     height:auto;
-    padding:10px 0px 10px 10px;
+    padding: : 0px 0px 0px 5px;
     float:left;
     border-color: transparent;
     border-style: none;
-    border-right:1px solid black;
+    border-right:2px solid #66ffff;
 }
 article{
-    padding-top:50px;
+    padding-top:3px;
 }
 
 #right-content{

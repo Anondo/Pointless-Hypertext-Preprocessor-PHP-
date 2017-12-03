@@ -1,7 +1,7 @@
 <html>
-
 <head>
     <title>Blog Information</title>
+    <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/admin_blog_style.css">
     <?php
     require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
     require_once(get_include_path()."\Projects\aiub project\Controllers\BlogController.php");
@@ -16,6 +16,7 @@
 </head>
 
 <body>
+<div>
    <?php
     $blogs = $blogcontrol->getAllBlogs();
     echo "<table border = '2'>";
@@ -33,17 +34,14 @@
         echo "<tr id='{$blog['blog_id']}'>
                 <td>{$blog['datetime']}</td>
                 <td>{$blog['title']}</td>
-                <td>$blogger</td>
+                <td id='td-blogger'>$blogger</td>
                 <td>{$blog['location']}</td>
                 <td>{$blog['category']}</td>
-                <td><a href = 'blog_edit.php?blog_id={$blog['blog_id']}'><button>EDIT</button></a></td>
+                <td id='operation'><a href = 'blog_edit.php?blog_id={$blog['blog_id']}'><button id='edit-button'>EDIT</button></a></td>
              </tr>";
-
 	}
 	echo "</table>";
-
-
    ?>
+</div>
 </body>
-
 </html>

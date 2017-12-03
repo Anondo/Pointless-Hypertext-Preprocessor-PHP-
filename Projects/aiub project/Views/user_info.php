@@ -1,8 +1,11 @@
 <?php
 require_once(get_include_path()."Projects\aiub project\Controllers\UserController.php");
 require_once(get_include_path()."Projects\aiub project\Controllers\RoleController.php");
+require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
+require(get_include_path()."\Projects\aiub project\Controllers\LocationController.php");
+$location = new LocationController();
+$login = new Login();
 
-session_start();
 $userid = $_SESSION["user_id"];
 $usercontrol = new UserController();
 $user = $usercontrol->getUser($userid);
@@ -32,10 +35,6 @@ $role = $user["role"];
 		<navigation>
 		<ul>
 			<?php
-				require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
-				require(get_include_path()."\Projects\aiub project\Controllers\LocationController.php");
-				$location = new LocationController();
-				$login = new Login();
 				if($login->isLogged())
 				{
 					echo "<li><b class = \"navigationb\">".$login->getUsername()." , Information</b></li>";
