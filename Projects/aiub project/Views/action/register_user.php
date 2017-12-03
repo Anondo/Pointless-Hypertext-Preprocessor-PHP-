@@ -47,13 +47,16 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
         {
             mkdir($directory.$uname);
             mkdir($directory.$uname."/"."Profile Picture");
-            $finaleImageLocation = $directory.$uname."/"."Profile Picture/";
             $urlImage = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Uploads/$uname/Profile Picture/$imgname";
             $signup->registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $urlImage , $imgname);
             echo "<h><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>You Have Succesfully Signed UP!!!</a></h>";
             session_destroy(); //there is no need for the session if signed up perfectly
-            copy($directory.$imgname , $finaleImageLocation.$imgname);
-            unlink($directory.$imgname);
+            if(isset($_FILES["propic"]))
+            {
+                $finaleImageLocation = $directory.$uname."/"."Profile Picture/";
+                move_uploaded_file($directory.$imgname , $finaleImageLocation.$imgname);
+                //unlink($directory.$imgname);
+            }
         }
         else
         {

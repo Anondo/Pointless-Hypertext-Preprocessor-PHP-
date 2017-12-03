@@ -36,6 +36,10 @@ class AdminController extends Login{
 	{
 		return $this->user->getRoleName($role);
 	}
+	function getAllUsersExcept($id)
+	{
+		return $this->user->getAllUsersExcept($id);
+	}
 
 }
 

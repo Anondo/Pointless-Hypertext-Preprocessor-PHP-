@@ -160,6 +160,14 @@ class UserModel extends Models{
 		else
 			return false;
 	}
+    function getAllUsersExcept($id)
+    {
+        $result = $this->executeQuery("select * from users where del = false and user_id != $id");
+        if($result->num_rows > 0)
+            return $result;
+        else
+            return false;
+    }
     function getUser($id)
     {
         $result = $this->executeQuery("select * from users where user_id = $id and del = false");

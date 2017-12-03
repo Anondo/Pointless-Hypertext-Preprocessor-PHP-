@@ -30,15 +30,13 @@ if(!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["day"]) &
         $img = $_FILES["pro_pic"];
         $imgname = $img["name"];
         $img_tmp = $img["tmp_name"];
-        $pro_pic = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Uploads/$uname/Profile Picture/$imgname";
+        $pro_pic = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/uploads/$uname/Profile Picture/$imgname";
         move_uploaded_file($img_tmp , $_SERVER['DOCUMENT_ROOT']."/".$path."/$imgname");
-        $_SESSION["pro_pic"] = $pro_pic;
     }
+    $_SESSION["username"] = $uname;
+    $_SESSION["pro_pic"] = $pro_pic;
     $previous_uname = $usercontrol->getUsername($id)["username"];
-    echo $previous_uname;
-    echo $uname;
-    exec("rename {$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/Uploads/$previous_uname  {$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/Uploads/$uname");
-    noSuchfunction();
+    rename("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$previous_uname" , "{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$uname");
     $ok = $usercontrol->updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role , $pro_pic);
     if($ok)
         header("Location: http://localhost:".$_SERVER["SERVER_PORT"]."/Projects/aiub project/index.php");

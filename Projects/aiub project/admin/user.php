@@ -18,7 +18,7 @@
 <body>
 <div>
    <?php
-    $users = $admincontrol->getAllUsers();
+    $users = $admincontrol->getAllUsersExcept($_SESSION["user_id"]);
     echo "<table border = '2'>";
     echo "<tr>
             <th>First Name</th>
@@ -43,7 +43,7 @@
                 <td id='td-username'>{$user['username']}</td>
                 <td id='td-email'>{$user['email']}</td>
                 <td id='td-password'>{$user['password']}</td>
-                <td id='td-pictures'>{$user['pro_pic']} Picture</td>
+                <td id='td-pictures'>{$user['pro_pic']}</td>
                 <td>{$user['gender']}</td>
                 <td>{$admincontrol->getRoleName($user['role'])}</td>
                 <td id='operation'><a href = 'user_edit.php?user_id={$user['user_id']}'><button id='edit-button'>EDIT</button></a><button id='delete-button' onclick='rmvUser({$user['user_id']})'>DELETE</button></td>
