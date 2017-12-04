@@ -54,8 +54,8 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
             if(isset($_FILES["propic"]))
             {
                 $finaleImageLocation = $directory.$uname."/"."Profile Picture/";
-                move_uploaded_file($directory.$imgname , $finaleImageLocation.$imgname);
-                //unlink($directory.$imgname);
+                copy($directory.$imgname , $finaleImageLocation.$imgname);
+                unlink($directory.$imgname);
             }
         }
         else
