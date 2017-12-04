@@ -70,6 +70,10 @@ class UserModel extends Models{
     {
         return $this->username;
     }
+    function getUserId()
+    {
+        return $this->userid;
+    }
     function getFname()
     {
         return $this->fname;
@@ -174,7 +178,7 @@ class UserModel extends Models{
         }
         return false;
     }
-    function getUserId($username)
+    function getUserIdByName($username)
     {
         $id = $this->executeQuery("select user_id from users where username = '$username'");
         $id = $id->fetch_assoc()["user_id"];

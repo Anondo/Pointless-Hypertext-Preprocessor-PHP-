@@ -25,7 +25,7 @@ class UserController{
     }
     function getUserId($username)
     {
-        return $this->user->getUserId($username);
+        return $this->user->getUserIdByName($username);
     }
     function deleteUser($id)
     {
