@@ -4,6 +4,9 @@ require_once(get_include_path()."\Projects\aiub project\Controllers\UserControll
 $usercontrol = new UserController();
 if(isset($_GET["user_id"]) /*&& isset($_GET["blog_id"])*/)
 {
+    $username = $usercontrol->getUsername($_GET["user_id"])["username"];
+    chmod("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$username" , 0777);
+    rmdir("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$username");
     $ok = $usercontrol->deleteUser($_GET['user_id']);
     if($ok)
         echo "ok";
