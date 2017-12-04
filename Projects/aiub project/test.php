@@ -22,7 +22,15 @@ for($i = 3; $i<sizeof($str);$i++)
 $path = join("/" , $path);
 echo $path;
 unlink($_SERVER['DOCUMENT_ROOT']."/".$path);*/
-chmod("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/baal" , 0777);
-rmdir("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/baal");
+require_once("Models/Models.php");
+$model = new Models();
+$result = $model->executeQuery("select * from users");
+$arr = array();
+while($row = $result->fetch_assoc())
+{
+    $arr[] = $row;
+}
+$jsonResult = json_encode($arr);
+echo $jsonResult;
 
  ?>
