@@ -23,6 +23,10 @@ class UserController{
     {
         return $this->user->updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role ,$pro_pic);
     }
+    function getUserId($username)
+    {
+        return $this->user->getUserId($username);
+    }
     function deleteUser($id)
     {
         return $this->user->deleteUser($id);

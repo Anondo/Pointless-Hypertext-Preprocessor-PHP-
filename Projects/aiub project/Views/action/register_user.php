@@ -2,7 +2,9 @@
 
 
 require(get_include_path()."\Projects\aiub project\Controllers\SignupController.php");
+require(get_include_path()."\Projects\aiub project\Controllers\UserController.php");
 $signup = new SignupController();
+$usercontrol = new UserController();
 $message = "";
 /*if(isset($_GET['js_enabled']))
 {
@@ -50,13 +52,20 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
             $urlImage = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Uploads/$uname/Profile Picture/$imgname";
             $signup->registerUser($fname , $lname , $age ,$bdate , $uname , $email , $pass , $gender , $urlImage , $imgname);
             echo "<h><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>You Have Succesfully Signed UP!!!</a></h>";
-            session_destroy(); //there is no need for the session if signed up perfectly
-            if(isset($_FILES["propic"]))
+            //session_destroy(); //there is no need for the session if signed up perfectly
+            if(!empty($_FILES["propic"]["name"]))
             {
                 $finaleImageLocation = $directory.$uname."/"."Profile Picture/";
                 copy($directory.$imgname , $finaleImageLocation.$imgname);
                 unlink($directory.$imgname);
             }
+            $current_user_id = $usercontrol->getUserId($uname);
+            $_SESSION["logged_in"] = true; //creating a bool type session variable which should indicate whether user logged in or not
+            /*username and user_id is taken as well for ease of use in other pages*/
+            $_SESSION["role"] = 2;
+            $_SESSION["username"] = $uname;
+            $_SESSION["user_id"] = $current_user_id;
+            $_SESSION["pro_pic"] = $urlImage;
         }
         else
         {
