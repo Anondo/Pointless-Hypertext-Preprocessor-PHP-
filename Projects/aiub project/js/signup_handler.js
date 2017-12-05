@@ -165,7 +165,7 @@ function addYears()
 }
 function existingEmail(email)
 {
-    var exists = true;
+    var exists = false;
     var ajax = new XMLHttpRequest();
     var error = document.getElementById("email_error");
     ajax.onreadystatechange = function()
@@ -176,13 +176,13 @@ function existingEmail(email)
             if(response == "exists")
             {
                 error.innerHTML = "Email Already Exists";
-                exists =  false;
+                exists =  true;
             }
         }
     };
-    if(exists)
+    if(!exists)
         error.innerHTML = "";
-    ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub%20project/Views/action/email_exists.php?email="+email , true);
+    ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub%20project/Views/action/email_exists.php?email="+email , false);
     ajax.send();
     return exists;
 }
