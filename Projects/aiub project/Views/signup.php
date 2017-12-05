@@ -25,17 +25,17 @@
         <form name = "signupForm" action = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/Views/action/register_user.php/?js_enabled=false" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
 
             <!--First Name Row-->
-            <label>First Name</label>
+            <label><sup style="color:red;">*</sup>First Name :</label>
             <br><input type="text" class="input" name="fname" placeholder="First Name..." value = "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["fname"];?>" /> <!--Checking for returned values -->
 
 
             <!--Last Name Row-->
-            <br><label>Last Name </label>
+            <br><label><sup style="color:red;">*</sup>Last Name :</label>
             <br><input type="text" class="input" name="lname" placeholder="Last Name..." value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["lname"];?>" />
 
             <!--Birthdate Row-->
-            <br><label>Birthdate </label>
-            <br>Day
+            <br><label><sup style="color:red;">*</sup>Birthdate :</label>
+            <br><span id="date-input">Day
                 <select id = "day" name="day" >
                             <option value="1">1 </option>
                             <option value="2">2 </option>
@@ -87,25 +87,26 @@
                                 Year
                                    <select name="year">
                                    </select>
+                               </span>
 
         <!--User Name Row-->
-        <br><label>User Name</label>
+        <br><label><sup style="color:red;">*</sup>User Name :</label>
         <br><input type="text" class="input" name="uname" placeholder="User Name..." value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["uname"];?>" onkeyup="usernameValidate(this.value)"/><span id="username_error" style="color:red;"></span>
 
         <!--Email Row-->
-        <br><label>Your Email Address</label>
+        <br><label><sup style="color:red;">*</sup>Your Email Address :</label>
         <br><input  type="text" class="input" name="email" placeholder="xyz@dmail.com..." value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["email"];?>" onkeyup="emailValidate(this.value)" /><span id="email_error" style="color:red;"></span>
 
         <!--Password Row-->
-        <br><label>Password</label>
+        <br><label><sup style="color:red;">*</sup>Password :</label>
         <br><input type="Password" class="input" name="pass" placeholder="password" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["pass"];?>" onkeyup="passwordValidate(this.value , signupForm.cpass.value)"/><span id="password_error" style="color:red;font-size:14px;font-weight:italic;"></span>
 
         <!--Confirm Password Row-->
-        <br><label>Confirm Password</label>
+        <br><label><sup style="color:red;">*</sup>Confirm Password :</label>
         <br><input type="Password" class="input" name="cpass" placeholder = "RE-type password" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["cpass"];?>"onkeyup="passwordValidate(signupForm.pass.value , this.value)" />
 
         <!--Gender Row-->
-        <br><label >I am </label>
+        <br><label ><sup style="color:red;">*</sup>I am  :</label>
                 <select name="gender">
                     <option value="male">Male</option>
                     <option value="female">Female</option>

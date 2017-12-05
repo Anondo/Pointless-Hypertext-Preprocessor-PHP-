@@ -2,48 +2,41 @@ body{
     margin:0px;
     padding: 0px;
 }
-#pro_pic{
-    width: 8%;
-    height: 8%;
-}
-
 #single_blog_content{
     border-color: transparent;
     border-style: solid;
     border-width: 2px;
     margin: 10px;
+    color:white;
 }
 #single_blog{
-    background-color: #33cccc;
+    background-color: #666666;
     max-width:40%;
     height:auto;
     float:left;
     margin: 0px 0px 10px 10px;
     padding:5px;
-    border:3px solid #00b3b3;
+    border:3px solid #262626;
     border-radius: 5px;
     text-align:justify;
     
 
 }
 #single_blog:hover{
-    background-color: #99e6e6;
+    background-color:#595959;
     max-width:45%;
     clear:none;
-
     height: auto;
 
 }
 #all_blogs{
-
-    background-color:rgba(0, 0, 0, 0.7);
     width:70%;
     height:auto;
     padding: : 0px 0px 0px 5px;
     float:left;
     border-color: transparent;
     border-style: none;
-    border-right:2px solid #66ffff;
+    border-right:2px solid #262626 ;
 }
 article{
     padding-top:3px;
@@ -67,14 +60,13 @@ article{
     margin-left: 10px;
     top:20px;
     float:left;
-
     cursor:pointer;
 }
 #searchbox{
     max-width:70%;
     height:auto;
     background-color:grey ;
-    color: black;
+    color: solid black;
     border: 1px solid black;
     padding: 10px;
     margin-left: 20px;
@@ -82,33 +74,41 @@ article{
     float:left;
 
 }
+::placeholder{
+    color: white;
+    font-style: italic;
+}
 
 hr { border: solid black; border-width: 2px 0 0;clear: both; margin-top:30px; width: 200px; }
 
 .blog_title{
     font-size: 25px;
     text-decoration: none;
-    font-family: ;
-    color:black;
+    font-family: 'Tahoma';
+    text-transform: capitalize;
     font-weight: bold;
+    color: #001a33;
 }
 .datetime{
     font-size: 14px;
     font-style: italic;
-    color:black;
+    font-family: 'Tahoma';
     line-height: 0.9;
     word-spacing: 2;
+    color:#00264d;
 
 }
 .body{
      font-size: 16px;
-    color:black;
     letter-spacing: 1.5;
+    font-family: 'Tahoma';
     word-spacing: 1;
+    color: #000d1a;
 }
 .bold-blog-content{
     font-size: 15px;
     font-weight: bold;
-    color:black;
     line-height: 0.6;
+    font-family: 'Tahoma';
+    color: #001a33;
 }

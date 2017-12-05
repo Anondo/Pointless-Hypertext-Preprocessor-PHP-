@@ -22,7 +22,7 @@ for($i = 3; $i<sizeof($str);$i++)
 $path = join("/" , $path);
 echo $path;
 unlink($_SERVER['DOCUMENT_ROOT']."/".$path);*/
-require_once("Models/Models.php");
+/*require_once("Models/Models.php");
 $model = new Models();
 $result = $model->executeQuery("select * from users");
 $arr = array();
@@ -31,6 +31,7 @@ while($row = $result->fetch_assoc())
     $arr[] = $row;
 }
 $jsonResult = json_encode($arr);
-echo $jsonResult;
+echo $jsonResult;*/
+echo $_SERVER["SERVER_PORT"];
 
  ?>

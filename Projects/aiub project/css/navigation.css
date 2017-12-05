@@ -5,17 +5,27 @@ body{
 ul{
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding:0px 0px 0px 5px;
     overflow: hidden;
     background-color:black;
     opacity:;
     top: 0px;
     width: 100%;
 }
+#pro_pic{
+    width: 40px;
+    height: 40px;
+	border:2px solid white;
+	border-radius:50px;
+	float:left;
+}
 
 .navigationb{
     color: white;
     font-size:30px;
+	border:2px solid transparent;
+	padding:5px 0px 0px 10px;
+	float:left;
 }
 
 li {
@@ -23,6 +33,7 @@ li {
 }
 .right-li{
     float:right;
+    display: inline-block;
 }
 
 li a, .dropbtn {

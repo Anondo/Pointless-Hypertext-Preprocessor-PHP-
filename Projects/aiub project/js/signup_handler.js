@@ -94,6 +94,10 @@ function emailValidate(email)
             error.innerHTML = "Invalid Email Pattern";
         return false;
     }
+	else if(existingEmail(email))
+	{
+		return false;
+	}
     error.innerHTML = "";
     return true;
 }
@@ -158,4 +162,27 @@ function addYears()
         opt.innerHTML = i;
         yearElem.appendChild(opt);
     }
+}
+function existingEmail(email)
+{
+    var exists = true;
+    var ajax = new XMLHttpRequest();
+    var error = document.getElementById("email_error");
+    ajax.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var response = this.responseText;
+            if(response == "exists")
+            {
+                error.innerHTML = "Email Already Exists";
+                exists =  false;
+            }
+        }
+    };
+    if(exists)
+        error.innerHTML = "";
+    ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub%20project/Views/action/email_exists.php?email="+email , true);
+    ajax.send();
+    return exists;
 }

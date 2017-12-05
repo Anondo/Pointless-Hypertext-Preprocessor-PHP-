@@ -86,6 +86,19 @@ class SignupController{
             return false;
         }
     }
+	function emailExists($email)
+	{
+		$email =  $this->user->getExistingEmail($email);
+        if(!is_object($email))
+        {
+            return true;
+        }
+        else
+        {
+            $this->setErrorMessage("Username already taken");
+            return false;
+        }
+	}
 
 
     function emailValidate($e) //checking for correct email pattern

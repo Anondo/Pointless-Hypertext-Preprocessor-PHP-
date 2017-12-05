@@ -36,7 +36,8 @@ $role = $user["role"];
 		<ul>
 			<?php
 				if($login->isLogged())
-				{
+				{	  
+					echo "<li><img id='pro_pic' src='{$_SESSION['pro_pic']}'/></li>";
 					echo "<li><b class = \"navigationb\">".$login->getUsername()." , Information</b></li>";
 				}
 				else
@@ -45,16 +46,18 @@ $role = $user["role"];
 				}
 			?>
 				<li class = "right-li"><a href = 'action/logout.php'>Logout</a></li>
+				<li class = "right-li"><a href = 'user_info.php'>Profile</a></li>
+				<li class = "right-li"><a href = 'crime_post.php'>Post Crime</a></li>
     			<li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></li>
     	</ul>
-    </navigation>
+		</navigation>
 
 	<article>
 		<div id="profile_Form">
 		<form action="action/user_update.php?user_id=<?php echo $userid ?>&role=<?php echo $role ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data">
 
             <label>Current Profile Picture</label>
-            <br><img id="pro_pic" name="pro_pic" src="<?php echo $pro_pic ?>"/>
+            <br><img id="profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>"/>
 
             <br><label>First Name</label>
             <br><input type="text" class="input" name="fname" placeholder="First Name..." value="<?php echo $fname;?>"/>

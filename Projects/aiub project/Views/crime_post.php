@@ -21,15 +21,25 @@
 				$login = new Login();
 				if($login->isLogged())
 				{
+					echo "<li><img id='pro_pic' src='{$_SESSION['pro_pic']}'/></li>";
 					echo "<li><b class = \"navigationb\">Welcome ".$login->getUsername(). " , share your post!</b></li>";
+				
 				}
 				else
 				{
 					$login->redirect("login.php?logreq=1");
 				}
+				echo "<li class = \"right-li\"><a href = 'action/logout.php'>Logout</a></li>";
+				if($login->isLogged())
+					echo "<li class = \"right-li\"><a href = 'user_info.php'>Profile</a></li>";
+				else
+					echo "<li class = \"right-li\"><a href = 'signup.php'>Signup</a></li>";
+				echo "<li class = \"right-li\"><a href = 'crime_post.php'>Post Crime</a></li>";
+				echo " <li class = \"right-li\"><a href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/index.php'>Home</a></li>";
+				
 			?>
-				<li class = "right-li"><a href = 'action/logout.php'>Logout</a></li>
-    			<li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></li>
+				
+    			
     	</ul>
     </navigation>
 
