@@ -72,6 +72,40 @@
                 echo "<p class = \"body\">".$blog["body"]."</p>";
                 echo "<p class =\"bold-blog-content\">Location: ".$blog["location"]."</p>";
                 echo "<p class =\"bold-blog-content\">Category: ".$blog["category"]."</p>";
+                if($blog["attachment"])
+                {
+                    $video = false;
+                    $video_format = array("mp4" , "mkv" , "avi");
+                    $format = explode("." , $blog["attachment"]);
+                    $format = $format[sizeof($format)-1];
+                    foreach($video_format as $vf)
+                    {
+                        if($format == $vf)
+                        {
+                            $video = true;
+                            break;
+                        }
+                    }
+                    if(!$video)
+                    {
+                        echo "<p class =\"bold-blog-content\">Attachment:
+                        <audio controls>
+                        <source src='{$blog['attachment']}' type='audio/ogg'>
+                        <source src='{$blog['attachment']}' type='audio/mpeg'>
+                        </audio>
+                        </p>";
+                    }
+                    else
+                    {
+                        echo "<p class =\"bold-blog-content\">Attachment:
+                        <video width='320' height='240' controls>
+                        <source src='{$blog['attachment']}' type='video/mp4'>
+                        <source src='{$blog['attachment']}' type='video/ogg'>
+                        </video>
+                        </p>";
+                    }
+
+                }
                 //echo $blog["attachment"]; //need to fix this
                 echo "<p class =\"bold-blog-content\">By-----".$blogger."</p>";
                 echo "</div>";

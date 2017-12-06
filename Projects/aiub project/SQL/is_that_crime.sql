@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2017 at 11:13 AM
+-- Generation Time: Dec 06, 2017 at 09:43 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -36,7 +36,7 @@ CREATE TABLE `blogs` (
   `title` varchar(100) DEFAULT NULL,
   `body` text,
   `datetime` varchar(70) DEFAULT NULL,
-  `attachment` longblob,
+  `attachment` varchar(200) DEFAULT NULL,
   `blogger_id` int(11) DEFAULT NULL,
   `name_hidden` tinyint(1) DEFAULT NULL,
   `location` text,
@@ -53,7 +53,8 @@ INSERT INTO `blogs` (`blog_id`, `title`, `body`, `datetime`, `attachment`, `blog
 (9, 'testing blog', 'This is a test blog..hurrrrrrraaaaaaaaaaaaaaaaaaaaaaaaaaaayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy.....', '22/11/2017 04:44:34am', NULL, 10, 0, 'Shymoli', 'robbery', 0),
 (10, 'testing blog 2', 'this is a testing blog number 2...i am gonna try to be Anonymous here.', '22/11/2017 04:45:50am', NULL, 10, 1, 'Shymoli', 'robbery', 0),
 (23, 'Final Test??', 'I was robbed!!! Not really just had to make this real. This is just for testing purpose', '24/11/2017 04:48:57am', NULL, 10, 0, 'Mirpur Mirpur-10 , cirle', 'robbery', 0),
-(24, 'Can i Delete?', 'Delete testing blog!!', '01/12/2017 03:24:34am', NULL, 10, 0, 'Shyamoli ', 'robbery', 1);
+(24, 'Can i Delete?', 'Delete testing blog!!', '01/12/2017 03:24:34am', NULL, 10, 0, 'Shyamoli ', 'robbery', 1),
+(25, 'test with attachment', 'This is a test blog with attachment!', '07/12/2017 01:27:10am', 'http://localhost:80/Projects/aiub project/uploads/thetaste/test with attachment(07 12 2017)/Doctor Strange Theme on Guitar.mp3', 10, 0, 'Shyamoli ', 'robbery', 0);
 
 -- --------------------------------------------------------
 
@@ -237,7 +238,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -247,7 +248,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `criminals`
 --
 ALTER TABLE `criminals`
-  MODIFY `criminal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `criminal_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `location`
 --
@@ -257,7 +258,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `user_role`
 --

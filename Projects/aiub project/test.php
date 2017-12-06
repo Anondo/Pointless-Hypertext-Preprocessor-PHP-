@@ -32,6 +32,6 @@ while($row = $result->fetch_assoc())
 }
 $jsonResult = json_encode($arr);
 echo $jsonResult;*/
-echo $_SERVER["SERVER_PORT"];
+echo date("d M Y");
 
  ?>

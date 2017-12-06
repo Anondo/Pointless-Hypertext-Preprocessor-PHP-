@@ -24,11 +24,14 @@ if(!empty($_POST["title"]) && !empty($_POST["location"]) && !empty($_POST["categ
         $file = $_FILES["attchmnt"];
         $filename = $file["name"];
         $file_tmp = $file["tmp_name"];
-        $attachment = $directory.$filename;
         $noattch = false;
+        $dir = $directory.$login->getUsername()."/".$title."(".date("d m Y").")";
+        mkdir($dir);
+        $attachment = $dir."/".$filename;
         move_uploaded_file($file_tmp , $attachment);
+        $attchUrl = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/uploads/".$login->getUsername()."/".$title."(".date("d m Y").")/$filename";
     }
-    $success = $blog->insertBlog($title , $body , $datetime , $attachment , $login->getUserid() , $name_hidden , $location , $category , $noattch);
+    $success = $blog->insertBlog($title , $body , $datetime , $attchUrl , $login->getUserid() , $name_hidden , $location , $category , $noattch);
     if($success)
          header("Location: http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php");
     else

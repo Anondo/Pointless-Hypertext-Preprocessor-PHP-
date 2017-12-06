@@ -1,7 +1,8 @@
 function updateCrimeOnLocation(location)
 {
+    alret(location);
     var flag = false;
-    var ajax = new XMLHttpRequest();
+    /*var ajax = new XMLHttpRequest();
     ajax.onreadystatechange = function()
     {
         if(this.readyState == 4 && this.status == 200)
@@ -15,5 +16,6 @@ function updateCrimeOnLocation(location)
     }
     ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub project/Views/action/update_crime_on_location.php?loc_name="+location, false);
     ajax.send();
+    alert(flag);*/
     return flag;
 }
