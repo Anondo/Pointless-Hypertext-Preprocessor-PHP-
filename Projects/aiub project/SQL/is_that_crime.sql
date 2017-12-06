@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2017 at 09:00 PM
+-- Generation Time: Dec 06, 2017 at 11:13 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -88,6 +88,28 @@ INSERT INTO `comments` (`comment_id`, `blog_id`, `user_id`, `body`, `datetime`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `criminals`
+--
+
+DROP TABLE IF EXISTS `criminals`;
+CREATE TABLE `criminals` (
+  `criminal_id` int(11) NOT NULL,
+  `fname` varchar(80) DEFAULT NULL,
+  `lname` varchar(80) DEFAULT NULL,
+  `age` int(11) DEFAULT NULL,
+  `bdate` varchar(11) DEFAULT NULL,
+  `username` varchar(120) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `pro_pic` varchar(180) DEFAULT NULL,
+  `gender` varchar(20) DEFAULT NULL,
+  `role` int(11) DEFAULT NULL,
+  `del` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `location`
 --
 
@@ -138,7 +160,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `fname`, `lname`, `age`, `bdate`, `username`, `email`, `password`, `pro_pic`, `gender`, `role`, `del`) VALUES
 (10, 'Mr', 'tasty', 27, '7/feb/1990', 'thetaste', 'tasty@yummy.com', 'abcd%1abcd', NULL, 'male', 1, 0),
 (12, 'New', 'User', 82, '5/apr/1935', 'newbie', 'new@user.com', 'abcd%1abcd', NULL, 'male', 2, 0),
-(15, 'test', 'user', 16, '14/nov/2001', 'testuser', 'aanondos@yahoo.com', 'abcd%1abcd', 'http://localhost:80/Projects/aiub project/uploads/testuser/Profile Picture/17951783_10154314153067461_8889903535218467357_n.png', 'male', 2, 0);
+(15, 'test', 'user', 16, '14/nov/2001', 'testuser', 'aanondos@yahoo.com', 'abcd%1abcd', 'http://localhost:80/Projects/aiub project/uploads/testuser/Profile Picture/BvS2.0.jpg', 'male', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -181,6 +203,13 @@ ALTER TABLE `comments`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `criminals`
+--
+ALTER TABLE `criminals`
+  ADD PRIMARY KEY (`criminal_id`),
+  ADD KEY `role` (`role`);
+
+--
 -- Indexes for table `location`
 --
 ALTER TABLE `location`
@@ -215,6 +244,11 @@ ALTER TABLE `blogs`
 ALTER TABLE `comments`
   MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
+-- AUTO_INCREMENT for table `criminals`
+--
+ALTER TABLE `criminals`
+  MODIFY `criminal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `location`
 --
 ALTER TABLE `location`
@@ -223,7 +257,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `user_role`
 --
@@ -245,6 +279,12 @@ ALTER TABLE `blogs`
 ALTER TABLE `comments`
   ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`blog_id`) REFERENCES `blogs` (`blog_id`),
   ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `criminals`
+--
+ALTER TABLE `criminals`
+  ADD CONSTRAINT `criminals_ibfk_1` FOREIGN KEY (`role`) REFERENCES `user_role` (`role_id`);
 
 --
 -- Constraints for table `users`
