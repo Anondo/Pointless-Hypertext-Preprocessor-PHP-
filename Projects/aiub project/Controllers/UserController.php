@@ -31,6 +31,10 @@ class UserController{
     {
         return $this->user->deleteUser($id);
     }
+    function removeUser($id)
+    {
+        return $this->user->removeUser($id);
+    }
 }
 
 

@@ -206,6 +206,11 @@ class UserModel extends Models{
         $flag = $this->executeDMLQuery("update users set del = true where user_id = $id");
         return $flag;
     }
+    function removeUser($id)
+    {
+        $flag = $this->executeDMLQuery("delete from users where user_id = $id");
+        return $flag;
+    }
 	function getExistingEmail($email)
 	{
 		$result = $this->executeQuery("select email from users where email = '$email' and del = false");
