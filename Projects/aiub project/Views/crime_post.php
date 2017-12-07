@@ -41,47 +41,53 @@
 
     <article>
     	<div id = "post-container-box">
+
     	<form name = "blog_form" method = "POST" action = "action/putblog.php" enctype="multipart/form-data"  onsubmit="return updateCrimeOnLocation(this.location.value)">
 
 			<div id="div-title-post">
+				<label><b><sup>* </sup>Title :</b></label><br>
 				<input type="text" id ="title-post" name="title" placeholder="Title" onkeyup="nothing_wrong()">
 			</div>
 
+			<div id = "mini-div-container">	
 			<div id = "mini-div">
-					<div id = "mini-div-box-1">
-						<label>Place:</label><br>
-						<select id="select-location" name ="location">
-						<?php
+				<div id = "mini-div-box-1">
+					<label><b>Place:</b></label><br>
+					<select id="select-location" name ="location">
+					<?php
 						foreach($location->getLocations() as $loc)
 						{
 							echo "<option value = $loc>$loc</option>";
 						}
-				 		?>
-						</select>
-					</div>
-			<div id = "mini-div-box-2">
-				<label>Details(location):</label><br>
-				<input id="select-location" type = "text" name = "secloc" />
+				 	?>
+					</select>
+				</div>
+				<div id = "mini-div-box-2">
+					<label><b>Details(location):</b></label><br>
+					<input id="select-detailedlocation" type = "text" name = "secloc" placeholder="detailed location" />
+				</div>
+
+				<div id = "mini-div-box-3">
+					<label><b>Category:</b></label><br>
+					<select id="select-category" name ="category">
+						<option value = "robbery"> Robbery </option>
+						<option value = "murder"> Murder </option>
+						<option value = "rape"> Rape </option>
+						<option value = "hijacking"> Hijacking </option>
+						<option value = "other"> Other </option>
+					</select>
+				</div>
 			</div>
-			<div id = "mini-div-box-3">
-				<label>Category:</label><br>
-				<select id="select-category" name ="category">
-					<option value = "robbery"> Robbery </option>
-					<option value = "murder"> Murder </option>
-					<option value = "rape"> Rape </option>
-					<option value = "hijacking"> Hijacking </option>
-					<option value = "other"> Other </option>
-				</select>
-			</div>
-			</div>
+
 			<div id="div-description-body">
-   				<label><b> Description : </b></label><br>
-				<textarea id="description-body" name="body" cols = "120" rows="6" style="resize:none;" placeholder=" write here ...." onkeyup="nothing_wrong()"></textarea>
+   				<label><b><sup>* </sup>Description : </b></label><br>
+				<textarea id="description-body" name="body" cols = "120" rows="8" style="resize:none;" placeholder=" write here ...." onkeyup="nothing_wrong()"></textarea>
 			</div>
+		</div>
 			<div id="div-button-etc">
-		 		<br><button id="post-button" onclick="return nothing_wrong()"> post</button>
-				<input type="checkbox" name="hideme" value = "hide me"> <strong>hide me </strong>
+		 		<br><input type="checkbox" name="hideme" value = "hide me"> <strong>hide me </strong>
 				<input type = "file" name = "attchmnt" />
+				<br><button id="post-button" onclick="return nothing_wrong()"> post</button>
 			</div>
 
 			<span id = "blogDetails_error" style="color:red;"></span>

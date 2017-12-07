@@ -15,7 +15,7 @@ body{
     height:auto;
     float:left;
     margin: 5px 5px 5px 10px;
-    border:3px solid #f2f2f2;
+    border:3px solid transparent;
     border-radius: 5px;
     text-align:justify;
 
@@ -35,10 +35,11 @@ body{
     float:left;
     border-color: transparent;
     border-style: none;
+
 }
 
 #right-content{
-    background-color:;
+    background-color:transparent;
     width:28%;
     height:auto;
     padding:5px 0px 5px 0px;
@@ -73,7 +74,7 @@ body{
 
 }
 ::placeholder{
-    color: white;
+    color:#1a1a1a;
     font-style: italic;
 }
 

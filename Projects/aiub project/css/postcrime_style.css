@@ -1,131 +1,20 @@
 body{
     margin:0px;
     padding: 0px;
+    background-color: #262626;
 }
-#single_blog_content{
-    border-color: transparent;
-    border-style: solid;
-    border-width: 2px;
-    margin: 10px;
+label{
+    color:white;
+    font-size:18px;
+}
+
+::placeholder{
+    color: black;
+    font-style: italic;
+}
+strong{
     color:white;
 }
-#single_blog{
-    background-color: #c2c2c2;
-    max-width:40%;
-    height:auto;
-    float:left;
-    margin: 10px 0px 10px 10px;
-    padding:5px;
-    border:3px solid #f2f2f2;
-    border-radius: 5px;
-    text-align:justify;
-
-
-}
-#single_blog:hover{
-    background-color:#d9d9d9;
-    max-width:45%;
-    clear:none;
-    height: auto;
-
-}
-#all_blogs{
-    width:70%;
-    height:auto;
-    padding: : 0px 0px 0px 5px;
-    float:left;
-    border-color: transparent;
-    border-style: none;
-}
-
-#right-content{
-    background-color:;
-    width:28%;
-    height:auto;
-    padding:5px 0px 5px 0px;
-    float:right;
-    position:;
-
-}
-#searchby{
-    max-width:40%;
-    height:auto;
-    background-color:#c2c2c2 ;
-    color: black;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 10px;
-    margin-right:5px;
-    top:20px;
-    float:right;
-    cursor:pointer;
-}
-#searchbox{
-    max-width:75%;
-    height:auto;
-    background-color:#c2c2c2 ;
-    color: black;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 10px;
-    margin-left: 45px;
-    top:20px;
-    float:left;
-
-}
-::placeholder{
-    color: white;
-    font-style: italic;
-}
-
-hr { border: 1px solid white;clear: both; margin-top:30px; width: 300px; }
-
-.blog_title{
-    font-size: 25px;
-    padding: 0px;
-    text-decoration: none;
-    font-family: 'Tahoma';
-    text-transform: capitalize;
-    font-weight: bold;
-    color:black;
-}
-.blog_title:hover{
-    color:red;
-    background-color: transparent;
-}
-.datetime{
-    font-size: 14px;
-    font-style: italic;
-    font-family: 'Tahoma';
-    line-height: 0.9;
-    word-spacing: 2;
-    color:#00264d;
-
-}
-.body{
-     font-size: 16px;
-    letter-spacing: 1.5;
-    font-family: 'Tahoma';
-    word-spacing: 1;
-    color: black;
-    word-wrap:break-word;
-}
-.bold-blog-content{
-    font-size: 15px;
-    font-weight: bold;
-    line-height: 0.6;
-    font-family: 'Tahoma';
-    color: black;
-    text-align: center;
-}
-.circled_pro_pic{
-    width: 30px;
-    height: 30px;
-    border:2px solid white;
-    border-radius:50px;
-
-}
-
 
 /*============================================
 
@@ -135,64 +24,102 @@ hr { border: 1px solid white;clear: both; margin-top:30px; width: 300px; }
 #post-container-box{
     max-width:60%;
     height:350px;
-    background-color: darkslategray;
+    background-color:#333333 ;
     color:black;
     border:3px solid grey;
     padding: 5px 20px 10px 20px;
     margin: 0;
     text-align: justify;
 }
-#mini-div{
+#mini-div-container{
     width:100%;
+    height:auto;
+    background-color: blue;
+}
+#mini-div{
+    width:25%;
     height: auto;
-    background-color:;
+    background-color:transparent;
     float: left;
+    padding:5px 10px 5px 0px;
+    border:2px solid transparent;
+    border-right-color:black;
 }
 #mini-div-box-1{
     background-color:;
-    width:25%;
+    width:100%;
     height:auto;
-    margin: 5px 0px 5px 0px;
-    padding:5px;
-    border:2px solid black;
-
+    border:2px solid transparent;
     border-radius: 3px;
     float: left;
 }
 #mini-div-box-2{
     background-color:;
-    width:35%;
+    width:100%;
     height:auto;
-    margin: 5px 0px 5px 0px;
-    padding:5px;
-    border:2px solid black;
-
+    border:2px solid transparent;
     border-radius: 3px;
     float: left;
 }
 #mini-div-box-3{
     background-color:;
-    width:25%;
+    width:100%;
     height:auto;
-    margin: 5px 0px 5px 0px;
-    padding:5px;
-    border:2px solid black;
+    border:2px solid transparent;
     border-radius: 3px;
     float: left;
 }
-#select-category , #select-location{
+#select-category{
     width:100%;
     height: 30px;
-    font-size: 10px;
+    font-size: 14px;
+    background-color: grey;
+    border:2px solid grey;
+    border-radius:5px;
+    color:black;
+    box-sizing: border-box;
+} 
+
+#select-location{
+    width:100%;
+    height: 30px;
+    font-size: 14px;
+    background-color: grey;
+    border:2px solid grey;
+    border-radius:5px;
+    color:black;
+    box-sizing: border-box;
+}
+#select-detailedlocation{
+    width:100%;
+    height: 30px;
+    font-size: 14px;
+    background-color: grey;
+    border:2px solid grey;
+    border-radius:5px;
+    color:black;
+    box-sizing: border-box;
+
 }
 
 #div-description-body{
-    float:left;
-    background-color:;
+    float:right;
+    background-color:transparent;
+    padding: 5px 0px 5px 10px;  
+    width: 70%;
+    border:2px solid transparent;
+    border-radius: 3px;
+
 }
 #description-body{
-    width:90%;
+    width:100%;
     height: auto;
+    border:2px solid grey;
+    border-radius:5px; 
+    padding: 5px;
+    background-color: grey;
+    color:black;
+    box-sizing: border-box;
 }
 
 #div-button-etc{
@@ -201,7 +128,7 @@ hr { border: 1px solid white;clear: both; margin-top:30px; width: 300px; }
      background-color:;
 }
 #post-button{
-      width: 25%;
+    width: 25%;
     height: auto;
     border:none;
     border-radius: 5px;
@@ -214,26 +141,33 @@ hr { border: 1px solid white;clear: both; margin-top:30px; width: 300px; }
     font-size: 16px;
     cursor: pointer;
     margin-top:5px;
+    float: right;
 }
 #post-button:hover{
-    background-color: white;
+    background-color: grey;
     color: black;
 }
 
 #div-title-post{
     width:100%;
     height:auto;
-    margin-left:5px;
-    margin-right:5px;
-    top:10px;
+    margin:;
+    background-color:transparent;
     float:left;
     clear:both;
 }
 #title-post{
-    width:90%;
+    width:100%;
     height:40px;
     padding: 5px 12px 5px 12px;
+    border:2px solid transparent;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: grey;
     margin:0px;
     float:left;
     clear:both;
+}
+sup{
+    color:red;
 }

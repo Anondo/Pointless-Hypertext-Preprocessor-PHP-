@@ -7,7 +7,7 @@ function nothing_wrong()
         //alert("Title & Body required");
 
         error.innerHTML = "Title & Body required";
-         return false;
+        return false;
     }
     error.innerHTML = "";
     return true;
