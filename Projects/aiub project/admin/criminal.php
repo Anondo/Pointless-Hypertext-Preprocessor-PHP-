@@ -32,7 +32,6 @@
             <th>Birthdate</th>
             <th>Username</th>
             <th>Email</th>
-            <th>Password</th>
             <th>Profile Picture</th>
             <th>Gender</th>
             <th>Role</th>
@@ -49,7 +48,6 @@
                     <td>{$criminal['bdate']}</td>
                     <td id='td-username'>{$criminal['username']}</td>
                     <td id='td-email'>{$criminal['email']}</td>
-                    <td id='td-password'>{$criminal['password']}</td>
                     <td id='td-pictures'><img style='width:100%;height:100%;' src='{$criminal['pro_pic']}' onerror='return setDefaultPP(this)'/></td>
                     <td>{$criminal['gender']}</td>
                     <td>{$usercontrol->getRoleName($criminal['role'])}</td>

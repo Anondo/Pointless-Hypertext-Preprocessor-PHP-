@@ -35,7 +35,7 @@ if(!empty($_POST["fname"]) || !empty($_POST["lname"]) || !empty($_POST["day"]) |
     rename("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$previous_uname" , "{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$uname");
     if($role == 3)
     {
-        $ok = $criminal_control->insertCriminal($fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role , $pro_pic);
+        $ok = $criminal_control->insertCriminal($fname,$lname ,$day ,$month ,$year ,$uname ,$email ,$gender,$role , $pro_pic);
         $usercontrol->removeUser($id);
     }
 

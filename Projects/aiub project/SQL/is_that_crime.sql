@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2017 at 12:51 PM
+-- Generation Time: Dec 07, 2017 at 09:08 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -103,7 +103,6 @@ CREATE TABLE `criminals` (
   `bdate` varchar(11) DEFAULT NULL,
   `username` varchar(120) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `password` varchar(100) DEFAULT NULL,
   `pro_pic` varchar(180) DEFAULT NULL,
   `gender` varchar(20) DEFAULT NULL,
   `role` int(11) DEFAULT NULL,
@@ -250,7 +249,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `criminals`
 --
 ALTER TABLE `criminals`
-  MODIFY `criminal_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `criminal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `location`
 --
@@ -260,7 +259,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `user_role`
 --

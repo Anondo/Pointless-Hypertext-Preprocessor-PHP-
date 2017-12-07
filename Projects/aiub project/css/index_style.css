@@ -82,7 +82,7 @@ hr { border: 1px solid white;clear: both; margin-top:30px; width: 300px; }
 #div_blog_title{
     max-width:100%;
     border:2px solid black;
-    border-bottom:1px solid white; 
+    border-bottom:1px solid white;
     background-color: #0d0d0d;
 }
 .blog_title{
