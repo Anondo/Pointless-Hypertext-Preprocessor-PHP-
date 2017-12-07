@@ -8,4 +8,7 @@ css :
 		Notice: A session had already been started - ignoring session_start() in F:\WebDev\PHP\Projects\aiub project\Controllers\login_controller.php on line 12
 	8) uploaded picture cant be seen in profile page.
 	9) in admin panel javascript prevent me to submit while i do not modify the username.
-	  
+	 
+=========================================================================
+	10) may be there is a problem in commentresult condition of blog.php
+	11) need valid image url for different users in blog.php , index.php , crime_post.php

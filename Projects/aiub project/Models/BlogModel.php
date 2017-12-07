@@ -27,6 +27,18 @@ class BlogModel extends Models{
             return false;
 
     }
+    function getBloggerPP($id)
+    {
+        $url = $this->executeQuery("select pro_pic from users where user_id in (select blogger_id from blogs where blogger_id = $id);");
+        if($url->num_rows > 0)
+        {
+            $url = $url->fetch_assoc();
+            $url = $url["pro_pic"];
+            return $url;
+        }
+        else
+            return false;
+    }
     function getBlogTitle($id)
     {
         $title = $this->executeQuery("select title from blogs where blog_id = $id and del = false;");

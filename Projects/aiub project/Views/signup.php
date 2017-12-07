@@ -10,11 +10,11 @@
 <body onload = "addYears()">
 <div>
     <navigation>
-        <ul>
-            <li><b class = "navigationb">Hello World</b></li>
-        	<li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a></li>
-             <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></li>
-	    </ul>
+    
+        <b class = "navigationb">Hello World</b>
+        <a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a>
+        <a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a>
+        
     </navigation>
 
     <article>

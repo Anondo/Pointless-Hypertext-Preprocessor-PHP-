@@ -2,7 +2,7 @@
 <head>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/comment_handler.js"></script>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/blog_handler.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/index_style.css">
+
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/navigation.css">
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/blog_style.css">
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/comment_style.css">
@@ -39,39 +39,52 @@
 <body>
 <div>
     <navigation>
-        <ul>
             <?php
             if($logged)
-                echo "<li class = 'right-li'><a href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/Views/user_info.php'>Profile</a></li>";
+            {
+            	echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}'/>";
+				echo "<b class = 'navigationb'>Welcome ".$login->getUsername(). " , share your post!</b>";
+				echo "<a class = 'right-li' href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/Views/action/logout.php'>Logout</a>";
+                echo "<a class = 'right-li' href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/Views/user_info.php'>Profile</a>";
+            }
             else
-                echo "<li class = 'right-li'><a href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/Views/signup.php'>Signup</a></li>";
+            {
+            	echo "<a class = 'right-li' href = 'login.php'>Login</a>";
+                echo "<a class = 'right-li' href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/Views/signup.php'>Signup</a>";
+            }
             ?>
-            <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a></li>
-            <li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></li>
-        </ul>
+            <a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a>
+            <a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a>
     </navigation>
     <noscript><h4 style = "color:red;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
 
     <article>
-         <div id = "blog-container">
+        <div id = "blog-container">
             <?php
-
             if(isset($_GET["blog_id"]))
             {
                 $id = $_GET["blog_id"];
                 $blog = $blogControl->getBlog($id);
                 $blogger = "Anonymous"; //the blogger name is initially anonymous for safety
+                $blogger_pp = "";
                 if(!$blog["name_hidden"]) //if the user chooses to show his/her name
                 {
                     $blogger_id = $blog["blogger_id"];
                     $blogger = $blogControl->bloggerName($blogger_id);
+                    $blogger_pp = $blogControl->getBloggerProfilePicture($blogger_id);
                 }
-                echo "<div id=\"blog-container-contents\">";
-                echo "<p class ='blog_title'>".$blog["title"]."</p>".checkRemovalbeBlog($blog["blog_id"] , $userId);
-                echo "<p class = \"datetime\">".$blog["datetime"]."</p>";
-                echo "<p class = \"body\">".$blog["body"]."</p>";
-                echo "<p class =\"bold-blog-content\">Location: ".$blog["location"]."</p>";
-                echo "<p class =\"bold-blog-content\">Category: ".$blog["category"]."</p>";
+                echo "<div id=\"blog-container-content\">";
+
+                    # need valid url of the blogger of the blog
+                    echo "<img class='rectangular_pro_pic' src='$blogger_pp'/>";
+
+                    echo "<b id =\"blogger_name\">".$blogger."</b>";
+                    echo "<p class ='blog_title'>".$blog["title"]."</p>".checkRemovalbeBlog($blog["blog_id"] , $userId);
+                    echo "<p class = \"datetime\">".$blog["datetime"]."</p>";
+                    echo "<p class = \"body\">".$blog["body"]."</p>";
+                    echo "<p class =\"bold-blog-content\">Location: ".$blog["location"]."</p>";
+                    echo "<p class =\"bold-blog-content\">Category: ".$blog["category"]."</p>";
+
                 if($blog["attachment"])
                 {
                     $video = false;
@@ -106,25 +119,22 @@
                     }
 
                 }
-                //echo $blog["attachment"]; //need to fix this
-                echo "<p class =\"bold-blog-content\">By-----".$blogger."</p>";
-                echo "</div>";
                 echo "<hr>";
+                echo "</div>";
+
                 echo "<p id = \"comment-title\">Comments</p>";
                 $commentResult = $comment->getCommentByBlog($id);
                 if($commentResult)
                 {
-
                     while($row = $commentResult->fetch_assoc())
                     {
                         $username = $user->getUsername($row['user_id']);
                         $username = $username["username"];
                         echo "<div class=\"comments\" id = {$row['comment_id']}>";
-
                         if($logged)
-                            echo "<p><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}</p>".checkRemovableComment($row['comment_id'] , $id , $userId);
+                            echo "<p><img id='pro_pic' src='{$_SESSION['pro_pic']}'/><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}".checkRemovableComment($row['comment_id'] , $id , $userId)."</p>";
                         else
-                            echo "<p><b>$username :</b>  {$row['body']}</p><p>{$row["datetime"]}</p>";
+                            echo "<p><img id='pro_pic' src='{}'/><b>$username :</b>  {$row['body']}</p><p>{$row["datetime"]}</p>";
                         echo "</div>";
                     }
                 }
@@ -133,7 +143,7 @@
                     echo "<hr>";
                     echo "<div id =\"div-commentBox\">";
                     echo "<form action = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST' onsubmit = 'return isCommentEmpty()'>
-                         <label>$currentUsername: </label>
+                         <label><img id='pro_pic' src='{$_SESSION['pro_pic']}'/>  </label>
                          <textarea id = 'commentBox' rows = '7' cols = '165' name = 'commentBody' placeholder = 'Comment Here' style='resize:none;' onkeyup = 'isCommentEmpty()'></textarea>
                           <br><input type = 'submit' id = 'comment-button' name = 'commentSubmit' value = 'comment'/>
                          <span id = \"comment_error\" style = \"color:red;font-size:16px\"></span></form>";
@@ -163,7 +173,7 @@ function checkRemovableComment($cmntid , $blogid , $uid)
     $bloggerId = $blogControl->getBloggerId($blogid);
     if($uid == $currentUserId || $uid == $bloggerId)
     {
-        $html = "<button id='delete-button' onclick = 'rmvComment($cmntid)'>X</button>";
+        $html = "<button id='comment_delete_button' onclick = 'rmvComment($cmntid)'>X</button>";
         return $html;
     }
     return "";

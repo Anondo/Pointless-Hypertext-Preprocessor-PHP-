@@ -2,8 +2,11 @@
     width:95%;
     height:auto;
     padding:2px 10px 2px 10px;
-    border:1px solid transparent;
+    margin-bottom: 5px;
+    border:1px solid black;
     border-bottom-color: black;
+    background-color: grey;
+    overflow: auto;
 }
 #comment-title{
     font-size: 20px;
@@ -21,8 +24,11 @@
     height:auto;
 }
 #commentBox{
-    width:100%;
+    width:90%;
     height:60px;
+    border:2px solid grey;
+    border-radius: 20px;
+    padding: 4px 8px 4px 8px;
 }
 #comment-button{
     width: 25%;
@@ -46,11 +52,20 @@
 #comment-error{
     float:left;
 }
-#delete-button{
+#comment_delete_button{
     background-color: red;
     border:2px solid white;
     color: white;
     font-weight: bold;
     width:4%;
     height: 4%;
+    float:right;
+}
+textarea{
+    background-color: lightgrey;
+    color:black;
+}
+::placeholder{
+     color: black;
+    font-style: italic;
 }

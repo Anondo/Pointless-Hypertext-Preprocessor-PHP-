@@ -2,14 +2,10 @@ body{
     margin:0;
     padding:0; 
 }
-ul{
-    list-style-type: none;
-    margin: 0;
-    padding:0px 0px 0px 5px;
-    overflow: hidden;
-    top: 0px;
-    background-color:black;
+article{
+    margin-top: 5%;
 }
+
 #pro_pic{
     width: 40px;
     height: 40px;

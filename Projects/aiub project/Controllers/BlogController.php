@@ -27,6 +27,10 @@ class BlogController{
     {
         return $this->blog->getId($id);
     }
+    function getBloggerProfilePicture($id)
+    {
+        return $this->blog->getBloggerPP($id);
+    }
     function insertBlog($title , $body , $datetime , $attachment , $user_id , $name_hidden , $location , $category , $noattch)
     {
         return $this->blog->putBlog($title , $body , $datetime , $attachment , $user_id , $name_hidden , $location , $category , $noattch);

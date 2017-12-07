@@ -33,23 +33,21 @@ $role = $user["role"];
 <body>
 	<div>
 		<navigation>
-		<ul>
 			<?php
 				if($login->isLogged())
 				{	  
-					echo "<li><img id='pro_pic' src='{$_SESSION['pro_pic']}'/></li>";
-					echo "<li><b class = \"navigationb\">".$login->getUsername()." , Information</b></li>";
+					echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}'/>";
+					echo "<b class = \"navigationb\">".$login->getUsername()." , Information</b>";
 				}
 				else
 				{
 					$login->redirect("login.php?logreq=1");
 				}
 			?>
-				<li class = "right-li"><a href = 'action/logout.php'>Logout</a></li>
-				<li class = "right-li"><a href = 'user_info.php'>Profile</a></li>
-				<li class = "right-li"><a href = 'crime_post.php'>Post Crime</a></li>
-    			<li class = "right-li"><a href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a></li>
-    	</ul>
+				<a class = 'right-li' href = 'action/logout.php'>Logout</a>
+				<a class = 'right-li' href = 'user_info.php'>Profile</a>
+				<a class = 'right-li' href = 'crime_post.php'>Post Crime</a>
+    			<a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a>
 		</navigation>
 
 	<article>

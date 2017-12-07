@@ -13,7 +13,7 @@
 <body>
 <div>
 	<navigation>
-		<ul>
+		
 			<?php
 				require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
 				require(get_include_path()."\Projects\aiub project\Controllers\LocationController.php");
@@ -21,26 +21,21 @@
 				$login = new Login();
 				if($login->isLogged())
 				{
-					echo "<li><img id='pro_pic' src='{$_SESSION['pro_pic']}'/></li>";
-					echo "<li><b class = \"navigationb\">Welcome ".$login->getUsername(). " , share your post!</b></li>";
-
+					echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}'/>";
+					echo "<b class = \"navigationb\">Welcome ".$login->getUsername(). " , share your post!</b>";
 				}
 				else
 				{
 					$login->redirect("login.php?logreq=1");
 				}
-				echo "<li class = \"right-li\"><a href = 'action/logout.php'>Logout</a></li>";
+				echo "<a class = 'right-li' href = 'action/logout.php'>Logout</a>";
 				if($login->isLogged())
-					echo "<li class = \"right-li\"><a href = 'user_info.php'>Profile</a></li>";
+					echo "<a class = 'right-li' href = 'user_info.php'>Profile</a>";
 				else
-					echo "<li class = \"right-li\"><a href = 'signup.php'>Signup</a></li>";
-				echo "<li class = \"right-li\"><a href = 'crime_post.php'>Post Crime</a></li>";
-				echo " <li class = \"right-li\"><a href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/index.php'>Home</a></li>";
-
+					echo "<a class = 'right-li' href = 'signup.php'>Signup</a>";
+				echo "<a class = 'right-li' href = 'crime_post.php'>Post Crime</a>";
+				echo "<a class = 'right-li' href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/index.php'>Home</a>";	
 			?>
-
-
-    	</ul>
     </navigation>
 
     <article>

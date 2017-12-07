@@ -10,20 +10,20 @@ body{
     color:white;
 }
 #single_blog{
-    background-color: #666666;
+    background-color: #c2c2c2;
     max-width:40%;
     height:auto;
     float:left;
-    margin: 0px 0px 10px 10px;
+    margin: 10px 0px 10px 10px;
     padding:5px;
-    border:3px solid #262626;
+    border:3px solid #f2f2f2;
     border-radius: 5px;
     text-align:justify;
     
 
 }
 #single_blog:hover{
-    background-color:#595959;
+    background-color:#d9d9d9;
     max-width:45%;
     clear:none;
     height: auto;
@@ -37,9 +37,6 @@ body{
     border-color: transparent;
     border-style: none;
 }
-article{
-    padding-top:50px;
-}
 
 #right-content{
     background-color:;
@@ -47,28 +44,31 @@ article{
     height:auto;
     padding:5px 0px 5px 0px;
     float:right;
+    position:;
 
 }
 #searchby{
     max-width:40%;
     height:auto;
-    background-color:grey ;
+    background-color:#c2c2c2 ;
     color: black;
     border: 1px solid black;
+    border-radius: 5px;
     padding: 10px;
-    margin-left: 10px;
+    margin-right:5px;
     top:20px;
-    float:left;
+    float:right;
     cursor:pointer;
 }
 #searchbox{
-    max-width:70%;
+    max-width:75%;
     height:auto;
-    background-color:grey ;
-    color: solid black;
+    background-color:#c2c2c2 ;
+    color: black;
     border: 1px solid black;
+    border-radius: 20px;
     padding: 10px;
-    margin-left: 20px;
+    margin-left: 45px;
     top:20px;
     float:left;
 
@@ -78,15 +78,20 @@ article{
     font-style: italic;
 }
 
-hr { border: solid black; border-width: 2px 0 0;clear: both; margin-top:30px; width: 200px; }
+hr { border: 1px solid white;clear: both; margin-top:30px; width: 300px; }
 
 .blog_title{
     font-size: 25px;
+    padding: 0px;
     text-decoration: none;
     font-family: 'Tahoma';
     text-transform: capitalize;
     font-weight: bold;
-    color: #001a33;
+    color:black;
+}
+.blog_title:hover{
+    color:red;
+    background-color: transparent;
 }
 .datetime{
     font-size: 14px;
@@ -102,12 +107,20 @@ hr { border: solid black; border-width: 2px 0 0;clear: both; margin-top:30px; wi
     letter-spacing: 1.5;
     font-family: 'Tahoma';
     word-spacing: 1;
-    color: #000d1a;
+    color: black;
 }
 .bold-blog-content{
     font-size: 15px;
     font-weight: bold;
     line-height: 0.6;
     font-family: 'Tahoma';
-    color: #001a33;
+    color: black;
+    text-align: center;
+}
+.circled_pro_pic{
+    width: 30px;
+    height: 30px;
+    border:2px solid white;
+    border-radius:50px;
+    
 }
