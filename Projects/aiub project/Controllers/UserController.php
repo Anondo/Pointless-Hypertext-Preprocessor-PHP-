@@ -15,6 +15,10 @@ class UserController{
     {
         return $this->user->getUser($id);
     }
+    function getEmail($id)
+    {
+        return $this->user->getEmail($id);
+    }
     function getRoleName($role)
 	{
 		return $this->user->getRoleName($role);

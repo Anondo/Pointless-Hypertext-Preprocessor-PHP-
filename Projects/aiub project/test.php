@@ -32,6 +32,6 @@ while($row = $result->fetch_assoc())
 }
 $jsonResult = json_encode($arr);
 echo $jsonResult;*/
-echo date("d M Y");
+print_r(scandir("uploads"));
 
  ?>

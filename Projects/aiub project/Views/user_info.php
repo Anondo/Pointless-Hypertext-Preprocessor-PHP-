@@ -29,13 +29,14 @@ $role = $user["role"];
     <title><?php echo $username ?> Information</title>
 	<link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/index_style.css"/> <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/navigation.css"/>
     <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/user_info.css"/>
+    <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/admin_user_handler.js"></script>
 </head>
 <body>
 	<div>
 		<navigation>
 			<?php
 				if($login->isLogged())
-				{	  
+				{
 					echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}'/>";
 					echo "<b class = \"navigationb\">".$login->getUsername()." , Information</b>";
 				}
@@ -52,7 +53,7 @@ $role = $user["role"];
 
 	<article>
 		<div id="profile_Form">
-		<form action="action/user_update.php?user_id=<?php echo $userid ?>&role=<?php echo $role ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data">
+		<form name = "user_update_form" action="action/user_update.php?user_id=<?php echo $userid ?>&role=<?php echo $role ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate(<?php echo $userid ?>)">
 
             <label>Current Profile Picture</label>
             <br><img id="profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>"/>
@@ -111,10 +112,10 @@ $role = $user["role"];
 
 
            <br><label>User Name </label>
-           <br><input type="text" class="input" name="uname" placeholder="User Name..."  onkeyup="usernameValidate(this.value)" value="<?php echo $username;?>"/><span id="username_error" style="color:red;"></span>
+           <br><input type="text" class="input" name="uname" placeholder="User Name..."  onkeyup="usernameValidate(this.value,<?php echo $userid ?>)" value="<?php echo $username;?>"/><span id="username_error" style="color:red;"></span>
 
             <br><label>Your Email Address</label>
-            <br><input type="text" class="input" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value)" value="<?php echo $email;?>"/><span id="email_error" style="color:red;"></span>
+            <br><input type="text" class="input" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value,<?php echo $userid ?>)" value="<?php echo $email;?>"/><span id="email_error" style="color:red;"></span>
 
            	<br><label>Password </label>
            	<br><input type="text" class="input" name="pass" placeholder="password"  onkeyup="passwordValidate(this.value , signupForm.cpass.value)" value="<?php echo $password;?>"/><span id="password_error" style="color:red;"></span>

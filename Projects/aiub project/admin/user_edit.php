@@ -30,7 +30,7 @@ $roles = $rolecontrol->getAllRoles();
     <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/admin_user_edit.css"/>
 </head>
 <body>
-    <form name = "signupForm" action="user_update.php?user_id=<?php echo $userid ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
+    <form name = "user_update_form" action="user_update.php?user_id=<?php echo $userid ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate(<?php echo $userid ?>)">
         <table>
             <tr>
                 <td>Change Your Profile Picture</td>
@@ -94,11 +94,11 @@ $roles = $rolecontrol->getAllRoles();
             </tr>
 
             <tr>
-            	<td>User Name </td> <td>:</td> <td> <input type="text" name="uname" placeholder="User Name..."  onkeyup="usernameValidate(this.value)" value="<?php echo $username;?>"/><span id="username_error" style="color:red;"></span></td>
+            	<td>User Name </td> <td>:</td> <td> <input type="text" name="uname" placeholder="User Name..."  onkeyup="usernameValidate(this.value,<?php echo $userid ?>)" value="<?php echo $username;?>"/><span id="username_error" style="color:red;"></span></td>
         	</tr>
 
             <tr>
-            	<td>Your Email Address</td> <td>:</td> <td> <input type="text" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value)" value="<?php echo $email;?>"/><span id="email_error" style="color:red;"></span> </td>
+            	<td>Your Email Address</td> <td>:</td> <td> <input type="text" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value,<?php echo $userid ?>)" value="<?php echo $email;?>"/><span id="email_error" style="color:red;"></span> </td>
             </tr>
 
             <tr>

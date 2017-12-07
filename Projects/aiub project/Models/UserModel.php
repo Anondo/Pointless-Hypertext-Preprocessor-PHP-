@@ -90,10 +90,6 @@ class UserModel extends Models{
     {
         return $this->$bdate;
     }
-    function getEmail()
-    {
-        return $this->$email;
-    }
     function getPassword()
     {
         return $this->password;
@@ -135,6 +131,13 @@ class UserModel extends Models{
         }
         else
             return false;
+    }
+    function getEmail($id)
+    {
+        $result = $this->executeQuery("select email from users where user_id = $id");
+        $result = $result->fetch_assoc();
+        $email = $result["email"];
+        return $email;
     }
     function putUser($fname , $lname , $age ,$bdate, $uname , $email , $password , $gender , $imgpath , $imgname = "" , $pro_pic)
     {
