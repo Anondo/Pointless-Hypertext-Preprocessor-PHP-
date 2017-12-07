@@ -16,6 +16,14 @@ class LocationController{
     {
         return $this->location->updateCrimeCount($location);
     }
+    function numberOfCrimeZones()
+    {
+        return $this->location->getCrimeZoneNumber();
+    }
+    function getJSONLocations()
+    {
+        return $this->location->getLocationsJSON();
+    }
 }
 
 

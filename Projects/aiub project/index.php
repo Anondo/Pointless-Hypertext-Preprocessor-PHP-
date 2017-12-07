@@ -4,6 +4,8 @@
     <link rel="stylesheet" type="text/css" href="css/index_style.css">
     <link rel="stylesheet" type="text/css" href="css/navigation.css">
     <script src = 'js\default_pp_setter.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyCF7ndFJ68221tpvVYDGMA4GAomtfb5MQA"></script>
+    <script src = 'js/map.js'></script>
 </head>
 
 
@@ -70,7 +72,7 @@
                             $blogger_pp = $blog->getBloggerProfilePicture($blogger_id);
                         }
                         echo "<div id = \"single_blog\">";
-            
+
                             echo "<div id='div_blog_title'>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></div>";
                             echo "<div id =\"single_blog_content\">";
                             echo "<p class = \"datetime\">{$row['datetime']}</p>";
@@ -105,6 +107,9 @@
                     <option value = "user"> User </option>
                     <option value = "title"> title </option>
             </select>
+            <div id="map-canvas" style="height:300px; width:300px">
+
+            </div>
         </div>
 </article>
 
