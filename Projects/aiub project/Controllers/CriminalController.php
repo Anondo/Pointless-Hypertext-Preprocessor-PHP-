@@ -11,6 +11,18 @@ class CriminalController{
     {
         return $this->criminal->putCriminal($fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role , $pro_pic);
     }
+    function getAllCriminals()
+    {
+        $this->criminal->getAllCriminals();
+    }
+    function updateCriminalInfo($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender, $pro_pic , $role=3)
+    {
+        return $this->criminal->updateCriminal($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender, $pro_pic , $role=3)
+    }
+    function deleteCriminal($id)
+    {
+        $this->criminal->removeCriminal($id);
+    }
 }
 
 

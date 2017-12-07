@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/admin_navigation.css">
 </head>
 <body>
-	
+
 		<ul>
 			<?php
 
@@ -26,7 +26,8 @@
      			<div class="dropdown-content">
 	 	            <a href = "blog.php" > Manage Blogs </a>
 	 				<a href = "user.php" > Manage Users </a>
-  				</div>	
+					<a href = "criminal.php" > Manage Criminals </a>
+  				</div>
 	 		</li>
 	 	</ul>
 
