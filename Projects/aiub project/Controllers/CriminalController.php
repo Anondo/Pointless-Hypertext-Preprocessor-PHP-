@@ -23,6 +23,39 @@ class CriminalController{
     {
         $this->criminal->removeCriminal($id);
     }
+    function emailValidate($e) //checking for correct email pattern
+    {
+        if(!(strpos($e , "@")) ||(substr_count($e , "@") != 1) || (strpos($e , "@") == 0 && strpos($e , "@") != strlen($e-1)))
+        {
+            $this->setErrorMessage("Invalid Email Pattern!");
+            return false;
+        }
+        elseif(substr_count(substr($e , strpos($e , "@")+1) , ".") != 1 || strrpos($e , ".") == 1)
+        {
+            $this->setErrorMessage("Invalid Email Pattern!");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    function pictureValidate($pic) //the picture must be of valid extension
+    {
+        if(strlen($pic) == 0)
+            return true;
+        $picNameArray = explode("." , $pic);
+        $extensions = array("non zero index" , "png" , "jpg" , "jpeg");
+        if(array_search($picNameArray[1] , $extensions))
+        {
+            return true;
+        }
+        else
+        {
+            $this->setErrorMessage("Picture Format Not Recognized");
+            return false;
+        }
+    }
 }
 
 

@@ -1,7 +1,7 @@
 <html>
 <head>
 	<title>Criminal SignUP Page</title>
-	<script src = "../js/signup_handler.js"></script>
+	<script src = "../js/criminal_handler.js"></script>
     <!--<link rel="stylesheet" type="text/css" href="../css/index_style.css">
     <link rel="stylesheet" type="text/css" href="../css/navigation.css">-->
     <link rel="stylesheet" type="text/css" href="../css/signup_style.css">
@@ -9,7 +9,7 @@
 
 <body onload = "addYears()">
 <div>
-    
+
 <article>
     <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
 
@@ -17,7 +17,7 @@
 
     <?php session_start();?>
     <div id = "signup-form">
-        <form name = "signupForm" action = "" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
+        <form name = "criminal_form" action = "" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
 
             <!--First Name Row-->
             <label><sup style="color:red;">*</sup>First Name :</label>
