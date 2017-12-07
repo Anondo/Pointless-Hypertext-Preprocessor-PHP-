@@ -3,6 +3,7 @@
     <title>Is That Crime!</title>
     <link rel="stylesheet" type="text/css" href="css/index_style.css">
     <link rel="stylesheet" type="text/css" href="css/navigation.css">
+    <script src = 'js\default_pp_setter.js'></script>
 </head>
 
 
@@ -20,7 +21,7 @@
             $login = new Login();
             if($login->isLogged())
             {
-                echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}'/>";
+                echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}' onerror='return setDefaultPP(this)'/>";
 				echo "<b class = \"navigationb\">Welcome ". $login->getUsername(). "</b>";
                 echo "<a class = \"right-li\" href = 'Views/action/logout.php'>Logout</a>";
             }
@@ -69,14 +70,15 @@
                             $blogger_pp = $blog->getBloggerProfilePicture($blogger_id);
                         }
                         echo "<div id = \"single_blog\">";
-                        echo "<div id =\"single_blog_content\">";
-                            echo "<h5>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></h5>";
+            
+                            echo "<div id='div_blog_title'>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></div>";
+                            echo "<div id =\"single_blog_content\">";
                             echo "<p class = \"datetime\">{$row['datetime']}</p>";
                             echo "<p class = \"body\">$body</p><br>";
                             echo "<p class=\"bold-blog-content\">Location - ".$row["location"]. "</p>";
                             echo "<p class=\"bold-blog-content\">Category - ".$row["category"]. "</p>";
                             echo "<p class=\"bold-blog-content\">By - $blogger</p>";
-                            echo "<p class=\"bold-blog-content\"><img class='circled_pro_pic' src='$blogger_pp'/></p>";
+                            echo "<p class=\"bold-blog-content\"><img class='circled_pro_pic' src='$blogger_pp' onerror='return setDefaultPP(this)'/></p>";
 
                             echo "<hr/>";
                         echo "</div>";

@@ -2,6 +2,7 @@
 <head>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/comment_handler.js"></script>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/blog_handler.js"></script>
+    <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/default_pp_setter.js"></script>
 
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/navigation.css">
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/blog_style.css">
@@ -42,7 +43,7 @@
             <?php
             if($logged)
             {
-            	echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}'/>";
+                echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}' onerror='return setDefaultPP(this)'/>";
 				echo "<b class = 'navigationb'>Welcome ".$login->getUsername(). " , share your post!</b>";
 				echo "<a class = 'right-li' href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/Views/action/logout.php'>Logout</a>";
                 echo "<a class = 'right-li' href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/Views/user_info.php'>Profile</a>";
@@ -76,7 +77,7 @@
                 echo "<div id=\"blog-container-content\">";
 
                     # need valid url of the blogger of the blog
-                    echo "<img class='rectangular_pro_pic' src='$blogger_pp'/>";
+                    echo "<img class='rectangular_pro_pic' src='$blogger_pp' onerror='return setDefaultPP(this)'/>";
 
                     echo "<b id =\"blogger_name\">".$blogger."</b>";
                     echo "<p class ='blog_title'>".$blog["title"]."</p>".checkRemovalbeBlog($blog["blog_id"] , $userId);
@@ -132,7 +133,7 @@
                         $username = $username["username"];
                         $commenter_pp = $user->getProfilePicture($row["user_id"]);
                         echo "<div class=\"comments\" id = {$row['comment_id']}>";
-                        echo "<p><img id='pro_pic' src='$commenter_pp'/><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}".checkRemovableComment($row['comment_id'] , $id , $userId)."</p>";
+                        echo "<p><img id='pro_pic' src='$commenter_pp' onerror='return setDefaultPP(this)'/><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}".checkRemovableComment($row['comment_id'] , $id , $userId)."</p>";
                         echo "</div>";
                     }
                 }
@@ -141,7 +142,7 @@
                     echo "<hr>";
                     echo "<div id =\"div-commentBox\">";
                     echo "<form action = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/action/comment.php/?blog_id=$id&user_id=$userId' method = 'POST' onsubmit = 'return isCommentEmpty()'>
-                         <label><img id='pro_pic' src='{$_SESSION['pro_pic']}'/>  </label>
+                         <label><img id='pro_pic' src='{$_SESSION['pro_pic']}' onerror='return setDefaultPP(this)'/>  </label>
                          <textarea id = 'commentBox' rows = '7' cols = '165' name = 'commentBody' placeholder = 'Comment Here' style='resize:none;' onkeyup = 'isCommentEmpty()'></textarea>
                           <br><input type = 'submit' id = 'comment-button' name = 'commentSubmit' value = 'comment'/>
                          <span id = \"comment_error\" style = \"color:red;font-size:16px\"></span></form>";

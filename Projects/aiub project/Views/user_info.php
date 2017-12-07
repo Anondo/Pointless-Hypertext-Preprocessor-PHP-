@@ -27,9 +27,12 @@ $role = $user["role"];
 <html>
 <head>
     <title><?php echo $username ?> Information</title>
-	<link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/index_style.css"/> <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/navigation.css"/>
+	<link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/index_style.css"/>
+    <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/navigation.css"/>
     <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/user_info.css"/>
+
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/admin_user_handler.js"></script>
+    <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/default_pp_setter.js"></script>
 </head>
 <body>
 	<div>
@@ -37,7 +40,7 @@ $role = $user["role"];
 			<?php
 				if($login->isLogged())
 				{
-					echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}'/>";
+					echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}' onerror='return setDefaultPP(this)'/>";
 					echo "<b class = \"navigationb\">".$login->getUsername()." , Information</b>";
 				}
 				else
@@ -56,7 +59,7 @@ $role = $user["role"];
 		<form name = "user_update_form" action="action/user_update.php?user_id=<?php echo $userid ?>&role=<?php echo $role ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate(<?php echo $userid ?>)">
 
             <label>Current Profile Picture</label>
-            <br><img id="profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>"/>
+            <br><img id="profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>" onerror="return setDefaultPP(this)"/>
 
             <br><label>First Name</label>
             <br><input type="text" class="input" name="fname" placeholder="First Name..." value="<?php echo $fname;?>"/>
