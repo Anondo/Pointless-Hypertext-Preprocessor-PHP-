@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2017 at 06:04 AM
+-- Generation Time: Dec 07, 2017 at 12:51 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -128,8 +128,8 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`loc_id`, `loc_name`, `crimes`) VALUES
-(1, 'Shyamoli', 0),
-(2, 'Mirpur', 2),
+(1, 'Shyamoli', 4),
+(2, 'Mirpur', 3),
 (3, 'Banani', 0),
 (4, 'Motijheel', 1),
 (5, 'Other', 0);
@@ -161,9 +161,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `fname`, `lname`, `age`, `bdate`, `username`, `email`, `password`, `pro_pic`, `gender`, `role`, `del`) VALUES
-(10, 'Mr', 'tasty', 27, '7/feb/1990', 'thetaste', 'tasty@yummy.com', 'abcd%1abcd', NULL, 'male', 1, 0),
+(10, 'Mr', 'tasty', 27, '7/feb/1990', 'thetaste', 'tasty@yummy.com', 'abcd%1abcd', 'http://localhost:80/Projects/aiub project/uploads/thetaste/Profile Picture/', 'male', 1, 0),
 (12, 'New', 'User', 82, '5/apr/1935', 'newbie', 'new@user.com', 'abcd%1abcd', NULL, 'male', 2, 0),
-(15, 'test', 'user', 16, '14/nov/2001', 'testuser', 'aanondos@yahoo.com', 'abcd%1abcd', 'http://localhost:80/Projects/aiub project/uploads/testuser/Profile Picture/BvS2.0.jpg', 'male', 2, 0);
+(15, 'test', 'user', 16, '14/nov/2001', 'testuser', 'aanondos@yahoo.com', 'abcd%1abcd', 'http://localhost:80/Projects/aiub project/Uploads/testuser/Profile Picture/17352401_1582781845127502_2733895837477039183_n.jpg', 'male', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -240,7 +240,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `comments`
 --
