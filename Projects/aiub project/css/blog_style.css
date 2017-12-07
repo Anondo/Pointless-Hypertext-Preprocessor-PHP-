@@ -19,7 +19,7 @@ body{
     border:3px solid #f2f2f2;
     border-radius: 5px;
     text-align:justify;
-    
+
 
 }
 #single_blog:hover{
@@ -109,6 +109,7 @@ a .blog_title:hover{
     font-family: 'Tahoma';
     word-spacing: 1;
     color: black;
+    word-wrap:break-word;
 }
 .bold-blog-content{
     font-size: 18px;
@@ -124,7 +125,7 @@ a .blog_title:hover{
     border:2px solid white;
     border-radius:50px;
     float: left;
-    
+
 }
 .rectangular_pro_pic{
     width: 40px;
@@ -133,7 +134,7 @@ a .blog_title:hover{
 }
 
 /*=============================
-BLOG 
+BLOG
 =============================*/
 #blog-container{
     max-width:60%;

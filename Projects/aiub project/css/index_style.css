@@ -19,7 +19,7 @@ body{
     border:3px solid #f2f2f2;
     border-radius: 5px;
     text-align:justify;
-    
+
 
 }
 #single_blog:hover{
@@ -108,6 +108,7 @@ hr { border: 1px solid white;clear: both; margin-top:30px; width: 300px; }
     font-family: 'Tahoma';
     word-spacing: 1;
     color: black;
+    word-wrap:break-word;
 }
 .bold-blog-content{
     font-size: 15px;
@@ -122,5 +123,5 @@ hr { border: 1px solid white;clear: both; margin-top:30px; width: 300px; }
     height: 30px;
     border:2px solid white;
     border-radius:50px;
-    
+
 }
