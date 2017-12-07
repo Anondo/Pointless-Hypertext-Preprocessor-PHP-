@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2017 at 09:43 PM
+-- Generation Time: Dec 07, 2017 at 06:04 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -54,7 +54,8 @@ INSERT INTO `blogs` (`blog_id`, `title`, `body`, `datetime`, `attachment`, `blog
 (10, 'testing blog 2', 'this is a testing blog number 2...i am gonna try to be Anonymous here.', '22/11/2017 04:45:50am', NULL, 10, 1, 'Shymoli', 'robbery', 0),
 (23, 'Final Test??', 'I was robbed!!! Not really just had to make this real. This is just for testing purpose', '24/11/2017 04:48:57am', NULL, 10, 0, 'Mirpur Mirpur-10 , cirle', 'robbery', 0),
 (24, 'Can i Delete?', 'Delete testing blog!!', '01/12/2017 03:24:34am', NULL, 10, 0, 'Shyamoli ', 'robbery', 1),
-(25, 'test with attachment', 'This is a test blog with attachment!', '07/12/2017 01:27:10am', 'http://localhost:80/Projects/aiub project/uploads/thetaste/test with attachment(07 12 2017)/Doctor Strange Theme on Guitar.mp3', 10, 0, 'Shyamoli ', 'robbery', 0);
+(25, 'test with attachment', 'This is a test blog with attachment!', '07/12/2017 01:27:10am', 'http://localhost:80/Projects/aiub project/uploads/thetaste/test with attachment(07 12 2017)/Doctor Strange Theme on Guitar.mp3', 10, 0, 'Shyamoli ', 'robbery', 0),
+(40, 'keep testing', 'testing testing testing', '07/12/2017 10:37:13am', NULL, 15, 0, 'Shyamoli ', 'robbery', 0);
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,8 @@ INSERT INTO `comments` (`comment_id`, `blog_id`, `user_id`, `body`, `datetime`, 
 (15, 9, 10, 'kuttar baccha!!', '30/11/2017 01:14:37am', 1),
 (16, 24, 10, 'shit\r\n', '01/12/2017 05:50:14am', 0),
 (17, 24, 10, 'yeah\r\n', '01/12/2017 05:50:18am', 0),
-(18, 24, 10, 'fuck', '01/12/2017 05:50:22am', 1);
+(18, 24, 10, 'fuck', '01/12/2017 05:50:22am', 1),
+(19, 1, 15, 'test comment', '07/12/2017 10:50:22am', 0);
 
 -- --------------------------------------------------------
 
@@ -238,12 +240,12 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `criminals`
 --

@@ -98,10 +98,6 @@ class UserModel extends Models{
     {
         return $this->password;
     }
-    function getProPic()
-    {
-        return $this->pro_pic;
-    }
     function getGender()
     {
         return $this->gender;
@@ -221,6 +217,13 @@ class UserModel extends Models{
         else
             return false;
 	}
+    function getPP($id)
+    {
+        $url = $this->executeQuery("select pro_pic from users where user_id = $id");
+        $url = $url->fetch_assoc();
+        $url = $url["pro_pic"];
+        return $url;
+    }
 
 }
 

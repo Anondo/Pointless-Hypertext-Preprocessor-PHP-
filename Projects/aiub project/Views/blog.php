@@ -130,11 +130,9 @@
                     {
                         $username = $user->getUsername($row['user_id']);
                         $username = $username["username"];
+                        $commenter_pp = $user->getProfilePicture($row["user_id"]);
                         echo "<div class=\"comments\" id = {$row['comment_id']}>";
-                        if($logged)
-                            echo "<p><img id='pro_pic' src='{$_SESSION['pro_pic']}'/><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}".checkRemovableComment($row['comment_id'] , $id , $userId)."</p>";
-                        else
-                            echo "<p><img id='pro_pic' src='{}'/><b>$username :</b>  {$row['body']}</p><p>{$row["datetime"]}</p>";
+                        echo "<p><img id='pro_pic' src='$commenter_pp'/><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}".checkRemovableComment($row['comment_id'] , $id , $userId)."</p>";
                         echo "</div>";
                     }
                 }

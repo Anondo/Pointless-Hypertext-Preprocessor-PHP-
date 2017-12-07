@@ -19,6 +19,10 @@ class UserController{
 	{
 		return $this->user->getRoleName($role);
 	}
+    function getProfilePicture($id)
+    {
+        return $this->user->getPP($id);
+    }
     function updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role , $pro_pic)
     {
         return $this->user->updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role ,$pro_pic);
