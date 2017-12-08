@@ -15,7 +15,7 @@ class CriminalModel extends Models{
     }
     function getAllCriminals()
     {
-        $criminals = $this->executeQuery("select * from criminals");
+        $criminals = $this->executeQuery("select * from criminals where del = false");
         if($criminals)
             return $criminals;
         else
@@ -44,6 +44,14 @@ class CriminalModel extends Models{
         }
         else
             return false;
+    }
+    function getFullName($id)
+    {
+        $result = $this->executeQuery("select fname , lname from criminals where criminal_id = $id and del = false");
+        $result = $result->fetch_assoc();
+        $fname = $result["fname"];
+        $lname = $result["lname"];
+        return $fname." ".$lname;
     }
 
 }

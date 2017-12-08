@@ -107,9 +107,8 @@
                     <option value = "user"> User </option>
                     <option value = "title"> title </option>
             </select>
-            <div id="map-canvas" style="height:300px; width:300px">
-
             </div>
+            <div id="map-canvas" style="height:300px; width:300px">
         </div>
 </article>
 

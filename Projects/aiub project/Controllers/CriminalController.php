@@ -11,6 +11,10 @@ class CriminalController{
     {
         return $this->criminal->putCriminal($fname,$lname ,$day ,$month ,$year ,$uname ,$email,$gender,$role , $pro_pic);
     }
+    function getFullName($id)
+    {
+        return $this->criminal->getFullName($id);
+    }
     function getAllCriminals()
     {
         return $this->criminal->getAllCriminals();
@@ -21,7 +25,7 @@ class CriminalController{
     }
     function deleteCriminal($id)
     {
-        $this->criminal->removeCriminal($id);
+        return $this->criminal->removeCriminal($id);
     }
     function emailValidate($e) //checking for correct email pattern
     {

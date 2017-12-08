@@ -4,9 +4,9 @@ require_once(get_include_path()."\Projects\aiub project\Controllers\CriminalCont
 $criminalcontrol = new CriminalController();
 if(isset($_GET["criminal_id"]) /*&& isset($_GET["blog_id"])*/)
 {
-    $username = $usercontrol->getUsername($_GET["criminal_id"])["username"];
-    chmod("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$username" , 0777);
-    rmdir_recursive("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$username");
+    $fullname = $criminalcontrol->getFullName($_GET["criminal_id"]);
+    chmod("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$fullname" , 0777);
+    rmdir_recursive("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$fullname");
     $ok = $criminalcontrol->deleteCriminal($_GET['criminal_id']);
     if($ok)
         echo "ok";

@@ -1,6 +1,12 @@
 var map;
 var total_marker_count = getMarkerCount();
 var crimeZones = getCrimeZones();
+var marker_icon = {
+     url: "http://localhost:"+location.port+"/Projects/aiub project/img/marker.png", // url
+     scaledSize: new google.maps.Size(40, 40), // size
+     origin: new google.maps.Point(0,0), // origin
+     anchor: new google.maps.Point(0, 0) // anchor
+ };
 function initialize() {
   var mapOptions = {
     zoom: 12,
@@ -16,7 +22,11 @@ function initialize() {
           {
               position: new google.maps.LatLng(crimeZones[i].latitude, crimeZones[i].longitude),
               map: map,
-              title: ''
+              title: '',
+              icon: marker_icon,
+              scaledSize: new google.maps.Size(100, 100) // scaled size
+              //origin: new google.maps.Point(0,0), // origin
+             // anchor: new google.maps.Point(0, 0)
           }
       );
   }

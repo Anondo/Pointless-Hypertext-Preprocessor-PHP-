@@ -66,14 +66,14 @@ $role = $user["role"];
             </div>
 
             <div id="data-section">
-                <br><label>First Name</label>
+                <br><label>First Name :</label>
             <br><input type="text" class="input" name="fname" placeholder="First Name..." value="<?php echo $fname;?>"/>
 
-            <br><label>Last Name</label>
+            <br><label>Last Name :</label>
             <br><input type="text" class="input" name="lname" placeholder="Last Name..." value="<?php echo $lname;?>"/>
 
-            <br><label>Birthdate </label>
-            <br>Day<select id="day" name="day" >
+            <br><label>Birthdate : </label>
+            <br>Day : <select id="day" name="day" >
                                             <?php
                                             for($i = 1; $i<=31 ; $i++)
                                             {
@@ -86,7 +86,7 @@ $role = $user["role"];
                                            </select>
 
 
-                                        Month
+                                        Month :
                                            <select name="month">
                                                <?php
                                                 $months = array("jan" => "January","feb"=>"February","mar"=>"March","apr"=>"April","may"=>"May"
@@ -104,7 +104,7 @@ $role = $user["role"];
                                            </select>
 
 
-                                        Year
+                                        Year :
                                            <select name="year">
                                                <?php
                                                 for($i = 1935; $i <= date("Y"); $i++)
@@ -119,13 +119,13 @@ $role = $user["role"];
 
 
 
-           <br><label>User Name </label>
+           <br><label>User Name :</label>
            <br><input type="text" class="input" name="uname" placeholder="User Name..."  onkeyup="usernameValidate(this.value,<?php echo $userid ?>)" value="<?php echo $username;?>"/><span id="username_error" style="color:red;"></span>
 
-            <br><label>Your Email Address</label>
+            <br><label>Your Email Address :</label>
             <br><input type="text" class="input" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value,<?php echo $userid ?>)" value="<?php echo $email;?>"/><span id="email_error" style="color:red;"></span>
 
-            <br><label>Password </label>
+            <br><label>Password :</label>
             <br><input type="text" class="input" name="pass" placeholder="password"  onkeyup="passwordValidate(this.value , signupForm.cpass.value)" value="<?php echo $password;?>"/><span id="password_error" style="color:red;"></span>
 
             <br>I am <select name="gender">
@@ -135,7 +135,7 @@ $role = $user["role"];
                         </select>
             </div>
             
-			<br><input type="submit" name="update_button" value="Update">
+			<br><input type="submit" id="update-button" name="update_button" value="Update">
    		 </form>
         </div>
     </article>
