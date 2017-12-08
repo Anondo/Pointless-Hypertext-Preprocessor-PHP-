@@ -170,7 +170,7 @@ class UserModel extends Models{
     function getUser($id)
     {
         $result = $this->executeQuery("select * from users where user_id = $id and del = false");
-        if($result->num_rows > 0)
+        if($result)
         {
             $result = $result->fetch_assoc();
             return $result;

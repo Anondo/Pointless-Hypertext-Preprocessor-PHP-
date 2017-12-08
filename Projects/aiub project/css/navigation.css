@@ -19,6 +19,7 @@ navigation{
     overflow: hidden;
     top: 0px;
     position:fixed;
+    padding-right: 30px;
 }
 
 .navigationb{
@@ -36,8 +37,7 @@ navigation{
     text-align: center;
     padding:14px 16px;
     text-decoration: none;
-    font-size: 17px;
-
+    font-size: 16px;
 }
 
 a{

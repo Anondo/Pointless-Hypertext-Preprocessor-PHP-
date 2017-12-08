@@ -36,7 +36,7 @@ $role = $user["role"];
 </head>
 <body>
 	<div>
-		<navigation>
+	<navigation>
 			<?php
 				if($login->isLogged())
 				{
@@ -52,16 +52,21 @@ $role = $user["role"];
 				<a class = 'right-li' href = 'user_info.php'>Profile</a>
 				<a class = 'right-li' href = 'crime_post.php'>Post Crime</a>
     			<a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a>
-		</navigation>
+	</navigation>
 
 	<article>
 		<div id="profile_Form">
 		<form name = "user_update_form" action="action/user_update.php?user_id=<?php echo $userid ?>&role=<?php echo $role ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate(<?php echo $userid ?>)">
+            
+            <div id="image-upload-section">
+                <label id="img-label">Current Profile Picture</label>
+                <br><img id="profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>" onerror="return setDefaultPP(this)"/>
+                <br><label id ="imginput-button" for="imginput">Upload New Picture</label>
+                    <br><input id= "imginput" type="file" name="pro_pic"/>
+            </div>
 
-            <label>Current Profile Picture</label>
-            <br><img id="profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>" onerror="return setDefaultPP(this)"/>
-
-            <br><label>First Name</label>
+            <div id="data-section">
+                <br><label>First Name</label>
             <br><input type="text" class="input" name="fname" placeholder="First Name..." value="<?php echo $fname;?>"/>
 
             <br><label>Last Name</label>
@@ -81,8 +86,8 @@ $role = $user["role"];
                                            </select>
 
 
-                	                    Month
-                	   	                   <select name="month">
+                                        Month
+                                           <select name="month">
                                                <?php
                                                 $months = array("jan" => "January","feb"=>"February","mar"=>"March","apr"=>"April","may"=>"May"
                                                 ,"jun"=>"June","jul"=>"July","aug"=>"August","sep"=>"September","oct"=>"October","nov"=>"November",
@@ -96,11 +101,11 @@ $role = $user["role"];
                                                 }
                                                 ?>
 
-                	   	                   </select>
+                                           </select>
 
 
-                	                    Year
-                	   	               	   <select name="year">
+                                        Year
+                                           <select name="year">
                                                <?php
                                                 for($i = 1935; $i <= date("Y"); $i++)
                                                 {
@@ -110,7 +115,7 @@ $role = $user["role"];
                                                         echo "<option value=$i>$i</option>";
                                                 }
                                                 ?>
-                	   	               	   </select>
+                                           </select>
 
 
 
@@ -120,23 +125,20 @@ $role = $user["role"];
             <br><label>Your Email Address</label>
             <br><input type="text" class="input" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value,<?php echo $userid ?>)" value="<?php echo $email;?>"/><span id="email_error" style="color:red;"></span>
 
-           	<br><label>Password </label>
-           	<br><input type="text" class="input" name="pass" placeholder="password"  onkeyup="passwordValidate(this.value , signupForm.cpass.value)" value="<?php echo $password;?>"/><span id="password_error" style="color:red;"></span>
+            <br><label>Password </label>
+            <br><input type="text" class="input" name="pass" placeholder="password"  onkeyup="passwordValidate(this.value , signupForm.cpass.value)" value="<?php echo $password;?>"/><span id="password_error" style="color:red;"></span>
 
             <br>I am <select name="gender">
-            		               	  <option value="male"<?php if($gender=="male"){echo "selected='selected'";} ?>>Male</option>
-            		               	  <option value="female"<?php if($gender=="female"){echo "selected='selected'";} ?>>Female</option>
-            		               	  <option value="other"<?php if($gender=="other"){echo "selected='selected'";} ?>>Other</option>
-            		    </select>
-
-
-            <br><label>Change Your Profile Picture</label>
-            <br><input type="file" name="pro_pic"/>
-
+                                      <option value="male"<?php if($gender=="male"){echo "selected='selected'";} ?>>Male</option>
+                                      <option value="female"<?php if($gender=="female"){echo "selected='selected'";} ?>>Female</option>
+                                      <option value="other"<?php if($gender=="other"){echo "selected='selected'";} ?>>Other</option>
+                        </select>
+            </div>
+            
 			<br><input type="submit" name="update_button" value="Update">
    		 </form>
+        </div>
     </article>
 </div>
-
 </body>
 </html>

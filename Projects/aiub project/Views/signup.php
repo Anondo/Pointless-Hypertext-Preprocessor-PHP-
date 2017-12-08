@@ -113,7 +113,7 @@
                     <option value="other">Other</option>
                 </select>
 
-        <br><label for = "imginput">
+        <br><label id="imginput-button" for = "imginput">
                  <img src="../img/image_logo.jpg" height="30" width="35"/> Choose Your Profile Picture
             </label>
             <input type = "file" id ="imginput" name = "propic" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["propic"];?>" />
