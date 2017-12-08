@@ -13,7 +13,7 @@ class CriminalController{
     }
     function getAllCriminals()
     {
-        $this->criminal->getAllCriminals();
+        return $this->criminal->getAllCriminals();
     }
     function updateCriminalInfo($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$gender, $pro_pic , $role=3)
     {
@@ -53,6 +53,18 @@ class CriminalController{
         else
         {
             $this->setErrorMessage("Picture Format Not Recognized");
+            return false;
+        }
+    }
+    function criminalExists($name)
+    {
+        $criminal_name =  $this->criminal->getCriminalByName($name);
+        if(!is_object($criminal_name))
+        {
+            return true;
+        }
+        else
+        {
             return false;
         }
     }

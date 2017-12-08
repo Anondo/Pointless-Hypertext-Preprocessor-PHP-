@@ -35,6 +35,16 @@ class CriminalModel extends Models{
         $flag = $this->executeDMLQuery("update criminals set del = true where criminal_id = $id");
         return $flag;
     }
+    function getCriminalByName($name)
+    {
+        $result = $this->executeQuery("select * from criminals where username = '$name' and del = false");
+        if($result)
+        {
+            return $result;
+        }
+        else
+            return false;
+    }
 
 }
 

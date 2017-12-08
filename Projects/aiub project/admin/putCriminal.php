@@ -22,7 +22,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
     $email = $_POST["email"];
     $gender = $_POST["gender"];
     $imgname = NULL;
-    $directory = "../../uploads/";
+    $directory = "../uploads/";
     $year = $_POST["year"];
     $day = $_POST['day'];
     $month = $_POST['month'];
@@ -44,15 +44,15 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
     {*/
         if(emptyFieldValidate() && $criminal_control->emailValidate($email) && $criminal_control->pictureValidate($imgname))
         {
-            mkdir($directory.$uname);
-            mkdir($directory.$uname."/"."Profile Picture");
-            $urlImage = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Uploads/$uname/Profile Picture/$imgname";
-            $criminal_control->registerUser($fname , $lname , $day ,$month , $year , $uname , $email, $gender ,3 ,  $urlImage);
-            echo "<h><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>You Have Succesfully Signed UP!!!</a></h>";
+            mkdir($directory.$fname." ".$lname);
+            mkdir($directory.$fname." ".$lname."/"."Profile Picture");
+            $urlImage = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Uploads/$fname $lname/Profile Picture/$imgname";
+            $criminal_control->insertCriminal($fname , $lname , $day ,$month , $year , $uname , $email, $gender ,3 ,  $urlImage);
+            echo "<h><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/admin/criminal.php'>You Have Succesfully Registered Criminal!!!</a></h>";
             //session_destroy(); //there is no need for the session if signed up perfectly
             if(!empty($_FILES["propic"]["name"]))
             {
-                $finaleImageLocation = $directory.$uname."/"."Profile Picture/";
+                $finaleImageLocation = $directory.$fname." ".$lname."/"."Profile Picture/";
                 copy($directory.$imgname , $finaleImageLocation.$imgname);
                 unlink($directory.$imgname);
             }

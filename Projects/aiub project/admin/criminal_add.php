@@ -17,7 +17,7 @@
 
     <?php session_start();?>
     <div id = "signup-form">
-        <form name = "criminal_form" action = "" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
+        <form name = "criminal_form" action = "http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/admin/putCriminal.php" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
 
             <!--First Name Row-->
             <label><sup style="color:red;">*</sup>First Name :</label>
@@ -86,7 +86,7 @@
 
         <!--User Name Row-->
         <br><label><sup style="color:red;">*</sup>User Name :</label>
-        <br><input type="text" class="input" name="uname" placeholder="User Name..." value =  "<?php ?>" onkeyup="usernameValidate(this.value)"/><span id="username_error" style="color:red;"></span>
+        <br><input type="text" class="input" name="uname" placeholder="User Name..." value =  "<?php ?>" onkeyup="usernameValidateGeneral(this.value)"/><span id="username_error" style="color:red;"></span>
 
         <!--Email Row-->
         <br><label><sup style="color:red;">*</sup>Email Address :</label>

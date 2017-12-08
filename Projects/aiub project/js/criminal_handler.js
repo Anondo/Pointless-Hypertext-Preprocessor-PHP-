@@ -29,7 +29,7 @@ function validate()
     var username = form['uname'].value;
     var email = form['email'].value;
     var propic = form['propic'].value;
-    if(emptyFieldValidate(first_name , last_name , username , email) && usernameValidate(username) && emailValidate(email)  && pictureValidate(propic))
+    if(emptyFieldValidate(first_name , last_name , username , email) && usernameValidateGeneral(username) && emailValidate(email)  && pictureValidate(propic))
     {
         return true;
     }
@@ -74,7 +74,7 @@ function emptyFieldValidate(fname , lname , uname , email )
     }
     return true;
 }
-function usernameValidate(uname)
+function usernameValidateGeneral(uname)
 {
     var exists = true;
     var ajax = new XMLHttpRequest();
@@ -95,6 +95,30 @@ function usernameValidate(uname)
     if(exists)
         error.innerHTML = "";
     ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub%20project/Views/action/username_exists.php?username="+uname , false);
+    ajax.send();
+    return exists && usernameValidateCriminal(uname);
+}
+function usernameValidateCriminal(uname)
+{
+    var exists = true;
+    var ajax = new XMLHttpRequest();
+    var error = document.getElementById("username_error");
+    ajax.onreadystatechange = function()
+    {
+        if(this.readyState == 4 && this.status == 200)
+        {
+            var response = this.responseText;
+            if(response == "exists")
+            {
+                //alert("Username Already Exists");
+                error.innerHTML = "Criminal Already Exists";
+                exists =  false;
+            }
+        }
+    };
+    if(exists)
+        error.innerHTML = "";
+    ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub%20project/admin/criminal_username_exists.php?username="+uname , false);
     ajax.send();
     return exists;
 }
