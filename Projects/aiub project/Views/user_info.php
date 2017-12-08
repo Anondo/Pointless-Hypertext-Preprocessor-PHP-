@@ -56,6 +56,7 @@ $role = $user["role"];
 
 	<article>
         <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
+        
 		<div id="profile_Form">
 		<form name = "user_update_form" action="action/user_update.php?user_id=<?php echo $userid ?>&role=<?php echo $role ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate(<?php echo $userid ?>)">
             
@@ -74,7 +75,7 @@ $role = $user["role"];
             <br><input type="text" class="input" name="lname" placeholder="Last Name..." value="<?php echo $lname;?>"/>
 
             <br><label>Birthdate : </label>
-            <br>Day : <select id="day" name="day" >
+            <br><span>Day : <select id="day" name="day" >
                                             <?php
                                             for($i = 1; $i<=31 ; $i++)
                                             {
@@ -117,14 +118,16 @@ $role = $user["role"];
                                                 }
                                                 ?>
                                            </select>
-
+                                       </span>
 
 
            <br><label>User Name :</label>
-           <br><input type="text" class="input" name="uname" placeholder="User Name..."  onkeyup="usernameValidate(this.value,<?php echo $userid ?>)" value="<?php echo $username;?>"/><span id="username_error" style="color:red;"></span>
+           <br><input type="text" class="input" name="uname" placeholder="User Name..."  onkeyup="usernameValidate(this.value,<?php echo $userid ?>)" value="<?php echo $username;?>"/>
+           <span id="username_error" style="color:red;"></span>
 
             <br><label>Your Email Address :</label>
-            <br><input type="text" class="input" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value,<?php echo $userid ?>)" value="<?php echo $email;?>"/><span id="email_error" style="color:red;"></span>
+            <br><input type="text" class="input" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value,<?php echo $userid ?>)" value="<?php echo $email;?>"/>
+            <span id="email_error" style="color:red;"></span>
 
             <br><label>Password :</label>
             <br><input type="text" class="input" name="pass" placeholder="password"  onkeyup="passwordValidate(this.value , signupForm.cpass.value)" value="<?php echo $password;?>"/><span id="password_error" style="color:red;"></span>

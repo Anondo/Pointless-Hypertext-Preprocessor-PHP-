@@ -26,10 +26,9 @@ function validate()
     var form = document.forms["criminal_form"];
     var first_name = form['fname'].value;
     var last_name = form["lname"].value;
-    var username = form['uname'].value;
     var email = form['email'].value;
     var propic = form['propic'].value;
-    if(emptyFieldValidate(first_name , last_name , username , email) && usernameValidateGeneral(username) && emailValidate(email)  && pictureValidate(propic))
+    if(emptyFieldValidate(first_name , last_name , email) && emailValidate(email)  && pictureValidate(propic))
     {
         return true;
     }
@@ -65,63 +64,16 @@ function emailValidate(email)
     error.innerHTML = "";
     return true;
 }
-function emptyFieldValidate(fname , lname , uname , email )
+function emptyFieldValidate(fname , lname , email )
 {
-    if(fname == "" || lname == "" || uname == "" || email == "")
+    if(fname == "" || lname == "" || email == "")
     {
         alert("None of the fields can be empty");
         return false;
     }
     return true;
 }
-function usernameValidateGeneral(uname)
-{
-    var exists = true;
-    var ajax = new XMLHttpRequest();
-    var error = document.getElementById("username_error");
-    ajax.onreadystatechange = function()
-    {
-        if(this.readyState == 4 && this.status == 200)
-        {
-            var response = this.responseText;
-            if(response == "exists")
-            {
-                //alert("Username Already Exists");
-                error.innerHTML = "Username Already Exists";
-                exists =  false;
-            }
-        }
-    };
-    if(exists)
-        error.innerHTML = "";
-    ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub%20project/Views/action/username_exists.php?username="+uname , false);
-    ajax.send();
-    return exists && usernameValidateCriminal(uname);
-}
-function usernameValidateCriminal(uname)
-{
-    var exists = true;
-    var ajax = new XMLHttpRequest();
-    var error = document.getElementById("username_error");
-    ajax.onreadystatechange = function()
-    {
-        if(this.readyState == 4 && this.status == 200)
-        {
-            var response = this.responseText;
-            if(response == "exists")
-            {
-                //alert("Username Already Exists");
-                error.innerHTML = "Criminal Already Exists";
-                exists =  false;
-            }
-        }
-    };
-    if(exists)
-        error.innerHTML = "";
-    ajax.open("GET" , "http://localhost:"+location.port+"/Projects/aiub%20project/admin/criminal_username_exists.php?username="+uname , false);
-    ajax.send();
-    return exists;
-}
+
 function pictureValidate(pp)
 {
     if(pp != "")

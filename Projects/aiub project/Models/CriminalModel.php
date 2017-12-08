@@ -13,6 +13,12 @@ class CriminalModel extends Models{
          values('$fname','$lname',$age,'$bdate','$uname','$email','$pro_pic' , '$gender',$role)");
         return $success;
     }
+    function getCriminal($id)
+    {
+        $result = $this->executeQuery("select * from criminals where criminal_id = $id and del = false");
+        $result = $result->fetch_assoc();
+        return $result;
+    }
     function getAllCriminals()
     {
         $criminals = $this->executeQuery("select * from criminals where del = false");
@@ -52,6 +58,13 @@ class CriminalModel extends Models{
         $fname = $result["fname"];
         $lname = $result["lname"];
         return $fname." ".$lname;
+    }
+    function getCriminalUsername($id)
+    {
+        $result = $this->executeQuery("select username from criminals where criminal_id = $id and del = false");
+        $result = $result->fetch_assoc();
+        $username = $result["username"];
+        return $username;
     }
 
 }

@@ -14,11 +14,10 @@ else
 
 session_start();
 
-if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) && isset($_POST["email"]))
+if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["email"]))
 {
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
-    $uname = $_POST["uname"];
     $email = $_POST["email"];
     $gender = $_POST["gender"];
     $imgname = NULL;
@@ -47,7 +46,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
             mkdir($directory.$fname." ".$lname);
             mkdir($directory.$fname." ".$lname."/"."Profile Picture");
             $urlImage = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Uploads/$fname $lname/Profile Picture/$imgname";
-            $criminal_control->insertCriminal($fname , $lname , $day ,$month , $year , $uname , $email, $gender ,3 ,  $urlImage);
+            $criminal_control->insertCriminal($fname , $lname , $day ,$month , $year , $email, $gender ,3 ,  $urlImage);
             echo "<h><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/admin/criminal.php'>You Have Succesfully Registered Criminal!!!</a></h>";
             //session_destroy(); //there is no need for the session if signed up perfectly
             if(!empty($_FILES["propic"]["name"]))
@@ -72,7 +71,7 @@ if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["uname"]) &&
 function emptyFieldValidate() //there can be no empty fields
 {
     global $message;
-    if(!empty($_POST["fname"]) && !empty($_POST["lname"])  && !empty($_POST["uname"]) && !empty($_POST["email"]))
+    if(!empty($_POST["fname"]) && !empty($_POST["lname"])  && !empty($_POST["email"]))
     {
         return true;
     }

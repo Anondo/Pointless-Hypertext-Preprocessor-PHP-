@@ -84,9 +84,6 @@
                                    </select>
                                </span>
 
-        <!--User Name Row-->
-        <br><label><sup style="color:red;">*</sup>User Name :</label>
-        <br><input type="text" class="input" name="uname" placeholder="User Name..." value =  "<?php ?>" onkeyup="usernameValidateGeneral(this.value)"/><span id="username_error" style="color:red;"></span>
 
         <!--Email Row-->
         <br><label><sup style="color:red;">*</sup>Email Address :</label>

@@ -5,8 +5,8 @@ $usercontrol = new UserController();
 $criminal_control = new CriminalController();
 $id = $_GET["user_id"];
 $pro_pic = $_GET["pp"];
-if(!empty($_POST["fname"]) || !empty($_POST["lname"]) || !empty($_POST["day"]) || !empty($_POST["month"]) || !empty($_POST["year"]) ||
-!empty($_POST["uname"]) || !empty($_POST["email"]) || !empty($_POST["pass"]) || !empty($_POST["gender"]) || !empty($_POST["role"]))
+if(!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["day"]) && !empty($_POST["month"]) && !empty($_POST["year"]) &&
+!empty($_POST["uname"]) && !empty($_POST["email"]) && !empty($_POST["pass"]) && !empty($_POST["gender"]) && !empty($_POST["role"]))
 {
     $fname = $_POST["fname"];
     $lname = $_POST["lname"];
@@ -35,7 +35,9 @@ if(!empty($_POST["fname"]) || !empty($_POST["lname"]) || !empty($_POST["day"]) |
     rename("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$previous_uname" , "{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$uname");
     if($role == 3)
     {
-        $ok = $criminal_control->insertCriminal($fname,$lname ,$day ,$month ,$year ,$uname ,$email ,$gender,$role , $pro_pic);
+        rename("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$uname" , "{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$fname $lname");
+        $pro_pic = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Uploads/$fname $lname/Profile Picture/$prevImageName";
+        $ok = $criminal_control->insertCriminal($fname,$lname ,$day ,$month ,$year ,$email ,$gender,$role , $pro_pic , $uname);
         $usercontrol->removeUser($id);
     }
 

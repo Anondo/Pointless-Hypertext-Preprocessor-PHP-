@@ -7,13 +7,21 @@ class CriminalController{
     {
         $this->criminal = new CriminalModel();
     }
-    function insertCriminal($fname,$lname ,$day ,$month ,$year ,$uname ,$email,$gender,$role , $pro_pic)
+    function insertCriminal($fname,$lname ,$day ,$month ,$year ,$email,$gender,$role , $pro_pic , $uname = "")
     {
         return $this->criminal->putCriminal($fname,$lname ,$day ,$month ,$year ,$uname ,$email,$gender,$role , $pro_pic);
+    }
+    function getCriminalUsername($id)
+    {
+        return $this->criminal->getCriminalUsername($id);
     }
     function getFullName($id)
     {
         return $this->criminal->getFullName($id);
+    }
+    function getCriminal($id)
+    {
+        return $this->criminal->getCriminal($id);
     }
     function getAllCriminals()
     {
