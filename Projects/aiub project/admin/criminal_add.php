@@ -2,20 +2,44 @@
 <head>
 	<title>Criminal SignUP Page</title>
 	<script src = "../js/criminal_handler.js"></script>
-    <!--<link rel="stylesheet" type="text/css" href="../css/index_style.css">
-    <link rel="stylesheet" type="text/css" href="../css/navigation.css">-->
-    <link rel="stylesheet" type="text/css" href="../css/signup_style.css">
+
+  <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/admin_navigation.css">
+  <link rel="stylesheet" type="text/css" href="../css/signup_style.css">
 </head>
 
 <body onload = "addYears()">
 <div>
+<navigation>
+    <ul>
+      <?php
 
+        require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
+        $admin_login = new AdminController();
+        if($admin_login->isLogged())
+        {
+          echo "<li><b class = \"navigationb\">Welcome ". $admin_login->getUsername(). "</b></li>";
+          echo "<li class=\"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/action/logout.php'>Logout</a></li>";
+        }
+        else
+        {
+          echo "<li><b class = \"navigationb\">Hello World</b></li>";
+          echo "<li class=\"right-li\"><a href = 'login.php'>Login</a></li>";
+        }
+          ?>
+        <li class="dropdown right-li">
+          <a href="#" class="dropbtn">Manage</a>
+          <div class="dropdown-content">
+                <a href = "blog.php" > Manage Blogs </a>
+          <a href = "user.php" > Manage Users </a>
+          <a href = "criminal.php" > Manage Criminals </a>
+          </div>
+      </li>
+    </ul>
+</navigation>
 <article>
     <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
 
     <h3 id = "signup-title">Create an Account For Criminal</h3>
-
-    <?php session_start();?>
     <div id = "signup-form">
         <form name = "criminal_form" action = "http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/admin/putCriminal.php" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
 

@@ -2,7 +2,10 @@
 
 <head>
     <title>User Information</title>
+
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/admin_user_style.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/admin_navigation.css">
+
     <script src = "http://localhost:<?php echo $_SERVER['SERVER_PORT']; ?>/Projects/aiub project/js/user_handler.js"></script>
     <script src = 'http://localhost:<?php echo $_SERVER['SERVER_PORT']; ?>/Projects/aiub project/js/default_pp_setter.js'></script>
     <?php
@@ -18,10 +21,38 @@
 
 <body>
 <div>
-   <?php
-    $users = $admincontrol->getAllUsersExcept($_SESSION["user_id"]);
-    echo "<table border = '2'>";
-    echo "<tr>
+    <navigation>
+        <ul>
+            <?php
+
+                if($admincontrol->isLogged())
+                {
+                    echo "<li><b class = \"navigationb\">Welcome ". $admincontrol->getUsername(). "</b></li>";
+                    echo "<li class=\"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/action/logout.php'>Logout</a></li>";
+                }
+                else
+                {
+                    echo "<li><b class = \"navigationb\">Hello World</b></li>";
+                    echo "<li class=\"right-li\"><a href = 'login.php'>Login</a></li>";
+                }
+            ?>
+            <li class="dropdown right-li">
+                <a href="#" class="dropbtn">Manage</a>
+                <div class="dropdown-content">
+                    <a href = "blog.php" > Manage Blogs </a>
+                    <a href = "user.php" > Manage Users </a>
+                    <a href = "criminal.php" > Manage Criminals </a>
+                </div>
+            </li>
+        </ul>
+    </navigation>
+
+    <article>
+    <div>
+    <?php
+        $users = $admincontrol->getAllUsersExcept($_SESSION["user_id"]);
+        echo "<table border = '2'>";
+        echo "<tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Age</th>
@@ -56,6 +87,7 @@
 
    ?>
 </div>
+</article>
+</div>
 </body>
-
 </html>

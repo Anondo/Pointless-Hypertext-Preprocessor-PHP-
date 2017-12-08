@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2017 at 09:58 AM
+-- Generation Time: Dec 09, 2017 at 12:20 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -109,6 +109,18 @@ CREATE TABLE `criminals` (
   `del` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `criminals`
+--
+
+INSERT INTO `criminals` (`criminal_id`, `fname`, `lname`, `age`, `bdate`, `username`, `email`, `pro_pic`, `gender`, `role`, `del`) VALUES
+(3, 'Picchi', 'Hannan', 62, '12/sep/1955', '', 'picchi@hannan.com', 'http://localhost:80/Projects/aiub project/Uploads/Picchi Hannan/Profile Picture/17951783_10154314153067461_8889903535218467357_n.png', 'male', 3, 0),
+(4, 'sdafsdaf', 'sdfasdaf', 82, '1/jan/1935', 'sdafsdf', 'aanondos@yahoo.com', 'http://localhost:80/Projects/aiub project/Uploads/sdafsdaf sdfasdaf/Profile Picture/', 'male', 3, 1),
+(5, 'dasfdsaf', 'sadfsdaf', 82, '1/jan/1935', 'dsafdafdsa', 'aanondos@yahoo.com', 'http://localhost:80/Projects/aiub project/Uploads/dasfdsaf sadfsdaf/Profile Picture/', 'male', 3, 1),
+(6, 'kjdsafhksadhf', 'sdkajfhdkashfkjsdaf', 82, '1/jan/1935', 'yoyo', 'aanondos@yahoo.edu', 'http://localhost:80/Projects/aiub project/Uploads/kjdsafhksadhf sdkajfhdkashfkjsdaf/Profile Picture/16707680_1934396386889136_8471545667869974424_o.jpg', 'male', 3, 1),
+(7, 'dasfdsaf', 'dsafsadf', 82, '1/jan/1935', '', 'aanondos@yahoo.edu', 'http://localhost:80/Projects/aiub project/Uploads/dasfdsaf dsafsadf/Profile Picture/17629687_10154565168018434_7474034251317456675_n.jpg', 'male', 3, 1),
+(8, 'sdfsdafsadfsadf', 'sadfsdafsdaf', 82, '1/jan/1935', '', 'aanondos@yahoo.edu', 'http://localhost:80/Projects/aiub project/Uploads/sdfsdafsadfsadf sadfsdafsdaf/Profile Picture/', 'male', 3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -129,7 +141,7 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`loc_id`, `loc_name`, `crimes`, `latitude`, `longitude`) VALUES
-(1, 'Shyamoli', 4, 23.7718, 90.3631),
+(1, 'Shyamoli', 6, 23.7718, 90.3631),
 (2, 'Mirpur', 3, 23.8223, 90.3654),
 (3, 'Banani', 0, 23.794, 90.4043),
 (4, 'Motijheel', 1, 23.733, 90.4172),
@@ -241,7 +253,7 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 --
 -- AUTO_INCREMENT for table `comments`
 --
@@ -251,7 +263,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `criminals`
 --
 ALTER TABLE `criminals`
-  MODIFY `criminal_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `criminal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `location`
 --
@@ -261,7 +273,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `user_role`
 --
