@@ -40,6 +40,7 @@
     </navigation>
 
     <article>
+    	<noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
     	<div id = "post-container-box">
 
     	<form name = "blog_form" method = "POST" action = "action/putblog.php" enctype="multipart/form-data"  onsubmit="return updateCrimeOnLocation(this.location.value)">

@@ -55,6 +55,7 @@ $role = $user["role"];
 	</navigation>
 
 	<article>
+        <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
 		<div id="profile_Form">
 		<form name = "user_update_form" action="action/user_update.php?user_id=<?php echo $userid ?>&role=<?php echo $role ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate(<?php echo $userid ?>)">
             

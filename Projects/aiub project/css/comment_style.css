@@ -1,5 +1,5 @@
 .comments{
-    width:95%;
+    width:100%;
     height:auto;
     padding:2px 10px 2px 10px;
     margin-bottom: 5px;
@@ -7,16 +7,17 @@
     border-bottom-color: black;
     background-color: grey;
     overflow: auto;
+    box-sizing: border-box;
 }
 #comment-title{
     font-size: 20px;
     text-decoration: none;
-    font-family: ;
+    font-family:;
     color:;
     font-weight: bold;
-    word-spacing: 2;
     letter-spacing:1.2;
     line-height: .5;
+    text-align: center;
 }
 
 #div-commentBox{
@@ -68,4 +69,13 @@ textarea{
 ::placeholder{
      color: black;
     font-style: italic;
+}
+.comment-datetime{
+    font-size: 12px;
+    font-style: italic;
+    font-family: 'Tahoma';
+    line-height: 0.9;
+    word-spacing: 2;
+    color:#00264d;
+
 }

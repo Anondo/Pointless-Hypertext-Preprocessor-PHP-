@@ -2,77 +2,7 @@ body{
     margin:0px;
     padding: 0px;
 }
-#single_blog_content{
-    border-color: transparent;
-    border-style: solid;
-    border-width: 2px;
-    margin: 10px;
-    color:white;
-}
-#single_blog{
-    background-color: #c2c2c2;
-    max-width:40%;
-    height:auto;
-    float:left;
-    margin: 10px 0px 10px 10px;
-    padding:5px;
-    border:3px solid #f2f2f2;
-    border-radius: 5px;
-    text-align:justify;
 
-
-}
-#single_blog:hover{
-    background-color:#d9d9d9;
-    max-width:45%;
-    clear:none;
-    height: auto;
-
-}
-#all_blogs{
-    width:70%;
-    height:auto;
-    padding: : 0px 0px 0px 5px;
-    float:left;
-    border-color: transparent;
-    border-style: none;
-}
-
-#right-content{
-    background-color:;
-    width:28%;
-    height:auto;
-    padding:5px 0px 5px 0px;
-    float:right;
-    position:;
-
-}
-#searchby{
-    max-width:40%;
-    height:auto;
-    background-color:#c2c2c2 ;
-    color: black;
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 10px;
-    margin-right:5px;
-    top:20px;
-    float:right;
-    cursor:pointer;
-}
-#searchbox{
-    max-width:75%;
-    height:auto;
-    background-color:#c2c2c2 ;
-    color: black;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 10px;
-    margin-left: 45px;
-    top:20px;
-    float:left;
-
-}
 ::placeholder{
     color: white;
     font-style: italic;
@@ -137,14 +67,16 @@ a .blog_title:hover{
 BLOG
 =============================*/
 #blog-container{
-    max-width:60%;
+    max-width:70%;
     height:auto;
     background-color:#c2c2c2;
     color:black;
-    border:3px solid grey;
-    padding: 20px 20px 10px 20px;
-    margin: 0;
-    text-align: justify;
+    border-color:transparent;
+    border-style:none;
+    border-left:3px solid black;
+    border-right:3px solid black;
+    padding: 0px 40px 20px 40px;
+    margin: 0 auto;
 }
 
 #blog-container-content{
@@ -152,12 +84,10 @@ BLOG
     height:auto;
     border:2px solid transparent;
     background-color: #a6a6a6;
-    padding-top: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 20px;
+    padding: 5px 20px 10px 20px;
+    text-align: justify;
+    box-sizing: border-box;
 }
-
 #delete-button{
     background-color: red;
     border:2px solid white;

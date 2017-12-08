@@ -8,69 +8,102 @@ body{
     border-width: 2px;
     padding:0px 20px 20px 20px;
     color:white;
+    text-align:justify;
+    box-sizing: border-box;
+    height:auto;
+    width:100%;
 }
 #single_blog{
     background-color: #c2c2c2;
-    max-width:40%;
+    width:49%;
     height:auto;
-    float:left;
-    margin: 5px 5px 5px 10px;
-    border:3px solid transparent;
-    border-radius: 5px;
-    text-align:justify;
+    border:2px solid transparent;
+    border-radius:;
+    box-sizing: border-box;
+    margin: 10px 0px 0px 0px;
+}
 
-
+#single_blog:nth-child(odd){
+   float: left;
+   border-color: orange;
+}
+#single_blog:nth-child(even){
+    float: right;
+    border-color: #001a33
 }
 #single_blog:hover{
     background-color:#d9d9d9;
-    max-width:45%;
+    width:49%;
     clear:none;
     height: auto;
 
 }
-#all_blogs{
-    width:70%;
+#index-content{
+    width: 90%;
     height:auto;
-    padding: : 0px 0px 0px 5px;
+    background-color:transparent;
+    margin:0 auto;
+}
+#all_blogs{
+    width:75%;
+    height:auto;
+    padding: 0px 5px 0px 5px;
     float:left;
-    border-color: transparent;
-    border-style: none;
+    background-color:transparent;
+    box-sizing: border-box;
 
+}
+.labels{
+    font-size: 25px;
+    font-family: 'Tahoma';
+    font-weight:bold;
+    word-spacing:2;
+    color:black;
+    background-color: orange;
+    padding:6px 10px 6px 10px;
+    float: left;
+    box-sizing: border-box;
+    width: 100%;
+    text-align:left;
+}
+#map-canvas{
+    height:400px;
+    width:100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 #right-content{
     background-color:transparent;
-    width:28%;
+    width:25%;
     height:auto;
     padding:5px 0px 5px 0px;
     float:right;
     position:;
-
 }
 #searchby{
-    max-width:40%;
+    width:30%;
     height:auto;
     background-color:#c2c2c2 ;
     color: black;
     border: 1px solid black;
     border-radius: 5px;
-    padding: 10px;
-    margin-right:5px;
-    top:20px;
+    padding:5px 10px;
     float:right;
     cursor:pointer;
+    box-sizing: border-box;
 }
 #searchbox{
-    max-width:75%;
+    width:65%;
     height:auto;
     background-color:#c2c2c2 ;
     color: black;
     border: 1px solid black;
     border-radius: 20px;
-    padding: 10px;
-    margin-left: 45px;
-    top:20px;
+    padding:5px 10px;
+    margin:0px 0px 0px 10px;
     float:left;
+    box-sizing: border-box;
 
 }
 ::placeholder{
@@ -78,7 +111,7 @@ body{
     font-style: italic;
 }
 
-hr { border: 1px solid white;clear: both; margin-top:30px; width: 300px; }
+hr { border: 1px solid white;clear: both; margin-top:30px; width:50%; }
 
 #div_blog_title{
     max-width:100%;

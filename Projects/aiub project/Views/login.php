@@ -23,7 +23,10 @@ if($login->isLogged()) //if user already logged in
     	<a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a>
     	<a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a>
     </navigation>
+
+
 <div>
+	<noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
 	<?php
 
 	if(isset($_GET["logreq"]))

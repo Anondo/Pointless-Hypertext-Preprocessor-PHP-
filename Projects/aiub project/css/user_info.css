@@ -1,11 +1,11 @@
 #profile_Form{
-	max-width:80%;
+	max-width:70%;
     height:auto;
     background-color:white;
     border-color:transparent;
     border-style: none;
-    border-left:3px solid black;
-    border-right:3px solid black;
+    border-left:1px solid black;
+    border-right:1px solid black;
     padding: 10px 20px 40px 20px;
     margin: 0 auto;
 }

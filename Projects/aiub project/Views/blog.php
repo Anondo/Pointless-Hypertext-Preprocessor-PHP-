@@ -133,7 +133,7 @@
                         $username = $username["username"];
                         $commenter_pp = $user->getProfilePicture($row["user_id"]);
                         echo "<div class=\"comments\" id = {$row['comment_id']}>";
-                        echo "<p><img id='pro_pic' src='$commenter_pp' onerror='return setDefaultPP(this)'/><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}".checkRemovableComment($row['comment_id'] , $id , $userId)."</p>";
+                        echo "<p><img id='pro_pic' src='$commenter_pp' onerror='return setDefaultPP(this)'/><b>$username:</b>  {$row['body']}</p><p class =\"comment-datetime\">{$row["datetime"]}".checkRemovableComment($row['comment_id'] , $id , $userId)."</p>";
                         echo "</div>";
                     }
                 }
