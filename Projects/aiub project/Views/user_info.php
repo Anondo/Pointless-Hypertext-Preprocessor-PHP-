@@ -33,6 +33,7 @@ $role = $user["role"];
 
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/admin_user_handler.js"></script>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/default_pp_setter.js"></script>
+    <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/profile_picture_previewer.js"></script>
 </head>
 <body>
 	<div>
@@ -56,15 +57,15 @@ $role = $user["role"];
 
 	<article>
         <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
-        
+
 		<div id="profile_Form">
 		<form name = "user_update_form" action="action/user_update.php?user_id=<?php echo $userid ?>&role=<?php echo $role ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate(<?php echo $userid ?>)">
-            
+
             <div id="image-upload-section">
                 <label id="img-label">Current Profile Picture</label>
                 <br><img id="profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>" onerror="return setDefaultPP(this)"/>
                 <br><label id ="imginput-button" for="imginput">Upload New Picture</label>
-                    <br><input id= "imginput" type="file" name="pro_pic"/>
+                    <br><input id= "imginput" type="file" name="pro_pic" onchange="preview(this)"/>
             </div>
 
             <div id="data-section">
@@ -138,7 +139,7 @@ $role = $user["role"];
                                       <option value="other"<?php if($gender=="other"){echo "selected='selected'";} ?>>Other</option>
                         </select>
             </div>
-            
+
 			<br><input type="submit" id="update-button" name="update_button" value="Update">
    		 </form>
         </div>
