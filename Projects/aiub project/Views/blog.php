@@ -89,7 +89,9 @@
                 if($blog["attachment"])
                 {
                     $video = false;
+                    $audio = false;
                     $video_format = array("mp4" , "mkv" , "avi");
+                    $audio_format = array("mp3" , "wma" , "wav");
                     $format = explode("." , $blog["attachment"]);
                     $format = $format[sizeof($format)-1];
                     foreach($video_format as $vf)
@@ -100,7 +102,24 @@
                             break;
                         }
                     }
-                    if(!$video)
+                    foreach($audio_format as $af)
+                    {
+                        if($format == $af)
+                        {
+                            $audio = true;
+                            break;
+                        }
+                    }
+                    if($video)
+                    {
+                        echo "<p class =\"bold-blog-content\">Attachment:
+                        <video width='320' height='240' controls>
+                        <source src='{$blog['attachment']}' type='video/mp4'>
+                        <source src='{$blog['attachment']}' type='video/ogg'>
+                        </video>
+                        </p>";
+                    }
+                    else if($audio)
                     {
                         echo "<p class =\"bold-blog-content\">Attachment:
                         <audio controls>
@@ -112,12 +131,10 @@
                     else
                     {
                         echo "<p class =\"bold-blog-content\">Attachment:
-                        <video width='320' height='240' controls>
-                        <source src='{$blog['attachment']}' type='video/mp4'>
-                        <source src='{$blog['attachment']}' type='video/ogg'>
-                        </video>
+                        <img src = '{$blog['attachment']}' />
                         </p>";
                     }
+
 
                 }
                 echo "<hr>";
