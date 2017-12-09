@@ -29,6 +29,7 @@ $roles = $rolecontrol->getAllRoles();
 
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/admin_user_handler.js"></script>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/default_pp_setter.js"></script>
+     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/profile_picture_previewer.js"></script>
     
     <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/admin_navigation.css"/>
     <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/user_info.css"/>
@@ -72,7 +73,7 @@ $roles = $rolecontrol->getAllRoles();
             <label id="img-label">Current Profile Picture</label>
             <br><img id = "profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>" onerror="return setDefaultPP(this)"/>
             <br><label id ="imginput-button" for="imginput">Upload New Picture</label>
-                <br><input id= "imginput" type="file" name="pro_pic"/>
+                <br><input id= "imginput" type="file" name="pro_pic"  onchange="preview(this)"/>
         </div>
 
         <div id="data-section">

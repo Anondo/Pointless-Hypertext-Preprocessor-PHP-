@@ -78,7 +78,7 @@
                     <td>{$criminal['bdate']}</td>
                     <td id='td-username'>{$criminal['username']}</td>
                     <td id='td-email'>{$criminal['email']}</td>
-                    <td id='td-pictures'><img style='width:100%;height:100%;' src='{$criminal['pro_pic']}' onerror='return setDefaultPP(this)'/></td>
+                    <td id='td-pictures'><img class='circled_pro_pic' style='width:30px;height:30px;' src='{$criminal['pro_pic']}' onerror='return setDefaultPP(this)'/></td>
                     <td>{$criminal['gender']}</td>
                     <td id='operation'><a href = 'criminal_edit.php?criminal_id={$criminal['criminal_id']}'><button id='edit-button'>EDIT</button></a><button id='delete-button' onclick='rmvCriminal({$criminal['criminal_id']})'>DELETE</button></td>
                  </tr>";

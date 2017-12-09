@@ -4,6 +4,7 @@
 
 	<script src = "../js/signup_handler.js"></script>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/default_pp_setter.js"></script>
+    <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/profile_picture_previewer.js"></script>
 
     <link rel="stylesheet" type="text/css" href="../css/index_style.css">
     <link rel="stylesheet" type="text/css" href="../css/navigation.css">
@@ -30,7 +31,7 @@
         <div id ="image-upload-section">
             <img id="profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>" onerror="return setDefaultPP(this)"/>
             <br><label id ="imginput-button" for="imginput">Upload New Picture</label>
-            <br><input type = "file" id ="imginput" name = "propic" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["propic"];?>" />
+            <br><input type = "file" id ="imginput" name = "propic" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["propic"];?>"  onchange="preview(this)"/>
         </div>
 
         <div id="data-section">

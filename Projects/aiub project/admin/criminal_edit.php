@@ -23,19 +23,62 @@ if(isset($_GET["criminal_id"]))
 <head>
     <title><?php echo $criminalname ?> |Criminal Information</title>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/admin_criminal_handler.js"></script>
-    <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/admin_user_edit.css"/>
+    <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/default_pp_setter.js"></script>
+    <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/profile_picture_previewer.js"></script>
+
+    <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/admin_navigation.css"/>
+    <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/user_info.css"/>
 </head>
 <body>
+<div>
+    <navigation>
+        <ul>
+            <?php
+
+                require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
+                $admin_login = new AdminController();
+                if($admin_login->isLogged())
+                {
+                    echo "<li><b class = \"navigationb\">Welcome ". $admin_login->getUsername(). "</b></li>";
+                    echo "<li class=\"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/Views/action/logout.php'>Logout</a></li>";
+                }
+                else
+                {
+                    echo "<li><b class = \"navigationb\">Hello World</b></li>";
+                    echo "<li class=\"right-li\"><a href = 'login.php'>Login</a></li>";
+                }
+            ?>
+            <li class="dropdown right-li">
+                <a href="#" class="dropbtn">Manage</a>
+                <div class="dropdown-content">
+                    <a href = "blog.php" > Manage Blogs </a>
+                    <a href = "user.php" > Manage Users </a>
+                    <a href = "criminal.php" > Manage Criminals </a>
+                </div>
+            </li>
+        </ul>
+    </navigation>
+    <article>
+     <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
+
+    <div id = "profile_Form">
+
     <form name = "criminal_update_form" action="criminal_update.php?criminal_id=<?php echo $id ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate()">
 
-                <label>Change Your Profile Picture :</label>
-                <br><img id = "pro_pic" src='<?php echo $pro_pic ?>'/>
+            <div id="image-upload-section">
+                <label id="img-label">Current Profile Picture</label>
+                <br><img id = "profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>" onerror="return setDefaultPP(this)"/>
+                <br><label id ="imginput-button" for="imginput">Upload New Picture</label>
+                <br><input id= "imginput" type="file" name="pro_pic"  onchange="preview(this)"/>
+            </div>
+
+            <div id="data-section">
 
             	<br><label>First Name :</label>
-                <br><input type="text" name="fname" placeholder="First Name..." value="<?php echo $fname;?>"/>
+                <br><input type="text" name="fname" class="input" placeholder="First Name..." value="<?php echo $fname;?>"/>
 
                 <br><label>Last Name :</label>
-                <br><input type="text" name="lname" placeholder="Last Name..." value="<?php echo $lname;?>"/>
+                <br><input type="text" name="lname" class="input" placeholder="Last Name..." value="<?php echo $lname;?>"/>
 
 
                 <br><label>Birthdate :</label>
@@ -85,7 +128,7 @@ if(isset($_GET["criminal_id"]))
                                 </span>
 
             	<br><label>Email Address :</label>
-                <br><input type="text" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value)" value="<?php echo $email;?>"/>
+                <br><input type="text" class="input" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value)" value="<?php echo $email;?>"/>
                 <span id="email_error" style="color:red;"></span>
 
             	<br><label>Gender :</label>
@@ -94,10 +137,12 @@ if(isset($_GET["criminal_id"]))
             		               	  <option value="female"<?php if($gender=="female"){echo "selected='selected'";} ?>>Female</option>
             		               	  <option value="other"<?php if($gender=="other"){echo "selected='selected'";} ?>>Other</option>
             		               	</select>
+            </div>
 
-            <br><label>Change Profile Picture :</label>
-            <br><input type="file" name="pro_pic"/>
-            <br><input type="submit" name="update_button" value="Update">
+            <br><input type="submit" id="update-button" name="update_button" value="Update">
     </form>
+    </div>
+</article>
+</div>
 </body>
 </html>

@@ -2,6 +2,8 @@
 <head>
 	<title>Criminal SignUP Page</title>
 	<script src = "../js/criminal_handler.js"></script>
+  <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/default_pp_setter.js"></script>
+   <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/profile_picture_previewer.js"></script>
 
   <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/admin_navigation.css">
   <link rel="stylesheet" type="text/css" href="../css/signup_style.css">
@@ -39,10 +41,18 @@
 <article>
     <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
 
-    <h3 id = "signup-title">Create an Account For Criminal</h3>
     <div id = "signup-form">
         <form name = "criminal_form" action = "http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/admin/putCriminal.php" method = "POST" enctype="multipart/form-data" onsubmit="return validate()">
 
+          <p id = "signup-title">Create an Account For Criminal</p>
+
+          <div id ="image-upload-section">
+            <img id="profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>" onerror="return setDefaultPP(this)"/>
+            <br><label id ="imginput-button" for="imginput">Choose Profile Picture</label>
+            <br><input type = "file" id ="imginput" name = "propic" value =  "<?php if(isset($_SESSION["signup_data"]))echo $_SESSION["signup_data"]["propic"];?>"  onchange="preview(this)"/>
+         </div>
+
+           <div id="data-section">
             <!--First Name Row-->
             <label><sup style="color:red;">*</sup>First Name :</label>
             <br><input type="text" class="input" name="fname" placeholder="First Name..." value = "<?php ?>" /> <!--Checking for returned values -->
@@ -120,11 +130,7 @@
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                 </select>
-
-        <br><label for = "imginput">
-                 <img src="../img/image_logo.jpg" height="30" width="35"/> Choose Profile Picture
-            </label>
-            <input type = "file" id ="imginput" name = "propic" value = "<?php ?>" />
+        </div>
 
     <!--Submit button Row-->
     <br><input type="submit" id="signup-button" name="submit" value="Sign UP">
