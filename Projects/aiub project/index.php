@@ -5,6 +5,8 @@
     <link rel="stylesheet" type="text/css" href="css/navigation.css">
     <script src = 'js\default_pp_setter.js'></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyCF7ndFJ68221tpvVYDGMA4GAomtfb5MQA"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/blog_filter.js"></script>
     <script src = 'js/map.js'></script>
 </head>
 
@@ -76,15 +78,15 @@
                             $blogger = $blog->bloggerName($blogger_id);
                             $blogger_pp = $blog->getBloggerProfilePicture($blogger_id);
                         }
-                        echo "<div id = \"single_blog\">";
+                        echo "<div id = \"single_blog\" class='blogs'>";
 
                             echo "<div id='div_blog_title'>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></div>";
-                            echo "<div id =\"single_blog_content\">";
+                            echo "<div id =\"single_blog_content\" class='blog'>";
                             echo "<p class = \"datetime\">{$row['datetime']}</p>";
                             echo "<p class = \"body\">$body</p><br>";
-                            echo "<p class=\"bold-blog-content\">Location - ".$row["location"]. "</p>";
-                            echo "<p class=\"bold-blog-content\">Category - ".$row["category"]. "</p>";
-                            echo "<p class=\"bold-blog-content\">By - $blogger</p>";
+                            echo "<p class=\"bold-blog-content\">Location - <span class='location'>".$row["location"]. "</span></p>";
+                            echo "<p class=\"bold-blog-content\">Category -  <span class='category'>".$row["category"]."</span></p>";
+                            echo "<p class=\"bold-blog-content\">By - <span class='user'>$blogger</span></p>";
                             echo "<p class=\"bold-blog-content\"><img class='circled_pro_pic' src='$blogger_pp' onerror='return setDefaultPP(this)'/></p>";
 
                             echo "<hr/>";
@@ -104,16 +106,15 @@
         </div>
 
         <div id = "right-content">
-            <input type="text" name="serach" id = "searchbox" placeholder="search.....">
+            <input type="text" name="serach" id = "searchbox" placeholder="search by">
             <select name="by" id = "searchby">
-                    <option value = "by"> By </option>
-                    <option value = "category"> Category </option>
                     <option value = "location"> Location </option>
+                    <option value = "category"> Category </option>
                     <option value = "user"> User </option>
                     <option value = "title"> title </option>
             </select>
         </div>
-    
+
 </div>
 </article>
 
