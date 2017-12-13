@@ -66,11 +66,17 @@
 
                         $blogger = "Anonymous"; //blogger name initially anonymous for protection
                         $body = $row["body"];
+                        $title = $row["title"];
                         $blogger_pp = "";
-                        if(strlen($body) > 50) //not showing the entire content in the index page
+                        if(strlen($body) > 100) //not showing the entire content in the index page
                         {
                             $body = substr($body , 0 , 100);
                             $body = $body."..........";
+                        }
+                        if(strlen($title) > 30)
+                        {
+                            $title = substr($title , 0 , 30);
+                            $title = $title.".....";
                         }
                         if(!$row["name_hidden"]) //if the user wants to share his/her name
                         {
@@ -78,10 +84,10 @@
                             $blogger = $blog->bloggerName($blogger_id);
                             $blogger_pp = $blog->getBloggerProfilePicture($blogger_id);
                         }
-                        echo "<div id = \"single_blog\" class='blogs'>";
+                        echo "<div class = 'single_blog   blogs'>";
 
-                            echo "<div id='div_blog_title'>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'><span class='title'>".$row['title']."</span></a></div>";
-                            echo "<div id =\"single_blog_content\" class='blog'>";
+                            echo "<div id='div_blog_title'>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'><span class='title'>".$title."</span></a></div>";
+                            echo "<div class =\"single_blog_content\" class='blog'>";
                             echo "<p class = \"datetime\">{$row['datetime']}</p>";
                             echo "<p class = \"body\">$body</p><br>";
                             echo "<p class=\"bold-blog-content\">Location - <span class='location'>".$row["location"]. "</span></p>";
