@@ -80,7 +80,7 @@
                         }
                         echo "<div id = \"single_blog\" class='blogs'>";
 
-                            echo "<div id='div_blog_title'>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'>".$row['title']."</a></div>";
+                            echo "<div id='div_blog_title'>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'><span class='title'>".$row['title']."</span></a></div>";
                             echo "<div id =\"single_blog_content\" class='blog'>";
                             echo "<p class = \"datetime\">{$row['datetime']}</p>";
                             echo "<p class = \"body\">$body</p><br>";

@@ -10,8 +10,8 @@ $(document).ready(function() {
             var by = $("#searchby option:selected").val();
             for(var i = 0; i < no_of_blogs; i++)
             {
-                var key = $(".blog ."+by).eq(i).text();
-                if(key.search(query))
+                var key = $(".blogs ."+by).eq(i).text();
+                if(!key.includes(query))
                     $(".blogs").eq(i).hide();
             }
         }
