@@ -66,6 +66,26 @@ class CriminalModel extends Models{
         $username = $result["username"];
         return $username;
     }
+    function getCriminalByKeyValue($key , $value)
+    {
+        if($key == "aabove")
+            $result = $this->executeQuery("select * from criminals where age >= $value");
+        else if($key == "abelow")
+            $result = $this->executeQuery("select * from criminals where age <= $value");
+        else
+            $result = $this->executeQuery("select * from criminals where $key LIKE '%$value%'");
+        $plain_criminal = array();
+        if($result)
+        {
+            while($row = $result->fetch_assoc())
+                $plain_criminal[] = $row;
+            $json_users = json_encode($plain_criminal);
+            return $json_users;
+        }
+        else
+            return false;
+
+    }
 
 }
 

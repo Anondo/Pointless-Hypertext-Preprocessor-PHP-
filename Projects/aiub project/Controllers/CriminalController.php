@@ -27,6 +27,10 @@ class CriminalController{
     {
         return $this->criminal->getAllCriminals();
     }
+    function getCriminalsBy($key,$value)
+    {
+        return $this->criminal->getCriminalByKeyValue($key , $value);
+    }
     function updateCriminalInfo($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$gender, $pro_pic , $role=3)
     {
         return $this->criminal->updateCriminal($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email ,$gender, $pro_pic , $role=3);
