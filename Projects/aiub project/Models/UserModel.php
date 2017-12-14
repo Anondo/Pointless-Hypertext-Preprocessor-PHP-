@@ -145,6 +145,8 @@ class UserModel extends Models{
             $result = $this->executeQuery("select * from users where age >= $value");
         else if($key == "abelow")
             $result = $this->executeQuery("select * from users where age <= $value");
+        else if($key == "role")
+            $result = $this->executeQuery("select * from users where role in (select role_id from user_role where role_name LIKE '%$value%')");
         else
             $result = $this->executeQuery("select * from users where $key LIKE '%$value%'");
         $plain_users = array();
