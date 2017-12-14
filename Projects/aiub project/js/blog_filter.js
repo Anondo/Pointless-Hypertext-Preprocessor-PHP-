@@ -1,8 +1,6 @@
 $(document).ready(function() {
     var no_of_blogs = $(".blogs").length;
     $("#searchbox").keyup(function() {
-        for(var i = 0; i < no_of_blogs; i++)
-            $(".blogs").eq(i).show();
 
         var query = $(this).val();
         if(query != "")
@@ -14,6 +12,11 @@ $(document).ready(function() {
                 if(!key.includes(query))
                     $(".blogs").eq(i).hide();
             }
+        }
+        else
+        {
+            for(var i = 0; i < no_of_blogs; i++)
+                $(".blogs").eq(i).show();
         }
     });
 });

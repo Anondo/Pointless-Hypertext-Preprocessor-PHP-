@@ -1,33 +1,32 @@
 $(document).ready(function() {
     var total_users = $(".users").length;
     $("#searchbox").keyup(function() {
-        for(var i = 0; i < no_of_blogs; i++)
-            $(".users").eq(i).show();
 
-        var query = $(this).val();
-        if(query != "")
+        var key = $("#searchby option:selected").val();
+        var value = $(this).val();
+        if(value != "")
         {
-            var by = $("#searchby option:selected").val();
-            for(var i = 0; i < no_of_blogs; i++)
+            $.get("http://localhost:"+location.port+"/Projects/aiub project/Views/action/user_filter.php?key="+key+"&value="+value,
+            function(data , status)
             {
-                var key = $(".users ."+by).eq(i).text();
-                if(by == "aabelow")
+                if(data != "")
+                    var json_data = JSON.parse(data);
+                else
+                    var json_data = [];
+                for(var i = 0; i < total_users; i++)
                 {
-                    var query_age = parseInt(key);
-                    var actual_age = parseInt($(".users .aabelow").eq(i).text());
-                    if(actual_age > query_age)
-                        $(".users").eq(i).hide();
-                }
-                else if(by == "aabove")
-                {
-                    var query_age = parseInt(key);
-                    var actual_age = parseInt($(".users .aabove").eq(i).text());
-                    if(actual_age < query_age)
-                        $(".users").eq(i).hide();
-                }
-                else(!key.includes(query))
                     $(".users").eq(i).hide();
-            }
+                    for(var j = 0; j < json_data.length; j++)
+                    {
+                        $(".users[id="+json_data[j].user_id+"]").show();
+                    }
+                }
+            });
+        }
+        else
+        {
+            for(var i = 0; i < total_users; i++)
+                $(".users").eq(i).show();
         }
     });
 });

@@ -139,6 +139,26 @@ class UserModel extends Models{
         $email = $result["email"];
         return $email;
     }
+    function getUsersByKeyValue($key , $value)
+    {
+        if($key == "aabove")
+            $result = $this->executeQuery("select * from users where age >= $value");
+        else if($key == "abelow")
+            $result = $this->executeQuery("select * from users where age <= $value");
+        else
+            $result = $this->executeQuery("select * from users where $key LIKE '%$value%'");
+        $plain_users = array();
+        if($result)
+        {
+            while($row = $result->fetch_assoc())
+                $plain_users[] = $row;
+            $json_users = json_encode($plain_users);
+            return $json_users;
+        }
+        else
+            return false;
+
+    }
     function putUser($fname , $lname , $age ,$bdate, $uname , $email , $password , $gender , $imgpath , $imgname = "" , $pro_pic)
     {
         $done = NULL;

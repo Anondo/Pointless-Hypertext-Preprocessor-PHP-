@@ -35,6 +35,10 @@ class UserController{
     {
         return $this->user->getUserIdByName($username);
     }
+    function getUsersBy($key , $value)
+    {
+        return $this->user->getUsersByKeyValue($key , $value);
+    }
     function deleteUser($id)
     {
         return $this->user->deleteUser($id);
