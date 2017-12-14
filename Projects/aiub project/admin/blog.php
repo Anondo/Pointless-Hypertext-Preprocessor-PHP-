@@ -4,6 +4,8 @@
 
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/admin_blog_style.css">
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/admin_navigation.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src = 'http://localhost:<?php echo $_SERVER['SERVER_PORT']; ?>/Projects/aiub project/js/admin_blog_filter.js'></script>
 
     <?php
     require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
@@ -23,7 +25,7 @@
     <navigation>
         <ul>
             <?php
-            
+
                 if($admincontrol->isLogged())
                 {
                     echo "<li><b class = \"navigationb\">Welcome ". $admincontrol->getUsername(). "</b></li>";
@@ -43,10 +45,21 @@
                     <a href = "criminal.php" > Manage Criminals </a>
                 </div>
             </li>
+
+			<div id = "right-content">
+            <input type="text" name="serach" id = "searchbox" placeholder="search by">
+            <select name="by" id = "searchby">
+                    <option value = "location"> Location </option>
+                    <option value = "category"> Category </option>
+                    <option value = "username"> User </option>
+                    <option value = "title"> title </option>
+            </select>
+        </div>
         </ul>
     </navigation>
      <article>
          <div>
+
    <?php
     $blogs = $blogcontrol->getAllBlogs();
     echo "<table border = '2'>";
@@ -61,7 +74,7 @@
     while($blog = $blogs->fetch_assoc())
     {
         $blogger = $blogcontrol->bloggerName($blog['blogger_id']);
-        echo "<tr id='{$blog['blog_id']}'>
+        echo "<tr id='{$blog['blog_id']}' class='blogs'>
                 <td>{$blog['datetime']}</td>
                 <td>{$blog['title']}</td>
                 <td id='td-blogger'>$blogger</td>
@@ -73,8 +86,8 @@
     echo "</table>";
    ?>
    </div>
-</article>   
+</article>
 
-</div>    
+</div>
 </body>
 </html>

@@ -74,6 +74,26 @@ class BlogModel extends Models{
         else
             return false;
     }
+
+	function blogByKeyValue($key , $value)
+	{
+        if($key == "username")
+            $result = $this->executeQuery("select * from blogs where blogger_id in(select user_id from users where username LIKE '%$value%')");
+        else
+		      $result = $this->executeQuery("Select * from blogs where $key LIKE '%$value%'");
+		$blogs = array();
+		if($result)
+		{
+			while($row = $result->fetch_assoc())
+			{
+				$blogs[] = $row;
+			}
+			$jsonBlogs = json_encode($blogs);
+			return $jsonBlogs;
+		}
+		return false;
+	}
+
     function putBlog($title , $body , $datetime , $attachment , $user_id , $name_hidden , $location , $category , $noattch)
     {
         if($noattch)

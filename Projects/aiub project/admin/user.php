@@ -44,6 +44,20 @@
                     <a href = "criminal.php" > Manage Criminals </a>
                 </div>
             </li>
+
+			<div id = "right-content">
+            <input type="text" name="serach" id = "searchbox" placeholder="search by">
+            <select name="by" id = "searchby">
+                    <option value = "username"> Username </option>
+                    <option value = "fname"> First Name </option>
+                    <option value = "lname"> Last Name </option>
+                    <option value = "gender"> Gender </option>
+                    <option value = "abelow"> Age(below) </option>
+                    <option value = "aabove"> Age(above) </option>
+                    <option value = "role"> Role </option>
+                    <option value = "email"> Email </option>
+            </select>
+        </div>
         </ul>
     </navigation>
 
@@ -67,17 +81,17 @@
          </tr>";
 	while($user = $users->fetch_assoc())
 	{
-        echo "<tr id='{$user['user_id']}'>
-                <td>{$user['fname']}</td>
-                <td>{$user['lname']}</td>
-                <td>{$user['age']}</td>
+        echo "<tr id='{$user['user_id']}' class='users'>
+                <td class='fname'>{$user['fname']}</td>
+                <td class='lname'>{$user['lname']}</td>
+                <td class='abelow aabove'>{$user['age']}</td>
                 <td>{$user['bdate']}</td>
-                <td id='td-username'>{$user['username']}</td>
-                <td id='td-email'>{$user['email']}</td>
+                <td id='td-username' class='username'>{$user['username']}</td>
+                <td id='td-email' class='email'>{$user['email']}</td>
                 <td id='td-password'>{$user['password']}</td>
                 <td id='td-pictures'><img class='circled_pro_pic' style='width:30px;height:30px;' src='{$user['pro_pic']}' onerror='return setDefaultPP(this)'/></td>
-                <td>{$user['gender']}</td>
-                <td>{$admincontrol->getRoleName($user['role'])}</td>
+                <td class='gender'>{$user['gender']}</td>
+                <td class='role'>{$admincontrol->getRoleName($user['role'])}</td>
                 <td id='operation'><a href = 'user_edit.php?user_id={$user['user_id']}'><button id='edit-button'>EDIT</button></a><button id='delete-button' onclick='rmvUser({$user['user_id']})'>DELETE</button></td>
              </tr>";
 
