@@ -65,6 +65,8 @@
             <div id="sub-section-1-1">
                 <b class="labels">Crime Map</b>
                 <div id="map-canvas"></div>
+                <span style="color:red;">Note: The markers in the map only indicates the parent areas and not the exact details.For example,Mohammedpur and
+                not the exact area inside Mohammedpur will be marked.Also the position of the marker may not be completely accurate</span>
             </div>
             <div id="sub-section-1-2">
             <table id="crime_zone_table" border="1">
