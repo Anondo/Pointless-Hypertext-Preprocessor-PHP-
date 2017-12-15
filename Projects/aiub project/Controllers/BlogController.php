@@ -31,12 +31,12 @@ class BlogController{
     {
         return $this->blog->getBloggerPP($id);
     }
-	
+
 	function getBlogBy($key,$value)
 	{
 		return $this->blog->blogByKeyValue($key,$value);
 	}
-	
+
     function insertBlog($title , $body , $datetime , $attachment , $user_id , $name_hidden , $location , $category , $noattch)
     {
         return $this->blog->putBlog($title , $body , $datetime , $attachment , $user_id , $name_hidden , $location , $category , $noattch);

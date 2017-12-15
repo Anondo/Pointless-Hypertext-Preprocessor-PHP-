@@ -23,6 +23,8 @@
             <?php
 
             require("Controllers/login_controller.php");
+            require("Controllers/LocationController.php");
+            $location_control = new LocationController();
             $login = new Login();
             if($login->isLogged())
             {
@@ -62,6 +64,24 @@
             <div class="supporting-div"></div>
             <b class="labels">Crime Map</b>
             <div id="map-canvas"></div>
+            <table id="crime_zone_table" border="3">
+                <tr>
+                    <th>Location</th>
+                    <th>Number Of Crimes</th>
+                </tr>
+                <?php
+
+                $loc_arr = json_decode($location_control->getJSONLocations() , true);
+                for($i = 0; $i < sizeof($loc_arr);$i++)
+                {
+                    echo "<tr>
+                        <td>{$loc_arr[$i]['loc_name']}</td>
+                        <td>{$loc_arr[$i]['crimes']}</td>
+                    </tr>";
+                }
+
+                 ?>
+            </table>
         </div>
 
         <div id = "section-2">

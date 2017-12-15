@@ -42,11 +42,14 @@ while($row = $result->fetch_assoc())
 }
 $json_places = json_encode($places);
 echo $json_places;*/
-$password = "abcd%1abcd";
+/*$password = "abcd%1abcd";
 //$hash_pass = password_hash($password, PASSWORD_DEFAULT);
 //echo $hash_pass;
 echo "<br />";
-echo password_verify($password, "");
+echo password_verify($password, "");*/
+$json = "[{'something':'someone'}]";
+$plain = json_decode($json , true);
+print_r($plain);
 
 
 
