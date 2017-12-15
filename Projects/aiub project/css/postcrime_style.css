@@ -54,6 +54,21 @@ strong{
     border:2px solid transparent;
     border-radius: 3px;
     float: left;
+
+    color: orange;
+    overflow: hidden;
+    position: relative;
+}
+#mini-div-box-1:after {
+    content: url("../img/arrow_sans_down_32.png");
+    position: absolute;
+    right: 5px;
+    top:25%;
+    z-index: 1;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+    pointer-events: none; 
 }
 #mini-div-box-2{
     background-color:;
@@ -70,6 +85,21 @@ strong{
     border:2px solid transparent;
     border-radius: 3px;
     float: left;
+
+    color: orange;
+    overflow: hidden;
+    position: relative;
+}
+#mini-div-box-3:after {
+    content: url("../img/arrow_sans_down_32.png");
+    position: absolute;
+    right: 5px;
+    top:25%;
+    z-index: 1;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+    pointer-events: none; 
 }
 #select-category{
     width:100%;
@@ -80,6 +110,10 @@ strong{
     border-radius:5px;
     color:black;
     box-sizing: border-box;
+
+    -webkit-appearance: none; /* for webkit browsers */
+    -moz-appearance: none; /* for firefox */
+    appearance: none; /* for modern browsers */
 } 
 
 #select-location{
@@ -91,6 +125,13 @@ strong{
     border-radius:5px;
     color:black;
     box-sizing: border-box;
+
+    -webkit-appearance: none; /* for webkit browsers */
+    -moz-appearance: none; /* for firefox */
+    appearance: none; /* for modern browsers */
+}
+#select-location::-ms-expand {
+   display:none;
 }
 #select-detailedlocation{
     width:100%;

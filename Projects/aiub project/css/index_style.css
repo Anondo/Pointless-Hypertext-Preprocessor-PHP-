@@ -1,6 +1,6 @@
 body{
     margin:0px;
-    padding: 0px; 
+    padding: 0px;
 }
 article{
     margin-top: 0px;
@@ -20,9 +20,9 @@ article{
     height:100%;
     padding: 0px 5px 0px 5px;
     float:left;
-    background-color: #ffe4b3;
+    background-color: Beige;
     box-sizing: border-box;
-    
+
 }
 #section-2{
     width:100%;
@@ -31,7 +31,7 @@ article{
     float:left;
     background-color:;
     box-sizing: border-box;
-    
+
 }
 .supporting-div{
     background-color: transparent;
@@ -137,7 +137,7 @@ article{
     border-left:2px solid darkgrey;
     border-radius: 5px;
     border-top-left-radius:0px;
-    border-bottom-left-radius:0px; 
+    border-bottom-left-radius:0px;
     padding:5px 2px 5px 2px;
     float:;
     cursor:pointer;
@@ -153,7 +153,7 @@ article{
     border-right-color: transparent;
     border-radius: 5px;
     border-top-right-radius:0px;
-    border-bottom-right-radius:0px; 
+    border-bottom-right-radius:0px;
     padding:5px 10px 5px 30px;
     margin:0px 0px 0px 0px;
     float:left;

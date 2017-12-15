@@ -52,8 +52,8 @@
 
 			<div id = "mini-div-container">	
 			<div id = "mini-div">
+				<label><b>Place:</b></label><br>	
 				<div id = "mini-div-box-1">
-					<label><b>Place:</b></label><br>
 					<select id="select-location" name ="location">
 					<?php
 						foreach($location->getLocations() as $loc)
@@ -63,13 +63,12 @@
 				 	?>
 					</select>
 				</div>
+				<label><b>Details(location):</b></label><br>
 				<div id = "mini-div-box-2">
-					<label><b>Details(location):</b></label><br>
 					<input id="select-detailedlocation" type = "text" name = "secloc" placeholder="detailed location" />
 				</div>
-
+				<label><b>Category:</b></label><br>
 				<div id = "mini-div-box-3">
-					<label><b>Category:</b></label><br>
 					<select id="select-category" name ="category">
 						<option value = "robbery"> Robbery </option>
 						<option value = "murder"> Murder </option>
