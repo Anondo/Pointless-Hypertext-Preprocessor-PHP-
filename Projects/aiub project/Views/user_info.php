@@ -37,7 +37,7 @@ $role = $user["role"];
 </head>
 <body>
 	<div>
-	<navigation>
+	<div class="navigation">
 			<?php
 				if($login->isLogged())
 				{
@@ -53,7 +53,7 @@ $role = $user["role"];
 				<a class = 'right-li' href = 'user_info.php'>Profile</a>
 				<a class = 'right-li' href = 'crime_post.php'>Post Crime</a>
     			<a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a>
-	</navigation>
+	</div>
 
 	<article>
         <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>

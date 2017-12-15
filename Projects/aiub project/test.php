@@ -32,7 +32,7 @@ while($row = $result->fetch_assoc())
 }
 $jsonResult = json_encode($arr);
 echo $jsonResult;*/
-require_once("Models/Models.php");
+/*require_once("Models/Models.php");
 $model = new Models();
 $places = array();
 $result = $model->executeQuery("select * from location where crimes > 0");
@@ -41,7 +41,12 @@ while($row = $result->fetch_assoc())
     $places[] = $row;
 }
 $json_places = json_encode($places);
-echo $json_places;
+echo $json_places;*/
+$password = "abcd%1abcd";
+//$hash_pass = password_hash($password, PASSWORD_DEFAULT);
+//echo $hash_pass;
+echo "<br />";
+echo password_verify($password, "");
 
 
 

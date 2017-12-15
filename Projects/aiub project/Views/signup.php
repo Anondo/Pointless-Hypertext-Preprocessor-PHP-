@@ -13,13 +13,13 @@
 
 <body onload = "addYears()">
 <div>
-    <navigation>
+    <div class="navigation">
     
         <b class = "navigationb">Hello World</b>
         <a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a>
         <a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a>
         
-    </navigation>
+    </div>
 
     <article>
         <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>

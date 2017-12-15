@@ -1,7 +1,9 @@
 body{
     margin:0px;
     padding: 0px;
-    background-color: #262626;
+}
+article{
+    margin-top: 4.5%;
 }
 label{
     color:white;

@@ -9,11 +9,18 @@ class AdminModel extends Models{
 		}
 		function adminValidity($uname_or_email , $pass , $key)
     	{
-        	$result = $this->executeQuery("select * from users where $key = '$uname_or_email' and password = '$pass' and role = 1 and del = false");
+			$flag = false;
+        	$result = $this->executeQuery("select * from users where role = 1 and del = false");
         	if($result)
         	{
-            	$result = $result->fetch_assoc();
-            	return $result;
+				while($row = $result->fetch_assoc())
+	            {
+	                if($row[$key] == $uname_or_email && password_verify($pass, $row["password"]))
+	                {
+	                    $flag = $row;
+	                }
+	            }
+	            return $flag;
         	}
         	else
         	{

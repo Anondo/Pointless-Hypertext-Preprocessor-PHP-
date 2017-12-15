@@ -100,11 +100,18 @@ class UserModel extends Models{
     }
     function validUser($uname_or_email , $pass , $key)
     {
-        $result = $this->executeQuery("select * from users where $key = '$uname_or_email' and password = '$pass' and del = false");
+        $flag = false;
+        $result = $this->executeQuery("select * from users where del = false");
         if($result)
         {
-            $result = $result->fetch_assoc();
-            return $result;
+            while($row = $result->fetch_assoc())
+            {
+                if($row[$key] == $uname_or_email && password_verify($pass, $row["password"]))
+                {
+                    $flag = $row;
+                }
+            }
+            return $flag;
         }
         else
         {
@@ -163,6 +170,7 @@ class UserModel extends Models{
     }
     function putUser($fname , $lname , $age ,$bdate, $uname , $email , $password , $gender , $imgpath , $imgname = "" , $pro_pic)
     {
+        $password = password_hash($password, PASSWORD_DEFAULT);
         $done = NULL;
         if($pro_pic)
             $done = $this->executeDMLQuery("insert into users(fname , lname , age , bdate , username , email , password , pro_pic , gender , role)
@@ -214,6 +222,7 @@ class UserModel extends Models{
     }
     function updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role , $pro_pic)
     {
+        $pass = password_hash($pass, PASSWORD_DEFAULT);
         $age = date("Y") - $year;
         $success = $this->executeDMLQuery("update users set
         fname = '$fname', lname = '$lname' , age = $age , bdate='$day/$month/$year' , username = '$uname' ,

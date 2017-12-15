@@ -3,8 +3,11 @@ body{
 	padding: 0px;
 	align-content: center;
 }
+article{
+    margin-top: 4.5%;
+}
 
-div{
+#login_div{
 	margin-left: 30%;
 	margin-top: 10%;
 	position: fixed;

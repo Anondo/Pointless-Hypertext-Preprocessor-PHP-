@@ -7,17 +7,18 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyCF7ndFJ68221tpvVYDGMA4GAomtfb5MQA"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/blog_filter.js"></script>
+    <script src="js/animation.js"></script>
     <script src = 'js/map.js'></script>
 </head>
 
 
-<body>
+<body data-spy="scroll">
     <div>
 
     <!--============================
             Navigation Bar
         ============================ -->
-    <navigation>
+    <div class="navigation">
 
             <?php
 
@@ -41,19 +42,41 @@
                 echo "<a class = \"right-li\" href = 'Views/crime_post.php'>Post Crime</a>";
                 echo "<a class = \"right-li\" href = 'http://localhost:".$_SERVER['SERVER_PORT']."/Projects/aiub project/index.php'>Home</a>";
             ?>
-        </ul>
-    </navigation>
+    </div>
 <!--================================
             BLOGs
 ====================================-->
 
-<article>
-<div id="index-content">
-    <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
 
-         <div id = "all_blogs">
+<article>
+    <nav>
+        <a href="#"> <img src="img/gohome.png" width="40px" height="40px"></a>
+        <a href="#section-1"> <img src="img/location_pointer.png" width="40px" height="40px"></a>
+        <a href="#section-2"> <img src="img/chat.png" width="40px" height="40px"></a>
+    </nav>
+    <div id="index-content">
+        <noscript><h4 style = "color:red; text-align: center;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
+
+
+        <div id="section-1">
+            <div class="supporting-div"></div>
             <b class="labels">Crime Map</b>
             <div id="map-canvas"></div>
+        </div>
+
+        <div id = "section-2">
+            <div class="supporting-div"></div>
+            <div id = "right-content">
+                <input type="text" name="serach" id = "searchbox" placeholder="search by">
+                <select name="by" id = "searchby">
+                        <option value = "location"> Location </option>
+                        <option value = "category"> Category </option>
+                        <option value = "user"> User </option>
+                        <option value = "title"> title </option>
+                </select>
+            </div>
+
+            <div id = "all_blogs">
 
             <?php
 
@@ -110,16 +133,8 @@
                 }
             ?>
         </div>
+    </div>
 
-        <div id = "right-content">
-            <input type="text" name="serach" id = "searchbox" placeholder="search by">
-            <select name="by" id = "searchby">
-                    <option value = "location"> Location </option>
-                    <option value = "category"> Category </option>
-                    <option value = "user"> User </option>
-                    <option value = "title"> title </option>
-            </select>
-        </div>
 
 </div>
 </article>

@@ -1,6 +1,9 @@
 body{
     background-color: #f2f2f2;
 }
+article{
+    margin-top: 4.5%;
+}
 ::placeholder{
     color:black;
 }

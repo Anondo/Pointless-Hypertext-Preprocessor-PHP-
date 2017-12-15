@@ -13,7 +13,7 @@
    		}
    		else
       	{
-        	echo "<h1><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}>/Projects/aiub%20project/admin/ogin.php'>Invalid Admin</a></h1>";
+        	echo "<h1><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub%20project/admin/login.php'>Invalid Admin</a></h1>";
       	}
    }
    else

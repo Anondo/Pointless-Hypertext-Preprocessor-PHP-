@@ -2,6 +2,9 @@ body{
     margin:0px;
     padding: 0px;
 }
+article{
+    margin-top: 4.5%;
+}
 
 ::placeholder{
     color: white;

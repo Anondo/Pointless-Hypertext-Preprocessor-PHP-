@@ -39,7 +39,7 @@
 
 <body>
 <div>
-    <navigation>
+    <div class="navigation">
             <?php
             if($logged)
             {
@@ -56,7 +56,7 @@
             ?>
             <a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/Views/crime_post.php'>Post Crime</a>
             <a class = 'right-li' href = 'http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub project/index.php'>Home</a>
-    </navigation>
+    </div>
     <noscript><h4 style = "color:red;">Enable Javascript in your browser to access all the features of this web page.</h4></noscript>
 
     <article>
