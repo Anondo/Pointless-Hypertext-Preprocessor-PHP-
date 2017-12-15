@@ -12,7 +12,7 @@
 </head>
 
 
-<body data-spy="scroll">
+<body>
     <div>
 
     <!--============================
@@ -62,9 +62,12 @@
 
         <div id="section-1">
             <div class="supporting-div"></div>
-            <b class="labels">Crime Map</b>
-            <div id="map-canvas"></div>
-            <table id="crime_zone_table" border="3">
+            <div id="sub-section-1-1">
+                <b class="labels">Crime Map</b>
+                <div id="map-canvas"></div>
+            </div>
+            <div id="sub-section-1-2">
+            <table id="crime_zone_table" border="1">
                 <tr>
                     <th>Location</th>
                     <th>Number Of Crimes</th>
@@ -82,6 +85,7 @@
 
                  ?>
             </table>
+            </div>
         </div>
 
         <div id = "section-2">
@@ -127,7 +131,7 @@
                             $blogger = $blog->bloggerName($blogger_id);
                             $blogger_pp = $blog->getBloggerProfilePicture($blogger_id);
                         }
-                        echo "<div class = 'single_blog   blogs'>";
+                        echo "<div class = 'single_blog   blogs' id={$row['blog_id']}>";
 
                             echo "<div id='div_blog_title'>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'><span class='title'>".$title."</span></a></div>";
                             echo "<div class =\"single_blog_content\" class='blog'>";

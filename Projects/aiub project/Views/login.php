@@ -11,7 +11,6 @@ if($login->isLogged()) //if user already logged in
 <head>
 	<title>Log in </title>
 	<script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/login_handler.js"></script>
-	<link rel="stylesheet" type="text/css" href="../css/index_style.css">
 	<link rel="stylesheet" type="text/css" href="../css/navigation.css">
 	<link rel="stylesheet" type="text/css" href="../css/login_style.css">
 

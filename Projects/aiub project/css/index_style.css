@@ -12,7 +12,7 @@ article{
     margin-top: 4%;
     float:left;
     width:5%;
-    background-color:orange;
+    background-color:#ffa31a;
     position: fixed;
     }
 #section-1{
@@ -100,24 +100,72 @@ article{
     box-sizing: border-box;
 
 }
+#sub-section-1-1{
+    width:75%;
+    height: auto;
+    background-color:transparent;
+    box-sizing: border-box;
+    float: left;
+}
+#sub-section-1-2{
+    width:24%;
+    height:auto;
+    background-color:transparent;
+    float:right;
+    box-sizing: border-box;
+}
+#crime_zone_table{
+    width:100%;
+    float:left;
+    border-collapse: collapse;
+    border-color: transparent;
+}
+th{
+    width:50%;
+    border:1px 2px 0px 2px;
+    border-color: #ffb84d;
+    border-style:solid;
+    padding: 3px 3px 3px 3px;
+    background-color: black; 
+    color: #ffb84d; 
+    text-align: center;
+}
+td{
+    width:50%;
+    border:1px solid white;
+    padding:8px 4px 8px 4px;
+    text-align: center;
+    text-transform: capitalize;
+}
+tr:nth-child(odd){
+    background-color:#ffc266;
+}
+tr:nth-child(even){
+    background-color:#ffcc80;
+}
+
+tr td:hover {
+    background-color:#ffd699;
+    font-size: 30px;
+    color:;
+}
+
 .labels{
     font-size: 25px;
     font-family: 'Tahoma';
     font-weight:bold;
     word-spacing:2;
     color:black;
-    background-color: orange;
+    background-color: #ffa31a;
     padding:6px 10px 6px 10px;
     float: left;
     box-sizing: border-box;
-    width: 75%;
+    width: 100%;
     text-align:left;
 }
 #map-canvas{
     height:400px;
-    width:75%;
-    margin: 0px;
-    padding: 0px;
+    width:100%;
 }
 
 #right-content{
