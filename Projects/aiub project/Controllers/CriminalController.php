@@ -1,6 +1,6 @@
 <?php
 
-require_once(get_include_path()."\Projects\aiub project\Models\CriminalModel.php");
+require_once(__DIR__."\..\Models\CriminalModel.php");
 class CriminalController{
     private $criminal = NULL;
     function CriminalController()

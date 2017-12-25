@@ -1,7 +1,7 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Controllers\BlogController.php");
-require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
+require(__DIR__."\..\..\Controllers\BlogController.php");
+require(__DIR__."\..\..\Controllers\login_controller.php");
 $login = new Login();
 $blog = new BlogController();
 

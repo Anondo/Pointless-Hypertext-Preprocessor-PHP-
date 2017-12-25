@@ -1,6 +1,6 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Models\LocationModel.php");
+require(__DIR__."\..\Models\LocationModel.php");
 
 class LocationController{
     private $location;

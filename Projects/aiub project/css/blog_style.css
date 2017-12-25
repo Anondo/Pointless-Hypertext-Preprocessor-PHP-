@@ -14,18 +14,14 @@ article{
 hr { border: 1px solid white;clear: both; margin-top:30px; width: 80%; }
 
 .blog_title{
-    font-size: 35px;
+    font-size: 25px;
     padding: 0px;
     text-decoration: none;
     font-family: 'Tahoma';
     text-transform: capitalize;
-    font-weight:bold;
-    color:black;
+    font-weight:;
+    color:beige;
 
-}
-a .blog_title:hover{
-    color:red;
-    background-color: transparent;
 }
 .datetime{
     font-size: 14px;
@@ -46,7 +42,7 @@ a .blog_title:hover{
 }
 .bold-blog-content{
     font-size: 18px;
-    font-weight: bold;
+    font-weight:500;
     line-height: 0.6;
     font-family: 'Tahoma';
     color: black;
@@ -63,7 +59,7 @@ a .blog_title:hover{
 .rectangular_pro_pic{
     width: 40px;
     height: 40px;
-    border:2px solid white;
+    border:2px solid black;
 }
 
 /*=============================
@@ -71,7 +67,7 @@ BLOG
 =============================*/
 #blog-container{
     max-width:70%;
-    height:auto;
+    height:800px;
     background-color:#c2c2c2;
     color:black;
     border-color:transparent;

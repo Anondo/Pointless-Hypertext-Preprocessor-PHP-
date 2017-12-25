@@ -9,6 +9,7 @@
     <script src="js/blog_filter.js"></script>
     <script src="js/animation.js"></script>
     <script src = 'js/map.js'></script>
+    <script src = 'js/tiles_animation.js'></script>
 </head>
 
 
@@ -92,13 +93,13 @@
 
         <div id = "section-2">
             <div class="supporting-div"></div>
-            <div id = "right-content">
+            <div id = "left-content">
                 <input type="text" name="serach" id = "searchbox" placeholder="search by">
                 <select name="by" id = "searchby">
                         <option value = "location"> Location </option>
                         <option value = "category"> Category </option>
                         <option value = "user"> User </option>
-                        <option value = "title"> title </option>
+                        <option value = "title"> Title </option>
                 </select>
             </div>
 
@@ -133,26 +134,37 @@
                             $blogger = $blog->bloggerName($blogger_id);
                             $blogger_pp = $blog->getBloggerProfilePicture($blogger_id);
                         }
-                        echo "<div class = 'single_blog   blogs' id={$row['blog_id']}>";
+                        echo "<div class = 'single_blog   blogs' id={$row['blog_id']} onMouseOver='myFunction(this.id)' onmouseout='hoverOutStyle(this.id)'>";
 
-                            echo "<div id='div_blog_title'>"."<a class = \"blog_title\" href = 'Views/blog.php/?blog_id=".$row['blog_id']."'><span class='title'>".$title."</span></a></div>";
-                            echo "<div class =\"single_blog_content\" class='blog'>";
-                            echo "<p class = \"datetime\">{$row['datetime']}</p>";
-                            echo "<p class = \"body\">$body</p><br>";
-                            echo "<p class=\"bold-blog-content\">Location - <span class='location'>".$row["location"]. "</span></p>";
-                            echo "<p class=\"bold-blog-content\">Category -  <span class='category'>".$row["category"]."</span></p>";
-                            echo "<p class=\"bold-blog-content\">By - <span class='user'>$blogger</span></p>";
-                            echo "<p class=\"bold-blog-content\"><img class='circled_pro_pic' src='$blogger_pp' onerror='return setDefaultPP(this)'/></p>";
+                        echo "<div class = 'single_blog1' id='sb1{$row['blog_id']}'>";
+                            echo "<div class='div_blog_title'>"."<a class = 'blog_title' href = 'Views/blog.php/?blog_id=".$row['blog_id']."'><span class='title'>".$title."</span></a></div>";
+
+                            echo "<div class = 'single_blog_content' class='blog'>";
+                            echo "<p class= 'bold-blog-content'>Location - <span class='location'>".$row["location"]. "</span></p>";
+                            echo "<p class= 'bold-blog-content'>Category -  <span class='category'>".$row["category"]."</span></p>";
+                            echo "<p class= 'bold-blog-content'>By - <span class='user'>$blogger</span></p>";
+                            echo "<p class= 'bold-blog-content'><img class='circled_pro_pic' src='$blogger_pp' onerror='return setDefaultPP(this)'/></p>";
 
                             echo "<hr/>";
                         echo "</div>";
+                        echo "</div>";
+
+                        echo "<div class = 'single_blog2' id='sb2{$row['blog_id']}'>";
+                            echo "<div class='div_blog_title'>"."<a class = 'blog_title' href = 'Views/blog.php/?blog_id=".$row['blog_id']."'><span class='title'>".$title."</span></a></div>";
+
+                            echo "<div class = 'single_blog_content' class='blog'>";
+                            echo "<p class = 'datetime'>{$row['datetime']}</p>";
+                            echo "<p class = 'body'>$body</p><br>";
+                        echo "</div>";
+                        echo "</div>";
+
                         echo "</div>";
                     }
                 }
                 else
                 {
-                    echo "<div id = \"single_blog\">";
-                    echo "<div id =\"single_blog_content\">";
+                    echo "<div class = \"single_blog\">";
+                    echo "<div class =\"single_blog_content\">";
                         echo "<h1>No Crime Blogs To See</h1>";
                     echo "</div>";
                     echo "</div>";
@@ -164,8 +176,6 @@
 
 </div>
 </article>
-
-<footer></footer>
 </div>
 </body>
 </html>

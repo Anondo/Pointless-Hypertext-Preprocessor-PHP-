@@ -1,8 +1,8 @@
 <?php
-require_once(get_include_path()."Projects\aiub project\Controllers\UserController.php");
-require_once(get_include_path()."Projects\aiub project\Controllers\RoleController.php");
-require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
-require(get_include_path()."\Projects\aiub project\Controllers\LocationController.php");
+require_once(__DIR__."\..\Controllers\UserController.php");
+require_once(__DIR__."\..\Controllers\RoleController.php");
+require(__DIR__."\..\Controllers\login_controller.php");
+require(__DIR__."\..\Controllers\LocationController.php");
 $location = new LocationController();
 $login = new Login();
 
@@ -27,7 +27,6 @@ $role = $user["role"];
 <html>
 <head>
     <title><?php echo $username ?> Information</title>
-	<link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/index_style.css"/>
     <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/navigation.css"/>
     <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/user_info.css"/>
 
@@ -42,7 +41,7 @@ $role = $user["role"];
 				if($login->isLogged())
 				{
 					echo "<img id='pro_pic' src='{$_SESSION['pro_pic']}' onerror='return setDefaultPP(this)'/>";
-					echo "<b class = \"navigationb\">".$login->getUsername()." , Information</b>";
+					echo "<b class = \"navigationb\">".$login->getUsername()."</b>";
 				}
 				else
 				{
@@ -61,11 +60,12 @@ $role = $user["role"];
 		<div id="profile_Form">
 		<form name = "user_update_form" action="action/user_update.php?user_id=<?php echo $userid ?>&role=<?php echo $role ?>&pp=<?php echo $pro_pic ?>" method="POST" enctype="multipart/form-data" onsubmit = "return validate(<?php echo $userid ?>)">
 
+
             <div id="image-upload-section">
                 <label id="img-label">Current Profile Picture</label>
                 <br><img id="profile_pic" name="pro_pic" src="<?php echo $pro_pic ?>" onerror="return setDefaultPP(this)"/>
                 <br><label id ="imginput-button" for="imginput">Upload New Picture</label>
-                    <br><input id= "imginput" type="file" name="pro_pic" onchange="preview(this)"/>
+                    <br><input id= "imginput" type="file" accept="image/*" name="pro_pic" onchange="preview(this)"/>
             </div>
 
             <div id="data-section">
@@ -130,10 +130,12 @@ $role = $user["role"];
             <br><input type="text" class="input" name="email" placeholder="xyz@dmail.com..." onkeyup="emailValidate(this.value,<?php echo $userid ?>)" value="<?php echo $email;?>"/>
             <span id="email_error" style="color:red;"></span>
 
-            <br><label>Password :</label>
-            <br><input type="text" class="input" name="pass" placeholder="password"  onkeyup="passwordValidate(this.value , signupForm.cpass.value)" value="<?php echo $password;?>"/><span id="password_error" style="color:red;"></span>
+            <br><label>New Password :</label>
+            <br><input type="password" class="input" name="pass" placeholder="password"  onkeyup="passwordValidate(this.value , user_update_form.cpass.value)" /><span id="password_error" style="color:red;"></span>
+            <br><label>Confirm Password :</label>
+            <br><input type="password" class="input" name="cpass" placeholder="re-type password"  onkeyup="passwordValidate(user_update_form.pass.value,this.value)" /><span id="password_error" style="color:red;"></span>
 
-            <br>I am <select name="gender">
+            <br><label>I am </label> <select name="gender">
                                       <option value="male"<?php if($gender=="male"){echo "selected='selected'";} ?>>Male</option>
                                       <option value="female"<?php if($gender=="female"){echo "selected='selected'";} ?>>Female</option>
                                       <option value="other"<?php if($gender=="other"){echo "selected='selected'";} ?>>Other</option>

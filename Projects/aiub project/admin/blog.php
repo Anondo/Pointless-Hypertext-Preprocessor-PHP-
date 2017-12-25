@@ -8,8 +8,8 @@
     <script src = 'http://localhost:<?php echo $_SERVER['SERVER_PORT']; ?>/Projects/aiub project/js/blog_filter.js'></script>
 
     <?php
-    require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
-    require_once(get_include_path()."\Projects\aiub project\Controllers\BlogController.php");
+    require_once(__DIR__."\..\Controllers\AdminController.php");
+    require_once(__DIR__."\..\Controllers\BlogController.php");
 
     $admincontrol = new AdminController();
     $blogcontrol = new BlogController();
@@ -37,6 +37,16 @@
                     echo "<li class=\"right-li\"><a href = 'login.php'>Login</a></li>";
                 }
             ?>
+
+        <div id = "right-content">
+            <input type="text" name="serach" id = "searchbox" placeholder="search by">
+            <select name="by" id = "searchby">
+                    <option value = "location"> Location </option>
+                    <option value = "category"> Category </option>
+                    <option value = "username"> User </option>
+                    <option value = "title"> title </option>
+            </select>
+        </div>
             <li class="dropdown right-li">
                 <a href="#" class="dropbtn">Manage</a>
                 <div class="dropdown-content">
@@ -46,15 +56,9 @@
                 </div>
             </li>
 
-			<div id = "right-content">
-            <input type="text" name="serach" id = "searchbox" placeholder="search by">
-            <select name="by" id = "searchby">
-                    <option value = "location"> Location </option>
-                    <option value = "category"> Category </option>
-                    <option value = "username"> User </option>
-                    <option value = "title"> title </option>
-            </select>
-        </div>
+            <?php
+			 	echo "<li class = \"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>Home</a></li>";
+			?>
         </ul>
     </navigation>
      <article>
@@ -71,18 +75,22 @@
             <th>Category</th>
             <th>Operation</th>
          </tr>";
-    while($blog = $blogs->fetch_assoc())
+    if($blogs)
     {
-        $blogger = $blogcontrol->bloggerName($blog['blogger_id']);
-        echo "<tr id='{$blog['blog_id']}' class='blogs'>
-                <td>{$blog['datetime']}</td>
-                <td>{$blog['title']}</td>
-                <td id='td-blogger'>$blogger</td>
-                <td>{$blog['location']}</td>
-                <td>{$blog['category']}</td>
-                <td id='operation'><a href = 'blog_edit.php?blog_id={$blog['blog_id']}'><button id='edit-button'>EDIT</button></a></td>
-             </tr>";
+        while($blog = $blogs->fetch_assoc())
+        {
+            $blogger = $blogcontrol->bloggerName($blog['blogger_id']);
+            echo "<tr id='{$blog['blog_id']}' class='blogs'>
+                    <td>{$blog['datetime']}</td>
+                    <td>{$blog['title']}</td>
+                    <td id='td-blogger'>$blogger</td>
+                    <td>{$blog['location']}</td>
+                    <td>{$blog['category']}</td>
+                    <td id='operation'><a href = 'blog_edit.php?blog_id={$blog['blog_id']}'><button id='edit-button'>EDIT</button></a></td>
+                 </tr>";
+        }
     }
+
     echo "</table>";
    ?>
    </div>

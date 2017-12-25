@@ -19,12 +19,12 @@ article{
 #signup-form{
     max-width:70%;
     height:auto;
-    background-color:;
+    background-color:beige;
     border-color: transparent;
     border-style: none;
     border-right:1px solid #262626;
     border-left:1px solid #262626;
-    padding: 10px 20px 40px 20px;
+    padding: 10px 20px 90px 20px;
     margin: 0 auto;
 }
 #data-section{
@@ -96,19 +96,18 @@ sup{
     border-radius: 5px;
     padding: 8px 20px;
     background-color:black;
-    color: lightgrey;
+    color: orange;
     text-align: center;
     font-family: "";
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
-    margin-top:20px;
     float: right;
     box-sizing: border-box;
 }
 #signup-button:hover{
-    background-color: darkgrey;
-    color: black;
+    background-color:orange;
+    color: beige;
 }
 /*=======Image upload section===========*/
 #image-upload-section{
@@ -146,8 +145,8 @@ sup{
     font-size: 14px;
     border:1px solid black;
     border-radius:5px;
-    background-color: grey;
-    color:black;
+    background-color: black;
+    color:beige;
     padding:6px 10px 6px 10px;
     float: left;
     box-sizing: border-box;
@@ -155,8 +154,7 @@ sup{
     text-align: center;
 }
 #imginput-button:hover{
-    background-color: black;
-    color:white;
+    background-color: grey;
 }
 
 

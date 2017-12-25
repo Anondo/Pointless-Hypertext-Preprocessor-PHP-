@@ -1,7 +1,7 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Controllers\SignupController.php");
-require_once(get_include_path()."\Projects\aiub project\Controllers\UserController.php");
+require(__DIR__."\..\Controllers\SignupController.php");
+require_once(__DIR__."\..\Controllers\UserController.php");
 $usercontrol = new UserController();
 $signup = new SignupController();
 $email = $_GET["email"];

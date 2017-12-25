@@ -12,8 +12,8 @@
     <script src = 'http://localhost:<?php echo $_SERVER['SERVER_PORT']; ?>/Projects/aiub project/js/criminal_filter.js'></script>
 
     <?php
-    require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
-    require_once(get_include_path()."\Projects\aiub project\Controllers\CriminalController.php");
+    require_once(__DIR__."\..\Controllers\AdminController.php");
+    require_once(__DIR__."\..\Controllers\CriminalController.php");
     $admincontrol = new AdminController();
     $criminalcontrol = new CriminalController();
     if(!$admincontrol->isLogged())
@@ -40,14 +40,6 @@
                     echo "<li class=\"right-li\"><a href = 'login.php'>Login</a></li>";
                 }
             ?>
-            <li class="dropdown right-li">
-                <a href="#" class="dropbtn">Manage</a>
-                <div class="dropdown-content">
-                    <a href = "blog.php" > Manage Blogs </a>
-                    <a href = "user.php" > Manage Users </a>
-                    <a href = "criminal.php" > Manage Criminals </a>
-                </div>
-            </li>
 
             <div id = "right-content">
             <input type="text" name="serach" id = "searchbox" placeholder="search by">
@@ -61,6 +53,18 @@
                 <option value = "email"> Email </option>
             </select>
         </div>
+
+            <li class="dropdown right-li">
+                <a href="#" class="dropbtn">Manage</a>
+                <div class="dropdown-content">
+                    <a href = "blog.php" > Manage Blogs </a>
+                    <a href = "user.php" > Manage Users </a>
+                    <a href = "criminal.php" > Manage Criminals </a>
+                </div>
+            </li>
+        <?php
+            echo "<li class = \"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>Home</a></li>";
+        ?>
         </ul>
     </navigation>
  <article>

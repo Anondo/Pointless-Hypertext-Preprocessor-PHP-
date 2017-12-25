@@ -15,7 +15,7 @@
     <ul>
       <?php
 
-        require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
+        require_once(__DIR__."\..\Controllers\AdminController.php");
         $admin_login = new AdminController();
         if($admin_login->isLogged())
         {
@@ -36,6 +36,10 @@
           <a href = "criminal.php" > Manage Criminals </a>
           </div>
       </li>
+
+	  <?php
+		  echo "<li class = \"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>Home</a></li>";
+	  ?>
     </ul>
 </navigation>
 <article>

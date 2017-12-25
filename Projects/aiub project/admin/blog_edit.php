@@ -1,8 +1,8 @@
 <?php
-require_once(get_include_path()."Projects\aiub project\Controllers\BlogController.php");
-require(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
-require(get_include_path()."\Projects\aiub project\Controllers\UserController.php");
-require(get_include_path()."\Projects\aiub project\Controllers\CommentController.php");
+require_once(__DIR__."\..\Controllers\BlogController.php");
+require(__DIR__."\..\Controllers\AdminController.php");
+require(__DIR__."\..\Controllers\UserController.php");
+require(__DIR__."\..\Controllers\CommentController.php");
 $admincontrol = new AdminController();
 $user = new UserController();
 $comment = new CommentController();
@@ -35,7 +35,7 @@ $name_hidden = $blog["name_hidden"];
           ?>
      </title>
 
-     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/index_style.css">
+
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/blog_style.css">
     <link rel="stylesheet" type="text/css" href="http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/css/comment_style.css">
  </head>
@@ -64,7 +64,57 @@ $name_hidden = $blog["name_hidden"];
                  echo "<p class = \"body\">".$body."</p>";
                  echo "<p class =\"bold-blog-content\">Location: ".$location."</p>";
                  echo "<p class =\"bold-blog-content\">Category: ".$category."</p>";
-                 //echo $blog["attachment"]; //need to fix this
+                 if($blog["attachment"])
+                 {
+                     $video = false;
+                     $audio = false;
+                     $video_format = array("mp4" , "mkv" , "avi");
+                     $audio_format = array("mp3" , "wma" , "wav");
+                     $format = explode("." , $blog["attachment"]);
+                     $format = $format[sizeof($format)-1];
+                     foreach($video_format as $vf)
+                     {
+                         if($format == $vf)
+                         {
+                             $video = true;
+                             break;
+                         }
+                     }
+                     foreach($audio_format as $af)
+                     {
+                         if($format == $af)
+                         {
+                             $audio = true;
+                             break;
+                         }
+                     }
+                     if($video)
+                     {
+                         echo "<p class =\"bold-blog-content\">Attachment:
+                         <video width='320' height='240' controls>
+                         <source src='{$blog['attachment']}' type='video/mp4'>
+                         <source src='{$blog['attachment']}' type='video/ogg'>
+                         </video>
+                         </p>";
+                     }
+                     else if($audio)
+                     {
+                         echo "<p class =\"bold-blog-content\">Attachment:
+                         <audio controls>
+                         <source src='{$blog['attachment']}' type='audio/ogg'>
+                         <source src='{$blog['attachment']}' type='audio/mpeg'>
+                         </audio>
+                         </p>";
+                     }
+                     else
+                     {
+                         echo "<p class =\"bold-blog-content\">Attachment:
+                         <img src = '{$blog['attachment']}'  width='200' height='150'/>
+                         </p>";
+                     }
+
+
+                 }
                  echo "<p class =\"bold-blog-content\">By-----".$blogger."</p>";
                  echo "</div>";
                  echo "<hr>";
@@ -80,9 +130,9 @@ $name_hidden = $blog["name_hidden"];
                          echo "<div class=\"comments\" id = {$row['comment_id']}>";
 
                          if($logged)
-                             echo "<p><b>$username:</b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}</p><button id='delete-button' onclick = 'rmvComment({$row['comment_id']})'>X</button>";
+                             echo "<p><b>$username : </b>  {$row['body']}</p><p class =\"datetime\">{$row["datetime"]}</p><button id='delete-button' onclick = 'rmvComment({$row['comment_id']})'>X</button>";
                          else
-                             echo "<p><b>$username :</b>  {$row['body']}</p><p>{$row["datetime"]}</p>";
+                             echo "<p><b>".$username." : </b>  {$row['body']}</p><p>{$row["datetime"]}</p>";
                          echo "</div>";
                      }
                  }

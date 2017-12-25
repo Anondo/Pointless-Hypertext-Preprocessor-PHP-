@@ -1,6 +1,6 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Controllers\UserController.php");
+require(__DIR__."\..\..\Controllers\UserController.php");
 
 if(isset($_GET["key"]) && isset($_GET["value"]))
 {

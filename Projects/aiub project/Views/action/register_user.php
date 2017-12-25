@@ -1,8 +1,8 @@
 <?php
 
 
-require(get_include_path()."\Projects\aiub project\Controllers\SignupController.php");
-require(get_include_path()."\Projects\aiub project\Controllers\UserController.php");
+require(__DIR__."\..\..\Controllers\SignupController.php");
+require(__DIR__."\..\..\Controllers\UserController.php");
 $signup = new SignupController();
 $usercontrol = new UserController();
 $message = "";

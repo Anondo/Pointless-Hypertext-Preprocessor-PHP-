@@ -1,6 +1,6 @@
 <?php
-require_once(get_include_path()."Projects\aiub project\Controllers\UserController.php");
-require_once(get_include_path()."Projects\aiub project\Controllers\RoleController.php");
+require_once(__DIR__."\..\Controllers\UserController.php");
+require_once(__DIR__."\..\Controllers\RoleController.php");
 $userid = 0;
 if(isset($_GET["user_id"]))
     $userid = $_GET["user_id"];
@@ -30,17 +30,17 @@ $roles = $rolecontrol->getAllRoles();
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/admin_user_handler.js"></script>
     <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/default_pp_setter.js"></script>
      <script src = "http://localhost:<?php echo  $_SERVER["SERVER_PORT"];?>/Projects/aiub%20project/js/profile_picture_previewer.js"></script>
-    
+
     <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/admin_navigation.css"/>
     <link rel="stylesheet" href="http://localhost:<?php echo $_SERVER['SERVER_PORT'] ?>/Projects/aiub project/css/user_info.css"/>
 </head>
-<body>    
+<body>
 <div>
     <navigation>
         <ul>
             <?php
 
-                require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
+                require_once(__DIR__."\..\Controllers\AdminController.php");
                 $admin_login = new AdminController();
                 if($admin_login->isLogged())
                 {
@@ -61,6 +61,13 @@ $roles = $rolecontrol->getAllRoles();
                     <a href = "criminal.php" > Manage Criminals </a>
                 </div>
             </li>
+
+            <?php
+			 	echo "<li class = \"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>Home</a></li>";
+			?>
+            <?php
+			 	echo "<li class = \"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/admin/user.php'>Back</a></li>";
+			?>
         </ul>
     </navigation>
     <article>
@@ -82,7 +89,7 @@ $roles = $rolecontrol->getAllRoles();
 
             <br><label>Last Name :</label>
             <br><input type="text" class="input" name="lname" placeholder="Last Name..." value="<?php echo $lname;?>"/>
-        
+
             <br><label>Birthdate :</label>
             <br><span>Day :<select name="day" >
                                             <?php
@@ -128,7 +135,7 @@ $roles = $rolecontrol->getAllRoles();
                                                 ?>
                 	   	               	   </select>
                 	   	           </span>
-            
+
             <br><label>User Name :</label>
             <br><input type="text" class="input" name="uname" placeholder="User Name..."  onkeyup="usernameValidate(this.value,<?php echo $userid ?>)" value="<?php echo $username;?>"/>
             <span id="username_error" style="color:red;"></span>
@@ -159,7 +166,7 @@ $roles = $rolecontrol->getAllRoles();
                         ?>
             	   	</select>
             </div>
-        
+
             <br><input type="submit" id="update-button" name="update_button" value="Update">
         </form>
         </div>

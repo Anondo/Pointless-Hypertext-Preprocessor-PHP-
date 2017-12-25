@@ -1,6 +1,6 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Models\RoleModel.php");
+require(__DIR__."\..\Models\RoleModel.php");
 class RoleController{
     private $role = NULL;
     function RoleController()

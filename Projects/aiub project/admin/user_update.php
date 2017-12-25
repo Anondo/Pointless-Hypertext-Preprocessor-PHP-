@@ -1,6 +1,6 @@
 <?php
-require_once(get_include_path()."\Projects\aiub project\Controllers\UserController.php");
-require_once(get_include_path()."\Projects\aiub project\Controllers\CriminalController.php");
+require_once(__DIR__."\..\Controllers\UserController.php");
+require_once(__DIR__."\..\Controllers\CriminalController.php");
 $usercontrol = new UserController();
 $criminal_control = new CriminalController();
 $id = $_GET["user_id"];
@@ -38,7 +38,7 @@ if(!empty($_POST["fname"]) && !empty($_POST["lname"]) && !empty($_POST["day"]) &
         rename("{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$uname" , "{$_SERVER['DOCUMENT_ROOT']}/Projects/aiub project/uploads/$fname $lname");
         $pro_pic = "http://localhost:{$_SERVER['SERVER_PORT']}/Projects/aiub project/Uploads/$fname $lname/Profile Picture/$prevImageName";
         $ok = $criminal_control->insertCriminal($fname,$lname ,$day ,$month ,$year ,$email ,$gender,$role , $pro_pic , $uname);
-        $usercontrol->removeUser($id);
+        $usercontrol->deleteUser($id);
     }
 
     else

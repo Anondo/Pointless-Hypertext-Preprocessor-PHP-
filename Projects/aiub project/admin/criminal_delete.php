@@ -1,6 +1,6 @@
 <?php
 
-require_once(get_include_path()."\Projects\aiub project\Controllers\CriminalController.php");
+require_once(__DIR__."\..\Controllers\CriminalController.php");
 $criminalcontrol = new CriminalController();
 if(isset($_GET["criminal_id"]) /*&& isset($_GET["blog_id"])*/)
 {

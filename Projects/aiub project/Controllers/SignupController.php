@@ -1,6 +1,6 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Models\UserModel.php");
+require(__DIR__."\..\Models\UserModel.php");
 class SignupController{
     private $user = NULL;
     private $signupErrorMessage = "";

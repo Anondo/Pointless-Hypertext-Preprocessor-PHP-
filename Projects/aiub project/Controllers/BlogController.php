@@ -1,6 +1,6 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Models\BlogModel.php");
+require(__DIR__."\..\Models\BlogModel.php");
 class BlogController{
     private $blog;
     function BlogController()

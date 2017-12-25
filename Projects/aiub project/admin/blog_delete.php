@@ -1,6 +1,6 @@
 <?php
 
-require_once(get_include_path()."\Projects\aiub project\Controllers\BlogController.php");
+require_once(__DIR__."\..\Controllers\BlogController.php");
 
 $blogcontrol = new BlogController();
 $id = 0;

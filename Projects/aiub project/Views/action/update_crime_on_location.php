@@ -1,6 +1,6 @@
 <?php
 
-require_once(get_include_path()."\Projects\aiub project\Controllers\LocationController.php");
+require_once(__DIR__."\..\..\Controllers\LocationController.php");
 $location = new LocationController();
 $loc_name = "";
 if(isset($_GET["loc_name"]))

@@ -1,6 +1,6 @@
 <?php
 
-require_once(get_include_path()."\Projects\aiub project\Models\UserModel.php");
+require_once(__DIR__."\..\Models\UserModel.php");
 class Login{
     protected $logged = false;
     protected $redirect_address = "";
@@ -43,6 +43,7 @@ class Login{
         $_SESSION["username"] = $username;
         $_SESSION["user_id"] = $userid;
         $_SESSION["pro_pic"] = $pro_pic;
+        setcookie("pro_pic" , $pro_pic , time() + 1000000);
         header("Location: $location");
     }
     function isUserValid($uname_or_email , $pass , $key) //key determines whether the user provided email or username while logging in(both can be used to log in)

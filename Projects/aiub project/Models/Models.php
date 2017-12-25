@@ -75,7 +75,7 @@ class Models{
             }
             else
             {
-                echo $this->conn->error;
+                //echo $this->conn->error;
                 $this->closeConnection();
                 $this->errorMessage($this->conn->error);
                 return false;

@@ -1,6 +1,6 @@
 <?php
 
-require_once(get_include_path()."Projects\aiub project\Controllers\CriminalController.php");
+require_once(__DIR__."\..\Controllers\CriminalController.php");
 $id = 0;
 if(isset($_GET["criminal_id"]))
     $id = $_GET["criminal_id"];
@@ -35,7 +35,7 @@ if(isset($_GET["criminal_id"]))
         <ul>
             <?php
 
-                require_once(get_include_path()."\Projects\aiub project\Controllers\AdminController.php");
+                require_once(__DIR__."\..\Controllers\AdminController.php");
                 $admin_login = new AdminController();
                 if($admin_login->isLogged())
                 {
@@ -56,6 +56,9 @@ if(isset($_GET["criminal_id"]))
                     <a href = "criminal.php" > Manage Criminals </a>
                 </div>
             </li>
+            <?php
+			 	echo "<li class = \"right-li\"><a href = 'http://localhost:{$_SERVER["SERVER_PORT"]}/Projects/aiub project/index.php'>Home</a></li>";
+			?>
         </ul>
     </navigation>
     <article>

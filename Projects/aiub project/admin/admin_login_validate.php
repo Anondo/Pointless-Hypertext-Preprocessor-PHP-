@@ -1,6 +1,6 @@
 <?php
 
-	require(get_include_path()."Projects\aiub project\Controllers\AdminController.php");
+	require(__DIR__."\..\Controllers\AdminController.php");
 	$admincontrol = new AdminController();
    if(!empty($_POST["unameOremail"]) || !empty($_POST["pass"]))
    {

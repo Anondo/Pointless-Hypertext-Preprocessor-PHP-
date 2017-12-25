@@ -1,6 +1,6 @@
 <?php
 
-require_once(get_include_path()."\Projects\aiub project\Controllers\UserController.php");
+require_once(__DIR__."\..\Controllers\UserController.php");
 $usercontrol = new UserController();
 if(isset($_GET["user_id"]) /*&& isset($_GET["blog_id"])*/)
 {

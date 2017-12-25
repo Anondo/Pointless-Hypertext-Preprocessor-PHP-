@@ -1,6 +1,6 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Controllers\CommentController.php");
+require(__DIR__."\..\..\Controllers\CommentController.php");
 $comment = new CommentController();
 if(isset($_GET["comment_id"]) /*&& isset($_GET["blog_id"])*/)
 {

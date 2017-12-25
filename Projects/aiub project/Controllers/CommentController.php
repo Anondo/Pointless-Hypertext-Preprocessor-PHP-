@@ -1,6 +1,6 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Models\CommentModel.php");
+require(__DIR__."\..\Models\CommentModel.php");
 class CommentController{
     private $comment = NULL;
     function CommentController()

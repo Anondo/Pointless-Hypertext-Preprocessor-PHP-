@@ -38,7 +38,7 @@ body{
     font-size: 16px;
 }
 
-a{
+.navigation a{
     display: inline-block;
     color: white;
     text-align: center;
@@ -46,6 +46,6 @@ a{
     text-decoration: none;
 }
 
-a:hover{
+.navigation a:hover{
     background-color: red;
 }

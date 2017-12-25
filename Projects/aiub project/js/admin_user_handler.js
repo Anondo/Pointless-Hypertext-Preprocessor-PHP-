@@ -6,8 +6,9 @@ function validate(id)
     var username = form['uname'].value;
     var email = form['email'].value;
     var password = form['pass'].value;
+    var cpassword = form['cpass'].value;
     var pro_pic = form["pro_pic"].value;
-    if(emptyFieldValidate(first_name , last_name , username , email , password) && usernameValidate(username,id) && emailValidate(email,id) && passwordValidate(password) && pictureValidate(pro_pic))
+    if(emptyFieldValidate(first_name , last_name , username , email) && usernameValidate(username,id) && emailValidate(email,id) && passwordValidate(password , cpassword) && pictureValidate(pro_pic))
     {
         //form.action = "http://localhost/Projects/aiub%20project/Views/action/register_user.php/?js_enabled="+true;
         return true;
@@ -15,8 +16,10 @@ function validate(id)
     return false;
 
 }
-function passwordValidate(p)
+function passwordValidate(p , cp)
 {
+    if(p == "" || cp == "")
+        return true;
     var error = document.getElementById('password_error');
     var valid = true;
     var hasDigit = false;
@@ -39,6 +42,7 @@ function passwordValidate(p)
         }
     }
 
+
     if(p.length < 8)
     {
         //alert("Password length must be of at least 8 characters.");
@@ -49,6 +53,11 @@ function passwordValidate(p)
     {
         //alert("There Must Be At Least one digit and one special character in the password");
         error.innerHTML = "There Must Be At Least one digit and one special character in the password";
+        valid = false;
+    }
+    else if(p != cp)
+    {
+        error.innerHTML = "The Passwords doesnt match";
         valid = false;
     }
     else
@@ -95,9 +104,9 @@ function emailValidate(email , id)
     error.innerHTML = "";
     return true;
 }
-function emptyFieldValidate(fname , lname , uname , email , pass , cpass)
+function emptyFieldValidate(fname , lname , uname , email )
 {
-    if(fname == "" || lname == "" || uname == "" || email == "" || pass == "")
+    if(fname == "" || lname == "" || uname == "" || email == "")
     {
         alert("None of the fields can be empty");
         return false;

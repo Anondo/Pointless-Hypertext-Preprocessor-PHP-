@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2017 at 11:13 AM
+-- Generation Time: Dec 24, 2017 at 06:05 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -49,13 +49,9 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`blog_id`, `title`, `body`, `datetime`, `attachment`, `blogger_id`, `name_hidden`, `location`, `category`, `del`) VALUES
-(1, 'First Blog', 'This is my first blog!!aksghdhagsdasgdsagdjgasjdgsajgdjasgdjdsaljdkdhskadhaskhdkashdkashdashdkashdkjashdkashdkashdkjashdkjshadkjsahdkashdkhaskdhksahdkashdsadasdsadsadasdasdsadsadsadasdsadasdasdsadsadsa', '29/10/17 6:41pm', NULL, 12, 0, NULL, NULL, 0),
-(9, 'testing blog', 'This is a test blog..hurrrrrrraaaaaaaaaaaaaaaaaaaaaaaaaaaayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy.....', '22/11/2017 04:44:34am', NULL, 10, 0, 'Shymoli', 'robbery', 0),
-(10, 'testing blog 2', 'this is a testing blog number 2...i am gonna try to be Anonymous here.', '22/11/2017 04:45:50am', NULL, 10, 1, 'Shymoli', 'robbery', 0),
-(23, 'Final Test??', 'I was robbed!!! Not really just had to make this real. This is just for testing purpose', '24/11/2017 04:48:57am', NULL, 10, 0, 'Mirpur Mirpur-10 , circle', 'robbery', 0),
-(24, 'Can i Delete?', 'Delete testing blog!!', '01/12/2017 03:24:34am', NULL, 10, 0, 'Shymoli ', 'robbery', 1),
-(25, 'test with attachment', 'This is a test blog with attachment!', '07/12/2017 01:27:10am', 'http://localhost:80/Projects/aiub project/uploads/thetaste/test with attachment(07 12 2017)/Doctor Strange Theme on Guitar.mp3', 10, 0, 'Shymoli ', 'robbery', 0),
-(40, 'keep testing', 'testing testing testing', '07/12/2017 10:37:13am', NULL, 15, 0, 'Shymoli ', 'robbery', 0);
+(1, 'Test Blog', 'Hello World....this is a test blog..', '24/12/2017 10:05:06am', NULL, 20, 0, 'Mirpur Road #10,circle', 'robbery', 0),
+(2, 'Testing blog with attachment', 'This is test blog with attachment', '24/12/2017 10:06:22am', 'http://localhost:80/Projects/aiub project/uploads/newguy/Testing blog with attachment(24 12 2017)/23380249_2110139912333408_9070847043921940983_n.jpg', 20, 0, 'Banani  Kamal Attaturk', 'murder', 0),
+(3, 'Another test blog with attachment and being anonymous', 'This is a test blog with attachment and being anonymous..', '24/12/2017 10:08:19am', 'http://localhost:80/Projects/aiub project/uploads/first_user/Another test blog with attachment and being anonymous(24 12 2017)/gunshot.wav', 16, 1, 'Mirpur  ', 'robbery', 0);
 
 -- --------------------------------------------------------
 
@@ -72,21 +68,6 @@ CREATE TABLE `comments` (
   `datetime` varchar(70) DEFAULT NULL,
   `del` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`comment_id`, `blog_id`, `user_id`, `body`, `datetime`, `del`) VALUES
-(4, 1, 10, 'Seriously Dude???!!', '02/11/2017 12:21:17am', 0),
-(5, 1, 10, 'This is a shit post!!', '02/11/2017 12:21:32am', 0),
-(9, 1, 12, 'Fuck You!!', '11/11/2017 03:29:10am', 0),
-(14, 1, 10, 'You too!!', '17/11/2017 12:32:49am', 0),
-(15, 9, 10, 'kuttar baccha!!', '30/11/2017 01:14:37am', 1),
-(16, 24, 10, 'shit\r\n', '01/12/2017 05:50:14am', 0),
-(17, 24, 10, 'yeah\r\n', '01/12/2017 05:50:18am', 0),
-(18, 24, 10, 'fuck', '01/12/2017 05:50:22am', 1),
-(19, 1, 15, 'test comment', '07/12/2017 10:50:22am', 0);
 
 -- --------------------------------------------------------
 
@@ -114,7 +95,7 @@ CREATE TABLE `criminals` (
 --
 
 INSERT INTO `criminals` (`criminal_id`, `fname`, `lname`, `age`, `bdate`, `username`, `email`, `pro_pic`, `gender`, `role`, `del`) VALUES
-(3, 'Picchi', 'Hannan', 62, '12/sep/1955', '', 'picchi@hannan.com', 'http://localhost:80/Projects/aiub project/Uploads/Picchi Hannan/Profile Picture/17951783_10154314153067461_8889903535218467357_n.png', 'male', 3, 0);
+(1, 'Crimi', 'Mama', 82, '1/jan/1935', 'crimi1', 'crimi1@yahoo.com', 'http://localhost:80/Projects/aiub project/Uploads/Crimi Mama/Profile Picture/', 'male', 3, 0);
 
 -- --------------------------------------------------------
 
@@ -136,10 +117,10 @@ CREATE TABLE `location` (
 --
 
 INSERT INTO `location` (`loc_id`, `loc_name`, `crimes`, `latitude`, `longitude`) VALUES
-(1, 'Shyamoli', 12, 23.7718, 90.3631),
-(2, 'Mirpur', 3, 23.8223, 90.3654),
-(3, 'Banani', 0, 23.794, 90.4043),
-(4, 'Motijheel', 1, 23.733, 90.4172),
+(1, 'Shyamoli', 0, 23.7718, 90.3631),
+(2, 'Mirpur', 2, 23.8223, 90.3654),
+(3, 'Banani', 1, 23.794, 90.4043),
+(4, 'Motijheel', 0, 23.733, 90.4172),
 (5, 'Other', 0, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -169,9 +150,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `fname`, `lname`, `age`, `bdate`, `username`, `email`, `password`, `pro_pic`, `gender`, `role`, `del`) VALUES
-(10, 'Mr', 'tasty', 27, '7/feb/1990', 'thetaste', 'tasty@yummy.com', '$2y$10$m7QRn3iWVJBiR8dOxbGYXOapwyJMJw/P.2yq1J2xe44K.Z/c2ucMy', 'http://localhost:80/Projects/aiub project/uploads/thetaste/Profile Picture/', 'male', 1, 0),
-(12, 'New', 'User', 82, '5/apr/1935', 'newbie', 'new@user.com', '$2y$10$m7QRn3iWVJBiR8dOxbGYXOapwyJMJw/P.2yq1J2xe44K.Z/c2ucMy', NULL, 'male', 2, 0),
-(15, 'test', 'user', 16, '14/nov/2001', 'testuser', 'aanondos@yahoo.com', '$2y$10$m7QRn3iWVJBiR8dOxbGYXOapwyJMJw/P.2yq1J2xe44K.Z/c2ucMy', 'http://localhost:80/Projects/aiub project/Uploads/testuser/Profile Picture/17352401_1582781845127502_2733895837477039183_n.jpg', 'male', 2, 0);
+(16, 'admin', 'user', 82, '12/jan/1935', 'first_user', 'admin@user.com', '$2y$10$yrsbr/WD.WZt7GkbX/mDC.dyN.CtGwoFN/KxpqZRbaJkq3izy0P9S', 'http://localhost:80/Projects/aiub project/uploads/first_user/Profile Picture/', 'male', 1, 0),
+(20, 'new ', 'user', 82, '1/jan/1935', 'newguy', 'new@user.com', '$2y$10$h0H8f.W3MIKwdvTqTDENn.yu09Uloe0q9V95rBP79je7zd29iryZK', 'http://localhost:80/Projects/aiub project/uploads/newguy/Profile Picture/LL.jpg', 'male', 2, 0),
+(21, 'Crimi', 'Mama', 82, '1/jan/1935', 'crimi1', 'crimi1@yahoo.com', '$2y$10$.gSc.6qWuVt1XP9KX1fTxORANT8msuhd/6ebAH3AWGW8pjpJJKzFa', NULL, 'male', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -248,17 +229,17 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `blog_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `criminals`
 --
 ALTER TABLE `criminals`
-  MODIFY `criminal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `criminal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `location`
 --
@@ -268,7 +249,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `user_role`
 --

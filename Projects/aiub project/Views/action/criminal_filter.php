@@ -1,6 +1,6 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Controllers\CriminalController.php");
+require(__DIR__."\..\..\Controllers\CriminalController.php");
 
 if(isset($_GET["key"]) && isset($_GET["value"]))
 {

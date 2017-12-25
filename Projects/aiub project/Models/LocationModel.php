@@ -11,7 +11,7 @@ class LocationModel extends Models{
     {
         $loc = array();
         $result = $this->executeQuery("select loc_name from location;");
-        if($result->num_rows > 0)
+        if($result)
         {
             while($row = $result->fetch_assoc())
             {
@@ -28,20 +28,30 @@ class LocationModel extends Models{
     function getCrimeZoneNumber()
     {
         $number = $this->executeQuery("select count(loc_id) from location where crimes > 0");
-        $number = $number->fetch_assoc();
-        $number = $number["count(loc_id)"];
-        return $number;
+        if($number)
+        {
+            $number = $number->fetch_assoc();
+            $number = $number["count(loc_id)"];
+            return $number;
+        }
+        return 0;
+
     }
     function getLocationsJSON()
     {
         $result = $this->executeQuery("select * from location where crimes > 0");
         $places = array();
-        while($row = $result->fetch_assoc())
+        if($result)
         {
-            $places[] = $row;
+            while($row = $result->fetch_assoc())
+            {
+                $places[] = $row;
+            }
+            $json_places = json_encode($places);
+            return $json_places;
         }
-        $json_places = json_encode($places);
-        return $json_places;
+        return "";
+
     }
 
 

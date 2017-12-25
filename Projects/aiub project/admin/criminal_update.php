@@ -1,5 +1,5 @@
 <?php
-require_once(get_include_path()."\Projects\aiub project\Controllers\CriminalController.php");
+require_once(__DIR__."\..\Controllers\CriminalController.php");
 $criminal_control = new CriminalController();
 $id = $_GET["criminal_id"];
 $pro_pic = $_GET["pp"];

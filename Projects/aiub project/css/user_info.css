@@ -10,12 +10,12 @@ article{
 #profile_Form{
 	max-width:70%;
     height:auto;
-    background-color:;
+    background-color:beige;
     border-color:transparent;
     border-style: none;
-    border-left:1px solid black;
-    border-right:1px solid black;
-    padding: 10px 20px 40px 20px;
+    border-left:3px double #ffb3b3;
+    border-right:3px double #ffb3b3;
+    padding: 10px 20px 90px 20px;
     margin: 0 auto;
 }
 #data-section{
@@ -30,21 +30,21 @@ article{
     color: black;
     border-color: transparent;
     border-style: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #ff8c1a;
     padding: 12px 10px;
     margin-bottom:20px;
     font-size: 16px;
     box-sizing: border-box;
 }
 .input:hover{
-     border-bottom: 3px solid darkgrey;
+     border-bottom: 3px solid #ff751a;
 }
 label{
     line-height:;
     font-size: 18px;
     font-family: '';
     font-weight:bold ;
-    color: black;
+    color: #ff751a;
     border:2px solid transparent;
 }
 
@@ -55,20 +55,23 @@ select{
     color: black;
     border-color: transparent;
     border-style: none;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #ff8c1a;
     padding: 6px 10px 6px 10px;
     margin-bottom: 10px;
     font-size: 16px;
     box-sizing: border-box;
 }
 select:hover{
-    border-bottom: 3px solid darkgrey;
+    border-bottom: 3px solid #ff751a;
 }
 #day{
     width:25%;
 }
 #date-input{
     color:black;
+}
+span{
+    color:#ff751a;
 }
 option{
     color:black;
@@ -108,10 +111,10 @@ option{
 }
 #imginput-button{
     font-size: 14px;
-    border:1px solid black;
+    border:1px solid #ff751a;
     border-radius:5px;
-    background-color: grey;
-    color:black;
+    background-color: #ff751a;
+    color:beige;
     padding:6px 10px 6px 10px;
     float: left;
     box-sizing: border-box;
@@ -120,6 +123,7 @@ option{
 }
 #imginput-button:hover{
     background-color: black;
+    border-color:#ff751a;
     color:white;
 }
 
@@ -131,17 +135,16 @@ option{
     border-radius: 5px;
     padding: 8px 20px;
     background-color:black;
-    color: lightgrey;
+    color: beige;
     text-align: center;
-    font-family: "";
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
-    margin-top:20px;
+    margin-bottom:50px;
     float: right;
     box-sizing: border-box;
 }
 #update-button:hover{
-    background-color: darkgrey;
-    color: black;
+    background-color: orange;
+    color:beige;
 }

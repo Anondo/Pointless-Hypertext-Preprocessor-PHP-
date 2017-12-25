@@ -1,6 +1,6 @@
 <?php
 
-require(get_include_path()."\Projects\aiub project\Controllers\SignupController.php");
+require(__DIR__."\..\..\Controllers\SignupController.php");
 $signup = new SignupController();
 $email = $_GET["email"];
 
@@ -11,7 +11,7 @@ if($ok)
 }
 else
 {
-	
+
     echo "exists";
 }
 

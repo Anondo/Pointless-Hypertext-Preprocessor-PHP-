@@ -192,7 +192,7 @@ class UserModel extends Models{
     function getAllUsersExcept($id)
     {
         $result = $this->executeQuery("select * from users where del = false and user_id != $id");
-        if($result->num_rows > 0)
+        if($result)
             return $result;
         else
             return false;
@@ -222,8 +222,17 @@ class UserModel extends Models{
     }
     function updateUser($id , $fname,$lname ,$day ,$month ,$year ,$uname ,$email,$pass ,$gender,$role , $pro_pic)
     {
-        $pass = password_hash($pass, PASSWORD_DEFAULT);
         $age = date("Y") - $year;
+        if($pass == "")
+        {
+            $success = $this->executeDMLQuery("update users set
+            fname = '$fname', lname = '$lname' , age = $age , bdate='$day/$month/$year' , username = '$uname' ,
+            email = '$email' , pro_pic = '$pro_pic' ,  gender = '$gender' , role = $role
+            where user_id = $id");
+            return $success;
+        }
+        $pass = password_hash($pass, PASSWORD_DEFAULT);
+
         $success = $this->executeDMLQuery("update users set
         fname = '$fname', lname = '$lname' , age = $age , bdate='$day/$month/$year' , username = '$uname' ,
         email = '$email' , password = '$pass' , pro_pic = '$pro_pic' ,  gender = '$gender' , role = $role

@@ -10,9 +10,9 @@
     <title>
         <?php
 
-            require(get_include_path()."\Projects\aiub project\Controllers\login_controller.php");
-            require(get_include_path()."\Projects\aiub project\Controllers\UserController.php");
-            require(get_include_path()."\Projects\aiub project\Controllers\CommentController.php");
+            require(__DIR__."\..\Controllers\login_controller.php");
+            require(__DIR__."\..\Controllers\UserController.php");
+            require(__DIR__."\..\Controllers\CommentController.php");
             $login = new Login();
             $user = new UserController();
             $comment = new CommentController();
@@ -20,7 +20,7 @@
             $userId = $login->getUserid();
             $currentUsername = $login->getUsername();
             /*The following lines determine the title bar which should be the title of the blog */
-            require_once(get_include_path()."\Projects\aiub project\Controllers\BlogController.php");
+            require_once(__DIR__."\..\Controllers\BlogController.php");
             $blogControl = new BlogController();
             if(isset($_GET["blog_id"]))
             {
@@ -83,8 +83,6 @@
                     echo "<p class ='blog_title'>".$blog["title"]."</p>".checkRemovalbeBlog($blog["blog_id"] , $userId);
                     echo "<p class = \"datetime\">".$blog["datetime"]."</p>";
                     echo "<p class = \"body\">".$blog["body"]."</p>";
-                    echo "<p class =\"bold-blog-content\">Location: ".$blog["location"]."</p>";
-                    echo "<p class =\"bold-blog-content\">Category: ".$blog["category"]."</p>";
 
                 if($blog["attachment"])
                 {
@@ -131,12 +129,14 @@
                     else
                     {
                         echo "<p class =\"bold-blog-content\">Attachment:
-                        <img src = '{$blog['attachment']}' />
+                        <img src = '{$blog['attachment']}'  width='200' height='150'/>
                         </p>";
                     }
 
 
                 }
+                    echo "<p class =\"bold-blog-content\">Location: ".$blog["location"]."</p>";
+                    echo "<p class =\"bold-blog-content\">Category: ".$blog["category"]."</p>";
                 echo "<hr>";
                 echo "</div>";
 
@@ -150,7 +150,7 @@
                         $username = $username["username"];
                         $commenter_pp = $user->getProfilePicture($row["user_id"]);
                         echo "<div class=\"comments\" id = {$row['comment_id']}>";
-                        echo "<p><img id='pro_pic' src='$commenter_pp' onerror='return setDefaultPP(this)'/><b>$username:</b>  {$row['body']}</p><p class =\"comment-datetime\">{$row["datetime"]}".checkRemovableComment($row['comment_id'] , $id , $userId)."</p>";
+                        echo "<p><img id='pro_pic' src='$commenter_pp' onerror='return setDefaultPP(this)'/> {$row['body']}</p><p class =\"comment-datetime\">{$row["datetime"]}".checkRemovableComment($row['comment_id'] , $id , $userId)."</p>";
                         echo "</div>";
                     }
                 }

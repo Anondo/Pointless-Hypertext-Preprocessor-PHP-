@@ -9,7 +9,7 @@ class BlogModel extends Models{
     function allBlogs()
     {
         $result = $this->executeQuery("select * from blogs where del = false;");
-        if($result->num_rows > 0)
+        if($result)
             return $result;
         else
             return false;
@@ -54,7 +54,7 @@ class BlogModel extends Models{
     function getBlog($id)
     {
         $blog = $this->executeQuery("select * from blogs where blog_id = $id and del = false");
-        if($blog->num_rows > 0)
+        if($blog)
         {
             $blog = $blog->fetch_assoc();
             return $blog;
@@ -77,7 +77,7 @@ class BlogModel extends Models{
 
 	function blogByKeyValue($key , $value)
 	{
-        if($key == "username")
+        if($key == "user")
             $result = $this->executeQuery("select * from blogs where blogger_id in(select user_id from users where username LIKE '%$value%')");
         else
 		      $result = $this->executeQuery("Select * from blogs where $key LIKE '%$value%'");
@@ -107,6 +107,10 @@ class BlogModel extends Models{
     }
     function removeBlog($id)
     {
+        $result = $this->executeQuery("select location from blogs where blog_id  = $id and del = false");
+        $location = $result->fetch_assoc()["location"];
+        $locaton = explode(" " , $location)[0];
+        $ok = $this->executeDMLQuery("update location set crimes = crimes - 1 where loc_name = '$location'");
         $ok = $this->executeDMLQuery("update blogs set del = true where blog_id = $id");
         return $ok;
     }
